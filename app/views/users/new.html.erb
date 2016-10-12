@@ -1,0 +1,26 @@
+<div class="login-box">
+  <div class="login-header">
+    <a class="logo-block" href="/"/>
+      <%= link_to image_tag("logo.png", alt: "milog", width: "90"), "/" %>
+      <h3>Milog</h3>
+    </a>
+    <ul class="tab">
+      <li id="signin">
+        <%= link_to "登录", "#", class: "btn btn-link" %>
+      </li>
+      <li class="active" id="signup">
+        <%= link_to "注册", "#", class: "btn btn-link" %>
+      </li>
+    </ul>
+  </div>
+  <div id="signin-box" style="display: none;"></div>
+  <div id="signup-box">
+    <div class="login-body">
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :username %>  
+      <% end %>
+    </div>
+  </div>
+    
+</div>
+

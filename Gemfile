@@ -18,6 +18,7 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 
 gem 'rails-i18n'
+gem 'simple_form'
 
 group :development do
   gem 'web-console'
