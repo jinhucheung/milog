@@ -14,7 +14,7 @@
       display: inline-block;
       line-height: 30px; 
       padding: 10px;
-      &::after {
+      &:after {
         content: "";
         position: absolute;
         left: 50%;
@@ -23,6 +23,7 @@
         width: calc(100% - 30px);
         border-bottom: 1px solid #f55d54;
         transition: all 0.2s ease-out;
+        box-sizing: border-box;
       }
     }
     a {
