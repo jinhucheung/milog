@@ -32,12 +32,6 @@ body {
 
 /* css原生导入 */
 /* scss局部文件导入 */
-/* 局部文件不是被编译出css */
-body {
-  /* 从_part.scss读入变量 */
-  color: green;
-}
-
 /* 定义函数 */
 body {
   color: blue;

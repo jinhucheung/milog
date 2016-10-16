@@ -19,5 +19,9 @@
 # Ignore all node_modules file
 /node_modules/**
 
+# Ignore all .sass-cache files
+/.sass-cache/**
+
 # Ignore all ~ file
 .*~
+*~

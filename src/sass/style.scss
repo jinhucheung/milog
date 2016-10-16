@@ -46,12 +46,7 @@ body {
 //@import "_part.scss";
 //
 /* scss局部文件导入 */
-@import "part";
 
-body {
-    /* 从_part.scss读入变量 */
-    color: $part-color;
-}
 
 /* 定义函数 */
 @function double($width: 100px) {
