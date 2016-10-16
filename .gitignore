@@ -15,3 +15,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore all node_modules file
+/node_modules/**
+
+# Ignore all ~ file
+.*~
