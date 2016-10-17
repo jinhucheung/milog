@@ -13,7 +13,7 @@ gulp.task('clean', function(callback) {
 });
 
 gulp.task('build', function(callback) {
-  return runSequence(['compass', 'html','lib','javascripts'], callback);
+  return runSequence(['compass', 'src'], callback);
 });
 
 gulp.task('compass', function() {
@@ -23,28 +23,27 @@ gulp.task('compass', function() {
       css: 'src/stylesheets',
       sass: 'src/sass'
     }))
+    .on('error', function(err) {
+      console.log(err);
+      this.emit('end');
+    })
     .pipe(gulp.dest('./public/stylesheets/'));
 });
 
-gulp.task('html', function() {
-  return gulp.src('./src/**/*.html')
+gulp.task('src', function() {
+  return gulp.src([
+      './src/**/*.html',
+      './src/images*/**/*.*',
+      './src/lib*/**/*',
+      './src/javascripts*/**/*',
+    ])
     .pipe(gulp.dest('./public/'));
-})
-
-gulp.task('lib', function(){
-  return gulp.src('./src/lib/**/*')
-    .pipe(gulp.dest('./public/lib/'));
-})
-
-gulp.task('javascripts', function(){
-  return gulp.src('./src/javascripts/**/*')
-    .pipe(gulp.dest('./public/javascripts/'));
 })
 
 gulp.task('serve', function() {
   browserSync.init({
     server: './public',
-    port: 8888
+    port: 3000
   });
 });
 

@@ -1,0 +1,171 @@
+@charset "UTF-8";
+/* lib */
+@import url(../lib/bootstrap/css/bootstrap.min.css);
+/* helpers */
+/**  变量设置  **/
+/* color : 强调色 */
+/* color : 浅色 */
+/* 字体设置 */
+/* component */
+/* 语系切换 */
+.switch-lang {
+  padding: 20px;
+  float: left;
+}
+
+/* 清除浮动 */
+.clear {
+  clear: both;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+/* 下划线 */
+.under-line {
+  border-bottom: 1px solid #ff364d;
+}
+
+/* 居中 */
+.col-center-block {
+  float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 提交按钮 */
+.submit-btn, .login .login-box .login-body .form-group .submit {
+  background-color: #ff364d;
+  border: 1px solid #ff364d;
+  font-size: 15px;
+}
+
+/* layout */
+body {
+  font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+a:hover, a:active {
+  color: #444 !important;
+}
+a:link, a:visited {
+  color: #7d8695;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* pages */
+.login {
+  background: linear-gradient(to bottom, #feefee, white 80%) repeat-x;
+  /* login表单 */
+}
+.login .login-box {
+  text-align: center;
+  /* 登录注册标签 */
+  /* 表单主体 */
+  /* 表单尾 */
+}
+.login .login-box .logo img {
+  width: 30%;
+}
+.login .login-box h6 {
+  padding: 15px 0;
+  margin: 0 0;
+}
+.login .login-box .tab {
+  margin-bottom: 5px;
+}
+.login .login-box .tab li {
+  display: inline-block;
+  margin: 22px 20px;
+  text-align: center;
+}
+.login .login-box .tab li a {
+  /* 控制下划线高宽 */
+  padding: 8px;
+}
+.login .login-box .login-body {
+  /* 错误提示 */
+  /* 记住登录_忘记密码设置 */
+}
+.login .login-box .login-body .form-group {
+  position: relative;
+  height: 45px;
+  margin-bottom: 10px;
+  /* 输入框 */
+  /* 小图标 */
+  /*提交按钮*/
+}
+.login .login-box .login-body .form-group .form-input {
+  padding-left: 45px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px solid #e0e0e0;
+}
+.login .login-box .login-body .form-group .form-input:focus {
+  border: 1px solid #ff364d;
+}
+.login .login-box .login-body .form-group .form-input + .glyphicon {
+  position: absolute;
+  left: 0;
+  padding: 14px 18px;
+  color: #a9a9a9;
+}
+.login .login-box .login-body .form-group .submit {
+  height: 40px;
+  margin-top: 15px;
+  outline: none;
+}
+.login .login-box .login-body .form-group .submit:hover {
+  background-color: #f22b2b;
+}
+.login .login-box .login-body .form-error {
+  position: relative;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: left;
+  background-color: #feeae9;
+  border: 1px solid rgba(245, 93, 84, 0.2);
+  color: #f55d54;
+}
+.login .login-box .login-body .form-error .form-error-field {
+  padding-left: 45px;
+  width: 100%;
+  height: 100%;
+}
+.login .login-box .login-body .form-error .form-error-field + .glyphicon {
+  position: absolute;
+  left: 0;
+  padding: 14px 18px;
+}
+.login .login-box .login-body .login-setting {
+  margin-top: 10px;
+  /* 记住登录复选框 */
+  /* 忘记密码 */
+}
+.login .login-box .login-body .login-setting .checkbox {
+  margin-left: 20px;
+}
+.login .login-box .login-body .login-setting .checkbox .remember-me {
+  float: left;
+  color: #7d8695;
+}
+.login .login-box .login-body .login-setting .checkbox .remember-me input {
+  margin-right: 5px;
+  outline: none;
+}
+.login .login-box .login-body .login-setting .forget-me {
+  float: right;
+}
+.login .login-box .login-footer {
+  margin-top: 10px;
+}

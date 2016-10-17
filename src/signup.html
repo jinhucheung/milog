@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="stylesheet" href="stylesheets/application.css">
+
+	<title>Milog</title>
+</head>
+<body class="login">
+	<!-- 语系切换 -->
+	<div class="switch-lang">
+		<a href="#"><span>En</span></a>
+	</div>
+
+	<!-- 清除浮动 -->
+	<div class="clear"></div>
+
+  <!-- login区块 -->
+	<div class="container">
+		 	<div class="col-md-3 col-center-block login-box">
+		 			<!-- logo -->
+		 			<div class="logo">
+		 				<a href="#"><img class="img-responsive center-block" src="images/logo.svg" alt="milog"></a>
+		 			</div>
+					
+					<h6></h6>
+					
+					<!-- login标签 -->
+					<ul class="tab">
+							<li class="signin">
+									<a href="#">登录</a>
+							</li>
+							<li class="signup">
+									<a class="under-line" href="#">注册</a>
+							</li>
+					</ul>
+					<!-- 注册表单 -->
+					<div id="signup-box" style="display: block;">
+							<div class="login-body">
+								 <form action="/users">
+								 		<!-- 错误提示 -->
+								 		<div class="form-error">
+								 			<span class="form-error-field">password不能为空字符</span>
+								 			<span class="glyphicon glyphicon-info-sign"></span>
+								 		</div>
+								 		<!-- 用户名 -->
+								 		<div class="form-group form-group-icon">
+								 			<input type="text" class="form-input name" name="user[name]" placeholder="用户名">
+								 			<span class="glyphicon glyphicon-user"></span>
+								 		</div>
+								 		<!-- Email地址 -->
+										<div class="form-group form-group-icon">
+								 			<input type="email" class="form-input email" name="user[email]" placeholder="Email 地址">
+								 			<span class="glyphicon glyphicon-envelope"></span>
+								 		</div>
+								 		<!-- 密码 -->
+										<div class="form-group form-group-icon">
+								 			<input type="password" class="form-input password" name="user[password]" placeholder="密码">
+								 			<span class="glyphicon glyphicon-lock"></span>
+								 		</div>
+										<!-- 提交 -->
+										<div class="form-group">
+								 			<button class="btn btn-primary btn-block submit" data-style="slide-up" type="submit">注册</button>
+								 		</div>
+
+								 </form>
+							</div>
+
+							<div class="login-footer">
+							</div>
+					</div>
+
+					<!-- 登录表单 -->
+					<div id="signin-box" style="display: none;">
+							<div class="login-body">
+								 <form action="/sessions">
+								 		<!-- 错误提示 -->
+								 		<div class="form-error" >
+								 			<span class="form-error-field">password不能为空字符</span>
+								 			<span class="glyphicon glyphicon-info-sign"></span>
+								 		</div>
+
+								 		<!-- Email地址 -->
+										<div class="form-group form-group-icon">
+								 			<input type="email" class="form-input email" name="user[email]" placeholder="Email 地址">
+								 			<span class="glyphicon glyphicon-envelope"></span>
+								 		</div>
+								 		<!-- 密码 -->
+										<div class="form-group form-group-icon">
+								 			<input type="password" class="form-input password" name="user[password]" placeholder="密码">
+								 			<span class="glyphicon glyphicon-lock"></span>
+								 		</div>
+										<!-- 提交 -->
+										<div class="form-group">
+								 			<button class="btn btn-primary btn-block submit" data-style="slide-up" type="submit">登录</button>
+								 		</div>
+
+									  <!-- 记住登录/忘记密码设置 -->
+									  <div class="login-setting">
+												<div class="checkbox">
+														<span class="remember-me"><input type="checkbox">记住我</span>
+												</div>
+												<a href="#" class="forget-me">忘了密码?</a>
+									  </div>
+
+								 </form>
+							</div>
+
+							<div class="login-footer">
+							</div>
+					</div>
+		 	</div>
+	</div>
+
+	<script src="lib/jquery-3.1.1.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="javascripts/login.js"></script>
+</body>
+</html>

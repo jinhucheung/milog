@@ -1,0 +1,28 @@
+/* 语系切换 */
+.switch-lang {
+    padding: 20px;
+    float: left;
+ }
+
+/* 清除浮动 */
+.clear {
+	clear:both; height: 0; line-height: 0; font-size: 0;
+}
+
+/* 下划线 */
+.under-line { border-bottom: 1px solid $underline-color; }
+
+/* 居中 */
+.col-center-block {  
+    float: none;  
+    display: block;  
+    margin-left: auto;  
+    margin-right: auto;  
+}
+
+/* 提交按钮 */
+.submit-btn {
+	  background-color: $submit-btn-color;
+    border: 1px solid $submit-btn-color; 
+    font-size: 15px;
+}

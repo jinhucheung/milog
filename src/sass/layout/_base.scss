@@ -1,0 +1,16 @@
+body {
+    font-family: $font-family;
+}
+
+a {
+    text-decoration: none !important;
+    &:hover, &:active { color: $lightblack !important;  }
+		&:link, &:visited { color: $lightgray; }
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+

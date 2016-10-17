@@ -1,0 +1,17 @@
+/**  变量设置  **/
+
+/* color : 强调色 */
+$lightblack: #444;
+$underline-color: #ff364d;
+$outline-input-color: #ff364d;   //注意改变值时,要修改login.js
+$submit-btn-color: #ff364d; //提交按钮
+$waring-color: #f55d54;  //错误提示
+
+/* color : 浅色 */
+$lightgray:  #7d8695 ;
+$lightwhite:   #e0e0e0;
+$login-bgcolor: #feefee;  
+$placeholder-color: #a9a9a9;
+
+/* 字体设置 */
+$font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
