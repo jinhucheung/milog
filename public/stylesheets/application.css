@@ -7,12 +7,6 @@
 /* color : 浅色 */
 /* 字体设置 */
 /* component */
-/* 语系切换 */
-.switch-lang {
-  padding: 20px;
-  float: left;
-}
-
 /* 清除浮动 */
 .clear {
   clear: both;
@@ -65,7 +59,12 @@ ul {
 /* pages */
 .login {
   background: linear-gradient(to bottom, #feefee, white 80%) repeat-x;
+  /* 语系切换 */
   /* login表单 */
+}
+.login .switch-lang {
+  padding: 20px;
+  float: left;
 }
 .login .login-box {
   text-align: center;
@@ -169,3 +168,34 @@ ul {
 .login .login-box .login-footer {
   margin-top: 10px;
 }
+
+.home {
+  /* 导航栏 */
+}
+.home .navbar {
+  /* 居中导航项 */
+}
+.home .navbar .navbar-header {
+  /* logo */
+  /* 垂直居中显示. 
+   * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
+}
+.home .navbar .navbar-header .navbar-brand {
+  padding-top: 10px;
+  padding-left: 30px;
+}
+.home .navbar .navbar-header .navbar-brand .logo {
+  height: 30px;
+  width: 30px;
+}
+
+/* media */
+/* 超小屏幕(手机, <= 420px) */
+@media (max-width: 420px) {
+  .home .navbar-header .switch-lang {
+    visibility: hidden;
+  }
+}
+/* 小屏幕（平板，>= 768px） */
+/* 中等屏幕（桌面显示器，>= 992px） */
+/* 大屏幕（大桌面显示器，>= 1200px） */

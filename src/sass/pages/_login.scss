@@ -1,6 +1,12 @@
 .login {
     background: linear-gradient(to bottom, $login-bgcolor, white 80%) repeat-x;
 
+    /* 语系切换 */
+    .switch-lang {
+        padding: 20px;
+        float: left;
+    }
+
     /* login表单 */
     .login-box {
         text-align: center;

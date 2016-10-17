@@ -1,0 +1,19 @@
+/* 超小屏幕(手机, <= 420px) */
+@media (max-width: 420px) {
+	 		.home .navbar-header .switch-lang { visibility: hidden;  }
+}
+
+/* 小屏幕（平板，>= 768px） */
+@media (min-width: 768px) {
+
+}
+
+ /* 中等屏幕（桌面显示器，>= 992px） */ 
+@media (min-width: 992px) {
+
+}
+
+/* 大屏幕（大桌面显示器，>= 1200px） */ 
+@media (min-width: 1200px) {
+}
+

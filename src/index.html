@@ -10,18 +10,43 @@
 	<title>Milog</title>
 </head>
 <body class="home">
-	<!-- 语系切换 -->
-	<div class="switch-lang">
-		<a href="#"><span>En</span></a>
-	</div>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- 导航栏首部 -->
+			<div class="navbar-header">
+			    <!-- Logo -->
+					<a href="/" class="navbar-brand">
+						 <img class="logo" src="images/logo.svg" alt="Milog">
+					</a>
+					<!-- 切换语系  屏幕<=420px时隐藏-->
+					<a class="navbar-text switch-lang" href="#">EN</a>
+					<!-- 展开菜单项Btn -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-nav">
+	  			  <span class="icon-bar"></span>
+	  			  <span class="icon-bar"></span>
+	  			  <span class="icon-bar"></span>
+	  			</button>
+			</div>
+			
+			<!-- 主菜单项-->
+			<div class="collapse navbar-collapse" id="collapse-nav">
+					<ul class="nav navbar-nav  main-nav">
+						<li><a href="#">首页</a></li>
+						<li><a href="#">分类</a></li>
+						<li><a href="#">归档</a></li>
+						<li><a href="#">关于</a></li>
+						<li><a href="#">搜索</a></li>
+					</ul>
+			</div>
 
-	<!-- 清除浮动 -->
-	<div class="clear"></div>
+		</div>
+	</nav>
 
  
 
 	<script src="lib/jquery-3.1.1.min.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-	<script src="javascripts/login.js"></script>
+	<script src="javascripts/home.js"></script>
 </body>
 </html>

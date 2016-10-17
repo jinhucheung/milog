@@ -1,0 +1,28 @@
+.home {
+	 /* 导航栏 */
+	.navbar {
+		.navbar-header {
+			/* logo */
+			.navbar-brand {
+				padding-top: 10px;
+				padding-left: 30px;
+				.logo {
+				  height: 30px;
+				  width: 30px;
+				}
+			}
+			/* 垂直居中显示. 
+			 * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
+			.switch-lang {
+				 // display: inline-block;
+				 // padding-top: 14.5px;
+			}
+		}
+
+		/* 居中导航项 */
+		.main-nav {
+
+		}
+	}
+
+}
