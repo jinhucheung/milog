@@ -20,3 +20,17 @@
     border: 1px solid $submit-btn-color; 
     font-size: 15px;
 }
+
+/* 默认头像 */
+.default-avatar {
+		display: inline-block;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    color: white;
+    background: #ff364d;
+    font-size: 14px;
+    border-radius: 100%;
+}
+

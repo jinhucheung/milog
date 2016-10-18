@@ -35,6 +35,19 @@
   font-size: 15px;
 }
 
+/* 默认头像 */
+.default-avatar {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
+  text-align: center;
+  color: white;
+  background: #ff364d;
+  font-size: 14px;
+  border-radius: 100%;
+}
+
 /* layout */
 body {
   font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
@@ -54,6 +67,62 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+/* 导航栏 */
+.navbar {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  /* 导航栏菜单项垂直显示 */
+  /* 居右下拉菜单 */
+}
+.navbar .navbar-header {
+  /* logo */
+  /* 垂直居中显示. 
+   * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
+}
+.navbar .navbar-header .navbar-brand {
+  padding-top: 10px;
+  padding-left: 30px;
+}
+.navbar .navbar-header .navbar-brand .logo {
+  height: 30px;
+  width: 30px;
+}
+.navbar .navbar-center {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.navbar .navbar-center li {
+  float: none;
+  display: inline-block;
+}
+.navbar .drop-nav {
+  /* 向上浮动 */
+  position: relative;
+  z-index: 1;
+  margin-right: 4px;
+}
+
+/* 底部栏 */
+#footer {
+  background-color: #f8f8f8;
+  text-align: center;
+  padding: 14px 0;
+  border-top: 1px solid #ddd;
+}
+#footer .site-footer-info {
+  float: left;
+}
+#footer .site-footer-links {
+  float: right;
+}
+#footer .site-footer-links a {
+  margin: 0 10px;
 }
 
 /* pages */
@@ -173,7 +242,7 @@ ul {
   /* 导航栏 */
 }
 .home .navbar {
-  /* 居中导航项 */
+  /* 居右下拉菜单 */
 }
 .home .navbar .navbar-header {
   /* logo */
@@ -194,6 +263,14 @@ ul {
 @media (max-width: 420px) {
   .home .navbar-header .switch-lang {
     visibility: hidden;
+  }
+
+  .home .main-nav {
+    position: relative;
+  }
+
+  .home .drop-nav {
+    display: none;
   }
 }
 /* 小屏幕（平板，>= 768px） */
