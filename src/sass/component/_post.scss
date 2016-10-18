@@ -1,0 +1,62 @@
+/* 文章缩略 */
+.posts-expand {
+	 /* 文章缩略内容 */
+	.post-body {
+			padding: 24px 0;
+			line-height: 2;
+			color: $post-content-color;
+	}
+
+	.post {
+		 padding: 50px 0;
+	}
+}
+
+.post {
+    /* 标题 */
+    .post-title {
+        margin-top: 0;
+
+        .post-title-link {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            line-height: 1.2;
+            font-size: 24px;
+            border-bottom: none;
+            color: $post-title-color !important;
+
+            @include next-hover-underline($post-title-color);
+        }
+    }
+
+    /* 文章属性 */
+    .post-meta {
+        color: #999;
+        font-size: 12px;
+
+        a {
+            border-bottom: 1px solid #ccc;
+
+            &:hover {
+                border-color: $lightblack;
+            }
+        }
+    }
+		
+		/*文章标签*/
+    .post-tags {
+    	@extend .post-meta;
+    	display:inline-block;
+    	font-size: 13px;
+    }
+
+		/* 全文阅读 */
+    .post-more-link {
+				float: right;
+				color: $lightblack;
+				&:hover {
+				   	border-bottom: 1px solid $lightblack;
+				}
+    }
+}

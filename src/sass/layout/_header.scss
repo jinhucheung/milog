@@ -4,6 +4,9 @@
 		border:0;
 		border-bottom: 1px solid #ddd;
 		.navbar-header {
+				/* 向上浮动 */
+				position: relative;
+				z-index: 1;
 				/* logo */
 				.navbar-brand {
 						padding-top: 10px;
@@ -34,11 +37,12 @@
    		 	}
 		}
 		/* 居右下拉菜单 */
-		.drop-nav { 
+		.navbar-footer { 
 			/* 向上浮动 */
 			position: relative;
 			z-index: 1;
 			margin-right: 4px;
+
 		}
 }
 

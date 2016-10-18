@@ -38,14 +38,109 @@
 /* 默认头像 */
 .default-avatar {
   display: inline-block;
-  width: 23px;
-  height: 23px;
-  line-height: 23px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
   text-align: center;
   color: white;
   background: #ff364d;
   font-size: 14px;
   border-radius: 100%;
+}
+
+/* NexT动画下划线 */
+/* 文章缩略 */
+.posts-expand {
+  /* 文章缩略内容 */
+}
+.posts-expand .post-body {
+  padding: 24px 0;
+  line-height: 2;
+  color: #666;
+}
+.posts-expand .post {
+  padding: 50px 0;
+}
+
+.post {
+  /* 标题 */
+  /* 文章属性 */
+  /*文章标签*/
+  /* 全文阅读 */
+}
+.post .post-title {
+  margin-top: 0;
+}
+.post .post-title .post-title-link {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  line-height: 1.2;
+  font-size: 24px;
+  border-bottom: none;
+  color: #555 !important;
+}
+.post .post-title .post-title-link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: #555;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+.post .post-title .post-title-link:hover:before {
+  transform: scale(1);
+}
+.post .post-meta, .post .post-tags {
+  color: #999;
+  font-size: 12px;
+}
+.post .post-meta a, .post .post-tags a {
+  border-bottom: 1px solid #ccc;
+}
+.post .post-meta a:hover, .post .post-tags a:hover {
+  border-color: #444;
+}
+.post .post-tags {
+  display: inline-block;
+  font-size: 13px;
+}
+.post .post-more-link {
+  float: right;
+  color: #444;
+}
+.post .post-more-link:hover {
+  border-bottom: 1px solid #444;
+}
+
+.pagination {
+  margin-top: 80px;
+  width: 100%;
+  padding-top: 6px;
+  border-top: 1px solid #ddd;
+  color: #7d8695;
+  /* 分页数字项 */
+  /* 当前页 */
+  /* 省略号空间 */
+}
+.pagination .page-number {
+  padding: 8px 12px;
+  margin-left: 10px;
+}
+.pagination .page-number:hover {
+  border-top: 1px solid #7d8695;
+}
+.pagination .current {
+  background-color: lightgray;
+  border: none !important;
+  color: white;
+}
+.pagination .space {
+  padding: 8px 12px;
+  margin-left: 10px;
 }
 
 /* layout */
@@ -69,6 +164,14 @@ ul {
   padding: 0;
 }
 
+/* 页面显示主区域 */
+.mainer {
+  display: block;
+  padding-bottom: 100px;
+  margin-top: 80px;
+  min-height: 600px;
+}
+
 /* 导航栏 */
 .navbar {
   border-radius: 0;
@@ -78,6 +181,9 @@ ul {
   /* 居右下拉菜单 */
 }
 .navbar .navbar-header {
+  /* 向上浮动 */
+  position: relative;
+  z-index: 1;
   /* logo */
   /* 垂直居中显示. 
    * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
@@ -101,7 +207,7 @@ ul {
   float: none;
   display: inline-block;
 }
-.navbar .drop-nav {
+.navbar .navbar-footer {
   /* 向上浮动 */
   position: relative;
   z-index: 1;
@@ -110,6 +216,8 @@ ul {
 
 /* 底部栏 */
 #footer {
+  bottom: 0;
+  width: 100%;
   background-color: #f8f8f8;
   text-align: center;
   padding: 14px 0;
@@ -238,39 +346,31 @@ ul {
   margin-top: 10px;
 }
 
-.home {
-  /* 导航栏 */
-}
-.home .navbar {
-  /* 居右下拉菜单 */
-}
-.home .navbar .navbar-header {
-  /* logo */
-  /* 垂直居中显示. 
-   * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
-}
-.home .navbar .navbar-header .navbar-brand {
-  padding-top: 10px;
-  padding-left: 30px;
-}
-.home .navbar .navbar-header .navbar-brand .logo {
-  height: 30px;
-  width: 30px;
+.home .mainer .content-wrap {
+  padding-left: 0;
 }
 
 /* media */
 /* 超小屏幕(手机, <= 420px) */
 @media (max-width: 420px) {
-  .home .navbar-header .switch-lang {
+  .navbar .navbar-header .switch-lang {
     visibility: hidden;
   }
 
-  .home .main-nav {
+  .navbar .main-nav {
     position: relative;
   }
 
-  .home .drop-nav {
+  .navbar .drop-nav {
     display: none;
+  }
+
+  .navbar .login-group {
+    display: none;
+  }
+
+  .post .post-title .post-title-link {
+    font-size: 20px;
   }
 }
 /* 小屏幕（平板，>= 768px） */

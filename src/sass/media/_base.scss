@@ -1,8 +1,10 @@
 /* 超小屏幕(手机, <= 420px) */
 @media (max-width: 420px) {
-	 		.home .navbar-header .switch-lang { visibility: hidden; }
-	 		.home .main-nav { position: relative; }
-	 		.home .drop-nav { display: none; }
+	 		.navbar .navbar-header .switch-lang { visibility: hidden; }
+	 		.navbar .main-nav { position: relative; }
+	 		.navbar .drop-nav { display: none; }
+	 		.navbar .login-group { display: none; }
+	 		.post   .post-title    .post-title-link {  font-size: 20px; }
 }
 
 /* 小屏幕（平板，>= 768px） */
