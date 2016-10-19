@@ -1,5 +1,5 @@
 .login {
-    background: linear-gradient(to bottom, $login-bgcolor, white 80%) repeat-x;
+    background: linear-gradient(to bottom, $loyout-color, white 80%) repeat-x;
 
     /* 语系切换 */
     .switch-lang {
@@ -66,7 +66,7 @@
                     margin-top: 15px;
                     outline: none;
                     &:hover {
-                        background-color:#f22b2b;
+                        background-color: $submit-btn-hover-color;
                     }
                 }   
             }
@@ -77,8 +77,8 @@
                 margin: 10px 0;
                 padding: 10px;
                 text-align: left;
-                background-color: #feeae9;
-                border: 1px solid rgba(245,93,84,0.2);
+                background-color: $waring-background-color;
+                border: 1px solid $waring-border-color;
                 color: $waring-color;
 
                 .form-error-field {

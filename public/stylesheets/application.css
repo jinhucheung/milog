@@ -17,7 +17,7 @@
 
 /* 下划线 */
 .under-line {
-  border-bottom: 1px solid #ff364d;
+  border-bottom: 1px solid #708090;
 }
 
 /* 居中 */
@@ -30,8 +30,8 @@
 
 /* 提交按钮 */
 .submit-btn, .login .login-box .login-body .form-group .submit {
-  background-color: #ff364d;
-  border: 1px solid #ff364d;
+  background-color: #444;
+  border: 1px solid #444;
   font-size: 15px;
 }
 
@@ -43,7 +43,7 @@
   line-height: 22px;
   text-align: center;
   color: white;
-  background: #ff364d;
+  background: #b0c4de;
   font-size: 14px;
   border-radius: 100%;
 }
@@ -177,6 +177,7 @@ ul {
   border-radius: 0;
   border: 0;
   border-bottom: 1px solid #ddd;
+  background-color: #f5f5f5;
   /* 导航栏菜单项垂直显示 */
   /* 居右下拉菜单 */
 }
@@ -218,7 +219,7 @@ ul {
 #footer {
   bottom: 0;
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   text-align: center;
   padding: 14px 0;
   border-top: 1px solid #ddd;
@@ -235,7 +236,7 @@ ul {
 
 /* pages */
 .login {
-  background: linear-gradient(to bottom, #feefee, white 80%) repeat-x;
+  background: linear-gradient(to bottom, #f5f5f5, white 80%) repeat-x;
   /* 语系切换 */
   /* login表单 */
 }
@@ -288,7 +289,7 @@ ul {
   border: 1px solid #e0e0e0;
 }
 .login .login-box .login-body .form-group .form-input:focus {
-  border: 1px solid #ff364d;
+  border: 1px solid #444;
 }
 .login .login-box .login-body .form-group .form-input + .glyphicon {
   position: absolute;
@@ -302,16 +303,16 @@ ul {
   outline: none;
 }
 .login .login-box .login-body .form-group .submit:hover {
-  background-color: #f22b2b;
+  background-color: #666;
 }
 .login .login-box .login-body .form-error {
   position: relative;
   margin: 10px 0;
   padding: 10px;
   text-align: left;
-  background-color: #feeae9;
-  border: 1px solid rgba(245, 93, 84, 0.2);
-  color: #f55d54;
+  background-color: #f5f5f5;
+  border: 1px solid #778899;
+  color: #778899;
 }
 .login .login-box .login-body .form-error .form-error-field {
   padding-left: 45px;

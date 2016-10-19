@@ -18,7 +18,7 @@ $(".tab .signup a").click(function(){
 /* 输入框焦点改变时,改变其包含图标颜色 */
 $(".login-body .form-group .form-input").each(function(){
 		$(this).focus(function(){
-				$(this).next(".glyphicon").css("color","#ff364d"); 
+				$(this).next(".glyphicon").css("color","#444"); 
 		});
 		$(this).blur(function(){
 				$(this).next(".glyphicon").css("color","");
