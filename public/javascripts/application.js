@@ -1,3 +1,5 @@
+
+
 /* 切换语言 */
 var $lang=0;  //0-EN 1-中文
 $(".switch-lang").click(function(){
@@ -16,4 +18,14 @@ $(".switch-lang").click(function(){
 $(".navbar #logout").click(function(){
 	 $(".navbar .drop-nav").css("display","none");
 	 $(".navbar .login-group").css("display","");
+});
+
+/* back-to-top 回到页面顶部 */
+var THRESHOLD = 50;
+var $top = $('.back-to-top');
+$(window).on('scroll', function () {
+    $top.toggleClass('back-to-top-on', window.pageYOffset > THRESHOLD);
+});
+$top.on('click', function () {
+  $('body').velocity('scroll');
 });

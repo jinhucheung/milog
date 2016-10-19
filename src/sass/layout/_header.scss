@@ -7,7 +7,7 @@
 		.navbar-header {
 				/* 向上浮动 */
 				position: relative;
-				z-index: 1;
+				z-index: $z-index + 5;
 				/* logo */
 				.navbar-brand {
 						padding-top: 10px;
@@ -41,7 +41,7 @@
 		.navbar-footer { 
 			/* 向上浮动 */
 			position: relative;
-			z-index: 1;
+			z-index:  $z-index + 5;
 			margin-right: 4px;
 
 		}

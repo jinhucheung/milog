@@ -1,0 +1,19 @@
+/* 返回页面顶部 */
+.back-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    z-index: $z-index + 10;
+    width: 25px;
+    height: 25px;
+    line-height: 1.9;
+    text-align: center;
+    opacity: 0;
+    background: $back-to-top-bgcolor;
+    color: white;
+		/* 使btn出现,并可点击 */
+    &.back-to-top-on {
+    	 opacity: 0.8;
+    	 cursor: pointer;
+    }
+}

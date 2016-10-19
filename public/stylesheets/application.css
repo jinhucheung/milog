@@ -154,6 +154,26 @@
   margin-left: 10px;
 }
 
+/* 返回页面顶部 */
+.back-to-top {
+  position: fixed;
+  bottom: 60px;
+  right: 50px;
+  z-index: 10;
+  width: 25px;
+  height: 25px;
+  line-height: 1.9;
+  text-align: center;
+  opacity: 0;
+  background: #464442;
+  color: white;
+  /* 使btn出现,并可点击 */
+}
+.back-to-top.back-to-top-on {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 /* layout */
 body {
   font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
@@ -198,7 +218,7 @@ ul {
 .navbar .navbar-header {
   /* 向上浮动 */
   position: relative;
-  z-index: 1;
+  z-index: 5;
   /* logo */
   /* 垂直居中显示. 
    * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
@@ -225,7 +245,7 @@ ul {
 .navbar .navbar-footer {
   /* 向上浮动 */
   position: relative;
-  z-index: 1;
+  z-index: 5;
   margin-right: 4px;
 }
 
