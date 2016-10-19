@@ -9,7 +9,7 @@
 
 	<title>Milog</title>
 </head>
-<body class="home">
+<body class="category">
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -68,8 +68,8 @@
 			<!-- 主菜单项 -->
 			<div class="collapse navbar-collapse" id="collapse-nav">
 					<ul class="nav navbar-nav navbar-center main-nav">
-						<li><a href="#">首页</a></li>
-						<li><a href="#">分类</a></li>
+						<li><a href="home.html">首页</a></li>
+						<li><a href="category.html">分类</a></li>
 						<li><a href="#">归档</a></li>
 						<li><a href="#">关于</a></li>
 						<li><a href="#">搜索</a></li>
@@ -82,224 +82,107 @@
 	<!-- 内容区域 -->
 	<div class="mainer">
 		<div class="container-fluid">
-			<!-- 文章缩略区 居中 -->
+			<!-- 居中 -->
 			<div class="col-md-7 col-center-block content-wrap" >
-					<!-- 文章缩略与分页栏 -->
-					<div id="content">
-							<!-- 文章缩略 -->
-							<section class="posts-expand" id="posts">
-									<!-- 一篇文章缩略 -->
-									<article class="post">
-											<!-- 文章属性 -->
-											<header class="post-header">
-													<!-- 标题 -->
-													<h1 class="post-title" ><a class="post-title-link" href="#">Ruby/Rails Linux搭建Rails开发环境</a></h1>
-													<!-- 文章属性 -->
-													<div class="post-meta">
-													  <!-- 发布时间 -->
-														<span class="post-time">
-																<span class="post-meta-item-text">发布于</span>
-																 <time datetime="2016-09-17T19:46:06+08:00" content="2016-09-17">2016-09-17</time>
-														</span>
-														<!-- 文章分类 -->
-														<span class="post-category"> &nbsp;|&nbsp; 
-																<span class="post-meta-item-text">分类于</span>
-																<a href="#">学习</a>
-														</span>
-														<!-- 阅读与评论数 -->
-														<span class="post-view-comments"> &nbsp;|&nbsp;
-																<span class="post-meta-item-text">阅读</span> · 
-																<span class="post-view-count">15</span>&nbsp;
-																<span class="post-meta-item-text">评论</span> · 
-																<span class="post-view-count">3</span>
-														</span>
-													</div>
-											</header>
-											<!-- 文章缩略内容 -->
-											<div class="post-body">
-													Ruby开发环境搭建 Ruby安装Ruby安装方式可以分为两种,一种是源码编译安装,另一种是第三方工具RVM/rbenv来安装管理Ruby环境 从源码编译安装 通过以下URL下载Ruby源代码 https://www.ruby-lang.org/zh_cn/ 解压并安装 请看Linux 学习 ...
-											</div>
-											<!-- 标签与全阅 -->
-											<footer class="post-footer">
-													<div class="post-tags" >
-														<a href="#"># Ruby</a> · 
-														<a href="#"># Linux</a>
-													</div>
-													<a class="post-more-link" href="#">阅读全文»</a>
-											</footer>
-									</article>
+				 <!-- 分类 -->
+				 <div class="categroy-expand" id="categroy">
+				 			<div class="categroy-tag-all-title text-muted">目前共有10个分类</div>
+				 			<!-- 分类列表 -->
+				 			<div class="categroy-tag-all">
+									<ul class="categroy-tag-list">
+									  <!-- 分类项 初始为默认分类 -->
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">默认</a>
+											<span class="categroy-tag-item-count">101</span>
+										</li>
 
-									<!-- 一篇文章缩略 -->
-									<article class="post">
-											<!-- 文章属性 -->
-											<header class="post-header">
-													<!-- 标题 -->
-													<h1 class="post-title" ><a class="post-title-link" href="#">Linux 服务器篇 远端连接服务器SSH</a></h1>
-													<!-- 文章属性 -->
-													<div class="post-meta">
-													  <!-- 发布时间 -->
-														<span class="post-time">
-																<span class="post-meta-item-text">发布于</span>
-																 <time datetime="2016-09-09T19:46:06+08:00" content="2016-09-17">2016-09-09</time>
-														</span>
-														<!-- 文章分类 -->
-														<span class="post-category"> &nbsp;|&nbsp; 
-																<span class="post-meta-item-text">分类于</span>
-																<a href="#">学习</a>
-														</span>
-														<!-- 阅读与评论数 -->
-														<span class="post-view-comments"> &nbsp;|&nbsp;
-																<span class="post-meta-item-text">阅读</span> · 
-																<span class="post-view-count">8</span>&nbsp;
-																<span class="post-meta-item-text">评论</span> · 
-																<span class="post-view-count">2</span>
-														</span>
-													</div>
-											</header>
-											<!-- 文章缩略内容 -->
-											<div class="post-body">
-													前言 sshd是一个连线服务,我们可以在远端主机通过ssh访问我们主机,获取shell修改主机设置 过程十分便利,而且sshd是基于[非对称密钥]加密的通信,数据在其通道上传输较安全 SSH连线服务SSH(Secure SHell protocol)通过资料封包加密技术,将等待传输的数据包加密后再传 ...
-											</div>
-											<!-- 标签与全阅 -->
-											<footer class="post-footer">
-													<div class="post-tags" >
-														<a href="#"># Linux</a>
-													</div>
-													<a class="post-more-link" href="#">阅读全文»</a>
-											</footer>
-									</article>
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">学习</a>
+											<span class="categroy-tag-item-count">4</span>
+										</li>
 
-									<!-- 一篇文章缩略 -->
-									<article class="post">
-											<!-- 文章属性 -->
-											<header class="post-header">
-													<!-- 标题 -->
-													<h1 class="post-title" ><a class="post-title-link" href="#">Linux 服务器篇 申请合法的主机名称</a></h1>
-													<!-- 文章属性 -->
-													<div class="post-meta">
-													  <!-- 发布时间 -->
-														<span class="post-time">
-																<span class="post-meta-item-text">发布于</span>
-																 <time datetime="2016-09-09T19:46:06+08:00" content="2016-09-17">2016-09-09</time>
-														</span>
-														<!-- 文章分类 -->
-														<span class="post-category"> &nbsp;|&nbsp; 
-																<span class="post-meta-item-text">分类于</span>
-																<a href="#">学习</a>
-														</span>
-														<!-- 阅读与评论数 -->
-														<span class="post-view-comments"> &nbsp;|&nbsp;
-																<span class="post-meta-item-text">阅读</span> · 
-																<span class="post-view-count">100</span>&nbsp;
-																<span class="post-meta-item-text">评论</span> · 
-																<span class="post-view-count">58</span>
-														</span>
-													</div>
-											</header>
-											<!-- 文章缩略内容 -->
-											<div class="post-body">
-													前言我们要通过IP地址才能访问主机资源,但由于IP地址不便于人们记忆,故出现了以主机名来取代IP地址,主机名不能随便取,其要被DNS 服务能查询到,下面我们来申请一个合法的主机名 DNS 服务DNS 查询客服端连接到网络主机时,DNS查询过程如下 www.dic.kus.edu.tw主机向DNS服 ...
-											</div>
-											<!-- 标签与全阅 -->
-											<footer class="post-footer">
-													<div class="post-tags" >
-														<a href="#"># Linux</a>
-													</div>
-													<a class="post-more-link" href="#">阅读全文»</a>
-											</footer>
-									</article>
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">日常</a>
+											<span class="categroy-tag-item-count">21</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">英语</a>
+											<span class="categroy-tag-item-count">6</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">游戏</a>
+											<span class="categroy-tag-item-count">7</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">杂七杂八</a>
+											<span class="categroy-tag-item-count">3</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">日记</a>
+											<span class="categroy-tag-item-count">10</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">编程</a>
+											<span class="categroy-tag-item-count">13</span>
+										</li>
 
 
-									<!-- 一篇文章缩略 -->
-									<article class="post">
-											<!-- 文章属性 -->
-											<header class="post-header">
-													<!-- 标题 -->
-													<h1 class="post-title" ><a class="post-title-link" href="#">Linux 服务器篇 防火墙与NAT服务器</a></h1>
-													<!-- 文章属性 -->
-													<div class="post-meta">
-													  <!-- 发布时间 -->
-														<span class="post-time">
-																<span class="post-meta-item-text">发布于</span>
-																 <time datetime="2016-09-06T19:46:06+08:00" content="2016-09-17">2016-09-06</time>
-														</span>
-														<!-- 文章分类 -->
-														<span class="post-category"> &nbsp;|&nbsp; 
-																<span class="post-meta-item-text">分类于</span>
-																<a href="#">学习</a>
-														</span>
-														<!-- 阅读与评论数 -->
-														<span class="post-view-comments"> &nbsp;|&nbsp;
-																<span class="post-meta-item-text">阅读</span> · 
-																<span class="post-view-count">101</span>&nbsp;
-																<span class="post-meta-item-text">评论</span> · 
-																<span class="post-view-count">100</span>
-														</span>
-													</div>
-											</header>
-											<!-- 文章缩略内容 -->
-											<div class="post-body">
-													前言防火墙是整个数据包进入主机前的第一道关卡,那什么是防火墙？防火墙有什么机制？防火墙可以实现与不能实现的功能有哪些？其实Linux防火墙主要通过Netfilter与TCP Wrapper两个机制来管理，通过Netfilter可以实现让Private IP主机上网,也可以让Internet连接到L ...
-											</div>
-											<!-- 标签与全阅 -->
-											<footer class="post-footer">
-													<div class="post-tags" >
-														<a href="#"># Linux</a>
-													</div>
-													<a class="post-more-link" href="#">阅读全文»</a>
-											</footer>
-									</article>
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">操作系统</a>
+											<span class="categroy-tag-item-count">12</span>
+										</li>
 
-									<!-- 一篇文章缩略 -->
-									<article class="post">
-											<!-- 文章属性 -->
-											<header class="post-header">
-													<!-- 标题 -->
-													<h1 class="post-title" ><a class="post-title-link" href="#">Linux 服务器篇 路由概念与路由协议</a></h1>
-													<!-- 文章属性 -->
-													<div class="post-meta">
-													  <!-- 发布时间 -->
-														<span class="post-time">
-																<span class="post-meta-item-text">发布于</span>
-																 <time datetime="2016-09-06T19:46:06+08:00" content="2016-09-17">2016-09-06</time>
-														</span>
-														<!-- 文章分类 -->
-														<span class="post-category"> &nbsp;|&nbsp; 
-																<span class="post-meta-item-text">分类于</span>
-																<a href="#">学习</a>
-														</span>
-														<!-- 阅读与评论数 -->
-														<span class="post-view-comments"> &nbsp;|&nbsp;
-																<span class="post-meta-item-text">阅读</span> · 
-																<span class="post-view-count">21</span>&nbsp;
-																<span class="post-meta-item-text">评论</span> · 
-																<span class="post-view-count">13</span>
-														</span>
-													</div>
-											</header>
-											<!-- 文章缩略内容 -->
-											<div class="post-body">
-													路由路由是规划我们数据包在网络上的传输路径以及方式 路由表产生的类型我们每台主机都有自己的路由表,我们可以使用route来查看,那设置路由表有以下方式： 直接设置网络接口的路由配置文件 /etc/network/interfaces(Ubuntu)或/etc/sysconfig/network ...
-											</div>
-											<!-- 标签与全阅 -->
-											<footer class="post-footer">
-													<div class="post-tags" >
-														<a href="#"># Linux</a>
-													</div>
-													<a class="post-more-link" href="#">阅读全文»</a>
-											</footer>
-									</article>
-							</section>
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">网络基础</a>
+											<span class="categroy-tag-item-count">4</span>
+										</li>
+																													
+									</ul>
+				 			</div>
+				 </div>
 
-							<!-- 分页栏 -->
-							<nav class="pagination">
-								 <span class="page-number current">1</span>
-								 <a class="page-number" href="#">2</a>
-								 <span class="space">...</span>
-								 <a class="page-number" href="#">9</a>
-								 <a class="page-number" href="#">></a>
-							</nav>
-					</div>
+					<hr>
+
+				 <!-- 标签 -->
+				 <div class="tags-expand" id="tags">
+				 			<div class="categroy-tag-all-title text-muted">目前共有5个标签</div>
+				 			<div class="categroy-tag-all">
+									<ul class="categroy-tag-list">
+									  <!-- 分类项 初始为默认分类 -->
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">Linux</a>
+											<span class="categroy-tag-item-count">101</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">Ruby</a>
+											<span class="categroy-tag-item-count">4</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">语法</a>
+											<span class="categroy-tag-item-count">4</span>
+										</li>
+			
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">口语</a>
+											<span class="categroy-tag-item-count">4</span>
+										</li>
+
+										<li class="categroy-tag-list-item">
+											<a class="categroy-tag-item-link" href="">Java</a>
+											<span class="categroy-tag-item-count">4</span>
+										</li>
+
+									</ul>
+				 			</div>
+				 </div>
+
 			</div>
 		</div>
 	</div>
