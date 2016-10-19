@@ -1,15 +1,15 @@
 /* 文章缩略 */
 .posts-expand {
-	 /* 文章缩略内容 */
-	.post-body {
-			padding: 24px 0;
-			line-height: 2;
-			color: $post-content-color;
-	}
+    /* 文章缩略内容 */
+    .post-body {
+        padding: 24px 0;
+        line-height: 2;
+        color: $post-content-color;
+    }
 
-	.post {
-		 padding: 50px 0;
-	}
+    .post {
+        padding: 50px 0;
+    }
 }
 
 .post {
@@ -43,20 +43,22 @@
             }
         }
     }
-		
-		/*文章标签*/
+
+    /*文章标签*/
     .post-tags {
-    	@extend .post-meta;
-    	display:inline-block;
-    	font-size: 13px;
+        @extend .post-meta;
+
+        display: inline-block;
+        font-size: 13px;
     }
 
-		/* 全文阅读 */
+    /* 全文阅读 */
     .post-more-link {
-				float: right;
-				color: $lightblack;
-				&:hover {
-				   	border-bottom: 1px solid $lightblack;
-				}
+        float: right;
+        color: $lightblack;
+
+        &:hover {
+            border-bottom: 1px solid $lightblack;
+        }
     }
 }

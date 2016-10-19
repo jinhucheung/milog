@@ -1,5 +1,3 @@
-
-
 /* 切换语言 */
 var $lang=0;  //0-EN 1-中文
 $(".switch-lang").click(function(){
@@ -27,5 +25,5 @@ $(window).on('scroll', function () {
     $top.toggleClass('back-to-top-on', window.pageYOffset > THRESHOLD);
 });
 $top.on('click', function () {
-  $('body').velocity('scroll');
+  $('body').velocity('scroll');  //需导入velocity.js
 });

@@ -1,9 +1,7 @@
 /**  变量设置  **/
 
-/* color : 强调色 */
-$lightblack: #444;
-$underline-color: #708090;
-$outline-input-color: #444;   //注意改变值时,要修改login.js
+/* color : 组件 */
+
 $submit-btn-color: #444; //提交按钮
 $submit-btn-hover-color: #666;
 $waring-color: #778899;  //错误提示
@@ -13,11 +11,16 @@ $post-title-color: #555;
 $post-content-color: #666;
 $default-avatar-color: #b0c4de;
 $back-to-top-bgcolor: #464442;
+$posts-collection-leftline-color: #f5f5f5;  //文章归档边线
+$posts-collection-dot-color: #555;
 
-/* color : 浅色 */
+/* color : 通用 */
+$lightblack: #444;
 $lightgray:  #7d8695 ;
 $lightwhite:   #e0e0e0;
 $loyout-color: #f5f5f5;  
+$underline-color: #708090;
+$outline-input-color: #444;   //注意改变值时,要修改login.js
 $placeholder-color: #a9a9a9;
 
 

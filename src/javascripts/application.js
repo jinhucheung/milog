@@ -1,5 +1,3 @@
-
-
 /* 切换语言 */
 var $lang=0;  //0-EN 1-中文
 $(".switch-lang").click(function(){

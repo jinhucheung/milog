@@ -3,8 +3,8 @@
 @import url(../lib/bootstrap/css/bootstrap.min.css);
 /* helpers */
 /**  变量设置  **/
-/* color : 强调色 */
-/* color : 浅色 */
+/* color : 组件 */
+/* color : 通用 */
 /* 字体设置 */
 /* component */
 /* 清除浮动 */
@@ -125,6 +125,123 @@
 }
 .post .post-more-link:hover {
   border-bottom: 1px solid #444;
+}
+
+/* 构建标点 */
+/* 文章归档 */
+.posts-collection-expand {
+  position: relative;
+  z-index: 5;
+  margin-left: 0;
+  margin-bottom: 50px;
+  /* 添加左侧线 */
+  /* 左侧线大标点 */
+  /* 描述文章数量 */
+  /* 归档集标题 */
+  /* 归档文章 */
+}
+.posts-collection-expand:after {
+  content: " ";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  margin-left: -2px;
+  width: 4px;
+  height: 100%;
+  background: #f5f5f5;
+  z-index: -1;
+}
+.posts-collection-expand .archive-move-on {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  margin-left: -6px;
+  margin-top: 0;
+  width: 10px;
+  height: 10px;
+  opacity: 0.5;
+  background: #555;
+  border-radius: 50%;
+}
+.posts-collection-expand .archive-page-counter {
+  position: relative;
+  top: 6px;
+  left: 20px;
+  color: #7d8695;
+}
+.posts-collection-expand .collection-title {
+  position: relative;
+  margin: 60px 0;
+}
+.posts-collection-expand .collection-title h2 {
+  margin-left: 20px;
+  font-size: 22px;
+  /* 标题分类:日期/分类/标签 */
+}
+.posts-collection-expand .collection-title h2 .type {
+  color: #7d8695;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.posts-collection-expand .collection-title:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  width: 8px;
+  height: 8px;
+  opacity: 0.5;
+  background: #555;
+  border-radius: 50%;
+}
+.posts-collection-expand .post {
+  padding-top: 15px;
+}
+.posts-collection-expand .post .post-header {
+  position: relative;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ccc;
+  /* 文章标题 */
+  /* 时间 */
+  /* 标点 */
+  /* 悬停时高亮处理 */
+}
+.posts-collection-expand .post .post-header .post-title {
+  margin-left: 70px;
+  font-size: 16px;
+  line-height: inherit;
+}
+.posts-collection-expand .post .post-header .post-title .post-title-link-no-underline {
+  color: #666 !important;
+}
+.posts-collection-expand .post .post-header .post-meta, .posts-collection-expand .post .post-header .post-tags {
+  position: absolute;
+  font-size: 13px;
+  left: 20px;
+  top: 2px;
+  color: #666;
+}
+.posts-collection-expand .post .post-header:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  margin-left: -4px;
+  margin-top: 0;
+  width: 6px;
+  height: 6px;
+  opacity: 0.3;
+  background: #555;
+  border-radius: 50%;
+}
+.posts-collection-expand .post .post-header.post-header-hover-on {
+  border-bottom: 1px dashed black;
+}
+.posts-collection-expand .post .post-header.post-header-hover-on:before {
+  opacity: 1;
 }
 
 .pagination {
