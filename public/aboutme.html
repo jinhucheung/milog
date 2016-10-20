@@ -9,7 +9,7 @@
 
 	<title>Milog</title>
 </head>
-<body class="archives">
+<body class="aboutme">
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -71,7 +71,7 @@
 						<li><a href="home.html">首页</a></li>
 						<li><a href="category.html">分类</a></li>
 						<li><a href="archive.html">归档</a></li>
-						<li><a href="aboutme.html">关于</a></li>
+						<li><a href="#">关于</a></li>
 						<li><a href="#">搜索</a></li>
 					</ul>
 			</div>
@@ -84,55 +84,33 @@
 		<div class="container-fluid">
 			<!-- 居中 -->
 			<div class="col-md-7 col-center-block content-wrap" >
-					<section class="posts-collection-expand" id="posts-collection">
-							<!-- 归档数量 -->
-							<span class="archive-move-on"></span>
-							<span class="archive-page-counter"> 目前共有 43 篇文章 </span>
+			      <!-- 头像 -->
+						<div class="avatar" >
+							 <a href="#"><div class="default-avatar-about-me">K</div></a>
+						</div>
+						<!-- 用户名 -->
+						<div class="name">
+							<h2>
+								<span class="username">Jinhu</span> 
+							  <span class="nickname">( 锦湖 )</span>
+							</h2>
+						</div>
+						<!-- 简介 -->
+						<div class="bio"> 
+									你好， 我是锦湖， 欢迎来到我的博客！
+						</div>
 
-							<!-- 归档标题 -->
-							<div class="collection-title" >
-								<h2>2016<span class="type"></span></h2>
-							</div>
+						<hr>
+						<!-- 外站 -->
+						<div class="social">							
+									<a href="#">
+											<i class="fa fa-github icon"></i>
+									</a>									
+									<a href="#">
+											<i class="fa fa-weibo icon"></i>
+									</a>
+						</div>
 
-							<!-- 一篇文章 -->
-							<article class="post">
-								<header class="post-header">
-										<h1 class="post-title">
-											<a href="#" class="post-title-link-no-underline">Ruby/Rails Linux搭建Rails开发环境</a>
-										</h1>
-									  <div class="post-meta"><time class="post-time">09-17</time></div>
-								</header>
-							</article>
-
-							<!-- 一篇文章 -->
-							<article class="post">
-								<header class="post-header">
-										<h1 class="post-title">
-											<a href="#" class="post-title-link-no-underline">Linux 服务器篇 远端连接服务器SSH</a>
-										</h1>
-									  <div class="post-meta"><time class="post-time">09-09</time></div>
-								</header>
-							</article>
-
-							<!-- 一篇文章 -->
-							<article class="post">
-								<header class="post-header">
-										<h1 class="post-title">
-											<a href="#" class="post-title-link-no-underline">Linux 服务器篇 申请合法的主机名称</a>
-										</h1>
-									  <div class="post-meta"><time class="post-time">09-09</time></div>
-								</header>
-							</article>
-					</section>
-
-					<!-- 分页栏 -->
-					<nav class="pagination">
-							<span class="page-number current">1</span>
-							<a class="page-number" href="#">2</a>
-							<span class="space">...</span>
-							<a class="page-number" href="#">9</a>
-							<a class="page-number" href="#">></a>
-					</nav>					
 			</div>
 		</div>
 	</div>
@@ -148,17 +126,12 @@
 	  	</div>
 	</footer>
 
-	<!-- 返回页面顶部 -->
-	<div class="back-to-top">
-		<span class="glyphicon glyphicon-chevron-up"></span>
-	</div>
 
 
 	<script src="lib/javascripts/jquery-3.1.1.min.js"></script>
 	<script src="lib/javascripts/bootstrap.min.js"></script>
 	<script src="lib/javascripts/velocity.min.js"></script>
 	<script src="javascripts/application.js"></script>
-	<script src="javascripts/archive.js"></script>
 
 </body>
 </html>

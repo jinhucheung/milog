@@ -1,6 +1,6 @@
 /* 构建头像 */
 @mixin build_avatar($avatar_size: 22px, $font-size: 14px, $background: #ccc) {
-	  display: inline-block;
+	display: inline-block;
     width: $avatar_size;
     height: $avatar_size;
     line-height: $avatar_size;

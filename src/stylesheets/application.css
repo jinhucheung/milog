@@ -457,7 +457,7 @@ ul {
 .login .login-box .login-body .form-group .form-input:focus {
   border: 1px solid #444;
 }
-.login .login-box .login-body .form-group .form-input + .glyphicon {
+.login .login-box .login-body .form-group .form-input + .icon {
   position: absolute;
   left: 0;
   padding: 14px 18px;
@@ -485,7 +485,7 @@ ul {
   width: 100%;
   height: 100%;
 }
-.login .login-box .login-body .form-error .form-error-field + .glyphicon {
+.login .login-box .login-body .form-error .form-error-field + .icon {
   position: absolute;
   left: 0;
   padding: 14px 18px;
@@ -544,6 +544,7 @@ ul {
   /* 头像 */
   /* 用户名 */
   /* 用户简介 */
+  /* 社交 */
 }
 .aboutme .mainer .avatar {
   text-align: center;
@@ -566,6 +567,13 @@ ul {
   font-size: 16px;
   line-height: 1.9;
   color: #666;
+}
+.aboutme .mainer .social {
+  text-align: center;
+  font-size: 24px;
+}
+.aboutme .mainer .social .icon {
+  padding: 10px;
 }
 
 /* media */
