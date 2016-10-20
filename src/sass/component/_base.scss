@@ -26,18 +26,6 @@
     font-size: 15px;
 }
 
-/* 默认头像 */
-.default-avatar {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
-    text-align: center;
-    color: white;
-    background: $default-avatar-color;
-    font-size: 14px;
-    border-radius: 100%;
-}
 
 /* NexT动画下划线 */
 @mixin next-hover-underline($color: #555) {

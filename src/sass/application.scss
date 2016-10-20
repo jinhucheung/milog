@@ -2,7 +2,8 @@
 
 /* lib */
 @import 
-		"../lib/bootstrap/css/bootstrap.min.css"
+		"../lib/stylesheets/bootstrap/css/bootstrap.min.css"
+,		"../lib/stylesheets/font-awesome/css/font-awesome.min.css"
 ;
 
 /* helpers */
@@ -17,6 +18,7 @@
 ,   "component/post-collection"
 ,		"component/pagination"
 ,		"component/back-to-top"
+,		"component/avatar"
 ;
 
 /* layout */
@@ -30,6 +32,7 @@
 @import 
 		"pages/login"
 ,		"pages/category"
+,		"pages/aboutme"
 ;
 
 /* media */

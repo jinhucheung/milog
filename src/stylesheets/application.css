@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* lib */
-@import url(../lib/bootstrap/css/bootstrap.min.css);
+@import url(../lib/stylesheets/bootstrap/css/bootstrap.min.css);
+@import url(../lib/stylesheets/font-awesome/css/font-awesome.min.css);
 /* helpers */
 /**  变量设置  **/
 /* color : 组件 */
@@ -33,19 +34,6 @@
   background-color: #444;
   border: 1px solid #444;
   font-size: 15px;
-}
-
-/* 默认头像 */
-.default-avatar {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  line-height: 22px;
-  text-align: center;
-  color: white;
-  background: #b0c4de;
-  font-size: 14px;
-  border-radius: 100%;
 }
 
 /* NexT动画下划线 */
@@ -291,6 +279,33 @@
   cursor: pointer;
 }
 
+/* 构建头像 */
+/* 默认头像-导航栏 */
+.default-avatar {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background: #b0c4de;
+  font-size: 14px;
+  border-radius: 100%;
+}
+
+/* 默认头像-关于用户 */
+.default-avatar-about-me {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: white;
+  background: #b0c4de;
+  font-size: 75px;
+  border-radius: 100%;
+}
+
 /* layout */
 body {
   font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
@@ -523,6 +538,34 @@ ul {
 }
 .category .mainer .tags-expand {
   padding-top: 25px;
+}
+
+.aboutme .mainer {
+  /* 头像 */
+  /* 用户名 */
+  /* 用户简介 */
+}
+.aboutme .mainer .avatar {
+  text-align: center;
+}
+.aboutme .mainer .name {
+  text-align: center;
+  padding: 20px 0;
+}
+.aboutme .mainer .name h2 {
+  font-size: 24px;
+}
+.aboutme .mainer .name h2 .nickname {
+  color: #666;
+}
+.aboutme .mainer .bio {
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #666;
 }
 
 /* media */
