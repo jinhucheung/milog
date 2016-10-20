@@ -1,0 +1,63 @@
+/* 表单样式 */
+.form-group {
+    position: relative;
+    height: 45px;
+    margin-bottom: 10px;
+
+    /* 输入框 */
+    .form-input {
+        padding-left: 45px;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: 1px solid $lightwhite;
+
+        &:focus {
+            border: 1px solid $outline-input-color;
+        }
+    }
+
+    /* 小图标 */
+    .form-input + .icon {
+        position: absolute;
+        left: 0;
+        padding: 14px 18px;
+        color: $placeholder-color;
+    }
+
+    /*提交按钮*/
+    .submit {
+        @extend .submit-btn;
+
+        height: 40px;
+        margin-top: 15px;
+        outline: none;
+
+        &:hover {
+            background-color: $submit-btn-hover-color;
+        }
+    }
+}
+
+/* 错误提示 */
+.form-error {
+    position: relative;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: left;
+    background-color: $waring-background-color;
+    border: 1px solid $waring-border-color;
+    color: $waring-color;
+
+    .form-error-field {
+        padding-left: 45px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-error-field + .icon {
+        position: absolute;
+        left: 0;
+        padding: 14px 18px;
+    }
+}

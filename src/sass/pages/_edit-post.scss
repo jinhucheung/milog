@@ -1,0 +1,32 @@
+.edit-post .mainer {
+    /* 页面标题 */
+    .page-title {
+        font-size: 18px;
+    }
+
+    /* 文章表单区 */
+    #post-form {}
+
+    .edit-header {
+        /* 填写文章标题 */
+        .post-title {
+            display: inline-block;
+            width: 70%;
+
+            .form-input {
+                padding-left: 10px;
+            }
+        }
+
+        /* 选择文章类型 */
+        .post-category {
+            display: inline-block;  //居右
+            width: 29%;
+            text-align: center;
+
+            .post-selected-category {
+                padding: 0 5px;
+            }
+        }
+    }
+}

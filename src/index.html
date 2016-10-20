@@ -9,7 +9,7 @@
 
 	<title>Milog</title>
 </head>
-<body class="aboutme">
+<body class="edit-post">
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -84,33 +84,32 @@
 		<div class="container-fluid">
 			<!-- 居中 -->
 			<div class="col-md-7 col-center-block content-wrap" >
-			      <!-- 头像 -->
-						<div class="avatar" >
-							 <a href="#"><div class="default-avatar-about-me">K</div></a>
-						</div>
-						<!-- 用户名 -->
-						<div class="name">
-							<h2>
-								<span class="username">Jinhu</span> 
-							  <span class="nickname">( 锦湖 )</span>
-							</h2>
-						</div>
-						<!-- 简介 -->
-						<div class="bio"> 
-									你好， 我是锦湖， 欢迎来到我的博客！
-						</div>
-
-						<hr>
-						<!-- 外站 -->
-						<div class="social">							
-									<a href="#">
-											<i class="fa fa-github icon"></i>
-									</a>									
-									<a href="#">
-											<i class="fa fa-weibo icon"></i>
-									</a>
-						</div>
-
+					<div class="edit-post">
+						<!-- 	<div class="page-title">写文章</div>
+							<hr> -->
+							<form id="post-form" action="#" method="post">
+									<!-- 编辑页头部 -->
+									<div class="edit-header">
+										 <!-- 文章标题 居左 -->
+										 <div class="post-title">
+										 				<div class="form-group">
+										 					<input type="text" class="form-input" name="post[title]" placeholder="在这里填入文章标题">
+										 				</div>
+										 </div>
+										 <!-- 文章分类 居右 -->
+										 <div class="dropdown post-category ">
+										 					分类： 
+										 		<span class="post-selected-category " data-toggle="dropdown" role="button">工作日志
+										 		<span class="caret" ></span></span>
+												<ul class="dropdown-menu">
+										      <li><a href="#">HTML</a></li>
+										      <li><a href="#">CSS</a></li>
+										      <li><a href="#">JavaScript</a></li>
+										    </ul>
+										 </div>
+									</div>
+							</form>
+					</div>
 			</div>
 		</div>
 	</div>
