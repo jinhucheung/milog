@@ -18,14 +18,42 @@
             }
         }
 
-        /* 选择文章类型 */
+        /* 选择文章分类 */
         .post-category {
-            display: inline-block;  //居右
+            display: inline-block;
+
+            //居右
             width: 29%;
             text-align: center;
 
-            .post-selected-category {
+            /* 显示文章分类 */
+            #post-selected-category {
                 padding: 0 5px;
+            }
+
+            /* 文章分类下拉框 */
+            .post-category-menu {
+                /* 新建分类输入框 */
+                #category-item-add {
+                    outline: none;
+                    border: 1px solid $lightwhite;
+
+                    &:focus {
+                        border: 1px solid $outline-input-color !important;
+                    }
+                }
+
+                /* 错误提示 */
+                .error-tips {
+                    color: $waring-color;
+                    font-size: 12px;
+                    margin: 2px 8px;
+                }
+
+                /* 删除分类 */
+                .category-item .delete {
+                    float: right;
+                }
             }
         }
     }

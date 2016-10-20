@@ -99,12 +99,25 @@
 										 <!-- 文章分类 居右 -->
 										 <div class="dropdown post-category ">
 										 					分类： 
-										 		<span class="post-selected-category " data-toggle="dropdown" role="button">工作日志
-										 		<span class="caret" ></span></span>
-												<ul class="dropdown-menu">
-										      <li><a href="#">HTML</a></li>
-										      <li><a href="#">CSS</a></li>
-										      <li><a href="#">JavaScript</a></li>
+										 		<input id="post-selected-category-input" type="hidden" class="form-input" name="post[category]" value="默认">
+												<span data-toggle="dropdown" role="button">
+													  <span id="post-selected-category" >默认</span>
+														<span class="caret" ></span>
+												</span>
+												<ul class="dropdown-menu post-category-menu">
+										      <li class="category-item li-active"><a><span class="content">默认</span></a></li>
+										      <li class="category-item"><a><span class="content">工作日志</span></a></li>
+										      <li class="category-item"><a><span class="content">学习</span></a></li>
+										      <!-- 用户创建分类，可删除 -->
+										      <li class="category-item">
+										      	  <a><span class="content">Linux</span><span class="delete" role="button">x</span></a>
+										      </li>
+										      <li class="category-item">
+										      	  <a><span class="content">数据</span><span class="delete" role="button">x</span></a>
+										      </li>
+										      <li id="category-item-add-li"><a><input type="text" id="category-item-add" maxlength="8" placeholder="新的分类/回车确认"></a>
+										      </li>
+										      <div class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
 										    </ul>
 										 </div>
 									</div>
@@ -125,12 +138,11 @@
 	  	</div>
 	</footer>
 
-
-
 	<script src="lib/javascripts/jquery-3.1.1.min.js"></script>
 	<script src="lib/javascripts/bootstrap.min.js"></script>
 	<script src="lib/javascripts/velocity.min.js"></script>
 	<script src="javascripts/application.js"></script>
+	<script src="javascripts/edit-post.js"></script>
 
 </body>
 </html>

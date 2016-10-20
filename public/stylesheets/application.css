@@ -48,6 +48,11 @@
   content: ")";
 }
 
+/* 列表项被选中 */
+.li-active {
+  background-color: #f5f5f5;
+}
+
 /* 文章缩略 */
 .posts-expand {
   /* 文章缩略内容 */
@@ -588,7 +593,7 @@ ul {
 }
 .edit-post .mainer .edit-header {
   /* 填写文章标题 */
-  /* 选择文章类型 */
+  /* 选择文章分类 */
 }
 .edit-post .mainer .edit-header .post-title {
   display: inline-block;
@@ -601,9 +606,31 @@ ul {
   display: inline-block;
   width: 29%;
   text-align: center;
+  /* 显示文章分类 */
+  /* 文章分类下拉框 */
 }
-.edit-post .mainer .edit-header .post-category .post-selected-category {
+.edit-post .mainer .edit-header .post-category #post-selected-category {
   padding: 0 5px;
+}
+.edit-post .mainer .edit-header .post-category .post-category-menu {
+  /* 新建分类输入框 */
+  /* 错误提示 */
+  /* 删除分类 */
+}
+.edit-post .mainer .edit-header .post-category .post-category-menu #category-item-add {
+  outline: none;
+  border: 1px solid #e0e0e0;
+}
+.edit-post .mainer .edit-header .post-category .post-category-menu #category-item-add:focus {
+  border: 1px solid #444 !important;
+}
+.edit-post .mainer .edit-header .post-category .post-category-menu .error-tips {
+  color: #778899;
+  font-size: 12px;
+  margin: 2px 8px;
+}
+.edit-post .mainer .edit-header .post-category .post-category-menu .category-item .delete {
+  float: right;
 }
 
 /* media */
