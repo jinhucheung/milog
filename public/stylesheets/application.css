@@ -442,13 +442,12 @@
   /* 分隔竖线 */
 }
 .mardown-toolbar .toolbar-item {
-  padding: 5px 0 5px 10px;
+  padding: 5px;
 }
 .mardown-toolbar .divider:before {
   content: " ";
   border-left: 1px solid #ddd;
-  margin-right: 2px;
-  margin-left: 8px;
+  margin: 0 5px;
 }
 
 /* layout */
@@ -678,6 +677,7 @@ input, textarea {
   /* 文章表单区 */
   /* 编辑文章标题与分类 */
   /* 编辑文章正文与预览 */
+  /*标签选择与提交 */
 }
 .edit-post .mainer .page-title {
   font-size: 18px;
@@ -752,7 +752,39 @@ input, textarea {
   outline: none;
 }
 .edit-post .mainer .edit-body .edit-body-cotent #previewer {
+  height: 405px;
   display: block;
+  overflow: auto;
+}
+.edit-post .mainer .edit-footer {
+  padding: 25px 0;
+  /* 标签选择 */
+  /* 提交按钮 */
+}
+.edit-post .mainer .edit-footer .tabs-input span {
+  position: absolute;
+  left: 30px;
+  top: 13px;
+}
+.edit-post .mainer .edit-footer .tabs-input .form-input {
+  padding-left: 80px;
+}
+.edit-post .mainer .edit-footer .post-btns {
+  padding-top: 20px;
+}
+.edit-post .mainer .edit-footer .post-btns button {
+  padding: 10px;
+  font-size: 14px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.edit-post .mainer .edit-footer .post-btns .save-btn:focus {
+  border: 1px solid #444;
+}
+.edit-post .mainer .edit-footer .post-btns .post-btn {
+  float: right;
+  border: 1px solid #444;
 }
 
 /* media */

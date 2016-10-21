@@ -90,7 +90,43 @@
             /* 预览区 */
             #previewer{
                 @extend #editor;
+                height: $editor-height + 5px;
                 display: block;
+                overflow: auto;  //添加滚动条
+            }
+        }
+    }
+
+    /*标签选择与提交 */
+    .edit-footer {
+        padding: 25px 0;
+        /* 标签选择 */
+        .tabs-input{
+             span {
+                position: absolute;
+                left: 30px;
+                top: 13px;
+             }
+             .form-input { padding-left: 80px; }
+        } 
+        /* 提交按钮 */
+        .post-btns {
+            padding-top: 20px;
+            button {
+                padding: 10px;
+                font-size: 14px;
+                background-color: transparent;
+                outline: none;
+                border: none;
+            }
+            .save-btn {
+                &:focus{
+                    border: 1px solid $outline-input-color;
+                }
+            }
+            .post-btn {
+                float: right;
+                border: 1px solid $outline-input-color;
             }
         }
     }

@@ -97,3 +97,32 @@ $(function(){
         }
     });
 });
+
+/* 标签输入处理 */
+$(function(){
+    /* 根据逗号数限制用户输入 */
+    $("#tab-input").on("keyup",function(){
+        var $str = $(this).val();
+        var $tags = $str.split(/[,，]/);
+        if ($tags.length >= 6 ) { 
+            $tags=$tags.slice(0,5); // 截取前5个元素
+            $str=$tags.join(",");
+            if ( $str.charAt($str.length-1) == ',' ) {
+                $str.replace(",","");
+            }
+        } else {
+             $str=$tags.join(",");
+        }
+        $(this).val($str);
+    });
+});
+
+/* 阻止输入框Enter后,提交至表单 */
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
