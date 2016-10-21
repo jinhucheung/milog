@@ -50,11 +50,15 @@
                     font-size: 12px;
                     margin: 2px 8px;
                 }
-
-                /* 删除分类 */
-                .category-item .delete {
-                    float: right;
-                    z-index: $z-index + 2;
+                
+                 /* 删除分类 */
+                .category-item {
+                    position: relative;
+                    .delete {
+                        position: absolute;
+                        right: 20px;
+                        z-index: $z-index + 2;
+                    }
                 }
             }
         }
@@ -66,14 +70,9 @@
 
         /* 编辑预览以及工具栏 */
         .edit-body-header {
-            /* 编辑预览标签卡 */
-            #edit-tabs {
-                //border-bottom: 1px solid $outline-input-color;
-                /* 选中标签卡时加深边线 */
-                li.active a:focus {
-                    // border: 1px solid $outline-input-color;
-                    // border-bottom: 1px solid white;
-                }
+            /* 工具栏 */
+            .post-edit-toolbar {
+                margin-top: 15px;
             }
         }
 

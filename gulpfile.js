@@ -43,7 +43,7 @@ gulp.task('src', function() {
 gulp.task('serve', function() {
   browserSync.init({
     server: './public',
-    port: 3000
+    port: 4000
   });
 });
 

@@ -82,9 +82,10 @@ $(function(){
     
     /* 获取编辑区的节点 */
     $(document).click(function(e){
+        var $edit_node = $(e.target);  // 获取当前页面的点击节点
+        if ( $edit_node.is(".toolbar-item") || $edit_node.is(".toolbar-item i") ) {  return false; }  //节点是工具项,不清除边线
         // 清除之前的边线样式
         edit_border_clear();
-        var $edit_node = $(e.target);  // 获取当前页面的点击节点
         if ( $edit_node.is(".edit-body-node") ) {  // 判断是否为编辑区的节点
             var $edit_or_preview = 0;
             if ( $edit_node.is(".edit-node") ) {

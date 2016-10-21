@@ -83,7 +83,7 @@
 	<div class="mainer">
 		<div class="container-fluid">
 			<!-- 居中 -->
-			<div class="col-md-7 col-center-block content-wrap" >
+			<div class="col-md-8 col-center-block content-wrap" >
 					<div class="edit-post">
 						<!-- 	<div class="page-title">写文章</div>
 							<hr> -->
@@ -128,10 +128,56 @@
 									<div class="edit-body">
 											<!-- 标签卡与工具栏 -->
 											<div class="edit-body-header">
+													<!-- 工具栏 -->
+													<div class="post-edit-toolbar pull-right">
+															<!-- markdown工具栏  -->
+															<div class="mardown-toolbar">
+																<!-- 强调 -->
+																<a class="toolbar-item add-bold" href="#" title="强调">
+																	<i class="fa fa-bold"></i>
+																</a>					
+																<!-- 斜体 -->
+																<a class="toolbar-item add-italic" href="#" title="斜体">
+																	<i class="fa fa-italic"></i>
+																</a>														
+																<!-- 标题 -->
+																<a class="toolbar-item add-header" href="#" title="标题">
+																	<i class="fa fa-header"></i>
+																</a>
+																<span class="divider"></span>
+																<!-- 引用 -->			
+																<a class="toolbar-item add-quote-left" href="#" title="插入引用">
+																	<i class="fa fa-quote-left"></i>
+																</a>
+																<!-- 无序列表 -->			
+																<a class="toolbar-item add-list-ul" href="#" title="无序列表">
+																	<i class="fa fa-list-ul"></i>
+																</a>
+																<!-- 有序列表 -->															
+																<a class="toolbar-item add-list-ol" href="#" title="有序列表">
+																	<i class="fa fa-list-ol"></i>
+																</a>
+																<!-- 代码块 -->
+																<a class="toolbar-item add-code" href="#" title="插入代码">
+																	<i class="fa fa-code"></i>
+																</a>
+																<span class="divider"></span>
+																<!-- 超链接 -->
+																<a class="toolbar-item add-link" href="#" title="插入链接">
+																	<i class="fa fa-link"></i>
+																</a>
+																<!-- 上传图片 -->
+																<a class="toolbar-item upload-image" href="#" title="上传图片">
+																	<i class="fa fa-image"></i>
+																</a>
+															</div>
+													</div>
+													<!-- 标签卡 -->
 													<ul class="nav nav-tabs" id="edit-tabs">
 														<li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
 														<li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
 													</ul>
+
 											</div>
 											<!-- 编辑/预览区 -->
 											<div class="tab-content edit-body-cotent" id="tab-content">
@@ -165,6 +211,6 @@
 	<script src="lib/javascripts/velocity.min.js"></script>
 	<script src="javascripts/application.js"></script>
 	<script src="javascripts/edit-post.js"></script>
-
+	<script src="javascripts/markdown-toolbar.js"></script>
 </body>
 </html>

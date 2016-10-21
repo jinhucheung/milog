@@ -437,6 +437,20 @@
   border-radius: 5px;
 }
 
+.mardown-toolbar {
+  /* 工具项 */
+  /* 分隔竖线 */
+}
+.mardown-toolbar .toolbar-item {
+  padding: 5px 0 5px 10px;
+}
+.mardown-toolbar .divider:before {
+  content: " ";
+  border-left: 1px solid #ddd;
+  margin-right: 2px;
+  margin-left: 8px;
+}
+
 /* layout */
 body {
   font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
@@ -467,6 +481,10 @@ ul {
 }
 .mainer .content-wrap {
   padding-left: 0;
+}
+
+input, textarea {
+  background: white;
 }
 
 /* 导航栏 */
@@ -702,8 +720,12 @@ ul {
   font-size: 12px;
   margin: 2px 8px;
 }
+.edit-post .mainer .edit-header .post-category .post-category-menu .category-item {
+  position: relative;
+}
 .edit-post .mainer .edit-header .post-category .post-category-menu .category-item .delete {
-  float: right;
+  position: absolute;
+  right: 20px;
   z-index: 2;
 }
 .edit-post .mainer .edit-body {
@@ -712,10 +734,10 @@ ul {
   /* 编辑预览正文 */
 }
 .edit-post .mainer .edit-body .edit-body-header {
-  /* 编辑预览标签卡 */
+  /* 工具栏 */
 }
-.edit-post .mainer .edit-body .edit-body-header #edit-tabs {
-  /* 选中标签卡时加深边线 */
+.edit-post .mainer .edit-body .edit-body-header .post-edit-toolbar {
+  margin-top: 15px;
 }
 .edit-post .mainer .edit-body .edit-body-cotent {
   border: 1px solid #ddd;
