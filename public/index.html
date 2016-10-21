@@ -97,13 +97,15 @@
 										 				</div>
 										 </div>
 										 <!-- 文章分类 居右 -->
-										 <div class="dropdown post-category ">
+										 <div class="dropdown post-category">
 										 					分类： 
+										 		<!-- 表单获取分类值 -->
 										 		<input id="post-selected-category-input" type="hidden" class="form-input" name="post[category]" value="默认">
 												<span data-toggle="dropdown" role="button">
 													  <span id="post-selected-category" >默认</span>
 														<span class="caret" ></span>
 												</span>
+												<!-- 分类菜单，同时新建分类 -->
 												<ul class="dropdown-menu post-category-menu">
 										      <li class="category-item li-active"><a><span class="content">默认</span></a></li>
 										      <li class="category-item"><a><span class="content">工作日志</span></a></li>
@@ -120,6 +122,26 @@
 										      <div class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
 										    </ul>
 										 </div>
+									</div>
+									<!-- 编辑框部分 -->
+									<!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
+									<div class="edit-body">
+											<!-- 标签卡与工具栏 -->
+											<div class="edit-body-header">
+													<ul class="nav nav-tabs" id="edit-tabs">
+														<li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
+														<li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
+													</ul>
+											</div>
+											<!-- 编辑/预览区 -->
+											<div class="tab-content edit-body-cotent" id="tab-content">
+													<div class="tab-pane fade in active" id="edit-content">
+															<textarea class="edit-body-node edit-node" name="post[content]" id="editor"></textarea>
+													</div>
+													<div class="tab-pane fade" id="preview-content">
+															<div class="edit-body-node preview-node" id="previewer" >123</div>
+													</div>
+											</div>
 									</div>
 							</form>
 					</div>

@@ -63,3 +63,18 @@
 .li-active {
     background-color: #f5f5f5;
 }
+
+/* 文章编辑区边线加深 */
+.edit-cotent-border-deepen {
+    border: 1px solid $outline-input-color !important;
+    border-top: 1px solid transparent !important;
+}
+/* 文章编辑选项卡边线加深 */
+.edit-tab-border-deepen {
+    border: 1px solid $outline-input-color !important;
+    border-bottom: 1px solid white !important;
+}
+/* 文章编辑选项卡区边线加深 */
+.edit-tabs-border-deepen {
+    border-bottom: 1px solid $outline-input-color !important;
+}

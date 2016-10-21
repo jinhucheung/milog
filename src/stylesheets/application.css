@@ -6,6 +6,8 @@
 /**  变量设置  **/
 /* color : 组件 */
 /* color : 通用 */
+/* 默认的z-index */
+/* 文章编辑区高度 */
 /* 字体设置 */
 /* component */
 /* 清除浮动 */
@@ -51,6 +53,23 @@
 /* 列表项被选中 */
 .li-active {
   background-color: #f5f5f5;
+}
+
+/* 文章编辑区边线加深 */
+.edit-cotent-border-deepen {
+  border: 1px solid #444 !important;
+  border-top: 1px solid transparent !important;
+}
+
+/* 文章编辑选项卡边线加深 */
+.edit-tab-border-deepen {
+  border: 1px solid #444 !important;
+  border-bottom: 1px solid white !important;
+}
+
+/* 文章编辑选项卡区边线加深 */
+.edit-tabs-border-deepen {
+  border-bottom: 1px solid #444 !important;
 }
 
 /* 文章缩略 */
@@ -366,6 +385,58 @@
   padding: 14px 18px;
 }
 
+/*
+ * QNUI 滚动条样式
+ * @see https://github.com/sdc-alibaba/sui
+ */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #fafafa;
+}
+::-webkit-scrollbar-track:hover::-webkit-scrollbar-thumb {
+  background-color: #d5d5d5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #e1e1e1;
+  width: 6px;
+  height: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d5d5d5;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #c8c8c8;
+}
+
+.scrollbar-small::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-small::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: transparent;
+}
+.scrollbar-small::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  background-clip: content-box;
+  border-radius: 5px;
+}
+
 /* layout */
 body {
   font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
@@ -587,6 +658,8 @@ ul {
 .edit-post .mainer {
   /* 页面标题 */
   /* 文章表单区 */
+  /* 编辑文章标题与分类 */
+  /* 编辑文章正文与预览 */
 }
 .edit-post .mainer .page-title {
   font-size: 18px;
@@ -632,6 +705,32 @@ ul {
 .edit-post .mainer .edit-header .post-category .post-category-menu .category-item .delete {
   float: right;
   z-index: 2;
+}
+.edit-post .mainer .edit-body {
+  margin-top: 10px;
+  /* 编辑预览以及工具栏 */
+  /* 编辑预览正文 */
+}
+.edit-post .mainer .edit-body .edit-body-header {
+  /* 编辑预览标签卡 */
+}
+.edit-post .mainer .edit-body .edit-body-header #edit-tabs {
+  /* 选中标签卡时加深边线 */
+}
+.edit-post .mainer .edit-body .edit-body-cotent {
+  border: 1px solid #ddd;
+  border-top: 1px solid transparent;
+  /* 编辑区 */
+  /* 预览区 */
+}
+.edit-post .mainer .edit-body .edit-body-cotent #editor, .edit-post .mainer .edit-body .edit-body-cotent #previewer {
+  width: 100%;
+  height: 400px;
+  border: none;
+  outline: none;
+}
+.edit-post .mainer .edit-body .edit-body-cotent #previewer {
+  display: block;
 }
 
 /* media */

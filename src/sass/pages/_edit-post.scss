@@ -7,6 +7,7 @@
     /* 文章表单区 */
     #post-form {}
 
+    /* 编辑文章标题与分类 */
     .edit-header {
         /* 填写文章标题 */
         .post-title {
@@ -55,6 +56,42 @@
                     float: right;
                     z-index: $z-index + 2;
                 }
+            }
+        }
+    }
+
+    /* 编辑文章正文与预览 */
+    .edit-body {
+        margin-top: 10px;
+
+        /* 编辑预览以及工具栏 */
+        .edit-body-header {
+            /* 编辑预览标签卡 */
+            #edit-tabs {
+                //border-bottom: 1px solid $outline-input-color;
+                /* 选中标签卡时加深边线 */
+                li.active a:focus {
+                    // border: 1px solid $outline-input-color;
+                    // border-bottom: 1px solid white;
+                }
+            }
+        }
+
+        /* 编辑预览正文 */
+        .edit-body-cotent {
+            border: 1px solid #ddd;
+            border-top: 1px solid transparent;
+            /* 编辑区 */
+            #editor {
+                width: 100%;
+                height: $editor-height;
+                border: none;
+                outline: none;
+            }
+            /* 预览区 */
+            #previewer{
+                @extend #editor;
+                display: block;
             }
         }
     }

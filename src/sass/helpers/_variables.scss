@@ -23,8 +23,11 @@ $underline-color: #708090;
 $outline-input-color: #444;   //注意改变值时,要修改login.js
 $placeholder-color: #a9a9a9;
 
-
+/* 默认的z-index */
 $z-index: 0;
+
+/* 文章编辑区高度 */
+$editor-height: 400px;
 
 /* 字体设置 */
 $font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", Roboto, "Heiti SC", "Microsoft Yahei", sans-serif;
