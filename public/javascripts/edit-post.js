@@ -1,7 +1,21 @@
 $(function() {
-    /* 文章分类项选中,处理 */
+    /* 文章分类项删除操作 */
+    function delete_category_item() {
+        $(".post-category-menu").on("click", ".category-item .delete", function() {
+            $category_item = $(this).parent().parent();
+            $selected_item = $(this).prev(".content").html(); //暂存删除分类内容
+            //正在显示的分类与删除的分类相同
+            if ($("#post-selected-category").html() == $selected_item) {
+                $(".category-item").first().click();  //选中默认分类
+            }
+            $category_item.remove();
+            return false; // 阻止事件往上传递
+        });
+    };
+
+    /* 文章分类项选中操作 */
     function select_category_item() {
-        $(".category-item").on("click", function() {
+        $(".post-category-menu").on("click", ".category-item", function() {
             // 切换选中项
             $post_category_selected_li.removeClass("li-active");
             $post_category_selected_li = $(this);
@@ -12,37 +26,15 @@ $(function() {
             $("#post-selected-category-input").attr("value", $selected_item); //更新分类input的值
         });
     };
-    var $post_category_selected_li = $(".post-category-menu .category-item.li-active"); //已选中的分类项
-    select_category_item();
-
-
-    /* 文章分类项删除操作 */
-    function delete_category_item() {
-        $(".category-item").each(function() {
-            var $category_item = $(this);
-						var $selected_item = $(this).children("a").first().find(".content").html();  //暂存删除分类内容
-            $(this).find(".delete").click(function() {
-            		//正在显示的分类与删除的分类相同
-           		 if ( $("#post-selected-category").html() == $selected_item) {
-            	 		$("#post-selected-category").html("");  //置空
-            		  $("#post-selected-category-input").attr("value", "");
-           		 }
-               $category_item.remove();
-            });
-
-        });
-    };
-    delete_category_item();
-
 
     /* 构建文章分类项 */
     function build_category_item($category_name) {
         return "<li class='category-item'>" + //
-            	 " 	<a>" + //
-               "     <span class='content'>" + $category_name + "</span>" + //
-               "     <span class='delete' role='button'>x</span>" + //
-               "	</a>" + //
-               "</li>";
+            "   <a>" + //
+            "     <span class='content'>" + $category_name + "</span>" + //
+            "     <span class='delete' role='button'>x</span>" + //
+            "   </a>" + //
+            "</li>";
     }
 
     /* 添加文章分类项 */
@@ -54,9 +46,11 @@ $(function() {
                 $category_item = build_category_item($category_name);
                 $("#category-item-add-li").before($category_item);
                 $(this).val("");
-                select_category_item();
-                delete_category_item();
             }
         }
     });
+
+    var $post_category_selected_li = $(".post-category-menu .category-item.li-active"); //当前默认已选中的分类项
+    delete_category_item();  //注册事件
+    select_category_item();
 });

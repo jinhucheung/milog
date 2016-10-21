@@ -53,6 +53,7 @@
                 /* 删除分类 */
                 .category-item .delete {
                     float: right;
+                    z-index: $z-index + 2;
                 }
             }
         }

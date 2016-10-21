@@ -631,6 +631,7 @@ ul {
 }
 .edit-post .mainer .edit-header .post-category .post-category-menu .category-item .delete {
   float: right;
+  z-index: 2;
 }
 
 /* media */
