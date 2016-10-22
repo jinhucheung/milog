@@ -83,7 +83,7 @@
 	<div class="mainer">
 		<div class="container-fluid">
 			<!-- 居中 -->
-			<div class="col-md-8 col-center-block content-wrap" >
+			<div class="col-md-9 col-center-block content-wrap" >
 					<div class="edit-post">
 							<form id="post-form" action="#" method="post">
 									<!-- 编辑页头部 -->
@@ -91,7 +91,7 @@
 										 <!-- 文章标题 居左 -->
 										 <div class="post-title">
 										 				<div class="form-group">
-										 					<input type="text" class="form-input" name="post[title]" placeholder="在这里填入文章标题">
+										 					<input id="title-input" type="text" class="form-input" name="post[title]" placeholder="在这里填入文章标题">
 										 				</div>
 										 </div>
 										 <!-- 文章分类 居右 -->
@@ -141,10 +141,10 @@
 											<!-- 编辑/预览区 -->
 											<div class="tab-content edit-body-cotent" id="tab-content">
 													<div class="tab-pane fade in active" id="edit-content">
-															<textarea class="edit-body-node edit-node" name="post[content]" id="editor"></textarea>
+															<textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor"></textarea>
 													</div>
 													<div class="tab-pane fade" id="preview-content">
-															<div class="edit-body-node preview-node" id="previewer" >123</div>
+															<div class="edit-body-node preview-node" id="previewer" ></div>
 													</div>
 											</div>
 									</div>
@@ -183,12 +183,22 @@
 		<span class="glyphicon glyphicon-chevron-up"></span>
 	</div>
 
-
 	<script src="lib/javascripts/jquery-3.1.1.min.js"></script>
 	<script src="lib/javascripts/bootstrap.min.js"></script>
 	<script src="lib/javascripts/velocity.min.js"></script>
+	<script src="lib/javascripts/tabIndent.js"></script>
+	<script src="lib/javascripts/markdown-it.min.js"></script>
 	<script src="javascripts/application.js"></script>
 	<script src="javascripts/edit-post.js"></script>
 	<script src="javascripts/markdown-toolbar.js"></script>
+	<script>
+			tabIndent.renderAll();  //为textarea添加tabIndent类标识 可使用tab缩进
+			var md = window.markdownit();			//markdown-it 解析markdown格式
+			$("#edit-tabs .preview-node").click(function(){
+				   var result = md.render($("#editor").val());
+				   console.log(result);
+				   $("#previewer").html(result);
+			});
+	</script>
 </body>
 </html>

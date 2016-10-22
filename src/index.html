@@ -83,44 +83,11 @@
 	<div class="mainer">
 		<div class="container-fluid">
 			<!-- 居中 -->
-			<div class="col-md-8 col-center-block content-wrap" >
+			<div class="col-md-9 col-center-block content-wrap" >
 					<div class="edit-post">
 							<form id="post-form" action="#" method="post">
 									<!-- 编辑页头部 -->
-									<div class="edit-header">
-										 <!-- 文章标题 居左 -->
-										 <div class="post-title">
-										 				<div class="form-group">
-										 					<input type="text" class="form-input" name="post[title]" placeholder="在这里填入文章标题">
-										 				</div>
-										 </div>
-										 <!-- 文章分类 居右 -->
-										 <div class="dropdown post-category">
-										 					分类： 
-										 		<!-- 表单获取分类值 -->
-										 		<input id="post-selected-category-input" type="hidden" class="form-input" name="post[category]" value="默认">
-												<span data-toggle="dropdown" role="button">
-													  <span id="post-selected-category" >默认</span>
-														<span class="caret" ></span>
-												</span>
-												<!-- 分类菜单，同时新建分类 -->
-												<ul class="dropdown-menu post-category-menu">
-										      <li class="category-item li-active"><a><span class="content">默认</span></a></li>
-										      <li class="category-item"><a><span class="content">工作日志</span></a></li>
-										      <li class="category-item"><a><span class="content">学习</span></a></li>
-										      <!-- 用户创建分类，可删除 -->
-										      <li class="category-item">
-										      	  <a><span class="content">Linux</span><span class="delete" role="button">x</span></a>
-										      </li>
-										      <li class="category-item">
-										      	  <a><span class="content">数据</span><span class="delete" role="button">x</span></a>
-										      </li>
-										      <li id="category-item-add-li"><a><input type="text" id="category-item-add" maxlength="8" placeholder="新的分类/回车确认"></a>
-										      </li>
-										      <div class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
-										    </ul>
-										 </div>
-									</div>
+
 									<!-- 编辑框部分 -->
 									<!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
 									<div class="edit-body">
@@ -149,18 +116,7 @@
 											</div>
 									</div>
 									<!-- 标签选择与提交 -->
-									<div class="edit-footer">
-											<!-- 填如标签,最多5个标签 -->
-											<div class="form-group tabs-input">
-													<input id="tab-input" class="form-input" type="text" name="post[tags]" placeholder="请输入关键字, 用逗号隔开, 最多5个">
-													<span >标签: </span>
-											</div>
-											<!-- 提交按钮 -->
-											<div class="form-group post-btns" >
-													<button class="save-btn" data-style="slide-up" type="submit">保存草稿</button>
-													<button class="post-btn" data-style="slide-up" type="submit">发布文章</button>
-											</div>
-									</div>
+
 							</form>
 					</div>
 			</div>
@@ -187,8 +143,19 @@
 	<script src="lib/javascripts/jquery-3.1.1.min.js"></script>
 	<script src="lib/javascripts/bootstrap.min.js"></script>
 	<script src="lib/javascripts/velocity.min.js"></script>
+	<script src="lib/javascripts/tabIndent.js"></script>
+	<script src="lib/javascripts/markdown-it.min.js"></script>
 	<script src="javascripts/application.js"></script>
 	<script src="javascripts/edit-post.js"></script>
 	<script src="javascripts/markdown-toolbar.js"></script>
+	<script>
+			tabIndent.renderAll();  //为textarea添加tabIndent类标识 可使用tab缩进
+			var md = window.markdownit();			//markdown-it 解析markdown格式
+			$("#edit-tabs .preview-node").click(function(){
+				   var result = md.render($("#editor").val());
+				   console.log(result);
+				   $("#previewer").html(result);
+			});
+	</script>
 </body>
 </html>

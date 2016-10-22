@@ -117,12 +117,16 @@ $(function(){
     });
 });
 
-/* 阻止输入框Enter后,提交至表单 */
-$(document).ready(function() {
-  $(window).keydown(function(event){
-    if(event.keyCode == 13) {
-      event.preventDefault();
-      return false;
+/* 输入框Enter后禁止提交 */
+function LimitEnterNotSumbit($event){
+    if($event.keyCode == 13) {
+        $event.preventDefault();
+        return false;
     }
-  });
+}
+
+$(function(){
+    $("#title-input").on("keydown",LimitEnterNotSumbit);
+    $("#category-item-add").on("keydown",LimitEnterNotSumbit);
+    $("#tab-input").on("keydown",LimitEnterNotSumbit);
 });
