@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<link rel="stylesheet" href="stylesheets/application.css">
-
 	<title>Milog</title>
 </head>
 <body class="edit-post">
@@ -188,12 +187,23 @@
 	<script src="lib/javascripts/velocity.min.js"></script>
 	<script src="lib/javascripts/tabIndent.js"></script>
 	<script src="lib/javascripts/markdown-it.min.js"></script>
+	<script src="lib/javascripts/highlight.pack.js"></script>  
+	<script>hljs.initHighlightingOnLoad(); //支持语法高亮 </script>
 	<script src="javascripts/application.js"></script>
 	<script src="javascripts/edit-post.js"></script>
 	<script src="javascripts/markdown-toolbar.js"></script>
 	<script>
 			tabIndent.renderAll();  //为textarea添加tabIndent类标识 可使用tab缩进
-			var md = window.markdownit();			//markdown-it 解析markdown格式
+			var md = window.markdownit({ 
+				highlight: function(str, lang){
+											if (lang && hljs.getLanguage(lang)) {
+							      		try {
+							        		return hljs.highlight(lang, str).value;
+							      		} catch (__) {}
+							    		}
+    									return '';
+    								} 
+    		});			//markdown-it 解析markdown格式 window.markdownit({html: true});
 			$("#edit-tabs .preview-node").click(function(){
 				   var result = md.render($("#editor").val());
 				   console.log(result);

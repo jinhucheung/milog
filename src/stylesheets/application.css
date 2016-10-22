@@ -2,6 +2,7 @@
 /* lib */
 @import url(../lib/stylesheets/bootstrap/css/bootstrap.min.css);
 @import url(../lib/stylesheets/font-awesome/css/font-awesome.min.css);
+@import url(../lib/stylesheets/highlight-default.css);
 /* helpers */
 /**  变量设置  **/
 /* color : 组件 */
