@@ -124,7 +124,6 @@ function LimitEnterNotSumbit($event){
         return false;
     }
 }
-
 $(function(){
     $("#title-input").on("keydown",LimitEnterNotSumbit);
     $("#category-item-add").on("keydown",LimitEnterNotSumbit);

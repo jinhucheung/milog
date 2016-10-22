@@ -206,8 +206,12 @@
     		});			//markdown-it 解析markdown格式 window.markdownit({html: true});
 			$("#edit-tabs .preview-node").click(function(){
 				   var result = md.render($("#editor").val());
-				   console.log(result);
 				   $("#previewer").html(result);
+				   //console.log(result);
+				   $is_previewing = true;
+			});
+			$("#edit-tabs .edit-node").click(function(){
+				   $is_previewing = false;
 			});
 	</script>
 </body>
