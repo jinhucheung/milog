@@ -19,7 +19,7 @@ var Item = {
 };
 /* 工具项 { name: 标签名 用于识别, title:用于提示, offset_start: 光标起始偏移量, offset_end： 光标结束偏移量, markdown: md格式字符 } */
 var $items = new Array({ name: "bold", title: Item.Title1, offset_start: -4, offset_end: -2, markdown: ("**" + Item.Title1 + "**") }, //
-    { name: "italic", title: Item.Title2, offset_start: -3, offset_end: -1, markdown: ("_" + Item.Title2 + "_") }, //
+    { name: "italic", title: Item.Title2, offset_start: -4, offset_end: -2, markdown: (" _" + Item.Title2 + "_ ") }, //
     { name: "header", title: Item.Title3, offset_start: -2, offset_end: 0, markdown: ("### " + Item.Title3) }, //
     1, //	分隔线
     { name: "quote-left", title: Item.Title4, offset_start: -8, offset_end: 0, markdown: ("> 这里输入引用文本") }, //
@@ -27,8 +27,8 @@ var $items = new Array({ name: "bold", title: Item.Title1, offset_start: -4, off
     { name: "list-ol", title: Item.Title6, offset_start: -15, offset_end: -8, markdown: ("1. 这里是列表文本\n2. \n3. ") }, //
     { name: "code", title: Item.Title7, offset_start: -10, offset_end: -4, markdown: ("```\n这里输入代码\n```")}, //
     1, //	分隔线
-    { name: "link", title: Item.Title8, offset_start: -8, offset_end: -1, markdown: ("[输入链接说明](http://)") }, //
-    { name: "image", title: Item.Title9, offset_start: 0, offset_end: 0, markdown: ("![输入图片说明](http://)") } //
+    { name: "link", title: Item.Title8, offset_start: -16, offset_end: -10, markdown: ("[输入链接说明](http://)") }, //
+    { name: "image", title: Item.Title9, offset_start: -16, offset_end: -10, markdown: ("![输入图片说明](http://)") } //
 );
 
 
@@ -44,17 +44,30 @@ function insert_at_cursor($editor, $insert_str, $offset_start, $offset_end) {
     //IE 支持
     if (document.selection) {
         $editor.focus();
+        var selection = "";
         sel = document.selection.createRange();
+        selection = sel.text;
         sel.text = $insert_str;
         sel.moveStart("character",$offset_start);
-        sel.moveEnd("character",$offset_end);       
+        sel.moveEnd("character",$offset_end);     
         sel.select();
+        if ( selection != "" ) {
+            sel.text = selection;
+        }
     } else if ($editor.selectionStart || $editor.selectionStart == '0') { //Firefox/Chrome 等支持
+        var selection = "";
         var startPos = $editor.selectionStart;
         var endPos = $editor.selectionEnd;
+        if ( startPos != endPos ) {  //已选中字符
+            selection = $editor.value.substring(startPos,endPos);
+        }
         $editor.value = $editor.value.substring(0, startPos) + $insert_str + $editor.value.substring(endPos, $editor.value.length);
         $editor.selectionStart = startPos + $insert_str.length + $offset_start;
         $editor.selectionEnd = startPos + $insert_str.length + $offset_end;
+        // 再进行选中字符替换
+        if ( selection != "" ) {
+            $editor.value = $editor.value.substring(0, $editor.selectionStart) + selection + $editor.value.substring($editor.selectionEnd, $editor.value.length);
+        }
     } else {
         $editor.value += $insert_str; //直接在编辑文本末插入字符
     }

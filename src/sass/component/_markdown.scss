@@ -1,0 +1,13 @@
+/* 修改markdown预览的table样式 */
+#editor, #previewer {
+	padding: 5px 15px;
+	h1, h2, h3 {
+		padding-bottom:  10px;
+		border-bottom:  1px solid #ddd;
+	}
+	ul ul {
+			margin: 1px 0;
+			list-style-type: circle;
+			padding-left: 15px;
+	}
+}

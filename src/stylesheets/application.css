@@ -3,6 +3,7 @@
 @import url(../lib/stylesheets/bootstrap/css/bootstrap.min.css);
 @import url(../lib/stylesheets/font-awesome/css/font-awesome.min.css);
 @import url(../lib/stylesheets/highlight-default.css);
+@import url(../lib/stylesheets/markdown-standard.css);
 /* helpers */
 /**  变量设置  **/
 /* color : 组件 */
@@ -449,6 +450,20 @@
   content: " ";
   border-left: 1px solid #ddd;
   margin: 0 5px;
+}
+
+/* 修改markdown预览的table样式 */
+#editor, .edit-post .mainer .edit-body .edit-body-cotent #previewer, #previewer {
+  padding: 5px 15px;
+}
+#editor h1, .edit-post .mainer .edit-body .edit-body-cotent #previewer h1, #editor h2, .edit-post .mainer .edit-body .edit-body-cotent #previewer h2, #editor h3, .edit-post .mainer .edit-body .edit-body-cotent #previewer h3, #previewer h1, #previewer h2, #previewer h3 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+#editor ul ul, .edit-post .mainer .edit-body .edit-body-cotent #previewer ul ul, #previewer ul ul {
+  margin: 1px 0;
+  list-style-type: circle;
+  padding-left: 15px;
 }
 
 /* layout */
