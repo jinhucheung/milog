@@ -1,16 +1,16 @@
 .standard h1 {
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 670;
   margin: 0.67em 0;
 }
 .standard h2 {
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: 670;
   margin: 0.83em 0;
 }
 .standard h3 {
-  font-size: 1.17em;
-  font-weight: bold;
+  font-size: 1.3em;
+  font-weight: 670;
   margin: 1em 0;
 }
 .standard p {

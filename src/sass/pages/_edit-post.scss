@@ -86,12 +86,14 @@
                 height: $editor-height;
                 border: none;
                 outline: none;
+                padding: 5px 15px;
             }
             /* 预览区 */
             #previewer{
                 @extend #editor;
                 height: $editor-height + 5px;
                 display: block;
+                padding: 5px 15px;
                 overflow: auto;  //添加滚动条
             }
         }

@@ -453,17 +453,51 @@
 }
 
 /* 修改markdown预览的table样式 */
-#editor, .edit-post .mainer .edit-body .edit-body-cotent #previewer, #previewer {
-  padding: 5px 15px;
-}
-#editor h1, .edit-post .mainer .edit-body .edit-body-cotent #previewer h1, #editor h2, .edit-post .mainer .edit-body .edit-body-cotent #previewer h2, #editor h3, .edit-post .mainer .edit-body .edit-body-cotent #previewer h3, #previewer h1, #previewer h2, #previewer h3 {
+.markdown-body h1,
+.markdown-body h2 {
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
 }
-#editor ul ul, .edit-post .mainer .edit-body .edit-body-cotent #previewer ul ul, #previewer ul ul {
-  margin: 1px 0;
-  list-style-type: circle;
+.markdown-body h4 {
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+.markdown-body ul ul {
+  margin: 2px 0;
   padding-left: 15px;
+  list-style-type: circle;
+}
+.markdown-body ul ul ul {
+  list-style-type: disc;
+}
+.markdown-body ol ol {
+  margin: 2px 0;
+  padding-left: 15px;
+  list-style-type: upper-roman;
+}
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+.markdown-body blockquote {
+  font-size: 14px;
+  margin: 5px 0px;
+  padding: 0 10px;
+  border-left: 3px solid #ddd;
+}
+.markdown-body a {
+  color: #3366bb !important;
+}
+.markdown-body a:hover {
+  padding-bottom: 1px;
+  color: #3366bb !important;
+  border-bottom: 1px solid #3366bb;
+}
+.markdown-body code {
+  background-color: #f7f7f7;
+  color: black;
+}
+.markdown-body pre {
+  border: none;
 }
 
 /* layout */
@@ -766,10 +800,12 @@ input, textarea {
   height: 400px;
   border: none;
   outline: none;
+  padding: 5px 15px;
 }
 .edit-post .mainer .edit-body .edit-body-cotent #previewer {
   height: 405px;
   display: block;
+  padding: 5px 15px;
   overflow: auto;
 }
 .edit-post .mainer .edit-footer {
