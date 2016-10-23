@@ -1,16 +1,21 @@
 /* 修改markdown预览的table样式 */
 .markdown-body {
-    
     h1,
     h2 {
+        padding-top: 15px;
         padding-bottom: 10px;
         border-bottom: 1px solid #ddd;
     }
-	
-		h4 {
-			  font-size: 1.2em;
-  			margin: 1em 0;
-		}
+
+    h3 {
+        padding-top: 10px;
+    }
+
+
+    h4 {
+        font-size: 1.2em;
+        margin: 1em 0;
+    }
 
     ul ul {
         margin: 2px 0;
@@ -53,7 +58,6 @@
         background-color: #f7f7f7;
         color: black;
     }
-
 
     pre {
         border: none;

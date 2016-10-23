@@ -1,23 +1,14 @@
-/* 文章缩略 */
-.posts-expand {
-    /* 文章缩略内容 */
-    .post-body {
-        padding: 24px 0;
-        line-height: 2;
-        color: $post-content-color;
-    }
-
-    .post {
-        padding: 50px 0;
-    }
-}
-
+/* 一篇文章样式 */
 .post {
+    /* 头部居中 */
+    .post-header-center {
+        text-align: center;
+    }
+
     /* 标题 */
     .post-title {
         margin-top: 0;
-
-        .post-title-link {
+        .post-title-normal {
             display: inline-block;
             position: relative;
             vertical-align: top;
@@ -25,7 +16,10 @@
             font-size: 24px;
             border-bottom: none;
             color: $post-title-color !important;
+        }
 
+        .post-title-link {
+            @extend .post-title-normal;
             @include next-hover-underline($post-title-color);
         }
     }
@@ -59,6 +53,56 @@
 
         &:hover {
             border-bottom: 1px solid $lightblack;
+        }
+    }
+
+    /* 文章正文 */
+    .post-body {
+        padding: 24px 0;
+        line-height: 2;
+        color: $post-content-color;
+    }
+
+    /* 文章导航 */
+    .post-nav {
+        .post-nav-item {
+            display: inline-block;
+            width: 50%;
+        }
+
+        .post-nav-prev {
+            float: left;
+        }
+
+        .post-nav-next {
+            float: right;
+            text-align: right;
+        }
+    }
+}
+
+/* 文章缩略修调的样式 */
+.posts-expand {
+    /* 文章缩略内容 */
+    .post {
+        padding: 50px 0;
+    }
+}
+
+/* 文章阅览修调的样式 */
+.post-expand {
+    .post-body {
+        margin-top: 10px;
+    }
+
+    .post-footer {
+        margin-top: 10px;
+
+        /* 文章导航 */
+        .post-nav {
+            margin-top: 50px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
         }
     }
 }

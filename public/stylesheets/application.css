@@ -74,29 +74,23 @@
   border-bottom: 1px solid #444 !important;
 }
 
-/* 文章缩略 */
-.posts-expand {
-  /* 文章缩略内容 */
-}
-.posts-expand .post-body {
-  padding: 24px 0;
-  line-height: 2;
-  color: #666;
-}
-.posts-expand .post {
-  padding: 50px 0;
-}
-
+/* 一篇文章样式 */
 .post {
+  /* 头部居中 */
   /* 标题 */
   /* 文章属性 */
   /*文章标签*/
   /* 全文阅读 */
+  /* 文章正文 */
+  /* 文章导航 */
+}
+.post .post-header-center {
+  text-align: center;
 }
 .post .post-title {
   margin-top: 0;
 }
-.post .post-title .post-title-link {
+.post .post-title .post-title-normal, .post .post-title .post-title-link {
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -139,6 +133,44 @@
 }
 .post .post-more-link:hover {
   border-bottom: 1px solid #444;
+}
+.post .post-body {
+  padding: 24px 0;
+  line-height: 2;
+  color: #666;
+}
+.post .post-nav .post-nav-item {
+  display: inline-block;
+  width: 50%;
+}
+.post .post-nav .post-nav-prev {
+  float: left;
+}
+.post .post-nav .post-nav-next {
+  float: right;
+  text-align: right;
+}
+
+/* 文章缩略修调的样式 */
+.posts-expand {
+  /* 文章缩略内容 */
+}
+.posts-expand .post {
+  padding: 50px 0;
+}
+
+/* 文章阅览修调的样式 */
+.post-expand .post-body {
+  margin-top: 10px;
+}
+.post-expand .post-footer {
+  margin-top: 10px;
+  /* 文章导航 */
+}
+.post-expand .post-footer .post-nav {
+  margin-top: 50px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
 }
 
 /* 构建标点 */
@@ -455,8 +487,12 @@
 /* 修改markdown预览的table样式 */
 .markdown-body h1,
 .markdown-body h2 {
+  padding-top: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
+}
+.markdown-body h3 {
+  padding-top: 10px;
 }
 .markdown-body h4 {
   font-size: 1.2em;

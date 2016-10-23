@@ -9,7 +9,7 @@
 
 	<title>Milog</title>
 </head>
-<body class="edit-post">
+<body>
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -83,41 +83,110 @@
 	<div class="mainer">
 		<div class="container-fluid">
 			<!-- 居中 -->
-			<div class="col-md-9 col-center-block content-wrap" >
-					<div class="edit-post">
-							<form id="post-form" action="#" method="post">
-									<!-- 编辑页头部 -->
-
-									<!-- 编辑框部分 -->
-									<!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
-									<div class="edit-body">
-											<!-- 标签卡与工具栏 -->
-											<div class="edit-body-header">
-													<!-- 工具栏 -->
-													<div class="post-edit-toolbar pull-right">
-															<!-- markdown工具栏  -->
-															<div class="mardown-toolbar"></div>
+			<div class="col-md-7 col-center-block content-wrap" >
+					<div id="content">
+							<section class="post-expand" >
+								<article class="post">
+											<!-- 文章属性 -->
+											<header class="post-header post-header-center">
+													<!-- 标题 -->
+													<h1 class="post-title" ><span class="post-title-normal" >Ruby/Rails Linux搭建Rails开发环境</span></h1>
+													<!-- 文章属性 -->
+													<div class="post-meta">
+													  <!-- 发布时间 -->
+														<span class="post-time">
+																<span class="post-meta-item-text">发布于</span>
+																 <time datetime="2016-09-17T19:46:06+08:00" content="2016-09-17">2016-09-17</time>
+														</span>
+														<!-- 文章分类 -->
+														<span class="post-category"> &nbsp;|&nbsp; 
+																<span class="post-meta-item-text">分类于</span>
+																<a href="#">学习</a>
+														</span>
+														<!-- 阅读与评论数 -->
+														<span class="post-view-comments"> &nbsp;|&nbsp;
+																<span class="post-meta-item-text">阅读</span> · 
+																<span class="post-view-count">15</span>&nbsp;
+																<span class="post-meta-item-text">评论</span> · 
+																<span class="post-view-count">1</span>
+														</span>
+														<span class="post-edit"> &nbsp;|&nbsp;
+																<a href="#">编辑</a>
+														</span>
 													</div>
-													<!-- 标签卡 -->
-													<ul class="nav nav-tabs" id="edit-tabs">
-														<li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
-														<li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
-													</ul>
+											</header>
 
+											<!-- 文章内容 -->
+											<div class="post-body">
+													<div class="standard markdown-body">
+## 1. Ruby开发环境搭建
+
+###  1.1 Ruby安装
+Ruby安装方式可以分为两种,一种是源码编译安装,另一种是第三方工具RVM/rbenv来安装管理Ruby环境
+
+#### 1.1.1 从源码编译安装
+1. 通过以下URL下载Ruby源代码
+  - https://www.ruby-lang.org/zh_cn/
+2. 解压并安装
+  请看[Linux 学习之软件安装:源码与Tarball ](https://github.com/HiKumho/blog/issues/31)
+
+#### 1.1.2 使用rbenv安装管理
+请查看ruby-china的相关wiki  https://ruby-china.org/wiki/rbenv-guide
+
+###  1.2 编辑器
+这里我选择使用vim来作为ruby/rails的开发工具
+
+## 2. Rails开发环境搭建
+
+### 2.1 安装Rails
+安装指定版本的`rails`
+```
+$ gem install rails -v 5.0.0.1 
+```
+
+### 2.2 创建Rails项目
+
+![输入图片说明](http://static.oschina.net/uploads/space/2016/1021/083214_yS5H_2903254.png)
+
+### 2.3 Rails项目目录结构
+
+|文件/目录|作用|
+|:---:|:---:|
+|app/|应用的核心文件,包含模型/视图/控制器等方法|
+|app/assets|应用的资源文件,如CSS/JS/图像等|
+|bin/|可执行二进制文件|
+|bin/rails|生成代码,打开终端会话或者启动本机服务器程序|
+
+注意newname是唯一的,别人注册过就不能使用了
+													</div>
 											</div>
-											<!-- 编辑/预览区 -->
-											<div class="tab-content edit-body-cotent" id="tab-content">
-													<div class="tab-pane fade in active" id="edit-content">
-															<textarea class="edit-body-node edit-node" name="post[content]" id="editor"></textarea>
-													</div>
-													<div class="tab-pane fade" id="preview-content">
-															<div class="edit-body-node preview-node" id="previewer" >123</div>
-													</div>
-											</div>
-									</div>
-									<!-- 标签选择与提交 -->
 
-							</form>
+											<!-- 标签与文章导航 -->
+											<footer class="post-footer">
+													<div class="post-tags" >
+														<a href="#"># Ruby</a> · 
+														<a href="#"># Linux</a>
+													</div>
+
+													<div class="post-nav">
+														<!-- 上一篇文章 -->
+														<div class="post-nav-prev post-nav-item">
+																<a href="#">
+																	<i class="fa fa-chevron-left"></i>&nbsp;Linux 服务器篇 远端连接服务器
+																</a>
+														</div>
+														<!-- 下一篇文章 -->
+														<div class="post-nav-next post-nav-item">
+																<a href="#">
+																	Linux 服务器篇 网络基础知识&nbsp;<i class="fa fa-chevron-right"></i>
+																</a>
+														</div>
+													</div>
+											</footer>
+								</article>
+
+
+							</section>
 					</div>
 			</div>
 		</div>
@@ -140,22 +209,37 @@
 	</div>
 
 
-	<script src="lib/javascripts/jquery-3.1.1.min.js"></script>
+  <script src="lib/javascripts/jquery-3.1.1.min.js"></script>
 	<script src="lib/javascripts/bootstrap.min.js"></script>
 	<script src="lib/javascripts/velocity.min.js"></script>
 	<script src="lib/javascripts/tabIndent.js"></script>
 	<script src="lib/javascripts/markdown-it.min.js"></script>
+	<script src="lib/javascripts/highlight.pack.js"></script>  
+	<script>hljs.initHighlightingOnLoad(); //支持语法高亮 </script>
 	<script src="javascripts/application.js"></script>
-	<script src="javascripts/edit-post.js"></script>
 	<script src="javascripts/markdown-toolbar.js"></script>
 	<script>
 			tabIndent.renderAll();  //为textarea添加tabIndent类标识 可使用tab缩进
-			var md = window.markdownit();			//markdown-it 解析markdown格式
-			$("#edit-tabs .preview-node").click(function(){
-				   var result = md.render($("#editor").val());
-				   console.log(result);
-				   $("#previewer").html(result);
-			});
+			var md = window.markdownit({ 
+				linkify:      true,  																		// 标识超链接
+				highlight: function(str, lang){													// 语法高亮
+											if (lang && hljs.getLanguage(lang)) {
+							      		try {
+							        		return hljs.highlight(lang, str).value;
+							      		} catch (__) {}
+							    		}
+    									return '';
+    								} 
+    		});			//markdown-it 解析markdown格式 window.markdownit({html: true});
+			md.renderer.rules.table_open = function(tokens, idx) {  //添加table规则
+     				return '<table class="table table-striped table-bordered">';
+			};
+			var result = md.render($(".markdown-body").html());
+			console.log($(".markdown-body").html());
+			console.log(result);
+			$(".markdown-body").html(result);
 	</script>
 </body>
 </html>
+
+
