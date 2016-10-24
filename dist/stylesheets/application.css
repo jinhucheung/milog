@@ -11,6 +11,7 @@
 /* color : 通用 */
 /* 默认的z-index */
 /* 文章编辑区高度 */
+/* 表情选择器 */
 /* 字体设置 */
 /* component */
 /* 清除浮动 */
@@ -473,6 +474,7 @@
 }
 
 .markdown-toolbar {
+  position: relative;
   /* 工具项 */
   /* 分隔竖线 */
 }
@@ -535,6 +537,34 @@
 }
 .markdown-body pre {
   border: none;
+}
+
+.emoji-picker {
+  position: absolute;
+  left: 150px;
+  z-index: 15;
+  width: 225px;
+  height: 230px;
+  padding: 5px 2px 5px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-align: center;
+}
+.emoji-picker .emoji-menu-tabs {
+  text-align: center;
+}
+.emoji-picker .emoji-menu-tabs .emoji-menu-tab {
+  padding: 2px 1px;
+}
+.emoji-picker .emoji-content {
+  text-align: left;
+  height: 190px;
+  overflow: auto;
+  padding-left: 1px;
+  margin-top: 3px;
+}
+.emoji-picker .emoji-content .emoji-item {
+  margin: 1px 3px;
 }
 
 /* layout */
@@ -761,7 +791,6 @@ input, textarea {
 
 .edit-post .mainer {
   /* 页面标题 */
-  /* 文章表单区 */
   /* 编辑文章标题与分类 */
   /* 编辑文章正文与预览 */
   /*标签选择与提交 */

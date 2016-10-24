@@ -84,8 +84,25 @@
 		<div class="container-fluid">
 			<!-- 居中 -->
 			<div class="col-md-9 col-center-block content-wrap" >
-
+					<div class="markdown-toolbar">
+						<a class="toolbar-item add-bold" href='#' title="强调"><i class="fa fa-bold"></i></a>
+						<a class="toolbar-item add-italic" href='#' title="斜体"><i class="fa fa-italic"></i></a>
+						<a class="toolbar-item add-header" href='#' title="标题"><i class="fa fa-header"></i></a>
+						<span class="divider"></span>
+						<a class="toolbar-item add-quote-left" href='#' title="引用"><i class="fa fa-quote-left"></i></a>
+						<a class="toolbar-item add-list-ul" href='#' title="无序列表"><i class="fa fa-list-ul"></i></a>
+						<a class="toolbar-item add-list-ol" href='#' title="有序列表"><i class="fa fa-list-ol"></i></a>
+						<a class="toolbar-item add-code" href='#' title="代码"><i class="fa fa-code"></i></a>
+						<span class="divider"></span>
+						<a class="toolbar-item add-link" href='#' title="链接"><i class="fa fa-link"></i></a>
+						<a class="toolbar-item add-image" href='#' title="图片"><i class="fa fa-image"></i></a>
+						<a class="toolbar-item add-smile-o" href='#' title="表情"  data-toggle='dropdown'><i class="fa fa-smile-o"></i></a>
+						<div class="dropdown-menu emoji-picker">
+							1
+						</div>
 					</div>
+					<div style="background:gray ; height: 500px"> 1</div>
+			
 			</div>
 		</div>
 	</div>
@@ -126,7 +143,6 @@
 
   <!-- 配置 -->
 	<script>
-			/* 为textarea添加tabIndent类标识 可使用tab缩进 */
 
 			/* markdownit配置 */
 			var md = window.markdownit({ 
@@ -146,8 +162,7 @@
 			md.renderer.rules.emoji = function(token, idx) {  //支持emoji图标
   					return '<i class="em em-' + token[idx].markup + '"></i>';
 			};
-			
-
+		
 	</script>
 </body>
 </html>
