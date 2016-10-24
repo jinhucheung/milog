@@ -9,7 +9,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('clean', function(callback) {
-  return del('./public/', callback);
+  return del('./dist/', callback);
 });
 
 gulp.task('build', function(callback) {
@@ -27,7 +27,7 @@ gulp.task('compass', function() {
       console.log(err);
       this.emit('end');
     })
-    .pipe(gulp.dest('./public/stylesheets/'));
+    .pipe(gulp.dest('./dist/stylesheets/'));
 });
 
 gulp.task('src', function() {
@@ -37,12 +37,12 @@ gulp.task('src', function() {
       './src/lib*/**/*',
       './src/javascripts*/**/*',
     ])
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest('./dist/'));
 })
 
 gulp.task('serve', function() {
   browserSync.init({
-    server: './public',
+    server: './dist',
     port: 4000
   });
 });

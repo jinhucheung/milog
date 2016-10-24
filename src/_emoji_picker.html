@@ -9,7 +9,7 @@
 
 	<title>Milog</title>
 </head>
-<body class="edit-post">
+<body>
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -84,84 +84,7 @@
 		<div class="container-fluid">
 			<!-- 居中 -->
 			<div class="col-md-9 col-center-block content-wrap" >
-					<div class="edit-post">
-							<form id="post-form" action="#" method="post">
-									<!-- 编辑页头部 -->
-									<div class="edit-header">
-										 <!-- 文章标题 居左 -->
-										 <div class="post-title">
-										 				<div class="form-group">
-										 					<input id="title-input" type="text" class="form-input" name="post[title]" placeholder="在这里填入文章标题">
-										 				</div>
-										 </div>
-										 <!-- 文章分类 居右 -->
-										 <div class="dropdown post-category">
-										 					分类： 
-										 		<!-- 表单获取分类值 -->
-										 		<input id="post-selected-category-input" type="hidden" class="form-input" name="post[category]" value="默认">
-												<span data-toggle="dropdown" role="button">
-													  <span id="post-selected-category" >默认</span>
-														<span class="caret" ></span>
-												</span>
-												<!-- 分类菜单，同时新建分类 -->
-												<ul class="dropdown-menu post-category-menu">
-										      <li class="category-item li-active"><a><span class="content">默认</span></a></li>
-										      <li class="category-item"><a><span class="content">工作日志</span></a></li>
-										      <li class="category-item"><a><span class="content">学习</span></a></li>
-										      <!-- 用户创建分类，可删除 -->
-										      <li class="category-item">
-										      	  <a><span class="content">Linux</span><span class="delete" role="button">x</span></a>
-										      </li>
-										      <li class="category-item">
-										      	  <a><span class="content">数据</span><span class="delete" role="button">x</span></a>
-										      </li>
-										      <li id="category-item-add-li"><a><input type="text" id="category-item-add" maxlength="8" placeholder="新的分类/回车确认"></a>
-										      </li>
-										      <div class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
-										    </ul>
-										 </div>
-									</div>
-									<!-- 编辑框部分 -->
-									<!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
-									<div class="edit-body">
-											<!-- 标签卡与工具栏 -->
-											<div class="edit-body-header">
-													<!-- 工具栏 -->
-													<div class="post-edit-toolbar pull-right">
-															<!-- markdown工具栏  -->
-															<div class="markdown-toolbar" style="position: relative;"></div>
-													</div>
-													<!-- 标签卡 -->
-													<ul class="nav nav-tabs" id="edit-tabs">
-														<li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
-														<li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
-													</ul>
 
-											</div>
-											<!-- 编辑/预览区 -->
-											<div class="tab-content edit-body-cotent" id="tab-content">
-													<div class="tab-pane fade in active" id="edit-content">
-															<textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor"></textarea>
-													</div>
-													<div class="tab-pane fade" id="preview-content">
-															<div class="edit-body-node preview-node standard markdown-body" id="previewer" ></div>
-													</div>
-											</div>
-									</div>
-									<!-- 标签选择与提交 -->
-									<div class="edit-footer">
-											<!-- 填如标签,最多5个标签 -->
-											<div class="form-group tabs-input">
-													<input id="tab-input" class="form-input" type="text" name="post[tags]" placeholder="请输入关键字, 用逗号隔开, 最多5个">
-													<span >标签: </span>
-											</div>
-											<!-- 提交按钮 -->
-											<div class="form-group post-btns" >
-													<button class="save-btn" data-style="slide-up" type="submit">保存草稿</button>
-													<button class="post-btn" data-style="slide-up" type="submit">发布文章</button>
-											</div>
-									</div>
-							</form>
 					</div>
 			</div>
 		</div>
@@ -199,11 +122,11 @@
 	<script src="javascripts/application.js"></script>
 	<script src="javascripts/edit-post.js"></script>
 	<script src="javascripts/markdown-toolbar.js"></script>
+	<script src="javascripts/emoji-picker.js"></script>
 
   <!-- 配置 -->
 	<script>
 			/* 为textarea添加tabIndent类标识 可使用tab缩进 */
-			tabIndent.renderAll();  
 
 			/* markdownit配置 */
 			var md = window.markdownit({ 
@@ -224,16 +147,6 @@
   					return '<i class="em em-' + token[idx].markup + '"></i>';
 			};
 			
-			/* 编辑/预览区绑定markdownit */
-			$("#edit-tabs .preview-node").click(function(){
-				   var result = md.render($("#editor").val());
-				   $("#previewer").html(result);
-				   console.log(result);
-				   $is_previewing = true;
-			});
-			$("#edit-tabs .edit-node").click(function(){
-				   $is_previewing = false;
-			});
 
 	</script>
 </body>

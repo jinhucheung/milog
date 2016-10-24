@@ -4,6 +4,7 @@
 @import url(../lib/stylesheets/font-awesome/css/font-awesome.min.css);
 @import url(../lib/stylesheets/highlight-default.css);
 @import url(../lib/stylesheets/markdown-standard.css);
+@import "https://afeld.github.io/emoji-css/emoji.css";
 /* helpers */
 /**  变量设置  **/
 /* color : 组件 */
@@ -471,14 +472,14 @@
   border-radius: 5px;
 }
 
-.mardown-toolbar {
+.markdown-toolbar {
   /* 工具项 */
   /* 分隔竖线 */
 }
-.mardown-toolbar .toolbar-item {
+.markdown-toolbar .toolbar-item {
   padding: 5px;
 }
-.mardown-toolbar .divider:before {
+.markdown-toolbar .divider:before {
   content: " ";
   border-left: 1px solid #ddd;
   margin: 0 5px;

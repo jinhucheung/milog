@@ -15,8 +15,11 @@ var Item = {
 		Title6: "有序列表",
 		Title7: "代码",
 		Title8: "链接",
-		Title9: "图片"
+		Title9: "图片",
+        Title10: "表情"
 };
+
+
 /* 工具项 { name: 标签名 用于识别, title:用于提示, offset_start: 光标起始偏移量, offset_end： 光标结束偏移量, markdown: md格式字符 } */
 var $items = new Array({ name: "bold", title: Item.Title1, offset_start: -4, offset_end: -2, markdown: ("**" + Item.Title1 + "**") }, //
     { name: "italic", title: Item.Title2, offset_start: -4, offset_end: -2, markdown: (" _" + Item.Title2 + "_ ") }, //
@@ -28,7 +31,8 @@ var $items = new Array({ name: "bold", title: Item.Title1, offset_start: -4, off
     { name: "code", title: Item.Title7, offset_start: -10, offset_end: -4, markdown: ("```\n这里输入代码\n```")}, //
     1, //	分隔线
     { name: "link", title: Item.Title8, offset_start: -16, offset_end: -10, markdown: ("[输入链接说明](http://)") }, //
-    { name: "image", title: Item.Title9, offset_start: -16, offset_end: -10, markdown: ("![输入图片说明](http://)") } //
+    { name: "image", title: Item.Title9, offset_start: -16, offset_end: -10, markdown: ("![输入图片说明](http://)") }, //
+    { name: "smile-o", title: Item.Title10, is_plugin: true, id: 0 , type: "emoji"} //
 );
 
 
@@ -84,16 +88,32 @@ function toolbar_item_on_click($insert_str, $offset_start, $offset_end) {
     insert_at_cursor($editor, $insert_str, $offset_start, $offset_end);
 }
 
-/* 工具项绑定点击事件 */
+/* 绑定工具项点击事件 */
 function bind_item_on_click($item) {
-		var classname = "." + $item_name_pre + $item.name ;
-	  $(".mardown-toolbar").on("click", classname, function(){
-	  		toolbar_item_on_click($item.markdown,$item.offset_start,$item.offset_end);
-	  });
+	var classname = "." + $item_name_pre + $item.name ;
+	$(".markdown-toolbar").on("click", classname, function(){
+	  	toolbar_item_on_click($item.markdown,$item.offset_start,$item.offset_end);
+	});
+}
+
+/* 绑定表情选择工具项事件 */
+function bind_item_emoji_picker_on_click($item){
+    var classname = "." + $item_name_pre + $item.name ;
+    $(".markdown-toolbar").on("click", classname, function(){
+       console.log($item.type);
+    });
 }
 
 /* 构建工具项 */
 function build_a_item($item) {
+    return "<a class='" + "toolbar-item " + $item_name_pre + $item.name + "' " + //
+        "href='#' " + "title='" + $item.title + "'>" + //
+        "     <i class='fa fa-" + $item.name + "'></i>" + //
+        "</a>";                                                                                                                      
+}
+
+/* 构建表情选择项 */
+function build_a_item_emoji_picker($item) {
     return "<a class='" + "toolbar-item " + $item_name_pre + $item.name + "' " + //
         "href='#' " + "title='" + $item.title + "'>" + //
         "     <i class='fa fa-" + $item.name + "'></i>" + //
@@ -107,10 +127,15 @@ function build_toolbar() {
     for (i = 0; i < $items.length; i++) {
         if ($items[i] == 1) { // 添加分隔线
             $toolbar += "<span class='divider'></span>";
-        } else {
+        } else if  (!$items[i].is_plugin) {
             $toolbar += build_a_item($items[i]);
             // 绑定点击处理
             bind_item_on_click($items[i]);
+        } else {
+            //非markdown插件工具项单独绑定事件,如表情包等
+            // 暂时只有表情包插件,直接写
+            $toolbar += build_a_item_emoji_picker($items[i]);
+            bind_item_emoji_picker_on_click($items[i]);
         }
     }
     return $toolbar;
@@ -118,5 +143,5 @@ function build_toolbar() {
 
 /* 添加工具栏 */
 $(function() {
-    $(".mardown-toolbar").append(build_toolbar());
+    $(".markdown-toolbar").append(build_toolbar());
 });
