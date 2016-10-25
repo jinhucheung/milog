@@ -578,6 +578,7 @@
 }
 .emoji-picker .emoji-content .emoji-item {
   margin: 1px 4px;
+  cursor: pointer;
 }
 
 .comment-expand {

@@ -26,7 +26,7 @@
 
  /* 构建emoji表情项 */
  function build_emoji_item(title) {
- 		 return  '<a href="#" class="emoji-item em em-' + title + '" title=":'+ title +':"></a>';
+ 		 return  '<i class="emoji-item em em-' + title + '" title=":'+ title +':"></i>';
  }
  function build_emoji_items(type) {
  	  var result= "";
@@ -65,6 +65,5 @@
          if ($emoji_helper.recent[i] == title) return ;
      }
      $emoji_helper.recent.push(title) ;
-     return false;
-      
+     return false; 
  });

@@ -86,6 +86,7 @@ function toolbar_item_on_click($insert_str, $offset_start, $offset_end) {
     };
     //插入值
     insert_at_cursor($editor, $insert_str, $offset_start, $offset_end);
+    return false;
 }
 
 /* 绑定工具项点击事件 */
