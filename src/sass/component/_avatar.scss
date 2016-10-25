@@ -22,6 +22,6 @@
 }
 
 /* 默认头像-评论 */
-.default-avatar-comment {
+.default-avatar-normal {
         @include build_avatar(48px, 28px, $default-avatar-color);
 }

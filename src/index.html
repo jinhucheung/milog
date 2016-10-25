@@ -79,253 +79,39 @@
 	</nav>
 
 	<!-- 内容区域 -->
-	<div class="mainer">
+	<div class="mainer" style="margin-top: 0; padding-top: 20px;" >
 		<div class="container-fluid">
 			<!-- 居中 -->
-			<div class="col-md-7 col-center-block content-wrap" >
-					<div id="content">
-							<section class="post-expand" >
-								<article class="post">
-											<!-- 文章属性 -->
-											<header class="post-header post-header-center">
-													<!-- 标题 -->
-													<h1 class="post-title" ><span class="post-title-normal" >Ruby/Rails Linux搭建Rails开发环境</span></h1>
-													<!-- 文章属性 -->
-													<div class="post-meta">
-													  <!-- 发布时间 -->
-														<span class="post-time">
-																<span class="post-meta-item-text">发布于</span>
-																 <time datetime="2016-09-17T19:46:06+08:00" content="2016-09-17">2016-09-17</time>
-														</span>
-														<!-- 文章分类 -->
-														<span class="post-category"> &nbsp;|&nbsp; 
-																<span class="post-meta-item-text">分类于</span>
-																<a href="#">学习</a>
-														</span>
-														<!-- 阅读与评论数 -->
-														<span class="post-view-comments"> &nbsp;|&nbsp;
-																<span class="post-meta-item-text">阅读</span> · 
-																<span class="post-view-count">15</span>&nbsp;
-																<span class="post-meta-item-text">评论</span> · 
-																<span class="post-view-count">1</span>
-														</span>
-														<span class="post-edit"> &nbsp;|&nbsp;
-																<a href="#">编辑</a>
-														</span>
-													</div>
-											</header>
-
-											<!-- 文章内容 -->
-											<div class="post-body">
-													<div class="standard markdown-body">
-## 1. Ruby开发环境搭建
-
-###  1.1 Ruby安装
-Ruby安装方式可以分为两种,一种是源码编译安装,另一种是第三方工具RVM/rbenv来安装管理Ruby环境
-
-#### 1.1.1 从源码编译安装
-1. 通过以下URL下载Ruby源代码
-  - https://www.ruby-lang.org/zh_cn/
-2. 解压并安装
-  请看[Linux 学习之软件安装:源码与Tarball ](https://github.com/HiKumho/blog/issues/31)
-
-#### 1.1.2 使用rbenv安装管理
-请查看ruby-china的相关wiki  https://ruby-china.org/wiki/rbenv-guide
-
-###  1.2 编辑器
-这里我选择使用vim来作为ruby/rails的开发工具
-
-## 2. Rails开发环境搭建
-
-### 2.1 安装Rails
-安装指定版本的`rails`
-```
-$ gem install rails -v 5.0.0.1 
-```
-
-### 2.2 创建Rails项目
-
-![输入图片说明](http://static.oschina.net/uploads/space/2016/1021/083214_yS5H_2903254.png)
-
-### 2.3 Rails项目目录结构
-
-|文件/目录|作用|
-|:---:|:---:|
-|app/|应用的核心文件,包含模型/视图/控制器等方法|
-|app/assets|应用的资源文件,如CSS/JS/图像等|
-|bin/|可执行二进制文件|
-|bin/rails|生成代码,打开终端会话或者启动本机服务器程序|
-
-注意newname是唯一的,别人注册过就不能使用了
-													</div>
+			<div class="col-md-10 col-center-block content-wrap">
+					<div id="content" >
+								<!-- 用户信息设置 -->
+								<div class="col-md-8 profile-setting" >
+										<div class="boxed-group">
+											<h3> 个人资料设置 </h3>
+											<div class="boxed-group-inner">
+												<form action="" accept-charset="utf-8">
+													
+												</form>
 											</div>
-
-											<!-- 标签与文章导航 -->
-											<footer class="post-footer">
-													<div class="post-tags" >
-														<a href="#"># Ruby</a> · 
-														<a href="#"># Linux</a>
-													</div>
-
-													<div class="post-nav">
-														<!-- 上一篇文章 -->
-														<div class="post-nav-prev post-nav-item">
-																<a href="#">
-																	<i class="fa fa-chevron-left"></i>&nbsp;Linux 服务器篇 远端连接服务器
-																</a>
-														</div>
-														<!-- 下一篇文章 -->
-														<div class="post-nav-next post-nav-item">
-																<a href="#">
-																	Linux 服务器篇 网络基础知识&nbsp;<i class="fa fa-chevron-right"></i>
-																</a>
-														</div>
-													</div>
-											</footer>
-								</article>
-							</section>
-
-							<section class="comment-expand">
-								<div class="comment-expand-header">
-									<div class="comment-expand-meta">
-										 <span class="comment-count">9</span>&nbsp;条评论
-									</div>
+										</div>
 								</div>
 
-								<div class="comment-expand-body">
-									<!-- 一条评论 -->
-									<div class="media comment">
-											<!-- 头像 -->
-											<div class="media-left">
-													<a href="#"><span class="default-avatar-comment" >K</span></a>
+								<!-- 密码与头像设置 -->
+								<div class="col-md-4 account-setting">
+										<div class="boxed-group">
+										  <div class="boxed-group-inner boxed-group-round-border">
+												<a href="#"><span class="default-avatar-normal" >K</span></a>
 											</div>
-											<div class="media-body">
-													<div class="comment-meta">
-																<!-- 评论信息：用户名/层数/评论时间 -->
-																<a class="user-name" href="#">Jinhu</a> · 
-																<a class="comment-no" href="#">#1</a> · 
-																<span class="comment-time">8 天前</span>
-																<!-- 操作 -->
-																<span class="comment-opts pull-right">
-																		<a class="fa fa-mail-reply" href="#" title="回复"></a>
-																</span>
-													</div>
+										</div>
 
-													<div class="comment-content">
-															<div class="standard markdown-body">
-这里我选择使用vim来作为ruby/rails的开发工具
-															</div>
-													</div>
-												
+										<div class="boxed-group">
+										  <h3> 修改密码 </h3>
+										  <div class="boxed-group-inner boxed-group-round-border">
+												1234
 											</div>
-									</div>
-
-									<!-- 一条评论 -->
-									<div class="media comment">
-											<!-- 头像 -->
-											<div class="media-left">
-													<a href="#"><span class="default-avatar-comment" >K</span></a>
-											</div>
-											<div class="media-body">
-													<div class="comment-meta">
-																<!-- 评论信息：用户名/层数/评论时间 -->
-																<a class="user-name" href="#">Jinhu</a> · 
-																<a class="comment-no" href="#">#1</a> · 
-																<span class="comment-time">8 天前</span>
-																<!-- 操作 -->
-																<span class="comment-opts pull-right">
-																		<a class="fa fa-mail-reply" href="#" title="回复"></a>
-																</span>
-													</div>
-
-													<div class="comment-content">
-															<div class="standard markdown-body">
-请查看ruby-china的相关wiki  https://ruby-china.org/wiki/rbenv-guide
-															</div>
-													</div>											
-											</div>
-									</div>
+										</div>
 
 								</div>
-							</section>
-
-							<!-- 编辑框 -->
-							<div class="edit-body">
-							     <!-- 标签卡与工具栏 -->
-                    <div class="edit-body-header">
-                        <!-- 工具栏 -->
-                        <div class="post-edit-toolbar pull-right" style="margin-top: 15px;">
-                                    <!-- markdown工具栏  -->
-                                    <div class="markdown-toolbar">
-                                        <a class="toolbar-item add-bold" href='#' title="强调"><i class="fa fa-bold"></i></a>
-                                        <a class="toolbar-item add-italic" href='#' title="斜体"><i class="fa fa-italic"></i></a>
-                                        <a class="toolbar-item add-header" href='#' title="标题"><i class="fa fa-header"></i></a>
-                                        <span class="divider"></span>
-                                        <a class="toolbar-item add-quote-left" href='#' title="引用"><i class="fa fa-quote-left"></i></a>
-                                        <a class="toolbar-item add-list-ul" href='#' title="无序列表"><i class="fa fa-list-ul"></i></a>
-                                        <a class="toolbar-item add-list-ol" href='#' title="有序列表"><i class="fa fa-list-ol"></i></a>
-                                        <a class="toolbar-item add-code" href='#' title="代码"><i class="fa fa-code"></i></a>
-                                        <span class="divider"></span>
-                                        <a class="toolbar-item add-link" href='#' title="链接"><i class="fa fa-link"></i></a>
-                                        <a class="toolbar-item add-image" href='#' title="图片"><i class="fa fa-image"></i></a>
-                                        <a class="toolbar-item add-smile-o" href='#' title="表情" data-toggle='dropdown'><i class="fa fa-smile-o"></i></a>
-                                        <!-- 表情选择 -->
-                                        <div class="dropdown-menu emoji-picker">
-                                            <ul class="nav nav-tabs emoji-menu-tabs">
-                                                <li class="emoji-menu-tab active"><a class="em em-clock9" data-stopPropagation="true" data-type="recent"></a></li>
-
-                                                <li class="emoji-menu-tab "><a class="em em-smile" data-stopPropagation="true" data-type="people"></a></li>
-                                                
-                                                <li class="emoji-menu-tab"><a class="em em-sunny" data-stopPropagation="true" data-type="nature"></a></li>
-                                                
-                                                <li class="emoji-menu-tab"><a class="em em-tada" data-stopPropagation="true" data-type="celebration"></a></li>
-                                                
-                                                <li class="emoji-menu-tab"><a class="em em-soccer" data-stopPropagation="true" data-type="activity"></a></li> 
-                                                
-                                                <li class="emoji-menu-tab"><a class="em em-oncoming_automobile" data-stopPropagation="true" data-type="objects"></a></li> 
-                                                
-                                                <li class="emoji-menu-tab"><a class="em em-symbols" data-stopPropagation="true" data-type="symbols"></a></li>
-                                            
-                                            </ul>
-                                            <!-- 表情区 -->
-                                            <div class="emoji-content">
-                                                <div class="emoji-group-recent active"></div>
-                                                <div class="emoji-group-people" style="display: none;"></div>
-                                                <div class="emoji-group-nature" style="display: none;"></div>
-                                                <div class="emoji-group-celebration" style="display: none;"></div>
-                                                <div class="emoji-group-activity" style="display: none;"></div>
-                                                <div class="emoji-group-objects" style="display: none;"></div>
-                                                <div class="emoji-group-symbols" style="display: none;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                         </div>
-                          <!-- 标签卡 -->
-                         <ul class="nav nav-tabs" id="edit-tabs">
-                            <li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
-                            <li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
-                          </ul>
-                    </div>
-
-                    <!-- 编辑/预览区 -->
-                    <div class="tab-content edit-body-cotent" id="tab-content">
-                                <div class="tab-pane fade in active" id="edit-content">
-                                    <textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor" style="height: 100px;"></textarea>
-                                </div>
-                                <div class="tab-pane fade" id="preview-content">
-                                    <div class="edit-body-node preview-node standard markdown-body" id="previewer"  style="height: 105px;"></div>
-                                </div>
-                    </div>                    
-							</div>
-
-							  <!-- 标签选择与提交 -->
-               <div class="edit-footer" style="padding-top: 0;">
-                    <!-- 提交按钮 -->
-                    <div class="form-group post-btns">
-                        <button class="post-btn" data-style="slide-up" type="submit">提交回复</button>
-                    </div>
-                 </div>
-
 					</div>
 			</div>
 		</div>
@@ -355,62 +141,10 @@ $ gem install rails -v 5.0.0.1
 
     <!-- markdown编辑器 -->
     <script src="lib/javascripts/tabIndent.js"></script>
-    <script src="lib/javascripts/markdown-it.min.js"></script>
-    <script src="lib/javascripts/highlight.pack.js"></script>
-    <script>
-    hljs.initHighlightingOnLoad(); //支持语法高亮
-    </script>
-    <script src="lib/javascripts/markdown-it-emoji.min.js"></script>
 
     <!-- 自定义 -->
     <script src="javascripts/application.js"></script>
-    <script src="javascripts/edit-post.js"></script>
-    <script src="javascripts/markdown-toolbar.js"></script>
-    <script src="javascripts/emoji-picker.js"></script>
 
-	  <script>
-		/* 为textarea添加tabIndent类标识 可使用tab缩进 */
-		    tabIndent.renderAll();
-
-		    /* markdownit配置 */
-		    var md = window.markdownit({
-		        linkify: true, // 标识超链接
-		        highlight: function(str, lang) { // 语法高亮
-		            if (lang && hljs.getLanguage(lang)) {
-		                try {
-		                    return hljs.highlight(lang, str).value;
-		                } catch (__) {}
-		            }
-		            return '';
-		        }
-		    }).use(window.markdownitEmoji); //markdown-it 解析markdown格式 window.markdownit({html: true});
-		    md.renderer.rules.table_open = function(tokens, idx) { //添加table规则
-		        return '<table class="table table-striped table-bordered">';
-		    };
-		    md.renderer.rules.emoji = function(token, idx) { //支持emoji图标
-		        return '<i class="em em-' + token[idx].markup + '"></i>';
-		    };
-
-	    /* 编辑/预览区绑定markdownit */
-	    $("#edit-tabs .preview-node").click(function() {
-	        var result = md.render($("#editor").val());
-	        $("#previewer").html(result);
-	        console.log(result);
-	        $is_previewing = true;
-	    });
-	  
-	    $("#edit-tabs .edit-node").click(function() {
-	        $is_previewing = false;
-	    });
-
-			/* 渲染页面中的markdown区域 */
-			$(".markdown-body").each(function(){
-					var result = md.render($(this).html());
-					$(this).html(result);
-			});
-
-
-	</script>
 </body>
 </html>
 

@@ -367,7 +367,7 @@
 }
 
 /* 默认头像-评论 */
-.default-avatar-comment {
+.default-avatar-normal {
   display: inline-block;
   width: 48px;
   height: 48px;
@@ -958,6 +958,38 @@ input, textarea {
 .edit-footer .post-btns .post-btn {
   float: right;
   border: 1px solid #444;
+}
+
+.boxed-group {
+  position: relative;
+  border-radius: 3px;
+}
+.boxed-group > h3,
+.boxed-group .heading {
+  display: block;
+  padding: 9px 10px 10px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: #f5f5f5;
+  border: 1px solid #d8d8d8;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+  line-height: 1;
+}
+.boxed-group .boxed-group-inner {
+  padding: 10px;
+  color: #666;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.boxed-group .boxed-group-round-border {
+  border-radius: 3px !important;
+}
+.boxed-group + .boxed-group {
+  margin-top: 25px;
 }
 
 /* media */
