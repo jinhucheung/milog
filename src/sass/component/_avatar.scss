@@ -20,3 +20,8 @@
 .default-avatar-about-me {
 		@include build_avatar(100px, 75px, $default-avatar-color);
 }
+
+/* 默认头像-评论 */
+.default-avatar-comment {
+        @include build_avatar(48px, 28px, $default-avatar-color);
+}

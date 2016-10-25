@@ -45,12 +45,12 @@
     }
 
     a {
-        color: #3366bb !important;
+        color: $link-normal-color !important;
 
         &:hover {
             padding-bottom: 1px;
-            color: #3366bb !important;
-            border-bottom: 1px solid #3366bb;
+            color: $link-normal-color !important;
+            border-bottom: 1px solid $link-normal-color;
         }
     }
 

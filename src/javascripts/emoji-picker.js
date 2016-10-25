@@ -65,4 +65,6 @@
          if ($emoji_helper.recent[i] == title) return ;
      }
      $emoji_helper.recent.push(title) ;
- })
+     return false;
+      
+ });
