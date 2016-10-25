@@ -543,8 +543,8 @@
   position: absolute;
   left: 150px;
   z-index: 15;
-  width: 225px;
-  height: 230px;
+  width: 261px;
+  height: 250px;
   padding: 5px 2px 5px 5px;
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -558,13 +558,13 @@
 }
 .emoji-picker .emoji-content {
   text-align: left;
-  height: 190px;
+  height: 210px;
   overflow: auto;
   padding-left: 1px;
   margin-top: 3px;
 }
 .emoji-picker .emoji-content .emoji-item {
-  margin: 1px 3px;
+  margin: 1px 4px;
 }
 
 /* layout */

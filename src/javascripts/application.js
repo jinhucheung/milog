@@ -28,11 +28,3 @@ $top.on('click', function () {
   $('body').velocity('scroll');  //需导入velocity.js
 });
 
-/* 判断页面元素是否出现滚动条 */
-function hasScrolled(el, direction = "vertical") {
-    if(direction === "vertical") {
-        return el.scrollHeight > el.clientHeight;
-    }else if(direction === "horizontal") {
-        return el.scrollWidth > el.clientWidth;
-    }
- }
