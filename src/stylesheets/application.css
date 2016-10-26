@@ -1011,6 +1011,39 @@ input, textarea {
   box-shadow: none;
 }
 
+.drafts-expand .header {
+  text-align: center;
+  letter-spacing: 1px;
+}
+.drafts-expand .drafts-list {
+  margin-top: 30px;
+}
+.drafts-expand .drafts-list .draft-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+.drafts-expand .drafts-list .draft-item .draft-left {
+  padding-left: 0;
+}
+.drafts-expand .drafts-list .draft-item .draft-right {
+  text-align: right;
+  padding-right: 0;
+}
+.drafts-expand .drafts-list .draft-item .draft-right a {
+  margin: 0 2px;
+}
+.drafts-expand .drafts-list .draft-item .draft-title {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+.drafts-expand .drafts-list .draft-item .draft-title a {
+  color: #555 !important;
+}
+.drafts-expand .drafts-list .draft-item .draft-meta {
+  color: #999;
+  font-size: 12px;
+}
+
 /* media */
 /* 超小屏幕(手机, <= 420px) */
 @media (max-width: 420px) {
