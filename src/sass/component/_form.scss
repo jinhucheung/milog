@@ -17,6 +17,15 @@
         }
     }
 
+    .form-input-normal {
+        outline: none;
+        border: 1px solid $lightwhite;
+        box-shadow: none; 
+        &:focus {
+            border: 1px solid $outline-input-color;
+        }
+    }
+
     /* 小图标 */
     .form-input + .icon {
         position: absolute;
@@ -31,7 +40,7 @@
 
         height: 40px;
         margin-top: 15px;
-        outline: none;
+        outline: none !important;
 
         &:hover {
             background-color: $submit-btn-hover-color;

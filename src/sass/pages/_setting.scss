@@ -14,21 +14,29 @@
         border-radius: 3px 3px 0 0;
         line-height: 1;
     }
-
+    /* 表单内容 */
     .boxed-group-inner {
-    	  padding: 10px;
-    		color: #666;
-    		background: #fff;
-    		border: 1px solid #d8d8d8;
-    		border-bottom-right-radius: 3px;
-    		border-bottom-left-radius: 3px;
+        padding: 10px;
+        color: #666;
+        background: #fff;
+        border: 1px solid #d8d8d8;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        .form-group {
+            margin-bottom: 30px;
+        }
     }
-
     .boxed-group-round-border {
-    		border-radius: 3px !important;
+        border-radius: 3px !important;
     }
-
     & + & {
-    	margin-top: 25px;
+        margin-top: 25px;
+    }
+}
+
+.avatar-upload {
+    float: right;
+    .avatar-btn {
+        box-shadow: none;
     }
 }

@@ -398,6 +398,14 @@
 .form-group .form-input:focus {
   border: 1px solid #444;
 }
+.form-group .form-input-normal {
+  outline: none;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+}
+.form-group .form-input-normal:focus {
+  border: 1px solid #444;
+}
 .form-group .form-input + .icon {
   position: absolute;
   left: 0;
@@ -407,7 +415,7 @@
 .form-group .submit {
   height: 40px;
   margin-top: 15px;
-  outline: none;
+  outline: none !important;
 }
 .form-group .submit:hover {
   background-color: #666;
@@ -963,6 +971,7 @@ input, textarea {
 .boxed-group {
   position: relative;
   border-radius: 3px;
+  /* 表单内容 */
 }
 .boxed-group > h3,
 .boxed-group .heading {
@@ -985,11 +994,21 @@ input, textarea {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+.boxed-group .boxed-group-inner .form-group {
+  margin-bottom: 30px;
+}
 .boxed-group .boxed-group-round-border {
   border-radius: 3px !important;
 }
 .boxed-group + .boxed-group {
   margin-top: 25px;
+}
+
+.avatar-upload {
+  float: right;
+}
+.avatar-upload .avatar-btn {
+  box-shadow: none;
 }
 
 /* media */
@@ -1013,6 +1032,10 @@ input, textarea {
 
   .post .post-title .post-title-link {
     font-size: 20px;
+  }
+
+  .account-setting {
+    margin-top: 25px;
   }
 }
 /* 小屏幕（平板，>= 768px） */

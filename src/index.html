@@ -1,151 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<link rel="stylesheet" href="stylesheets/application.css">
-	<title>Milog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="stylesheets/application.css">
+    <title>Milog</title>
 </head>
-<body >
-	<!-- 导航栏 -->
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<!-- 导航栏首部 -->
-			<div class="navbar-header">
-			    <!-- Logo -->
-					<a href="/" class="navbar-brand">
-						 <img class="logo" src="images/logo.png" alt="Milog">
-					</a>
-					<!-- 切换语系  屏幕<=420px时隐藏-->
-					<a class="navbar-text switch-lang" href="#">EN</a>
-					<!-- 展开菜单项Btn -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-nav">
-	  			  <span class="icon-bar"></span>
-	  			  <span class="icon-bar"></span>
-	  			  <span class="icon-bar"></span>
-	  			</button>
-			</div>
 
-			<!-- 下拉菜单项 小屏时不显示 -->
-			<ul class="nav navbar-nav navbar-right navbar-footer drop-nav" >
-				<!-- 新建类操作菜单 -->
-				<li class="dropdown dropdown-opt">
-					 	<a class="dropdown-toggle" data-toggle="dropdown" role="button" >
-					 		<span class="glyphicon glyphicon-plus"></span>
-        			<span class="caret"></span>
-        		</a>
-			      <ul class="dropdown-menu">
-			        	<li><a href="edit_post.html">写文章</a></li>
-			      </ul>
-				</li>
-				<!-- 设置类操作菜单 -->
-				<li class="dropdown dropdown-setting">
-					 	<a class="dropdown-toggle" data-toggle="dropdown" role="button" >
-					 		<div class="default-avatar" >K</div>
-        			<span class="caret"></span>
-        		</a>
-			      <ul class="dropdown-menu">
-			        	<li><a href="#">Kumho</a></li>
-			          <li><div class="divider"></div></li>
-			          <li><a href="#">个人资料设置</a></li> 
-			          <li><a href="#">博客设置</a></li> 
-			          <li><a href="#">我的草稿</a></li> 
-			          <li><div class="divider"></div></li>
-								<li><a id="logout" href="#">退出</a></li>
-			      </ul>
-				</li>
-			</ul>
-		
-			<!-- 登录注册 -->
-			<div class="navbar-right navbar-footer login-group" style="display: none;">
-				<a class="navbar-text" href="signup.html">注册</a>
-				<a class="navbar-text" href="signin.html">登录</a>
-			</div>
-			
-			<!-- 主菜单项 -->
-			<div class="collapse navbar-collapse" id="collapse-nav">
-					<ul class="nav navbar-nav navbar-center main-nav">
-						<li><a href="home.html">首页</a></li>
-						<li><a href="category.html">分类</a></li>
-						<li><a href="archive.html">归档</a></li>
-						<li><a href="aboutme.html">关于</a></li>
-						<li><a href="#">搜索</a></li>
-					</ul>
-			</div>
-
-		</div>
-	</nav>
-
-	<!-- 内容区域 -->
-	<div class="mainer" style="margin-top: 0; padding-top: 20px;" >
-		<div class="container-fluid">
-			<!-- 居中 -->
-			<div class="col-md-10 col-center-block content-wrap">
-					<div id="content" >
-								<!-- 用户信息设置 -->
-								<div class="col-md-8 profile-setting" >
-										<div class="boxed-group">
-											<h3> 个人资料设置 </h3>
-											<div class="boxed-group-inner">
-												<form action="" accept-charset="utf-8">
-													
-												</form>
-											</div>
-										</div>
-								</div>
-
-								<!-- 密码与头像设置 -->
-								<div class="col-md-4 account-setting">
-										<div class="boxed-group">
-										  <div class="boxed-group-inner boxed-group-round-border">
-												<a href="#"><span class="default-avatar-normal" >K</span></a>
-											</div>
-										</div>
-
-										<div class="boxed-group">
-										  <h3> 修改密码 </h3>
-										  <div class="boxed-group-inner boxed-group-round-border">
-												1234
-											</div>
-										</div>
-
-								</div>
-					</div>
-			</div>
-		</div>
-	</div>
-
-  <!-- footer -->
-  <footer id="footer" class="text-muted">
-	  	<div class="container">
-	  			<span class="site-footer-info">  © 2016 hikumho. Powered by Rails. </span>
-	  			<span class="site-footer-links">
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- 导航栏首部 -->
+            <div class="navbar-header">
+                <!-- Logo -->
+                <a href="/" class="navbar-brand">
+                    <img class="logo" src="images/logo.png" alt="Milog">
+                </a>
+                <!-- 切换语系  屏幕<=420px时隐藏-->
+                <a class="navbar-text switch-lang" href="#">EN</a>
+                <!-- 展开菜单项Btn -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- 下拉菜单项 小屏时不显示 -->
+            <ul class="nav navbar-nav navbar-right navbar-footer drop-nav">
+                <!-- 新建类操作菜单 -->
+                <li class="dropdown dropdown-opt">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="edit_post.html">写文章</a></li>
+                    </ul>
+                </li>
+                <!-- 设置类操作菜单 -->
+                <li class="dropdown dropdown-setting">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <div class="default-avatar">K</div>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Kumho</a></li>
+                        <li>
+                            <div class="divider"></div>
+                        </li>
+                        <li><a href="setting.html">个人资料设置</a></li>
+                        <li><a href="#">我的草稿</a></li>
+                        <li>
+                            <div class="divider"></div>
+                        </li>
+                        <li><a id="logout" href="#">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- 登录注册 -->
+            <div class="navbar-right navbar-footer login-group" style="display: none;">
+                <a class="navbar-text" href="signup.html">注册</a>
+                <a class="navbar-text" href="signin.html">登录</a>
+            </div>
+            <!-- 主菜单项 -->
+            <div class="collapse navbar-collapse" id="collapse-nav">
+                <ul class="nav navbar-nav navbar-center main-nav">
+                    <li><a href="home.html">首页</a></li>
+                    <li><a href="category.html">分类</a></li>
+                    <li><a href="archive.html">归档</a></li>
+                    <li><a href="aboutme.html">关于</a></li>
+                    <li><a href="#">搜索</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 内容区域 -->
+    <div class="mainer" style="margin-top: 0; padding-top: 20px;">
+        <div class="container-fluid">
+            <!-- 居中 -->
+            <div class="col-md-10 col-center-block content-wrap">
+                <div id="content">
+                    <!-- 用户信息设置 -->
+                    <div class="col-md-8 profile-setting">
+                        <div class="boxed-group">
+                            <h3> 个人资料设置 </h3>
+                            <div class="boxed-group-inner">
+                                <form action="" accept-charset="utf-8">
+                                    <div class="form-group">
+                                        <span>名字</span>
+                                        <input class="form-control form-input-normal" type="text" name="user[profile_name]" id="user_profile_name">
+                                    </div>
+                                    <div class="form-group">
+                                        <span>Email</span>
+                                        <input class="form-control form-input-normal" type="email" disabled="disabled" name="user[email]" id="user_email" value="hi.jinhu.zhang@gmail.com">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <div class="checkbox" >
+                                            <label for="user_email_public">
+                                                <input type="checkbox" value="1" checked="checked" name="user[email_public]" id="user_email_public"> 公开Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>Github</span>
+                                         <div class="input-group">
+                                         		<span class="input-group-addon">https://github.com/</span>
+                                         	   <input class="form-control form-input-normal" type="text" name="user[github]" id="user_github" placeholder="账号">
+                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>微博</span>
+                                         <div class="input-group">
+                                         		<span class="input-group-addon">https://weibo.com/</span>
+                                         	   <input class="form-control form-input-normal" type="text" name="user[weibo]" id="user_weibo" placeholder="账号">
+                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>个人主页</span>
+                                        <input class="form-control form-input-normal" type="text" name="user[website]" id="user_website">
+                                    </div>
+                                    <div class="form-group" style="height: 150px;">
+                                        <span>个人介绍</span>
+                                        <textarea class="form-control form-input-normal" type="text" name="user[bio]" id="user_bio" style="height: 150px;"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                    			<button class="btn btn-primary  submit" data-style="slide-up" type="submit" >更新资料</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 密码与头像设置 -->
+                    <div class="col-md-4 account-setting">
+                        <div class="boxed-group">
+                            <div class="boxed-group-inner boxed-group-round-border">
+                                <a href="#" ><span class="default-avatar-normal" >K</span></a>
+                                <div class="avatar-upload">
+                                		<span class="btn avatar-btn" id="upload-avatar-btn">上传头像</span>
+                                		<input id="upload-avatar-input" type="file" style="visibility: hidden; position: absolute;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="boxed-group">
+                            <h3> 修改密码 </h3>
+                            <div class="boxed-group-inner boxed-group-round-border">
+                                <form action="">
+                                		<div class="form-group">
+                                        <span>旧密码</span>
+                                        <input class="form-control form-input-normal" type="password" name="user[current_password]" id="user_current_password">
+                                    </div>
+                                		<div class="form-group">
+                                        <span>密码</span>
+                                        <input class="form-control form-input-normal" type="password" name="user[password]" id="user_password">
+                                    </div>
+                                		<div class="form-group">
+                                        <span>确认密码</span>
+                                        <input class="form-control form-input-normal" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+                                    </div>
+                                    <div class="form-group">
+                                    			<button class="btn btn-primary  submit" data-style="slide-up" type="submit" >修改密码</button>
+                                    </div>                                   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer id="footer" class="text-muted">
+        <div class="container">
+            <span class="site-footer-info">  © 2016 hikumho. Powered by Rails. </span>
+            <span class="site-footer-links">
 	  				<a href="https://www.github.com/hikumho">Github</a> | 
 	  				<a href="mailto:hi.jinhu.zhang@gmail.com">Email</a>
 	  			</span>
-	  	</div>
-	</footer>
-
-		<!-- 返回页面顶部 -->
-	<div class="back-to-top">
-		<span class="glyphicon glyphicon-chevron-up"></span>
-	</div>
-
+        </div>
+    </footer>
+    <!-- 返回页面顶部 -->
+    <div class="back-to-top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </div>
 
     <!-- 页面框架 -->
     <script src="lib/javascripts/jquery-3.1.1.min.js"></script>
     <script src="lib/javascripts/bootstrap.min.js"></script>
     <script src="lib/javascripts/velocity.min.js"></script>
-
-    <!-- markdown编辑器 -->
     <script src="lib/javascripts/tabIndent.js"></script>
-
     <!-- 自定义 -->
     <script src="javascripts/application.js"></script>
-
+    <script src="javascripts/setting.js"></script>
 </body>
+
 </html>
-
-
