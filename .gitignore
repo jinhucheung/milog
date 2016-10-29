@@ -15,3 +15,13 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore local environment value
+/config/local_env.yml
+
+# Ignore all .sass-cache files
+/.sass-cache/**
+
+# Ignore all ~ file
+.*~
+*~
