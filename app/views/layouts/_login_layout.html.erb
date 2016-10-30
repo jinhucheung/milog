@@ -1,0 +1,43 @@
+<!-- 登录注册页面 -->
+<div class="login">
+	<!-- 语系切换 -->
+	<div class="switch-lang"><%= link_to (t(:lang) == "EN" ? "中文" : "EN" ), (t(:lang) == "EN" ? '/signup?locale=zh-CN' : '/signup?locale=en' ) %></div>
+	<div class="clearfix"></div>
+
+  <!-- login区块 -->
+	<div class="container">
+		 	<div class="col-md-3 col-center-block login-box">
+		 			<!-- logo -->
+		 			<div class="logo">
+		 				<%=link_to image_tag("logo.png", alt:"Rails logo", class: "img-responsive center-block"), "/" %>
+		 			</div>
+					
+					<h6></h6>
+					
+					<!-- login标签 -->
+					<ul class="tab">
+							<li class="signin">
+									<a <%= "class=under-line" if yield(:login) == "signin" %>  href="#"><%= t "signin" %></a>
+							</li>
+							<li class="signup">
+									<a <%= "class=under-line" if yield(:login) == "signup" %> href="#"><%= t "signup" %></a>
+							</li>
+					</ul>
+					<!-- 注册表单 -->
+					<div id="signup-box" style="display: <%= yield(:login) == "signup" ? "block" : "none" %> ;">
+							<div class="login-body">
+						  	<%= render "shared/signup_form" %>
+							</div>
+					</div>
+
+					<!-- 登录表单 -->
+					<div id="signin-box" style="display: <%= yield(:login) == "signin" ? "block" : "none" %> ;">
+							<div class="login-body">
+								<%= render "shared/signin_form" %>
+							</div>
+					</div>
+		 	</div>
+	</div>
+</div>
+
+<%= javascript_include_tag 'login' %>

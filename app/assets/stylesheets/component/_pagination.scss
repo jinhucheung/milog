@@ -1,0 +1,26 @@
+.pagination {
+	 margin-top: 80px;
+	 width: 100%;
+	 padding-top: 6px;
+	 border-top: 1px solid #ddd;
+	 color: $lightgray;
+	 /* 分页数字项 */
+	 .page-number {
+			padding: 8px 12px;
+			margin-left: 10px;
+			&:hover {
+				 border-top: 1px solid $lightgray;
+			}
+	 }
+	 /* 当前页 */
+	 .current {
+		  background-color: lightgray;
+		  border:none !important;
+		  color: white;
+	 }
+	 /* 省略号空间 */
+	 .space { 			
+	 		padding: 8px 12px;
+			margin-left: 10px; 
+		}
+}

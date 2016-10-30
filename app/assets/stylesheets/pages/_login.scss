@@ -1,0 +1,64 @@
+.login {
+    background: linear-gradient(to bottom, $loyout-color, white 80%) repeat-x;
+
+    /* 语系切换 */
+    .switch-lang {
+        padding: 20px;
+        float: left;
+    }
+
+    /* login表单 */
+    .login-box {
+        text-align: center;
+
+        .logo img { width: 30%; }
+
+        h6 {
+            padding: 15px 0;
+            margin: 0 0;
+        }
+
+        /* 登录注册标签 */
+        .tab {
+            margin-bottom: 5px;
+            li {
+                display: inline-block;
+                margin: 22px 20px;
+                text-align: center;
+
+                a {
+                    /* 控制下划线高宽 */
+                    padding: 8px;
+                    //border-bottom: 1px solid $underline-color;
+                }
+            }
+        }
+
+        /* 表单主体 */
+        .login-body {
+            //@see component/_form.scss
+
+            /* 记住登录_忘记密码设置 */
+            .login-setting {
+                margin-top: 10px;
+                /* 记住登录复选框 */
+                .checkbox { 
+                    margin-left:20px; 
+                    .remember-me { 
+                        float: left;
+                        color: $lightgray;
+                        input { margin-right: 5px;  outline: none;}
+                    }
+                }
+                 /* 忘记密码 */               
+                .forget-me { float: right; }
+            }
+        }
+
+        /* 表单尾 */
+        .login-footer {
+            margin-top: 10px;
+        }
+    }
+
+}

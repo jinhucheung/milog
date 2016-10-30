@@ -1,0 +1,40 @@
+.drafts-expand {
+	.header {
+		text-align: center;
+    letter-spacing: 1px;
+	}
+
+	.drafts-list {
+		margin-top: 30px;
+
+		.draft-item {
+			padding: 10px 0;
+			border-bottom: 1px solid #ddd;
+			.draft-left {
+				padding-left: 0;
+			}
+
+			.draft-right {
+				text-align: right;
+				padding-right: 0;
+				a { margin: 0 2px; }
+			}
+
+			.draft-title {
+				 font-size: 17px;
+				 margin-bottom: 5px;
+				
+				 a {
+				 	   color: $post-title-color !important;
+				 }
+			}
+
+			.draft-meta {
+				color: #999;
+        font-size: 12px;
+			}
+
+
+		}
+	}
+}

@@ -1,0 +1,37 @@
+.emoji-picker {
+		
+		position: absolute;
+		left: 150px;
+
+		z-index: $z-index + 15;
+
+		width: $emoji-picker-width;
+		height: $emoji-picker-height;
+		padding: 5px 2px 5px 5px;
+
+		border: 1px solid #ddd;
+		border-radius: 3px;
+
+		text-align: center;
+		
+		.emoji-menu-tabs {
+			text-align: center;
+			.emoji-menu-tab {
+				 padding: 2px 1px;
+			}
+		}
+
+		// 表情选择区
+		.emoji-content {
+				 text-align: left;
+				 height: $emoji-picker-height - 40px ;
+				 overflow: auto;
+				 padding-left: 1px;
+				 margin-top: 3px;
+
+				 .emoji-item {
+				 	 margin: 1px 4px;
+				 	 cursor: pointer;
+				 }
+		}
+}

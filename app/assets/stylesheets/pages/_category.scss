@@ -1,0 +1,34 @@
+.category {
+    .mainer {
+        /* 描述所有标签数量 */
+        .categroy-tag-all-title {
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* 标签列表 */
+        .categroy-tag-all {
+            padding: 25px 0;
+
+            /* 一个标签 */
+            .categroy-tag-list-item {
+                display: inline-block;
+                text-align: center;
+                padding: 8px 15px;
+
+                .categroy-tag-item-link {
+                    color: $lightblack !important;
+                    border-bottom: 1px solid #bbb;
+                }
+
+                /* 标签包含的文章数 */
+                .categroy-tag-item-count {
+                    @extend .item-count;
+                }
+            }
+        }
+
+        /* 标签区域 */
+        .tags-expand { padding-top: 25px; }
+    }
+}

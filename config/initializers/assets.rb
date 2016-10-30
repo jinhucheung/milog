@@ -8,4 +8,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+#  precompile login.coffee
+Rails.application.config.assets.precompile += %w( login.js )
+
+Rails.application.config.assets.quiet = true

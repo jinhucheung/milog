@@ -1,26 +1,3 @@
-<div class="login-box">
-  <div class="login-header">
-    <a class="logo-block" data-turbolinks="false" href="/"/>
-      <%= link_to image_tag("logo.png", alt: "milog", width: "90"), "/" %>
-      <h3>Milog</h3>
-    </a>
-    <ul class="tab">
-      <li id="signin">
-        <a class="btn btn-link" href="#">登录</a> 
-      </li>
-      <li class="active" id="signup">
-        <a class="btn btn-link" href="#">注册</a> 
-      </li>
-    </ul>
-  </div>
-  <div id="signin-box" style="display: none;"></div>
-  <div id="signup-box">
-    <div class="login-body">
-      <%= simple_form_for @user do |f| %>
-        <%= f.input :username %>  
-      <% end %>
-    </div>
-  </div>
-    
-</div>
+<% provide(:login, "signup") %>
 
+<%= render 'layouts/login_layout' %>

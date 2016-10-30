@@ -1,0 +1,35 @@
+.comment-expand {
+		margin: 100px 0 50px 0;
+		
+		.comment-expand-header {
+			border-bottom:  1px solid #ddd;
+			padding-bottom: 15px;
+			.comment-expand-meta {
+					display: inline-block;
+					background-color: #f7f7f7;
+					padding: 0 10px;
+					margin-right: 10px;
+					color: #666;
+					span { font-weight: bold;}
+			}
+		}
+}
+
+/* 评论样式 */
+.comment {
+	padding: 10px;
+	margin: 0;
+	border-bottom: 1px solid #ddd;
+	.media-body {
+		margin: 0 10px;
+		.comment-meta { 
+			color: gray; 
+			a { font-size: 13px; }
+			span { font-size: 12px; }
+		}
+
+		.comment-content {
+			p { margin: 1px 0 1em 0; }
+		}
+	}
+}

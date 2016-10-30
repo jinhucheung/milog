@@ -1,0 +1,131 @@
+
+    /* 页面标题 */
+    .page-title {
+        font-size: 18px;
+    }
+
+    /* 编辑文章标题与分类 */
+    .edit-header {
+        /* 填写文章标题 */
+        .post-title {
+            display: inline-block;
+            width: 70%;
+
+            .form-input {
+                padding-left: 10px;
+            }
+        }
+
+        /* 选择文章分类 */
+        .post-category {
+            display: inline-block;
+
+            //居右
+            width: 29%;
+            text-align: center;
+
+            /* 显示文章分类 */
+            #post-selected-category {
+                padding: 0 5px;
+            }
+
+            /* 文章分类下拉框 */
+            .post-category-menu {
+                /* 新建分类输入框 */
+                #category-item-add {
+                    outline: none;
+                    border: 1px solid $lightwhite;
+
+                    &:focus {
+                        border: 1px solid $outline-input-color !important;
+                    }
+                }
+
+                /* 错误提示 */
+                .error-tips {
+                    color: $waring-color;
+                    font-size: 12px;
+                    margin: 2px 8px;
+                }
+                
+                 /* 删除分类 */
+                .category-item {
+                    position: relative;
+                    .delete {
+                        position: absolute;
+                        right: 20px;
+                        z-index: $z-index + 2;
+                    }
+                }
+            }
+        }
+    }
+
+    /* 编辑文章正文与预览 */
+    .edit-body {
+        margin-top: 10px;
+
+        /* 编辑预览以及工具栏 */
+        .edit-body-header {
+            /* 工具栏 */
+            .post-edit-toolbar {
+                margin-top: 15px;
+            }
+        }
+
+        /* 编辑预览正文 */
+        .edit-body-cotent {
+            border: 1px solid #ddd;
+            border-top: 1px solid transparent;
+            /* 编辑区 */
+            #editor {
+                width: 100%;
+                height: $editor-height;
+                border: none;
+                outline: none;
+                padding: 5px 15px;
+            }
+            /* 预览区 */
+            #previewer{
+                @extend #editor;
+                height: $editor-height + 5px;
+                display: block;
+                padding: 5px 15px;
+                overflow: auto;  //添加滚动条
+            }
+        }
+    }
+
+    /*标签选择与提交 */
+    .edit-footer {
+        padding: 25px 0;
+        /* 标签选择 */
+        .tabs-input{
+             span {
+                position: absolute;
+                left: 30px;
+                top: 13px;
+             }
+             .form-input { padding-left: 80px; }
+        } 
+        /* 提交按钮 */
+        .post-btns {
+            padding-top: 20px;
+            button {
+                padding: 10px;
+                font-size: 14px;
+                background-color: transparent;
+                outline: none;
+                border: none;
+            }
+            .save-btn {
+                &:focus{
+                    border: 1px solid $outline-input-color;
+                }
+            }
+            .post-btn {
+                float: right;
+                border: 1px solid $outline-input-color;
+            }
+        }
+    }

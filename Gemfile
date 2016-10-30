@@ -4,7 +4,7 @@ source 'https://gems.ruby-china.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'sprockets'
-gem 'bootstrap-sass','~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 
 gem 'uglifier', '>= 1.3.0'
@@ -20,6 +20,9 @@ gem 'puma', '~> 3.0'
 gem 'rails-i18n'
 gem 'simple_form'
 
+# 加密工具
+gem 'bcrypt', '~> 3.1.7'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
@@ -33,7 +36,6 @@ group :development, :test do
 end
 
 group :production do 
-	gem 'pg'
 end
 
 

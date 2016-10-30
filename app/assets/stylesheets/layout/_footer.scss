@@ -1,0 +1,16 @@
+/* 底部栏 */
+#footer { 
+	//position: absolute;
+  bottom: 0;
+  width: 100%;
+	background-color: $loyout-color;
+	text-align: center;
+	padding: 14px 0;
+	border-top: 1px solid #ddd;
+
+	.site-footer-info { float: left; }
+	.site-footer-links {
+		float: right;
+		a { margin: 0 10px; }
+	}
+}

@@ -1,0 +1,24 @@
+#= require jquery
+#= require jquery_ujs
+#= require turbolinks
+#= require bootstrap.min
+#= require_self
+
+# 切换语系 
+# 1: 当前语系是en, 切换显示zh-CN 
+# 0: 当前语系是zh-CN, 切换显示en 
+# lang = <%= I18n.locale  == "en" ? 1 : 0 %>
+# location = ""
+# $(document).on "click", ".switch-lang a", ()->
+#  	location = window.location.pathname  # 相对路径
+#   if lang == 0
+#   	# 切换显示
+#     location += "?locale=en"
+#     $(this).attr("href", location)
+#     lang = 1
+#   else 
+#     location += "?locale=zh-CN"
+#     $(this).attr("href", location)
+#     lang = 0
+
+

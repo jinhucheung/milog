@@ -1,18 +1,55 @@
 /*
- *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@charset 'utf-8';
 
-body, h1, h2, h3, h4, h5, h6,
-hr, p, blockquote, pre, form,
-dl, dt, dd, ul, ol, li {
-  margin: 0;
-  padding: 0;
-}
+/* lib */
+@import 
+		"bootstrap-sprockets"
+,		"bootstrap"
+,		"font-awesome/css/font-awesome.min"
+,		"highlight-default"
+,		"markdown-standard"
+,		"https://afeld.github.io/emoji-css/emoji.css"
+;
 
-body {
-  color: black;
-  font-size: 1.4rem;
-}
+/* helpers */
+@import 
+    "helpers/variables"
+;
+
+/* component */ 
+@import 
+		"component/base"
+,		"component/post"
+,   "component/post_collection"
+,		"component/pagination"
+,		"component/back_to_top"
+,		"component/avatar"
+,		"component/form"
+,		"component/scrollbar"
+,		"component/markdown_toolbar"
+,		"component/markdown"
+,		"component/emoji_picker"
+,		"component/comment"
+;
+
+/* layout */
+@import 
+		"layout/base"
+,		"layout/header"
+,		"layout/footer"
+;
+
+/* pages */
+@import 
+		"pages/login"
+,		"pages/category"
+,		"pages/aboutme"
+,		"pages/edit_post"
+,		"pages/setting"
+,		"pages/drafts"
+;
+
+/* media */
+@import "media/base";

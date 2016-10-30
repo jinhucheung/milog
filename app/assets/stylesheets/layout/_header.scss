@@ -1,0 +1,49 @@
+/* 导航栏 */
+.navbar {
+		border-radius: 0;
+		border:0;
+		border-bottom: 1px solid #ddd;
+		background-color: $loyout-color;
+		.navbar-header {
+				/* 向上浮动 */
+				position: relative;
+				z-index: $z-index + 5;
+				/* logo */
+				.navbar-brand {
+						padding-top: 10px;
+						padding-left: 30px;
+								.logo {
+					 				 height: 30px;
+					 				 width: 30px;
+								}
+				}
+				/* 垂直居中显示. 
+				 * 屏幕宽>=768px时 用navbar-text代替,从而自适应(navbar-text小屏不自适应) */
+				.switch-lang {
+					 // display: inline-block;
+					 // padding-top: 14.5px;
+				}
+		}
+
+		/* 导航栏菜单项垂直显示 */
+		.navbar-center{
+ 				width: 100%;
+  		  text-align: center;
+				position: absolute;  	//小屏幕时,设置成relative
+				left: 0;
+				top:0;
+  	 		li {
+  	 				float: none;
+  	 				display: inline-block;
+   		 	}
+		}
+		/* 居右下拉菜单 */
+		.navbar-footer { 
+			/* 向上浮动 */
+			position: relative;
+			z-index:  $z-index + 5;
+			margin-right: 4px;
+
+		}
+}
+
