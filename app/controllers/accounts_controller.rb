@@ -9,12 +9,11 @@ class AccountsController < ApplicationController
 	    flash[:info] = I18n.t "flash.info.validated_mail"
 	    redirect_to signup_path
 	  else
-	  	# 当I18n切换语系时, 自定义错误提示(errors.username_format)没有被切换
+	  	# 当I18n切换语系时, 自定义的用户名格式错误提示(errors.username_format)没有被切换
 	  	# 手动切换
-	  	if @user.errors[:username].any?
-	  		 @user.errors.delete :username
-	  		 @user.errors.add :username, I18n.t("errors.username_format") 
-	  	end
+	  	# 下面方法不能很好解决这个问题
+	  	index = @user.errors[:username].index { | msg | msg == User::TIPS_USERNAME_FORMAT_MSG }
+	  	@user.errors[:username][index] = I18n.t("errors.username_format")  unless index.nil?
 	  	render "new"
 	  end
 	end

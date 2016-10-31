@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Milog
   class Application < Rails::Application
-    config.i18n.default_locale = "zh-CN"
+    config.i18n.default_locale = 'zh-CN'
 
     config.before_configuration do 
     	# 读入环境变量

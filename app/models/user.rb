@@ -1,12 +1,15 @@
 class User < ApplicationRecord
-	USERNAME_FORMAT = /\A[a-zA-Z0-9\-\_]+\z/
-	EMAIL_FORMAT = /\A[\w\+\-\.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+	VALID_USERNAME_FORMAT = /\A[a-zA-Z0-9\-\_]+\z/
+	VALID_EMAIL_FORMAT = /\A[\w\+\-\.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
+	TIPS_USERNAME_FORMAT_MSG = 'USERNAME_FORMAT'
 
 	validates :username, :email, :password, presence: true
-	validates :username, length: { minimum: 6 },
-											 format: { with: USERNAME_FORMAT, message: I18n.t('errors.username_format') },
+	validates :username, length: { in: 6..25 },
+											 format: { with: VALID_USERNAME_FORMAT, message: TIPS_USERNAME_FORMAT_MSG },
 											 uniqueness: { case_sensitive: false }
-	validates :email,	format: { with: EMAIL_FORMAT },
+	validates :email,	length: { maximum: 255 }, 
+										format: { with: VALID_EMAIL_FORMAT },
 										uniqueness: { case_sensitive: false }
 	validates :password, length: { minimum: 6 },
 											 allow_nil: true
