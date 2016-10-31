@@ -24,3 +24,6 @@ en:
   error_tip:
     too_short:   is too short (minimum is %{count} characters)
     username_format:   may only contain alphanumeric characters or hyphens(-_)
+  flash:
+    info:
+      validated_mail: Your email is not validated, click to resend validation mail

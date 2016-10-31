@@ -26,3 +26,6 @@ zh-CN:
   error_tip:
     too_short: 至少 %{count} 个字符
     username_format: 只能含字母、数字或-_
+  flash:
+    info:
+      validated_mail: 验证邮件已发送，请检查您的邮箱

@@ -6,7 +6,8 @@ class AccountsController < ApplicationController
 	def create
 	  @user = User.new(user_params) 
 	  if @user.save
-	    render html: "success"
+	    flash[:info] = I18n.t "flash.info.validated_mail"
+	    redirect_to signup_path
 	  else
 	  	render "new"
 	  end
