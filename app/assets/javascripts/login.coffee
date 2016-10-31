@@ -5,6 +5,7 @@ $(".tab .signin a").click ()->
   # 切换注册表单显示
   $("#signup-box").css "display", "none"
   $("#signin-box").css "display", "block"
+  $(".form-error").css "display", "none"
   return false;
 
 $(".tab .signup a").click ()->
@@ -13,6 +14,7 @@ $(".tab .signup a").click ()->
   # 切换登录表单显示
   $("#signup-box").css "display", "block"
   $("#signin-box").css "display", "none"
+  $(".form-error").css "display", "none"
   return false;
 
 # 输入框焦点改变时,改变其包含图标颜色

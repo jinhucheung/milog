@@ -23,3 +23,6 @@ zh-CN:
   login: 
     remember_me: 记住我
     forget_me: 忘了密码？
+  error_tip:
+    too_short: 至少 %{count} 个字符
+    username_format: 只能含字母、数字或-_

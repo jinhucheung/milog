@@ -20,7 +20,8 @@
     .form-input-normal {
         outline: none;
         border: 1px solid $lightwhite;
-        box-shadow: none; 
+        box-shadow: none;
+
         &:focus {
             border: 1px solid $outline-input-color;
         }
@@ -59,14 +60,16 @@
     color: $waring-color;
 
     .form-error-field {
-        padding-left: 45px;
+        padding-left: 30px;
         width: 100%;
         height: 100%;
+        font-size: 13px;
+        line-height: 1.2;
     }
 
     .form-error-field + .icon {
         position: absolute;
         left: 0;
-        padding: 14px 18px;
+        padding: 13px 18px;
     }
 }

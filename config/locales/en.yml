@@ -21,3 +21,6 @@ en:
   login: 
     remember_me: Remember
     forget_me: Forgot Password?
+  error_tip:
+    too_short:   is too short (minimum is %{count} characters)
+    username_format:   may only contain alphanumeric characters or hyphens(-_)

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   root 'home#index'
 
-  get '/signup' => 'users#new'
-  post '/signup' => 'users#create'
-  resources :users, except: [:new]
+  get '/signup' => 'accounts#new'
+  post '/signup' => 'accounts#create'
+
+  resources :users, except: [:new, :create]
 end
