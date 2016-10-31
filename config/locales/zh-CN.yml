@@ -33,7 +33,7 @@ zh-CN:
       validated_mail: 验证邮件已发送，请检查您的邮箱
 
   errors:
-    username_format: 只能含字母、数字或-_
+    username_format: 只能含字母、数字、中横线或下划线
 
 
   activerecord:
