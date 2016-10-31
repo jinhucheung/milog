@@ -3,12 +3,13 @@ class User < ApplicationRecord
 	EMAIL_FORMAT = /\A[\w\+\-\.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
 	validates :username, :email, :password, presence: true
-	validates :username, length: { minimum: 6, too_short: I18n.t("error_tip.too_short") },
-											 format: { with: USERNAME_FORMAT, message: I18n.t("error_tip.username_format") },
+	validates :username, length: { minimum: 6 },
+											 format: { with: USERNAME_FORMAT, message: I18n.t('errors.username_format') },
 											 uniqueness: { case_sensitive: false }
 	validates :email,	format: { with: EMAIL_FORMAT },
 										uniqueness: { case_sensitive: false }
-	validates :password, length: { minimum: 6, too_short: I18n.t("error_tip.too_short") }
+	validates :password, length: { minimum: 6 },
+											 allow_nil: true
 
 	# 需引入gem bcrypt
 	has_secure_password

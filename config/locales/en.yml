@@ -18,12 +18,28 @@ en:
   username: Username
   email: Email Address
   password: Password
+  password_confirmation: Password Confirmation
+
+
   login: 
     remember_me: Remember
     forget_me: Forgot Password?
-  error_tip:
-    too_short:   is too short (minimum is %{count} characters)
-    username_format:   may only contain alphanumeric characters or hyphens(-_)
+   
+
   flash:
     info:
       validated_mail: Your email is not validated, click to resend validation mail
+
+  errors:
+    username_format: may only contain alphanumeric characters or hyphens(-_)
+
+
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        username: Username
+        email: Email
+        password: Password
+        password_confirmation: Password Confirmation

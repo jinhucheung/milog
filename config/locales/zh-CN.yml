@@ -20,12 +20,29 @@ zh-CN:
   username: 用户名
   email: Email 地址
   password: 密码
+  password_confirmation: 确认密码
+
+
   login: 
     remember_me: 记住我
     forget_me: 忘了密码？
-  error_tip:
-    too_short: 至少 %{count} 个字符
-    username_format: 只能含字母、数字或-_
+
+
   flash:
     info:
       validated_mail: 验证邮件已发送，请检查您的邮箱
+
+  errors:
+    username_format: 只能含字母、数字或-_
+
+
+  activerecord:
+    models:
+      user: 用户
+    attributes:
+      user:
+        username: 用户名
+        email: 邮箱
+        password: 密码
+        password_confirmation: 确认密码
+   
