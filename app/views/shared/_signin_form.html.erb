@@ -1,5 +1,5 @@
 <!-- 登录表单 -->
-<%= simple_form_for @user, url: signup_path do |f| %>
+<%= simple_form_for @user, url: signin_path do |f| %>
   <%= render "shared/login_error_messages", object: f.object %>
 
 	<div class="form-group form-group-icon">
@@ -18,7 +18,7 @@
 
 	<div class="login-setting">
 		<div class="checkbox">
-			<span class="remember-me"><input type="checkbox"><%= t "login.remember_me" %></span>
+			<span class="remember-me"><%= f.input_field :remember_me, as: :boolean, boolean_style: :inline %><%= t "login.remember_me" %></span>
 		</div>
 	  <a href="#" class="forget-me"><%= t "login.forget_me" %></a>
 	</div>

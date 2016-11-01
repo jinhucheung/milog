@@ -32,6 +32,7 @@ en:
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
+    email_disabled: does not exist or disabled
 
   activerecord:
     models:

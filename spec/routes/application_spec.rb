@@ -24,4 +24,10 @@ RSpec.describe "ApplicationRoutes", type: :routing do
 			expect(post: '/users').not_to be_routable
 		end
 	end
+
+	context "signin" do
+		it "get /signin success" do
+			expect(get: '/signin').to route_to 'sessions#new'
+		end
+	end
 end

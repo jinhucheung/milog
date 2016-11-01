@@ -22,6 +22,9 @@ class User < ApplicationRecord
 
 	before_save :downcase_username_and_email
 
+	attr_accessor :remember_me
+
+
 	private
 		def downcase_username_and_email
 			username.downcase!
