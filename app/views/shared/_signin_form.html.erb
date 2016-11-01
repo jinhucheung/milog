@@ -1,5 +1,5 @@
 <!-- 登录表单 -->
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, url: signup_path do |f| %>
   <%= render "shared/login_error_messages", object: f.object %>
 
 	<div class="form-group form-group-icon">

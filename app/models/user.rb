@@ -2,8 +2,8 @@ class User < ApplicationRecord
 	USERNAME_FORMAT = /[a-zA-Z0-9\-\_]{6,25}/
 	EMAIL_FORMAT = /[\w\+\-\.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+/
 
-	USERNAME_FORMAT_REGEXP = /\A#{USERNAME_FORMAT}\z/
-	EAMIL_FORMAT_REGEXP = /\A#{EMAIL_FORMAT}\z/i
+	USERNAME_FORMAT_REGEXP = /\A#{ USERNAME_FORMAT.source }\z/
+	EAMIL_FORMAT_REGEXP = /\A#{ EMAIL_FORMAT.source }\z/i
 
 	TIPS_USERNAME_FORMAT_MSG = 'USERNAME_FORMAT'
 
