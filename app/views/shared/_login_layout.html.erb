@@ -1,13 +1,12 @@
 <!-- 登录注册页面 -->
 <div class="login">
 	<!-- 语系切换 -->
-	<div class="switch-lang"><%= link_to (t(:lang) == "EN" ? "中文" : "EN" ), (t(:lang) == "EN" ? "/#{yield(:login)}?locale=zh-CN" : "/#{yield(:login)}?locale=en" ) %></div>
+	<div class="switch-lang"><%= link_to_locale yield(:login) %></div>
 	<div class="clearfix"></div>
 
   <!-- login区块 -->
 	<div class="container">
 		 	<div class="col-md-3 col-center-block login-box">
-		 			<!-- logo -->
 		 			<div class="logo">
 		 				<%=link_to image_tag("logo.png", alt:"Rails logo", class: "img-responsive center-block"), "/" %>
 		 			</div>
@@ -17,21 +16,21 @@
 					<!-- login标签 -->
 					<ul class="tab">
 							<li class="signin">
-									<a <%= "class=under-line" if yield(:login) == "signin" %>  href="#"><%= t "signin" %></a>
+									<%= link_to_login 'signin', 'under-line', yield(:login) %>
 							</li>
 							<li class="signup">
-									<a <%= "class=under-line" if yield(:login) == "signup" %> href="#"><%= t "signup" %></a>
+									<%= link_to_login 'signup', 'under-line', yield(:login) %>
 							</li>
 					</ul>
 					<!-- 注册表单 -->
-					<div id="signup-box" style="display: <%= yield(:login) == "signup" ? "block" : "none" %> ;">
+					<div id="signup-box" <%= show_or_hidden_login_div 'signup', yield(:login) %> >
 							<div class="login-body">
 						  	<%= render "shared/signup_form" %>
 							</div>
 					</div>
 
 					<!-- 登录表单 -->
-					<div id="signin-box" style="display: <%= yield(:login) == "signin" ? "block" : "none" %> ;">
+					<div id="signin-box" <%= show_or_hidden_login_div 'signin', yield(:login) %> >
 							<div class="login-body">
 								<%= render "shared/signin_form" %>
 							</div>

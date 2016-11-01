@@ -1,6 +1,5 @@
 source 'https://gems.ruby-china.org'
 
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'sprockets'
@@ -34,6 +33,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :production do 

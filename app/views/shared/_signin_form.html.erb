@@ -1,21 +1,21 @@
 <!-- 登录表单 -->
 <%= simple_form_for @user do |f| %>
   <%= render "shared/login_error_messages", object: f.object %>
-	<!-- Email -->
+
 	<div class="form-group form-group-icon">
 		<%= f.email_field :email, placeholder: t("email"), class: "form-input email" %>
 		<span class="glyphicon glyphicon-envelope icon"></span>
 	</div>
-	<!-- 密码 -->
+
 	<div class="form-group form-group-icon">
 		<%= f.password_field :password, placeholder: t("password"), class: "form-input password" %>
 	  <span class="glyphicon glyphicon-lock icon"></span>
 	</div>
-	<!-- 提交 -->
+
 	<div class="form-group">
 		<%= f.button :submit, t("signin"), class: "btn btn-primary btn-block submit" %>
 	</div>
-	<!-- 记住登录/忘记密码设置 -->
+
 	<div class="login-setting">
 		<div class="checkbox">
 			<span class="remember-me"><input type="checkbox"><%= t "login.remember_me" %></span>
