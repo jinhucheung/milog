@@ -1,6 +1,6 @@
 <!-- 登录表单 -->
-<%= simple_form_for @user, url: signin_path do |f| %>
-  <%= render "shared/login_error_messages", object: f.object %>
+<%= simple_form_for :session, url: signin_path do |f| %>
+  <%= render "shared/login_error_messages", object: @user %>
 
 	<div class="form-group form-group-icon">
 		<%= f.email_field :email, placeholder: t("email"), class: "form-input email" %>

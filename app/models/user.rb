@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+	include Securable
+
 	USERNAME_FORMAT = /[a-zA-Z0-9\-\_]{6,25}/
 	EMAIL_FORMAT = /[\w\+\-\.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+/
 
@@ -22,13 +24,23 @@ class User < ApplicationRecord
 
 	before_save :downcase_username_and_email
 
-	attr_accessor :remember_me
+	attr_accessor :remember_token
 
+
+  # 生成remember_me的加密字段digest, 并保留token
+  def new_remember_digest
+  	@remember_token = new_token
+  	update_digest :remember, digest_token(remember_token)
+  end
+
+  def del_remember_digest
+  	@remember_token = nil
+  	update_digest :remember, nil
+  end
 
 	private
 		def downcase_username_and_email
 			username.downcase!
 			email.downcase!
-
 		end
 end

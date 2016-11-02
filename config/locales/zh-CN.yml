@@ -35,6 +35,7 @@ zh-CN:
   errors:
     username_format: 只能含字母、数字、中横线或下划线
     email_disabled: 不存在或已被禁用
+    not_right: 不正确
 
   activerecord:
     models:
