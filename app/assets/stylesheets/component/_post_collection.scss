@@ -70,7 +70,8 @@
 
     /* 归档文章 */
     .post {
-    		padding-top: 15px;
+        padding-top: 15px;
+
         .post-header {
             position: relative;
             padding-bottom: 5px;
@@ -81,27 +82,33 @@
                 margin-left: 70px;
                 font-size: 16px;
                 line-height: inherit;
-                .post-title-link-no-underline { color: #666 !important; }
+
+                .post-title-link-no-underline {
+                    color: #666 !important;
+                }
             }
 
-						/* 时间 */
+            /* 时间 */
             .post-meta {
                 position: absolute;
                 font-size: 13px;
                 left: 20px;
                 top: 2px;
-								color: #666;
+                color: #666;
             }
-					
-					  /* 标点 */
+
+            /* 标点 */
             &:before {
-  							@include build_dot(7px, 0, -4px, 0, 6px, 0.3);
+                @include build_dot(7px, 0, -4px, 0, 6px, 0.3);
             }
-						
-						/* 悬停时高亮处理 */
+
+            /* 悬停时高亮处理 */
             &.post-header-hover-on {
-            	border-bottom: 1px dashed black;
-            	&:before {  opacity: 1; }
+                border-bottom: 1px dashed black;
+
+                &:before {
+                    opacity: 1;
+                }
             }
         }
     }

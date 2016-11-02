@@ -11,9 +11,10 @@
     opacity: 0;
     background: $back-to-top-bgcolor;
     color: white;
-		/* 使btn出现,并可点击 */
+
+    /* 使btn出现,并可点击 */
     &.back-to-top-on {
-    	 opacity: 0.8;
-    	 cursor: pointer;
+        opacity: 0.8;
+        cursor: pointer;
     }
 }

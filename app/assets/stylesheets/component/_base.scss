@@ -18,7 +18,6 @@
     font-size: 15px;
 }
 
-
 /* NexT动画下划线 */
 @mixin next-hover-underline($color: #555) {
     &:before {
@@ -61,16 +60,17 @@
     border: 1px solid $outline-input-color !important;
     border-top: 1px solid transparent !important;
 }
+
 /* 文章编辑选项卡边线加深 */
 .edit-tab-border-deepen {
     border: 1px solid $outline-input-color !important;
     border-bottom: 1px solid white !important;
 }
+
 /* 文章编辑选项卡区边线加深 */
 .edit-tabs-border-deepen {
     border-bottom: 1px solid $outline-input-color !important;
 }
-
 
 /* 提示信息 */
 .flash-alert {

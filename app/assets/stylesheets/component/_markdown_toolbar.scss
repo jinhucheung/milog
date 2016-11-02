@@ -1,16 +1,17 @@
-.markdown-toolbar{
-		position: relative;
+.markdown-toolbar {
+    position: relative;
 
-		/* 工具项 */
-		.toolbar-item {
-				padding: 5px;
-		}
-		/* 分隔竖线 */
-		.divider {
-			&:before { 
-				content: " ";
-				border-left: 1px solid #ddd;
-				margin: 0 5px;
-			}
-		}
+    /* 工具项 */
+    .toolbar-item {
+        padding: 5px;
+    }
+
+    /* 分隔竖线 */
+    .divider {
+        &:before {
+            content: " ";
+            border-left: 1px solid #ddd;
+            margin: 0 5px;
+        }
+    }
 }

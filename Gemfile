@@ -36,7 +36,5 @@ group :development, :test do
   gem 'capybara'
 end
 
-group :production do 
+group :production do
 end
-
-

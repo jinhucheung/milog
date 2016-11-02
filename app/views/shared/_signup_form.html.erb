@@ -1,29 +1,23 @@
 <!-- 注册表单 -->
 <%= simple_form_for @user, url: signup_path do |f| %>
-
-	<%= render "shared/login_error_messages", object: f.object %>
-
-	<div class="form-group form-group-icon">
-		<%= f.input_field :username, placeholder: t("username"), class: "form-input name" %>
-		<span class="glyphicon glyphicon-user icon"></span>
-	</div>
-
-	<div class="form-group form-group-icon">
-		<%= f.email_field :email, placeholder: t("email"), class: "form-input email" %>
-		<span class="glyphicon glyphicon-envelope icon"></span>
-	</div>
-
-	<div class="form-group form-group-icon">
-		<%= f.password_field :password, placeholder: t("password"), class: "form-input password" %>
-		<span class="glyphicon glyphicon-lock icon"></span>
-	</div>
-
-	<div class="form-group form-group-icon">
-		<%= f.password_field :password_confirmation, placeholder: t("password_confirmation"), class: "form-input password" %>
-		<span class="glyphicon glyphicon-lock icon"></span>
-	</div>
-
-	<div class="form-group">
-		<%= f.button :submit, t("signup"), class: "btn btn-primary btn-block submit", id: "signup" %>
-	</div>
+<%= render "shared/login_error_messages", object: f.object %>
+<div class="form-group form-group-icon">
+	<%= f.input_field :username, placeholder: t("username"), class: "form-input name" %>
+	<span class="glyphicon glyphicon-user icon"></span>
+</div>
+<div class="form-group form-group-icon">
+	<%= f.email_field :email, placeholder: t("email"), class: "form-input email" %>
+	<span class="glyphicon glyphicon-envelope icon"></span>
+</div>
+<div class="form-group form-group-icon">
+	<%= f.password_field :password, placeholder: t("password"), class: "form-input password" %>
+	<span class="glyphicon glyphicon-lock icon"></span>
+</div>
+<div class="form-group form-group-icon">
+	<%= f.password_field :password_confirmation, placeholder: t("password_confirmation"), class: "form-input password" %>
+	<span class="glyphicon glyphicon-lock icon"></span>
+</div>
+<div class="form-group">
+	<%= f.button :submit, t("signup"), class: "btn btn-primary btn-block submit", id: "signup" %>
+</div>
 <% end %>

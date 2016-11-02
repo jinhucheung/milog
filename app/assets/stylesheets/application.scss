@@ -1,55 +1,51 @@
 /*
  *= require_self
  */
-@charset 'utf-8';
+@charset "utf-8";
 
 /* lib */
-@import 
-		"bootstrap-sprockets"
-,		"bootstrap"
-,		"font-awesome/css/font-awesome.min"
-,		"highlight-default"
-,		"markdown-standard"
-,		"https://afeld.github.io/emoji-css/emoji.css"
-;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome/css/font-awesome.min";
+@import "highlight-default";
+@import "markdown-standard";
+
+@import "https://afeld.github.io/emoji-css/emoji.css";
 
 /* helpers */
-@import 
-    "helpers/variables"
-;
 
-/* component */ 
-@import 
-		"component/base"
-,		"component/post"
-,   "component/post_collection"
-,		"component/pagination"
-,		"component/back_to_top"
-,		"component/avatar"
-,		"component/form"
-,		"component/scrollbar"
-,		"component/markdown_toolbar"
-,		"component/markdown"
-,		"component/emoji_picker"
-,		"component/comment"
-;
+@import "helpers/variables";
+
+/* component */
+
+@import "component/base";
+@import "component/post";
+@import "component/post_collection";
+@import "component/pagination";
+@import "component/back_to_top";
+@import "component/avatar";
+@import "component/form";
+@import "component/scrollbar";
+@import "component/markdown_toolbar";
+@import "component/markdown";
+@import "component/emoji_picker";
+@import "component/comment";
 
 /* layout */
-@import 
-		"layout/base"
-,		"layout/header"
-,		"layout/footer"
-;
+
+@import "layout/base";
+@import "layout/header";
+@import "layout/footer";
 
 /* pages */
-@import 
-		"pages/login"
-,		"pages/category"
-,		"pages/aboutme"
-,		"pages/edit_post"
-,		"pages/setting"
-,		"pages/drafts"
-;
+
+@import "pages/login";
+@import "pages/category";
+@import "pages/aboutme";
+@import "pages/edit_post";
+@import "pages/setting";
+@import "pages/drafts";
 
 /* media */
 @import "media/base";

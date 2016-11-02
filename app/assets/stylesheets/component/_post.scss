@@ -8,6 +8,7 @@
     /* 标题 */
     .post-title {
         margin-top: 0;
+
         .post-title-normal {
             display: inline-block;
             position: relative;
@@ -20,6 +21,7 @@
 
         .post-title-link {
             @extend .post-title-normal;
+
             @include next-hover-underline($post-title-color);
         }
     }
