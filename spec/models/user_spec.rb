@@ -177,6 +177,46 @@ RSpec.describe User, type: :model do
         }.not_to raise_error
       end
     end
-  end  
+  end
+
+  describe "digest helper methods" do 
+    it "should get activation_token and activation_digest when call new_attr_digest(:activation)" do 
+      user.new_attr_digest :activation
+      expect(user.activation_token).not_to eq nil
+      expect(user.activation_digest).not_to eq nil      
+    end
+
+    it "should get remember_token and remember_digest when call new_attr_digest(:remember)" do 
+      user.new_attr_digest :remember
+      expect(user.remember_token).not_to eq nil
+      expect(user.remember_digest).not_to eq nil      
+    end
+
+    it "should get token = nil and digest =nil when when call del_attr_digest(:activation)" do 
+      user.new_attr_digest :activation
+      user.del_attr_digest :activation
+      expect(user.activation_token).to eq nil
+      expect(user.activation_digest).to eq nil           
+    end
+
+    it "should be expired when digest is generated in 2 hours ago" do
+      user.save
+      user.update_attribute :activated_at, Time.zone.now - 3.hours
+      expect(user.digest_expired?(:activated)).to eq true
+    end
+
+    it "should be valid when digest is generated in 2 hours " do 
+      user.save
+      user.update_attribute :activated_at, Time.zone.now
+      expect(user.digest_expired?(:activated)).to eq false
+
+      user.update_attribute :activated_at, Time.zone.now - 30.minutes
+      expect(user.digest_expired?(:activated)).to eq false
+
+      user.update_attribute :activated_at, Time.zone.now - 1.5.hours
+      expect(user.digest_expired?(:activated)).to eq false     
+    end
+
+  end
 
 end

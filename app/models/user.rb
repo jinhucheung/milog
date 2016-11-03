@@ -23,8 +23,9 @@ class User < ApplicationRecord
   has_secure_password
 
   before_save :downcase_username_and_email
+  after_create :generate_activation_digest
 
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
   # 生成对应属性的加密字段digest, 并保留token
   def new_attr_digest(attribute)
@@ -37,9 +38,21 @@ class User < ApplicationRecord
     update_digest attribute, nil
   end
 
-  private
-  def downcase_username_and_email
-    username.downcase!
-    email.downcase!
+  # 判断有时效的加密字段是否还生效
+  def digest_expired?(attribute, deadline = 2.hours)
+    start_time = send "#{attribute}_at"
+    Time.zone.now - start_time > deadline
   end
+
+  private
+    def downcase_username_and_email
+      username.downcase!
+      email.downcase!
+    end
+
+    # 生成激活字段, 记录用户状态
+    def generate_activation_digest
+      new_attr_digest :activation
+      update_attribute :activated_at, Time.zone.now  
+    end
 end
