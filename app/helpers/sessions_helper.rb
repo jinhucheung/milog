@@ -23,13 +23,13 @@ module SessionsHelper
   end
 
   def remember_me(user)
-    user.new_remember_digest
+    user.new_attr_digest :remember
     cookies.permanent.signed[:remember_token] = user.remember_token
     cookies.permanent.signed[:username] = user.username
   end
 
   def forget_me(user)
-    user.del_remember_digest
+    user.del_attr_digest :remember
     cookies.delete :remember_token
     cookies.delete :username
   end

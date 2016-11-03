@@ -26,16 +26,15 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token
 
-
-  # 生成remember_me的加密字段digest, 并保留token
-  def new_remember_digest
-    @remember_token = new_token
-    update_digest :remember, digest_token(remember_token)
+  # 生成对应属性的加密字段digest, 并保留token
+  def new_attr_digest(attribute)
+    send "#{attribute}_token=", new_token
+    update_digest attribute, digest_token(send("#{attribute}_token"))
   end
 
-  def del_remember_digest
-    @remember_token = nil
-    update_digest :remember, nil
+  def del_attr_digest(attribute)
+    send "#{attribute}_token=", nil
+    update_digest attribute, nil
   end
 
   private

@@ -54,6 +54,11 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     it "get /1 fail" do
       expect(get: '/1').not_to be_routable
     end
+  end
 
+  describe "api" do 
+    it "get /accounts/active" do 
+      expect(get: 'api/accounts/active').to route_to 'api/accounts#active'
+    end
   end
 end
