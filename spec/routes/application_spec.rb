@@ -22,6 +22,16 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     it "get /signin success" do
       expect(get: '/signin').to route_to 'sessions#new'
     end
+
+    it "post /signin success" do 
+      expect(post: '/signin').to route_to 'sessions#create'
+    end
+  end
+
+  context 'signout' do
+    it "delete /signout success" do 
+      expect(delete: '/signout').to route_to 'sessions#destroy'
+    end
   end
 
   context "users" do

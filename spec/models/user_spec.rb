@@ -137,4 +137,46 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "User::Securable" do 
+    it "should authenticate when token match digest" do 
+      token = user.new_token
+      digest = user.digest_token token
+      expect(BCrypt::Password.new(digest).is_password?(token)).to eq true
+    end
+
+    it "shouldn't authenticate when token doesn't match digest" do 
+      token = user.new_token
+      digest = user.digest_token token 
+      token = user.new_token
+      expect(BCrypt::Password.new(digest).is_password?(token)).to eq false      
+    end
+
+    it "should authenticate when token match digest by #authenticated?" do
+      token = user.new_token
+      user.remember_digest = user.digest_token token
+      expect(user.authenticated?(:remember, token)).to eq true   
+    end
+
+    it "shouldn't authenticate when token doestn't match digest by #authenticated?" do
+      token = user.new_token
+      user.remember_digest = user.digest_token token
+      token = "1"
+      expect(user.authenticated?(:remember, token)).to eq false        
+    end
+
+    context "digest is nil or blank" do
+      it "shouldn't authenticate when remember_digest is nil or blank" do 
+        user.remember_digest = nil
+        expect {
+          expect(user.authenticated?(:remember, "1")).to eq false
+        }.not_to raise_error
+
+        user.remember_digest = ""
+        expect {
+          expect(user.authenticated?(:remember, "1")).to eq false
+        }.not_to raise_error
+      end
+    end
+  end  
+
 end

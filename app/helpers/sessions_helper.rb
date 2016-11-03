@@ -9,11 +9,15 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by username: session[:username]
-    unless  @current_user
-      user = User.find_by username: cookies.signed[:username]
+    if username = session[:username]
+      @current_user ||= User.find_by username: username 
+    elsif username = cookies.signed[:username]
+      user = User.find_by username: username
       return nil unless user
-      @current_user = user if	user.authenticated? :remember, cookies.signed[:remember_token]
+      if user.authenticated? :remember, cookies.signed[:remember_token]
+         sign_in user
+         @current_user = user
+      end 
     end
     @current_user
   end
@@ -28,6 +32,10 @@ module SessionsHelper
     user.del_remember_digest
     cookies.delete :remember_token
     cookies.delete :username
+  end
+
+  def remembered_me?
+    !cookies['username'].nil? && !cookies['remember_token'].nil?
   end
 
   def sign_out
