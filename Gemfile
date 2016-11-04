@@ -27,14 +27,17 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # 预览发送邮件
   gem "letter_opener"
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  # Rspec 测试
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'capybara'
+
 end
 
 group :production do

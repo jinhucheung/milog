@@ -46,4 +46,12 @@ zh-CN:
         email: 邮箱
         password: 密码
         password_confirmation: 确认密码
-   
+  
+  accounts_mailer:
+    active_account: 
+      subject: 欢迎使用Milog! 立即激活您的账户
+      hi: Hi %{username}，
+      header: 感谢您注册Milog! 请点击以下链接激活您的账户：
+      tips: 如果点击链接无效，请尝试将链接复制到浏览器地址栏访问。
+      help: 请勿回复此邮件，如果有疑问，请联系我们 %{support_email}
+      footer: '- Milog' 

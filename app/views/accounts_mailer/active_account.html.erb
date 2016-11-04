@@ -1,5 +1,7 @@
-<h1>Accounts#active_account</h1>
-
-<p>
-  <%= link_to "active", api_accounts_active_url(email: @user.email, token: @user.activation_token) %>
-</p>
+<% provide :preview, t("#{@default_i18n}.header") %>
+<% provide :hi, t("#{@default_i18n}.hi", username: @user.username) %>
+<% provide :header, t("#{@default_i18n}.header") %>
+<% provide :link, api_accounts_active_url(user: @user.username, token: @user.activation_token) %>
+<% provide :tips, t("#{@default_i18n}.tips") %>
+<% provide :help, t("#{@default_i18n}.help", support_email: 'support@hijinhu.me') %>
+<% provide :footer, t("#{@default_i18n}.footer") %>

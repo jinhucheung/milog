@@ -44,3 +44,12 @@ en:
         email: Email
         password: Password
         password_confirmation: Password Confirmation
+
+  accounts_mailer:
+    active_account: 
+      subject: Please confirm your email
+      hi: Hi %{username},
+      header: Welcome to Milog. Please click on the following link to confirm your email address.
+      tips: Button not working? Copy and paste it into your browser.
+      help: Please do not reply, If in doubt, please contact us %{support_email}
+      footer: '- Milog'
