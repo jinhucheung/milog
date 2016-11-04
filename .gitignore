@@ -23,6 +23,9 @@
 # Ignore all .sass-cache files
 /.sass-cache/**
 
+# Ignore all public/assets files
+/public/assets/**
+
 # Ignore all ~ file
 .*~
 *~

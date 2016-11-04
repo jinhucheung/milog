@@ -47,5 +47,5 @@ test:
 production:
   <<: *default
   database: milog_production
-  username: milog
-  password: <%= ENV['MILOG_DATABASE_PASSWORD'] %>
+#  username: milog
+#  password: <%= ENV['MILOG_DATABASE_PASSWORD'] %>
