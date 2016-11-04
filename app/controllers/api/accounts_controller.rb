@@ -24,7 +24,7 @@ class Api::AccountsController < ApplicationController
     end
   end
 
-  def send_mail
+  def send_active_mail
     @user = User.find_by username: params[:id]
     if validated_user? && !@user.activated?
       # 重新生成激活字段

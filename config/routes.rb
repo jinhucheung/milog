@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :api do 
     scope :accounts, as: 'accounts' , constraints: { id: User::USERNAME_FORMAT } do
       get '/:id/active' => 'accounts#active', as: 'active'
-      get '/:id/sendmail' => 'accounts#send_mail', as: 'sendmail'
+      get '/:id/sendactivemail' => 'accounts#send_active_mail', as: 'send_active_mail'
     end
   end
 
