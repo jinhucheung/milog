@@ -2,16 +2,17 @@ require "rails_helper"
 
 RSpec.describe AccountsMailer, type: :mailer do
   describe "active_account" do
-    let(:mail) { AccountsMailer.active_account }
+    let(:user) { User.create username: "aTestUser", email: "aTestUser@test.com", password: "aTestUserPsw", password_confirmation: "aTestUserPsw" }
+    let(:mail) { AccountsMailer.active_account user }
 
-    xit "renders the headers" do
-      expect(mail.subject).to eq("Active account")
-      expect(mail.to).to eq(["to@example.org"])
-      expect(mail.from).to eq(["from@example.com"])
+    it "renders the headers" do
+      expect(mail.subject).to eq(I18n.t("accounts_mailer.active_account.subject"))
+      expect(mail.to).to eq([user.email])
+      expect(mail.from).to eq(["no-reply@hijinhu.me"])
     end
 
-    xit "renders the body" do
-      expect(mail.body.encoded).to match("Hi")
+    it "renders the body" do
+      expect(mail.body.encoded).to match(user.username)
     end
   end
 

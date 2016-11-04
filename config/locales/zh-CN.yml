@@ -22,15 +22,19 @@ zh-CN:
   password: 密码
   password_confirmation: 确认密码
 
-
   login: 
     remember_me: 记住我
     forget_me: 忘了密码？
 
-
   flash:
     info:
       validated_mail: 验证邮件已发送，请检查您的邮箱
+    danger:
+      link_invalid: 链接无效
+    warning:
+      link_expired: 链接失效，请重新生成链接
+    success:
+      active_account: 用户已成功激活
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线

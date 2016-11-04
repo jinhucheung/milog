@@ -8,7 +8,8 @@ class AccountsController < ApplicationController
     if @user.save
       AccountsMailer.active_account(@user).deliver
       flash[:info] = I18n.t "flash.info.validated_mail"
-      redirect_to root_path
+      sign_in @user
+      redirect_to user_path(@user.username)
     else
       # 当I18n切换语系时, 自定义的用户名格式错误提示(errors.username_format)没有被切换
       # 手动切换

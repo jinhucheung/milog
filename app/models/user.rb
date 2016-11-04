@@ -44,15 +44,22 @@ class User < ApplicationRecord
     Time.zone.now - start_time > deadline
   end
 
+  # 激活用户
+  def active
+    del_attr_digest :activation
+    update_attribute :activated, true
+    update_attribute :activated_at, Time.zone.now      
+  end
+
+  # 生成激活字段, 记录用户状态
+  def generate_activation_digest
+    new_attr_digest :activation
+    update_attribute :activated_at, Time.zone.now
+  end
+
   private
     def downcase_username_and_email
       username.downcase!
       email.downcase!
-    end
-
-    # 生成激活字段, 记录用户状态
-    def generate_activation_digest
-      new_attr_digest :activation
-      update_attribute :activated_at, Time.zone.now  
     end
 end

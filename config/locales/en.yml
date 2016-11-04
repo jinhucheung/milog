@@ -20,15 +20,19 @@ en:
   password: Password
   password_confirmation: Password Confirmation
 
-
   login: 
     remember_me: Remember
     forget_me: Forgot Password?
    
-
   flash:
     info:
       validated_mail: Your email is not validated, click to resend validation mail
+    danger:
+      link_invalid: The link is invalid
+    warning:
+      link_expired: The link has expired, please regenerate
+    success:
+      active_account: Account activated
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)

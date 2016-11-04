@@ -57,8 +57,12 @@ RSpec.describe "ApplicationRoutes", type: :routing do
   end
 
   describe "api" do 
-    it "get /accounts/active" do 
-      expect(get: 'api/accounts/active').to route_to 'api/accounts#active'
+    it "get /accounts/:id/active" do 
+      expect(get: 'api/accounts/hijinhu/active').to route_to 'api/accounts#active', id: 'hijinhu'
+    end
+
+    it "get /accounts/:id/sendmail" do 
+      expect(get: 'api/accounts/hijinhu/sendmail').to route_to 'api/accounts#send_mail', id: 'hijinhu'
     end
   end
 end

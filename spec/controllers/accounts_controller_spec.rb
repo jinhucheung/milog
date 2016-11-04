@@ -32,7 +32,7 @@ RSpec.describe AccountsController, type: :controller do
       expect(flash[:info]).not_to be_empty
       expect(response).not_to have_http_status(:success)
       expect(response).to have_http_status(:redirect)
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to user_path(user.username.downcase!)
     end
 
     it "invalid signup information" do

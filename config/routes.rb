@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-
+  
   get '/signup' => 'accounts#new'
   post '/signup' => 'accounts#create'
 
@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   delete '/signout' => 'sessions#destroy'
 
   namespace :api do 
-    get '/accounts/active' => 'accounts#active'
+    scope :accounts, as: 'accounts' , constraints: { id: User::USERNAME_FORMAT } do
+      get '/:id/active' => 'accounts#active', as: 'active'
+      get '/:id/sendmail' => 'accounts#send_mail', as: 'sendmail'
+    end
   end
 
   # 用户操作路由应该放在最后
