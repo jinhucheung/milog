@@ -1,0 +1,42 @@
+<div class="forgot">
+  <!-- 语系切换 -->
+  <div class="switch-lang" style="visibility: hidden">#</div>
+  <div class="clearfix"></div>
+
+  <div class="container">
+    <div class="col-md-3 col-center-block forgot-box">
+      <div class="logo">
+        <%=link_to image_tag("logo.png", alt:"Rails logo", class: "img-responsive center-block"), "/" %>
+      </div>
+      <h6></h6>
+
+      <ul class="tab">
+        <li><span class="under-line"><%= t "reset_password" %></span></li>
+      </ul>
+
+      <div id="forgot-box">
+        <div class="login-body">
+          <%= simple_form_for @user, url: accounts_password_path(token: params[:token]) do |f| %>
+            <%= render "shared/login_error_messages", object: f.object %>
+            <div class="form-group form-group-icon">
+              <%= f.email_field :email, placeholder: t("email"), class: "form-input email", disabled: true %>
+              <span class="glyphicon glyphicon-envelope icon"></span>
+            </div>
+            <div class="form-group form-group-icon">
+              <%= f.password_field :password, placeholder: t("password"), class: "form-input password" %>
+              <span class="glyphicon glyphicon-lock icon"></span>
+            </div>
+            <div class="form-group form-group-icon">
+              <%= f.password_field :password_confirmation, placeholder: t("password_confirmation"), class: "form-input password" %>
+              <span class="glyphicon glyphicon-lock icon"></span>
+            </div>
+            <div class="form-group">
+              <%= f.button :submit, t("change_password"), class: "btn btn-primary btn-block submit", id: "forgot" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'login' %>

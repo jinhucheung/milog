@@ -19,9 +19,11 @@ en:
   email: Email Address
   password: Password
   password_confirmation: Password Confirmation
-  forgot: Forgot your password
+  forgot_password: Forgot your password
   send_psw_reset_link: Send me password reset link
   send_psw_reset_tips: Enter your email address and we'll send you password reset instructions.
+  reset_password: Reset Password
+  change_password: Change Password
 
   login: 
     remember_me: Remember
@@ -37,6 +39,7 @@ en:
       link_expired: The link has expired, please regenerate
     success:
       active_account: Account activated
+      reset_password: Password has been reset
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)

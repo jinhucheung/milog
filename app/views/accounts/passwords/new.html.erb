@@ -1,7 +1,6 @@
-<!-- 登录注册页面 -->
 <div class="forgot">
   <!-- 语系切换 -->
-  <div class="switch-lang"><%= link_to_locale "forgot" %></div>
+  <div class="switch-lang"><%= link_to_locale 'accounts/passwords/forgot' %></div>
   <div class="clearfix"></div>
 
   <div class="container">
@@ -12,7 +11,7 @@
       <h6></h6>
 
       <ul class="tab">
-        <li><span class="under-line"><%= t "forgot" %></span></li>
+        <li><span class="under-line"><%= t "forgot_password" %></span></li>
       </ul>
 
       <div id="forgot-box">
@@ -24,7 +23,7 @@
               <span class="glyphicon glyphicon-envelope icon"></span>
             </div>
             <div class="form-group">
-              <%= f.button :submit, t("send_psw_reset_link"), class: "btn btn-primary btn-block submit", id: "forgot" %>
+              <%= f.button :submit, t("send_psw_reset_link"), class: "btn btn-primary btn-block submit", id: "forgot_password" %>
             </div>
           <% end %>
         </div>
