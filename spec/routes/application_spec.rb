@@ -56,96 +56,96 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     end
   end
 
-  describe "api" do 
+  describe "accounts active" do 
 
     context "/accounts/:id/active is routable when id is valid " do 
       it "get /accounts/hijinhu/active" do 
-        expect(get: 'api/accounts/hijinhu/active').to route_to 'api/accounts#active', id: 'hijinhu'
+        expect(get: 'accounts/hijinhu/active').to route_to 'accounts_settings#active', id: 'hijinhu'
       end
 
-      it "get api/accounts/tetabtab/active" do 
-        expect(get: 'api/accounts/tetabtab/active').to route_to 'api/accounts#active', id: 'tetabtab'
+      it "get accounts/tetabtab/active" do 
+        expect(get: 'accounts/tetabtab/active').to route_to 'accounts_settings#active', id: 'tetabtab'
       end
 
-      it "get api/accounts/55brab-br/active" do 
-        expect(get: 'api/accounts/55brab-br/active').to route_to 'api/accounts#active', id: '55brab-br'
+      it "get accounts/55brab-br/active" do 
+        expect(get: 'accounts/55brab-br/active').to route_to 'accounts_settings#active', id: '55brab-br'
       end
 
-      it "get api/accounts/bab42526b/active" do 
-        expect(get: 'api/accounts/bab42526b/active').to route_to 'api/accounts#active', id: 'bab42526b'
+      it "get accounts/bab42526b/active" do 
+        expect(get: 'accounts/bab42526b/active').to route_to 'accounts_settings#active', id: 'bab42526b'
       end
     end
 
     context "/accounts/:id/active not routable when id is too short (minimum 6 chars)" do 
-      it "get api/accounts/active" do 
-        expect(get: 'api/accounts/active').not_to be_routable
+      it "get accounts/active" do 
+        expect(get: 'accounts/active').not_to be_routable
       end
 
-      it "get api/accounts/a/active" do 
-        expect(get: 'api/accounts/a/active').not_to be_routable
+      it "get accounts/a/active" do 
+        expect(get: 'accounts/a/active').not_to be_routable
       end
 
-      it "get api/accounts/bab_/active" do 
-        expect(get: 'api/accounts/bab_/active').not_to be_routable
+      it "get accounts/bab_/active" do 
+        expect(get: 'accounts/bab_/active').not_to be_routable
       end
 
-      it "get api/accounts/bab-0/active" do 
-        expect(get: 'api/accounts/bab-0/active').not_to be_routable
+      it "get accounts/bab-0/active" do 
+        expect(get: 'accounts/bab-0/active').not_to be_routable
       end
     end
 
     context "/accounts/:id/active not routable when id is invalid " do 
-      it "get api/accounts/ba^brab/active" do 
-        expect(get: 'api/accounts/ba^brab/active').not_to be_routable
+      it "get accounts/ba^brab/active" do 
+        expect(get: 'accounts/ba^brab/active').not_to be_routable
       end
 
-      it "get api/accounts/ba@brab/active" do 
-        expect(get: 'api/accounts/ba@brab/active').not_to be_routable
+      it "get accounts/ba@brab/active" do 
+        expect(get: 'accounts/ba@brab/active').not_to be_routable
       end
 
-      it "get api/accounts/-tst1%1/active" do 
-        expect(get: 'api/accounts/-tst1%1/active').not_to be_routable
+      it "get accounts/-tst1%1/active" do 
+        expect(get: 'accounts/-tst1%1/active').not_to be_routable
       end
     end
 
 
     context "/accounts/:id/sendactivemail is routable when id is valid " do 
       it "get /accounts/hijinhu/sendactivemail" do 
-        expect(get: 'api/accounts/hijinhu/sendactivemail').to route_to 'api/accounts#send_active_mail', id: 'hijinhu'
+        expect(get: 'accounts/hijinhu/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: 'hijinhu'
       end
 
-      it "get api/accounts/tetabtab/sendactivemail" do 
-        expect(get: 'api/accounts/tetabtab/sendactivemail').to route_to 'api/accounts#send_active_mail', id: 'tetabtab'
+      it "get accounts/tetabtab/sendactivemail" do 
+        expect(get: 'accounts/tetabtab/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: 'tetabtab'
       end
 
-      it "get api/accounts/55brab-br/sendactivemail" do 
-        expect(get: 'api/accounts/55brab-br/sendactivemail').to route_to 'api/accounts#send_active_mail', id: '55brab-br'
+      it "get accounts/55brab-br/sendactivemail" do 
+        expect(get: 'accounts/55brab-br/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: '55brab-br'
       end
 
-      it "get api/accounts/bab42526b/sendactivemail" do 
-        expect(get: 'api/accounts/bab42526b/sendactivemail').to route_to 'api/accounts#send_active_mail', id: 'bab42526b'
+      it "get accounts/bab42526b/sendactivemail" do 
+        expect(get: 'accounts/bab42526b/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: 'bab42526b'
       end
     end
 
     context "/accounts/:id/sendactivemail not routable when id is invalid " do 
-      it "get api/accounts/ba^brab/sendactivemail" do 
-        expect(get: 'api/accounts/ba^brab/sendactivemail').not_to be_routable
+      it "get accounts/ba^brab/sendactivemail" do 
+        expect(get: 'accounts/ba^brab/sendactivemail').not_to be_routable
       end
 
-      it "get api/accounts/ba@brab/sendactivemail" do 
-        expect(get: 'api/accounts/ba@brab/sendactivemail').not_to be_routable
+      it "get accounts/ba@brab/sendactivemail" do 
+        expect(get: 'accounts/ba@brab/sendactivemail').not_to be_routable
       end
 
-      it "get api/accounts/-tst1%1/sendactivemail" do 
-        expect(get: 'api/accounts/-tst1%1/sendactivemail').not_to be_routable
+      it "get accounts/-tst1%1/sendactivemail" do 
+        expect(get: 'accounts/-tst1%1/sendactivemail').not_to be_routable
       end
 
-      it "get api/accounts/sendactivemail" do 
-        expect(get: 'api/accounts/sendactivemail').not_to be_routable
+      it "get accounts/sendactivemail" do 
+        expect(get: 'accounts/sendactivemail').not_to be_routable
       end
 
-      it "get api/accounts/a/sendactivemail" do 
-        expect(get: 'api/accounts/a/sendactivemail').not_to be_routable
+      it "get accounts/a/sendactivemail" do 
+        expect(get: 'accounts/a/sendactivemail').not_to be_routable
       end
     end
 

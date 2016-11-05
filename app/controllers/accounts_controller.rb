@@ -20,11 +20,6 @@ class AccountsController < ApplicationController
     end
   end
 
-  # 忘记密码
-  def forgot
-  end
-
-
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)

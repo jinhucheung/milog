@@ -4,18 +4,17 @@ Rails.application.routes.draw do
   
   get '/signup' => 'accounts#new'
   post '/signup' => 'accounts#create'
-  get '/forgot' => 'accounts#forgot'
-  post '/forgot' => 'api/accounts#send_psw_reset_mail'
 
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   delete '/signout' => 'sessions#destroy'
 
-  namespace :api do 
-    scope :accounts, as: 'accounts' , constraints: { id: User::USERNAME_FORMAT } do
-      get '/:id/active' => 'accounts#active', as: 'active'
-      get '/:id/sendactivemail' => 'accounts#send_active_mail', as: 'send_active_mail'
-    end
+  get '/forgot' => 'accounts_settings#forgot'
+  post '/forgot' => 'accounts_settings#send_psw_reset_mail'
+  
+  scope :accounts, as: 'accounts' , constraints: { id: User::USERNAME_FORMAT } do
+    get '/:id/active' => 'accounts_settings#active', as: 'active'
+    get '/:id/sendactivemail' => 'accounts_settings#send_active_mail', as: 'send_active_mail'
   end
 
   # 用户操作路由应该放在最后

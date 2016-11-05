@@ -2,7 +2,7 @@ require 'rails_helper'
 
 include SessionsHelper
 
-RSpec.describe Api::AccountsController, type: :controller do 
+RSpec.describe AccountsSettingsController, type: :controller do 
 
   let(:user) { User.create username: "aTestUser", email: "aTestUser@test.com", password: "aTestUserPsw", password_confirmation: "aTestUserPsw" }
   let(:others) { User.create username: "aTestOthers", email: "aTestOthers@test.com", password: "aTestUserPsw", password_confirmation: "aTestUserPsw" }

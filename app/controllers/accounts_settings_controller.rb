@@ -1,6 +1,6 @@
-class Api::AccountsController < ApplicationController
+class AccountsSettingsController < ApplicationController
 
-  def active
+ def active
     username = params[:id]
     token = params[:token]
     # link非法检测
@@ -37,6 +37,10 @@ class Api::AccountsController < ApplicationController
     end
   end
 
+  # 忘记密码
+  def forgot
+  end
+
   # 发送重置密码链接
   def send_psw_reset_mail
     @user = User.new 
@@ -48,7 +52,7 @@ class Api::AccountsController < ApplicationController
     else
       flash.now[:info] =  I18n.t "flash.info.psw_reset_mail" 
     end
-    render 'accounts/forgot'
+    render 'forgot'
   end
 
   private 
@@ -56,4 +60,5 @@ class Api::AccountsController < ApplicationController
       return false if params[:id].nil? || !signed_in? || current_user != User.find_by(username: params[:id])
       true
     end
+
 end
