@@ -8,7 +8,7 @@ RSpec.describe AccountsMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq(I18n.t("accounts_mailer.active_account.subject"))
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["no-reply@hijinhu.me"])
+      expect(mail.from).to eq(["hikumho@163.com"])
     end
 
     it "renders the body" do
