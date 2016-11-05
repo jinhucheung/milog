@@ -6,17 +6,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by email: params[:session][:email]
-    if @user && @user.authenticated?(:password, params[:session][:password])
+    @user = User.find_by email: session_param(:email)
+    if @user && @user.authenticated?(:password, session_param(:password))
       sign_in @user
-      params[:session][:remember_me] == "1" ? remember_me(@user) : forget_me(@user)
+      session_param(:remember_me) == "1" ? remember_me(@user) : forget_me(@user)
       redirect_to user_path(@user.username)
     elsif @user
       # 密码错误
       @user.errors.add :password, I18n.t("errors.not_right")
       render 'new'
     else
-      @user = buildUser "", params[:session][:email], params[:session][:password]
+      @user = buildUser "", session_param(:email), session_param(:password)
       @user.valid? || @user.errors.delete(:username)
       @user.errors.add :email, I18n.t("errors.email_disabled") if @user.errors.full_messages.empty?
       render 'new'
@@ -27,4 +27,9 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to root_path
   end
+
+  private 
+    def session_param(attribute)
+      params[:session][attribute]
+    end
 end

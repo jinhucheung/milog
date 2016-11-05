@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   delete '/signout' => 'sessions#destroy'
 
-  get '/forgot' => 'accounts_settings#forgot'
-  post '/forgot' => 'accounts_settings#send_psw_reset_mail'
-  
-  scope :accounts, as: 'accounts' , constraints: { id: User::USERNAME_FORMAT } do
-    get '/:id/active' => 'accounts_settings#active', as: 'active'
-    get '/:id/sendactivemail' => 'accounts_settings#send_active_mail', as: 'send_active_mail'
+  namespace :accounts, as: 'accounts', constraints: { id: User::USERNAME_FORMAT } do
+    get '/passwords/forgot' => 'passwords#new'
+    post '/passwords/forgot' => 'passwords#create'
+
+    resources :passwords, only: [:edit, :update]
+    resources :activations, only: [:new, :edit] 
   end
 
   # 用户操作路由应该放在最后

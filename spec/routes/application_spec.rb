@@ -58,96 +58,62 @@ RSpec.describe "ApplicationRoutes", type: :routing do
 
   describe "accounts active" do 
 
-    context "/accounts/:id/active is routable when id is valid " do 
-      it "get /accounts/hijinhu/active" do 
-        expect(get: 'accounts/hijinhu/active').to route_to 'accounts_settings#active', id: 'hijinhu'
+    context "/accounts/activations/:id/edit is routable when id is valid " do 
+      it "get /accounts/activations/hijinhu/edit" do 
+        expect(get: '/accounts/activations/hijinhu/edit').to route_to 'accounts/activations#edit', id: 'hijinhu'
       end
 
-      it "get accounts/tetabtab/active" do 
-        expect(get: 'accounts/tetabtab/active').to route_to 'accounts_settings#active', id: 'tetabtab'
+      it "get /accounts/activations/tetabtab/edit" do 
+        expect(get: '/accounts/activations/tetabtab/edit').to route_to 'accounts/activations#edit', id: 'tetabtab'
       end
 
-      it "get accounts/55brab-br/active" do 
-        expect(get: 'accounts/55brab-br/active').to route_to 'accounts_settings#active', id: '55brab-br'
+      it "get /accounts/activations/55brab-br/edit" do 
+        expect(get: '/accounts/activations/55brab-br/edit').to route_to 'accounts/activations#edit', id: '55brab-br'
       end
 
-      it "get accounts/bab42526b/active" do 
-        expect(get: 'accounts/bab42526b/active').to route_to 'accounts_settings#active', id: 'bab42526b'
-      end
-    end
-
-    context "/accounts/:id/active not routable when id is too short (minimum 6 chars)" do 
-      it "get accounts/active" do 
-        expect(get: 'accounts/active').not_to be_routable
-      end
-
-      it "get accounts/a/active" do 
-        expect(get: 'accounts/a/active').not_to be_routable
-      end
-
-      it "get accounts/bab_/active" do 
-        expect(get: 'accounts/bab_/active').not_to be_routable
-      end
-
-      it "get accounts/bab-0/active" do 
-        expect(get: 'accounts/bab-0/active').not_to be_routable
+      it "get /accounts/activations/bab42526b/edit" do 
+        expect(get: '/accounts/activations/bab42526b/edit').to route_to 'accounts/activations#edit', id: 'bab42526b'
       end
     end
 
-    context "/accounts/:id/active not routable when id is invalid " do 
-      it "get accounts/ba^brab/active" do 
-        expect(get: 'accounts/ba^brab/active').not_to be_routable
+    context "/accounts/activations/:id/edit not routable when id is too short (minimum 6 chars)" do 
+      it "get /accounts/activations/edit" do 
+        expect(get: '/accounts/activations/edit').not_to be_routable
       end
 
-      it "get accounts/ba@brab/active" do 
-        expect(get: 'accounts/ba@brab/active').not_to be_routable
+      it "get /accounts/activations/a/edit" do 
+        expect(get: '/accounts/activations/a/edit').not_to be_routable
       end
 
-      it "get accounts/-tst1%1/active" do 
-        expect(get: 'accounts/-tst1%1/active').not_to be_routable
-      end
-    end
-
-
-    context "/accounts/:id/sendactivemail is routable when id is valid " do 
-      it "get /accounts/hijinhu/sendactivemail" do 
-        expect(get: 'accounts/hijinhu/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: 'hijinhu'
+      it "get /accounts/activations/bab_/edit" do 
+        expect(get: '/accounts/activations/bab_/edit').not_to be_routable
       end
 
-      it "get accounts/tetabtab/sendactivemail" do 
-        expect(get: 'accounts/tetabtab/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: 'tetabtab'
-      end
-
-      it "get accounts/55brab-br/sendactivemail" do 
-        expect(get: 'accounts/55brab-br/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: '55brab-br'
-      end
-
-      it "get accounts/bab42526b/sendactivemail" do 
-        expect(get: 'accounts/bab42526b/sendactivemail').to route_to 'accounts_settings#send_active_mail', id: 'bab42526b'
+      it "get /accounts/activations/bab-0/edit" do 
+        expect(get: '/accounts/activations/bab-0/edit').not_to be_routable
       end
     end
 
-    context "/accounts/:id/sendactivemail not routable when id is invalid " do 
-      it "get accounts/ba^brab/sendactivemail" do 
-        expect(get: 'accounts/ba^brab/sendactivemail').not_to be_routable
+    context "/accounts/activations/:id/edit not routable when id is invalid " do 
+      it "get /accounts/activations/ba^brab/edit" do 
+        expect(get: '/accounts/activations/ba^brab/edit').not_to be_routable
       end
 
-      it "get accounts/ba@brab/sendactivemail" do 
-        expect(get: 'accounts/ba@brab/sendactivemail').not_to be_routable
+      it "get /accounts/activations/ba@brab/edit" do 
+        expect(get: '/accounts/activations/ba@brab/edit').not_to be_routable
       end
 
-      it "get accounts/-tst1%1/sendactivemail" do 
-        expect(get: 'accounts/-tst1%1/sendactivemail').not_to be_routable
+      it "get /accounts/activations/-tst1%1/edit" do 
+        expect(get: '/accounts/activations/-tst1%1/edit').not_to be_routable
       end
+    end
 
-      it "get accounts/sendactivemail" do 
-        expect(get: 'accounts/sendactivemail').not_to be_routable
-      end
-
-      it "get accounts/a/sendactivemail" do 
-        expect(get: 'accounts/a/sendactivemail').not_to be_routable
+    context "/accounts/activations/new is routable " do 
+      it "get /accounts/activations/new" do 
+        expect(get: '/accounts/activations/new').to route_to 'accounts/activations#new'
       end
     end
 
   end
+
 end

@@ -58,10 +58,14 @@ zh-CN:
         password_confirmation: 确认密码
   
   accounts_mailer:
+    hi: Hi %{username}，
+    help: 请勿回复此邮件，如果有疑问，请联系我们 %{support_email}
+    footer: '- Milog'
     active_account: 
       subject: 欢迎使用Milog! 立即激活您的账户
-      hi: Hi %{username}，
       header: 感谢您注册Milog! 请点击以下链接激活您的账户：
       tips: 如果点击链接无效，请尝试将链接复制到浏览器地址栏访问。
-      help: 请勿回复此邮件，如果有疑问，请联系我们 %{support_email}
-      footer: '- Milog' 
+    reset_password: 
+      subject: 重置密码
+      header: 您已经请求了重置密码，可以点击以下连接进行操作
+      tips: 如果您没有请求重置密码，请忽略此邮件。在您点击上面连接修改密码之前，您的密码将会保持不变。
