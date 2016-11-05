@@ -1,4 +1,4 @@
-.login {
+.login, .forgot {
     background: linear-gradient(to bottom, $loyout-color, white 80%) repeat-x;
 
     /* 语系切换 */
@@ -7,8 +7,8 @@
         float: left;
     }
 
-    /* login表单 */
-    .login-box {
+    /* login/forgot表单 */
+    .login-box, .forgot-box {
         text-align: center;
 
         .logo img { width: 30%; }
@@ -18,7 +18,7 @@
             margin: 0 0;
         }
 
-        /* 登录注册标签 */
+        /* 标签 */
         .tab {
             margin-bottom: 5px;
             li {
@@ -26,10 +26,18 @@
                 margin: 22px 20px;
                 text-align: center;
 
-                a {
+                a, span {
                     /* 控制下划线高宽 */
                     padding: 8px;
                     //border-bottom: 1px solid $underline-color;
+                }
+
+                span {
+                    letter-spacing: 0.5px;
+                    color: $lightgray;
+                    &:hover {
+                        color: $lightblack !important;
+                    }
                 }
             }
         }
@@ -58,6 +66,8 @@
         /* 表单尾 */
         .login-footer {
             margin-top: 10px;
+            font-size: 12px;
+            color: #888;
         }
     }
 

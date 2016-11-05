@@ -25,7 +25,7 @@ class User < ApplicationRecord
   before_save :downcase_username_and_email
   after_create :generate_activation_digest
 
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_password_token
 
   # 生成对应属性的加密字段digest, 并保留token
   def new_attr_digest(attribute)

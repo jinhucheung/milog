@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   get '/signup' => 'accounts#new'
   post '/signup' => 'accounts#create'
+  get '/forgot' => 'accounts#forgot'
+  post '/forgot' => 'api/accounts#send_psw_reset_mail'
 
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
@@ -17,5 +19,5 @@ Rails.application.routes.draw do
   end
 
   # 用户操作路由应该放在最后
-  resources :users, except: [:new, :create] , path: "" , constraints: { id: User::USERNAME_FORMAT }
+  resources :users, except: [:new, :create] , path: '' , constraints: { id: User::USERNAME_FORMAT }
 end

@@ -30,11 +30,25 @@ class Api::AccountsController < ApplicationController
       # 重新生成激活字段
       @user.generate_activation_digest
       AccountsMailer.active_account(@user).deliver
-      flash[:info] = I18n.t "flash.info.validated_mail"
+      flash.now[:info] = I18n.t "flash.info.validated_mail"
       redirect_to user_path(@user.username)      
     else 
       render_404
     end
+  end
+
+  # 发送重置密码链接
+  def send_psw_reset_mail
+    @user = User.new 
+    email = params[:forgot][:email]
+    if email.nil? || email !~ User::EAMIL_FORMAT_REGEXP
+      @user.errors.add :email, I18n.t("errors.invalid_format")   
+    elsif (user = User.find_by email: email).nil?
+      @user.errors.add :email, I18n.t("errors.not_find")   
+    else
+      flash.now[:info] =  I18n.t "flash.info.psw_reset_mail" 
+    end
+    render 'accounts/forgot'
   end
 
   private 

@@ -19,14 +19,18 @@ en:
   email: Email Address
   password: Password
   password_confirmation: Password Confirmation
+  forgot: Forgot your password
+  send_psw_reset_link: Send me password reset link
+  send_psw_reset_tips: Enter your email address and we'll send you password reset instructions.
 
   login: 
     remember_me: Remember
     forget_me: Forgot Password?
-   
+
   flash:
     info:
-      validated_mail: Your email is not validated, click to resend validation mail
+      validated_mail: Instructions for validating email have been sent to you
+      psw_reset_mail: Instructions for reseting password have been sent to you
     danger:
       link_invalid: The link is invalid
     warning:
@@ -38,6 +42,8 @@ en:
     username_format: may only contain alphanumeric characters or hyphens(-_)
     email_disabled: does not exist or disabled
     not_right: is incorrect
+    not_find: couldn't find
+    invalid_format: is invalid
 
   activerecord:
     models:

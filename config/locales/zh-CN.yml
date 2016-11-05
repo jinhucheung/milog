@@ -21,6 +21,9 @@ zh-CN:
   email: Email 地址
   password: 密码
   password_confirmation: 确认密码
+  forgot: 忘记密码
+  send_psw_reset_link: 发送重置密码链接
+  send_psw_reset_tips: 请输入Email, 我们会将重置密码信息发送给您
 
   login: 
     remember_me: 记住我
@@ -29,6 +32,7 @@ zh-CN:
   flash:
     info:
       validated_mail: 验证邮件已发送，请检查您的邮箱
+      psw_reset_mail: 重置密码邮件已发送，请检查您的邮箱
     danger:
       link_invalid: 链接无效
     warning:
@@ -40,6 +44,8 @@ zh-CN:
     username_format: 只能含字母、数字、中横线或下划线
     email_disabled: 不存在或未激活
     not_right: 不正确
+    not_find: 没有找到
+    invalid_format: 是无效的
 
   activerecord:
     models:
