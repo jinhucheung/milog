@@ -1,9 +1,9 @@
 module PagesHelper
   ## 切换语系
-  def link_to_locale(path)
+  def link_to_locale(path, mclass: '')
     link_text = I18n.t(:lang) == "EN" ? "中文" : "EN"
-    link_url = I18n.t(:lang) == "EN" ? "/" + path + "?locale=zh-CN" : "/" + path + "?locale=en"
-    link_to link_text, link_url, id: "locale_btn"
+    link_url = I18n.t(:lang) == "EN" ? path + "?locale=zh-CN" : path + "?locale=en"
+    link_to link_text, link_url, id: "locale_btn", class: mclass
   end
 
   ## 注册登录页面标签切换
@@ -22,5 +22,11 @@ module PagesHelper
     "style= 'display: #{display_value}'".html_safe
   end
 
+  ## 设置标题
+  def title(pre_title = '')
+    site_name = "Milog"
+    return site_name if pre_title.blank?
+    pre_title + " · " + site_name
+  end
 
 end

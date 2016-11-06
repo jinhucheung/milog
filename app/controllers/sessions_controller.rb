@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "login"
 
   def new
     # 注册/登录同页面, 同时使用User_Model中的验证返回信息
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
       @user.errors.add :password, I18n.t("errors.not_right")
       render 'new'
     else
-      @user = buildUser "", session_param(:email), session_param(:password)
+      @user = build_user "", session_param(:email), session_param(:password)
       @user.valid? || @user.errors.delete(:username)
       @user.errors.add :email, I18n.t("errors.email_disabled") if @user.errors.full_messages.empty?
       render 'new'

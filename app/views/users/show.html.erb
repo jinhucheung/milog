@@ -1,1 +1,19 @@
-<%= content_tag :span, @user.username %>
+<% provide :bodyclass, 'home' %>
+<!-- 内容区域 -->
+<div class="mainer">
+  <div class="container-fluid">
+    <div class="col-md-7 col-center-block content-wrap" >
+      <div id="content">
+        <!-- 文章概览 -->
+        <section class="posts-expand" id="posts">
+          <%= render 'features/post_overview' %>
+          <%= render 'features/post_overview' %>
+          <%= render 'features/post_overview' %>
+          <%= render 'features/post_overview' %>
+        </section>
+        <!-- 分页栏 -->
+        <%= render 'features/pagination' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
+<% provide :pre_title, t("forgot_password") %>
 <div class="forgot">
   <!-- 语系切换 -->
-  <div class="switch-lang"><%= link_to_locale 'accounts/passwords/forgot' %></div>
+  <div class="switch-lang"><%= link_to_locale request.path %></div>
   <div class="clearfix"></div>
 
   <div class="container">

@@ -17,7 +17,6 @@ RSpec.describe "Sessions", type: :request do
       expect(response).to have_http_status :redirect
       expect(response).to redirect_to user_path user.username
       follow_redirect!
-      expect(response.body).to match user.username
       expect(response.body).not_to match "@"*8
       expect(@request.signed_in?).to eq true
 

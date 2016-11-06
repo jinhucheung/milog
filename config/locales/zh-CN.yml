@@ -17,6 +17,7 @@ zh-CN:
   lang: 中文
   signup: 注册
   signin: 登录
+  signout: 退出
   username: 用户名
   email: Email 地址
   password: 密码
@@ -72,3 +73,14 @@ zh-CN:
       subject: 重置密码
       header: 您已经请求了重置密码，可以点击以下连接进行操作
       tips: 如果您没有请求重置密码，请忽略此邮件。在您点击上面连接修改密码之前，您的密码将会保持不变。
+
+  navbar:
+    home: 首页
+    category: 分类
+    archive: 归档
+    aboutme: 关于
+    search: 搜索
+    new_blog: 写博客
+    account_profile: 个人资料设置
+    drafts: 草稿箱
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'shared/page_head' %>
+  <body>
+    <%= render 'shared/flash_messages' %>
+    
+    <%= content_tag :div, class: yield(:bodyclass) do -%>
+    <%= render 'shared/blog_header' %>
+    <%= yield %>
+    <%= render 'features/back_to_top' %>
+    <%= render 'shared/blog_footer' %>
+    <% end -%>
+    
+    <%= debug(params) if Rails.env.development? %>
+
+    <%= javascript_include_tag 'velocity.min' %>
+    <%= javascript_include_tag 'layout' %>
+  </body>
+</html>

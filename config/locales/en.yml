@@ -15,6 +15,7 @@ en:
   lang: EN
   signup: Sign up
   signin: Sign in
+  signout: Sign out
   username: Username
   email: Email Address
   password: Password
@@ -70,3 +71,15 @@ en:
       subject: Please reset your password
       header: Here's a link to reset your password. Please click on it.
       tips: If you didn't try to reset your password, you can ignore this message. Your password will remain the same until you click the link.
+  
+  navbar:
+    home: Home
+    category: Category
+    archive: Archive
+    aboutme: About
+    search: Search
+    new_blog: New Blog
+    account_profile: Account Profile
+    drafts: Drafts
+
+

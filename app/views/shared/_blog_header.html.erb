@@ -1,0 +1,66 @@
+<!-- 导航栏 -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- 导航栏首部 -->
+    <div class="navbar-header">
+      <!-- Logo -->
+      <%= link_to image_tag("logo.png", alt:"Milog", class: "logo"), root_path, class: "navbar-brand" %>
+      <!-- 切换语系 -->
+      <%= link_to_locale request.path, mclass: "navbar-text switch-lang" %>
+      <!-- 屏幕<=420px时显示 -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-nav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- 已登录, 显示操作菜单 -->
+    <% if signed_in? %>
+      <ul class="nav navbar-nav navbar-right navbar-footer drop-nav" >
+        <!-- 新建类操作 -->
+        <li class="dropdown dropdown-opt">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" >
+            <span class="glyphicon glyphicon-plus"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <%= content_tag :li, link_to(t("navbar.new_blog"), "edit_post.html") %>
+          </ul>
+        </li>
+        <!-- 设置类操作 -->
+        <li class="dropdown dropdown-setting">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" >
+            <!-- 头像 -->
+            <%= content_tag :div, firstchar_name(@user), class: "default-avatar" %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <%= content_tag :li, link_to(capitalize_name(@user), "#") %>
+            <%= content_tag :li, content_tag(:div, '', class:"divider") %>
+            <%= content_tag :li, link_to(t("navbar.account_profile"), "setting.html") %>
+            <%= content_tag :li, link_to(t("navbar.drafts"), "drafts.html") %>
+            <%= content_tag :li, content_tag(:div, '', class:"divider") %>
+            <%= content_tag :li, link_to(t("signout"), signout_path, method: 'delete') %>
+          </ul>
+        </li>
+      </ul>
+    <% else %>
+      <!-- 登录注册 -->
+      <div class="navbar-right navbar-footer login-group">
+        <%= link_to t("signup"), signup_path, class: "navbar-text" %>
+        <%= link_to t("signin"), signin_path, class: "navbar-text" %>
+      </div>
+    <% end %>
+    
+    <!-- 主菜单项 -->
+    <div class="collapse navbar-collapse" id="collapse-nav">
+      <ul class="nav navbar-nav navbar-center main-nav">
+        <%= content_tag :li, link_to(t("navbar.home"), user_path(@user.username)) %>
+        <%= content_tag :li, link_to(t("navbar.category"), "category.html") %>
+        <%= content_tag :li, link_to(t("navbar.archive"), "archive.html") %>
+        <%= content_tag :li, link_to(t("navbar.aboutme"), "aboutme.html") %>
+        <%= content_tag :li, link_to(t("navbar.search"), "#") %>
+      </ul>
+    </div>
+  </div>
+</nav>

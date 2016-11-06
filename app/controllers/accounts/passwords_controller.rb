@@ -1,4 +1,5 @@
 class Accounts::PasswordsController < ApplicationController
+
   before_action :check_params, only: [:edit, :update]
   before_action :get_user, only: [:edit, :update]
   before_action :check_user, only: [:edit, :update]
