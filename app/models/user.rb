@@ -56,7 +56,7 @@ class User < ApplicationRecord
   # 生成激活字段, 记录用户状态
   def generate_activation_digest
     new_attr_digest :activation
-    update_attribute :activated_at, Time.zone.now
+    update_attribute :activated_at, Time.zone.now - 3.hours
   end
 
   # 生成重置密码字段

@@ -29,6 +29,9 @@ en:
   login: 
     remember_me: Remember
     forget_me: Forgot Password?
+  
+  syml:
+    dot: ', '
 
   flash:
     info:
@@ -37,7 +40,8 @@ en:
     danger:
       link_invalid: The link is invalid
     warning:
-      link_expired: The link has expired, please regenerate
+      link_expired: The link has expired
+      resend_validation_mail: click to resend validation mail
     success:
       active_account: Account activated
       reset_password: Password has been reset

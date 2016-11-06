@@ -24,13 +24,16 @@ zh-CN:
   password_confirmation: 确认密码
   forgot_password: 忘记密码
   send_psw_reset_link: 发送重置密码链接
-  send_psw_reset_tips: 请输入Email, 我们会将重置密码信息发送给您
+  send_psw_reset_tips: 请输入Email，我们会将重置密码信息发送给您
   reset_password: 重置密码
   change_password: 修改密码
 
   login: 
     remember_me: 记住我
     forget_me: 忘了密码？
+
+  syml:
+    dot: '，'
 
   flash:
     info:
@@ -39,7 +42,8 @@ zh-CN:
     danger:
       link_invalid: 链接无效
     warning:
-      link_expired: 链接失效，请重新生成链接
+      link_expired: 链接失效
+      resend_validation_mail: 点击重发验证邮件
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码

@@ -18,7 +18,9 @@ class Accounts::ActivationsController < ApplicationController
     return render_404 if !@user.authenticated? :activation, params[:token]
 
     if @user.digest_expired? :activated
-      flash[:warning] = I18n.t 'flash.warning.link_expired'
+      pre = I18n.t 'flash.warning.link_expired'
+      pro_link = "#{view_context.link_to I18n.t('flash.warning.resend_validation_mail'), new_accounts_activation_path}"
+      flash[:warning] = pre + I18n.t('syml.dot') + pro_link
       redirect_to root_path
     else
       flash[:success] = I18n.t 'flash.success.active_account'
