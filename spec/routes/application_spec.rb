@@ -15,7 +15,6 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     it "post /signup success" do
       expect(post: '/signup').to route_to 'accounts#create'
     end
-
   end
 
   context "signin" do
@@ -57,7 +56,6 @@ RSpec.describe "ApplicationRoutes", type: :routing do
   end
 
   describe "accounts active" do 
-
     context "/accounts/activations/:id/edit is routable when id is valid " do 
       it "get /accounts/activations/hijinhu/edit" do 
         expect(get: '/accounts/activations/hijinhu/edit').to route_to 'accounts/activations#edit', id: 'hijinhu'
@@ -113,7 +111,47 @@ RSpec.describe "ApplicationRoutes", type: :routing do
         expect(get: '/accounts/activations/new').to route_to 'accounts/activations#new'
       end
     end
-
   end
 
+  describe "reset password" do 
+    it "get accounts/passwords/forgot is routable" do 
+      expect(get: 'accounts/passwords/forgot').to route_to 'accounts/passwords#new'
+    end
+
+    it "post accounts/password/forgot is routable" do 
+      expect(post: 'accounts/passwords/forgot').to route_to 'accounts/passwords#create'
+    end
+
+    context "get /accounts/passwords/:id/edit" do
+      it "get /accounts/passwords/edit isn't routable" do
+        expect(get: '/accounts/passwords/edit').not_to be_routable
+      end
+
+      it "get /accounts/passwords/brae/edit isn't routable" do
+        expect(get: '/accounts/passwords/brae/edit').not_to be_routable
+      end
+
+      it "get /accounts/passwords/@rbeb/edit isn't routable" do
+        expect(get: '/accounts/passwords/@rbeb/edit').not_to be_routable
+      end
+
+      it "get /accounts/passwords/hijinhu/edit isn't routable" do
+        expect(get: '/accounts/passwords/hijinhu/edit').to route_to 'accounts/passwords#edit', id: 'hijinhu'
+      end
+    end
+
+    context "patch /accounts/passwords/:id" do 
+      it "patch /accounts/passwords/hijinhu is routable" do 
+        expect(patch: '/accounts/passwords/hijinhu').to route_to 'accounts/passwords#update', id: 'hijinhu'
+      end
+
+      it "patch /accounts/passwords/tewtab_b is routable" do
+        expect(patch: '/accounts/passwords/tewtab_b').to route_to 'accounts/passwords#update', id: 'tewtab_b'
+      end
+
+      it "patch /accounts/passwords/bbe isn't routable" do 
+        expect(patch: '/accounts/passwords/bbe').not_to be_routable 
+      end
+    end
+  end
 end

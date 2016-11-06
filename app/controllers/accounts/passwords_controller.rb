@@ -59,5 +59,4 @@ class Accounts::PasswordsController < ApplicationController
       end
     end
 
-
 end
