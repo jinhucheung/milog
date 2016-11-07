@@ -1,4 +1,6 @@
 <% provide :bodyclass, 'home' %>
+<% provide :pre_title, capitalize_name(@user) %>
+
 <!-- 内容区域 -->
 <div class="mainer">
   <div class="container-fluid">
@@ -6,9 +8,6 @@
       <div id="content">
         <!-- 文章概览 -->
         <section class="posts-expand" id="posts">
-          <%= render 'features/post_overview' %>
-          <%= render 'features/post_overview' %>
-          <%= render 'features/post_overview' %>
           <%= render 'features/post_overview' %>
         </section>
         <!-- 分页栏 -->

@@ -216,7 +216,20 @@ RSpec.describe User, type: :model do
       user.update_attribute :activated_at, Time.zone.now - 1.5.hours
       expect(user.digest_expired?(:activated)).to eq false     
     end
+  end
 
+  context "avatar" do 
+    it "should have hex-color in avatar when user create" do
+      expect(user.avatar?).to eq false
+      user.save
+      expect(user.avatar?).not_to eq false
+      expect(user.avatar).to match /\A#[a-z0-9]{6}\z/i
+    end
+
+    it "should return false in user_avatar? when user create" do
+      user.save
+      expect(user.user_avatar?).to eq false
+    end
   end
 
 end

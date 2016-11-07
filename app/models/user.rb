@@ -25,7 +25,8 @@ class User < ApplicationRecord
   has_secure_password
 
   before_save :downcase_username_and_email
-  after_create :generate_activation_digest
+  after_create :generate_activation_digest, 
+               :generate_letter_avatar
 
   attr_accessor :remember_token, :activation_token, :reset_password_token
 
@@ -56,7 +57,7 @@ class User < ApplicationRecord
   # 生成激活字段, 记录用户状态
   def generate_activation_digest
     new_attr_digest :activation
-    update_attribute :activated_at, Time.zone.now - 3.hours
+    update_attribute :activated_at, Time.zone.now
   end
 
   # 生成重置密码字段
@@ -65,9 +66,26 @@ class User < ApplicationRecord
     update_attribute :reset_password_at, Time.zone.now
   end
 
+  # 
+  def avatar?
+    self[:avatar].present?
+  end
+
+  # 用户已上传头像
+  def user_avatar?
+    return false unless avatar? && avatar !~ /\A#[a-z0-9]{6}\z/i
+    true
+  end
+
   private
     def downcase_username_and_email
       username.downcase!
       email.downcase!
+    end
+
+    # 首字母头像 生成伪随机颜色
+    def generate_letter_avatar
+      color = '#' + [*'a'..'f', *'0'..'9'].sample(6).join
+      update_attribute :avatar, color
     end
 end

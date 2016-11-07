@@ -7,6 +7,8 @@
       <%= link_to image_tag("logo.png", alt:"Milog", class: "logo"), root_path, class: "navbar-brand" %>
       <!-- 切换语系 -->
       <%= link_to_locale request.path, mclass: "navbar-text switch-lang" %>
+
+      <%= content_tag(:span, "#{capitalize_name(@user)}'s Blog", class: "navbar-text ") if current_user != @user %>
       <!-- 屏幕<=420px时显示 -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-nav">
         <span class="icon-bar"></span>
@@ -31,11 +33,11 @@
         <li class="dropdown dropdown-setting">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" >
             <!-- 头像 -->
-            <%= content_tag :div, firstchar_name(@user), class: "default-avatar" %>
+            <%= avatar_tag current_user, :xs %>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <%= content_tag :li, link_to(capitalize_name(@user), "#") %>
+            <%= content_tag :li, link_to(capitalize_name(current_user), user_path(current_user.username)) %>
             <%= content_tag :li, content_tag(:div, '', class:"divider") %>
             <%= content_tag :li, link_to(t("navbar.account_profile"), "setting.html") %>
             <%= content_tag :li, link_to(t("navbar.drafts"), "drafts.html") %>

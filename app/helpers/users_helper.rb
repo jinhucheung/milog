@@ -1,19 +1,13 @@
 module UsersHelper
-  def build_user(username, email, password)
-    user = User.new username: username,
-                    email: email,
-                    password: password,
-                    password_confirmation: password
-  end
+  include Users::AvatarHelper
 
-  # 返回大写的用户名首字母
-  def firstchar_name(user)
-    return "" if user.nil?
-    user.username[0].upcase
+  def build_user(username, email, password)
+    user = User.new username: username, email: email,
+                    password: password, password_confirmation: password
   end
 
   def capitalize_name(user)
-    return "" if user.nil?
+    return "" if user.blank?
     user.username.capitalize
   end
 

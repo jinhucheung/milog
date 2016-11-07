@@ -11,17 +11,22 @@
     border-radius: 100%;
 }
 
-/* 默认头像-导航栏 */
-.default-avatar {
+
+.avatar-xs {
     @include build_avatar(22px, 14px, $default-avatar-color);
 }
 
-/* 默认头像-关于用户 */
-.default-avatar-about-me {
+.avatar-sm {
+    @include build_avatar(32px, 21px, $default-avatar-color);
+}
+
+.avatar-md {
+    @include build_avatar(48px, 28px, $default-avatar-color);
+}
+
+
+.avatar-lg {
     @include build_avatar(100px, 75px, $default-avatar-color);
 }
 
-/* 默认头像-评论 */
-.default-avatar-normal {
-    @include build_avatar(48px, 28px, $default-avatar-color);
-}
+
