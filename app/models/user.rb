@@ -7,8 +7,6 @@ class User < ApplicationRecord
   USERNAME_FORMAT_REGEXP = /\A#{ USERNAME_FORMAT.source }\z/
   EAMIL_FORMAT_REGEXP = /\A#{ EMAIL_FORMAT.source }\z/i
 
-  PASSWORD_MIN_LENGTH = 6
-
   TIPS_USERNAME_FORMAT_MSG = 'USERNAME_FORMAT'
 
   validates :username, :email, :password, presence: true
@@ -18,7 +16,7 @@ class User < ApplicationRecord
   validates :email,    length: { maximum: 255 },
                        format: { with: EAMIL_FORMAT_REGEXP },
                        uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: PASSWORD_MIN_LENGTH },
+  validates :password, length: { minimum: 6 },
                        allow_nil: true
 
   # 需引入gem bcrypt

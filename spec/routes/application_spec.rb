@@ -160,8 +160,8 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(get: '/account/edit').to route_to "accounts#edit"
     end
 
-    it "patch /accounts is routable" do 
-      expect(patch: '/account').to route_to "accounts#update"
+    it "patch /account/edit is routable" do
+      expect(patch: '/account/edit').to route_to "accounts#update"
     end
   end
 end

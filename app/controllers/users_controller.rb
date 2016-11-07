@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  layout "blog", only: [:show]
+  layout 'blog'
+
   def show
     @user = User.find_by username: params[:id]
     render_404 unless @user

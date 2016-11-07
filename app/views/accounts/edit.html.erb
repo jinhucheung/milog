@@ -8,7 +8,7 @@
                     <div class="boxed-group">
                         <%= content_tag :h3, t("account_profile") %>
                         <div class="boxed-group-inner">
-                            <%= simple_form_for @user, url: account_path do |f| %>
+                            <%= simple_form_for @user, url: edit_account_path do |f| %>
                             <div class="form-group">
                                 <%= content_tag :span, t("profile.nickname") %>
                                 <%= f.input_field :nickname, class: "form-control form-input-normal" %>
@@ -57,7 +57,7 @@
                 <!-- 头像与密码设置 -->
                 <div class="col-md-4 account-setting">
                     <div class="boxed-group">
-                        <%= simple_form_for @user, url: account_path(by:'avatar') do |f| %>
+                        <%= simple_form_for @user, url: edit_account_path(by: :avatar) do |f| %>
                         <div class="boxed-group-inner boxed-group-round-border">
                             <%= avatar_tag f.object, :md %>
                             <div class="avatar-upload">
@@ -71,7 +71,7 @@
                     <div class="boxed-group">
                         <%= content_tag :h3, t("change_password") %>
                         <div class="boxed-group-inner boxed-group-round-border">
-                            <%= simple_form_for :user, url: account_path(by:"psw"), method: :patch do |f| %>
+                            <%= simple_form_for :user, url: edit_account_path(by: :psw), method: :patch do |f| %>
                             <div class="form-group">
                                 <%= content_tag :span, t("current_password") %>
                                 <%= f.password_field :cur_psw, class: "form-control form-input-normal" %>

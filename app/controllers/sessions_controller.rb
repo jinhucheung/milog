@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout "login"
+  layout 'login'
 
   def new
     # 注册/登录同页面, 同时使用User_Model中的验证返回信息
