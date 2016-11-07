@@ -1,0 +1,100 @@
+<% provide :pre_title, t("account_profile") %>
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+    <div class="container-fluid">
+        <div class="col-md-10 col-center-block content-wrap">
+            <div id="content">
+                <!-- 用户信息设置 -->
+                <div class="col-md-8 profile-setting">
+                    <div class="boxed-group">
+                        <%= content_tag :h3, t("account_profile") %>
+                        <div class="boxed-group-inner">
+                            <%= simple_form_for @user, url: account_path do |f| %>
+                            <div class="form-group">
+                                <%= content_tag :span, t("profile.nickname") %>
+                                <%= f.input_field :nickname, class: "form-control form-input-normal" %>
+                            </div>
+                            <div class="form-group">
+                                <%= content_tag :span, t("profile.email") %>
+                                <%= f.email_field :email, disabled: true, class: "form-control form-input-normal" %>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <div class="checkbox" >
+                                    <label for="user_email_public">
+                                        <%= f.input_field :email_public, as: :boolean, boolean_style: :inline %>
+                                        <%= t("profile.email_public") %>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span>Github</span>
+                                <div class="input-group">
+                                    <%= content_tag :span, "https://github.com/", class: "input-group-addon" %>
+                                    <%= f.input_field :github, placeholder: t("profile.account") ,class: "form-control form-input-normal"  %>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <%= content_tag :span, t("profile.weibo") %>
+                                <div class="input-group">
+                                    <%= content_tag :span, "https://weibo.com/", class: "input-group-addon" %>
+                                    <%= f.input_field :weibo, placeholder: t("profile.account") ,class: "form-control form-input-normal"  %>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <%= content_tag :span, t("profile.personal_website") %>
+                                <%= f.input_field :website, class: "form-control form-input-normal" %>
+                            </div>
+                            <div class="form-group" style="height: 150px;">
+                                <%= content_tag :span, t("profile.bio") %>
+                                <%= f.input_field :bio, as: :text, class: "form-control form-input-normal", style: "height: 150px;" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.submit t("profile.update_profile"), class: "btn btn-primary submit" %>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <!-- 头像与密码设置 -->
+                <div class="col-md-4 account-setting">
+                    <div class="boxed-group">
+                        <%= simple_form_for @user, url: account_path(by:'avatar') do |f| %>
+                        <div class="boxed-group-inner boxed-group-round-border">
+                            <%= avatar_tag f.object, :md %>
+                            <div class="avatar-upload">
+                                <%= content_tag :span, t("profile.upload_avatar"), id: "upload-avatar-btn", class: "btn avatar-btn" %>
+                                <%= f.input_field :avatar, as: :file, style: "visibility: hidden; position: absolute;", id: "upload-avatar-input" %>
+                            </div>
+                            <%= f.submit '', style: "visibility: hidden;", id: "avatar-submit" %>
+                        </div>
+                        <% end %>
+                    </div>
+                    <div class="boxed-group">
+                        <%= content_tag :h3, t("change_password") %>
+                        <div class="boxed-group-inner boxed-group-round-border">
+                            <%= simple_form_for :user, url: account_path(by:"psw"), method: :patch do |f| %>
+                            <div class="form-group">
+                                <%= content_tag :span, t("current_password") %>
+                                <%= f.password_field :cur_psw, class: "form-control form-input-normal" %>
+                            </div>
+                            <div class="form-group">
+                                <%= content_tag :span, t("password") %>
+                                <%= f.password_field :new_psw, class: "form-control form-input-normal" %>
+                            </div>
+                            <div class="form-group">
+                                <%= content_tag :span, t("password_confirmation") %>
+                                <%= f.password_field :new_psw_confirmation, class: "form-control form-input-normal" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.submit t("update_password"), class: "btn btn-primary submit" %>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<%= javascript_include_tag 'tabIndent' %>
+<%= javascript_include_tag 'settings' %>

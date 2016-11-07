@@ -1,5 +1,8 @@
 class AccountsController < ApplicationController
   layout "login", only: [:new, :create]
+  layout "blog", only: [:edit, :update]
+
+  before_action :check_signed_in, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -22,8 +25,16 @@ class AccountsController < ApplicationController
     end
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  def edit
+    @user = current_user
   end
+
+  def update
+    render html: "hello world"
+  end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
 end

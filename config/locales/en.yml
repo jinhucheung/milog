@@ -18,6 +18,7 @@ en:
   signout: Sign out
   username: Username
   email: Email Address
+  current_password: Current Password
   password: Password
   password_confirmation: Password Confirmation
   forgot_password: Forgot your password
@@ -25,6 +26,7 @@ en:
   send_psw_reset_tips: Enter your email address and we'll send you password reset instructions.
   reset_password: Reset Password
   change_password: Change Password
+  update_password: Update Password
 
   login: 
     remember_me: Remember
@@ -42,6 +44,7 @@ en:
     warning:
       link_expired: The link has expired
       resend_validation_mail: click to resend validation mail
+      need_sign_in: Please sign in your account.
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -76,14 +79,24 @@ en:
       header: Here's a link to reset your password. Please click on it.
       tips: If you didn't try to reset your password, you can ignore this message. Your password will remain the same until you click the link.
   
-  navbar:
-    home: Home
-    category: Category
-    archive: Archive
-    aboutme: About
-    search: Search
-    new_blog: New Blog
-    account_profile: Account Profile
-    drafts: Drafts
+  home: Home
+  category: Category
+  archive: Archive
+  aboutme: About
+  search: Search
+  new_blog: New Blog
+  account_profile: Account Profile
+  drafts: Drafts
+
+  profile:
+    nickname: Nickname
+    email: Email
+    email_public: Show my email to others
+    account: yourname
+    weibo: Weibo
+    personal_website: Personal Website
+    bio: Bio
+    upload_avatar: Upload Avatar
+    update_profile: Update Profile
 
 

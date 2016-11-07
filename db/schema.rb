@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105060314) do
+ActiveRecord::Schema.define(version: 20161107080751) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",                              null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161105060314) do
     t.datetime "activated_at"
     t.string   "reset_password_digest"
     t.datetime "reset_password_at"
+    t.boolean  "email_public",          default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end

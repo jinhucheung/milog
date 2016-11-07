@@ -26,7 +26,7 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <%= content_tag :li, link_to(t("navbar.new_blog"), "edit_post.html") %>
+            <%= content_tag :li, link_to(t("new_blog"), "edit_post.html") %>
           </ul>
         </li>
         <!-- 设置类操作 -->
@@ -39,8 +39,8 @@
           <ul class="dropdown-menu">
             <%= content_tag :li, link_to(capitalize_name(current_user), user_path(current_user.username)) %>
             <%= content_tag :li, content_tag(:div, '', class:"divider") %>
-            <%= content_tag :li, link_to(t("navbar.account_profile"), "setting.html") %>
-            <%= content_tag :li, link_to(t("navbar.drafts"), "drafts.html") %>
+            <%= content_tag :li, link_to(t("account_profile"), edit_account_path) %>
+            <%= content_tag :li, link_to(t("drafts"), "drafts.html") %>
             <%= content_tag :li, content_tag(:div, '', class:"divider") %>
             <%= content_tag :li, link_to(t("signout"), signout_path, method: 'delete') %>
           </ul>
@@ -57,11 +57,11 @@
     <!-- 主菜单项 -->
     <div class="collapse navbar-collapse" id="collapse-nav">
       <ul class="nav navbar-nav navbar-center main-nav">
-        <%= content_tag :li, link_to(t("navbar.home"), user_path(@user.username)) %>
-        <%= content_tag :li, link_to(t("navbar.category"), "category.html") %>
-        <%= content_tag :li, link_to(t("navbar.archive"), "archive.html") %>
-        <%= content_tag :li, link_to(t("navbar.aboutme"), "aboutme.html") %>
-        <%= content_tag :li, link_to(t("navbar.search"), "#") %>
+        <%= content_tag :li, link_to(t("home"), user_path(@user.username)) %>
+        <%= content_tag :li, link_to(t("category"), "category.html") %>
+        <%= content_tag :li, link_to(t("archive"), "archive.html") %>
+        <%= content_tag :li, link_to(t("aboutme"), "aboutme.html") %>
+        <%= content_tag :li, link_to(t("search"), "#") %>
       </ul>
     </div>
   </div>

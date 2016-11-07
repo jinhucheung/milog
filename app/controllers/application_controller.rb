@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # 确保已登录, 否则转向登录页面
+  def check_signed_in
+    unless signed_in?
+      store_location
+      flash[:warning] = I18n.t "flash.warning.need_sign_in"
+      redirect_to signin_path
+    end
+  end
+
 end

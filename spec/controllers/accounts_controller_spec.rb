@@ -88,7 +88,27 @@ RSpec.describe AccountsController, type: :controller do
       expect(user.errors[:password_confirmation]).to be_any
       expect(user.errors[:username]).to include(User::TIPS_USERNAME_FORMAT_MSG)
     end
+  end
 
+  describe '#edit' do 
+    it "should redirect to sign in path when user don't sign in" do
+      get :edit
+      expect(response).to redirect_to signin_path
+      expect(response).not_to render_template :edit
+    end
+
+    it "should mark edit_account_url when user don't sign in" do
+      get :edit
+      expect(session[:forwarding_url]).to eq edit_account_url
+    end
+
+    it "should render edit template when user has signed in" do 
+      user.save
+      sign_in user
+      get :edit
+      expect(response).to have_http_status :success
+      expect(response).to render_template :edit
+    end
   end
 
 end

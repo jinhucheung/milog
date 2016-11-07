@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticated?(:password, session_param(:password))
       sign_in @user
       session_param(:remember_me) == "1" ? remember_me(@user) : forget_me(@user)
-      redirect_to user_path(@user.username)
+      redirect_back_or user_path(@user.username)
     elsif @user
       # 密码错误
       @user.errors.add :password, I18n.t("errors.not_right")
