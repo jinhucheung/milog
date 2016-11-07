@@ -71,7 +71,8 @@
                     <div class="boxed-group">
                         <%= content_tag :h3, t("change_password") %>
                         <div class="boxed-group-inner boxed-group-round-border">
-                            <%= simple_form_for :user, url: edit_account_path(by: :psw), method: :patch do |f| %>
+                            <%= simple_form_for @user, url: edit_account_path(by: :psw), method: :patch do |f| %>
+                            <%= render 'shared/form_error_messages', object: f.object %>
                             <div class="form-group">
                                 <%= content_tag :span, t("current_password") %>
                                 <%= f.password_field :cur_psw, class: "form-control form-input-normal" %>

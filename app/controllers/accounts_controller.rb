@@ -30,11 +30,10 @@ class AccountsController < ApplicationController
 
   def update
     @user = current_user
-    if params[:by].nil?
-      if @user.update_attributes(profile_params)
-      end
-    elsif params[:by] == 'psw' 
-      render html: "psw"
+    if params[:by].nil?             
+      update_profile   # 个人资料
+    elsif params[:by] == 'psw'     
+      update_password  # 密码
     else
       render html: "avatar"
     end
@@ -48,5 +47,21 @@ class AccountsController < ApplicationController
 
     def profile_params
       params.require(:user).permit(:nickname, :email_public, :github, :weibo, :website, :bio)
+    end
+
+    def psw_params
+      params.require(:user).permit(:cur_psw, :new_psw, :new_psw_confirmation)
+    end
+
+    def update_profile
+      return flash.now[:success] = I18n.t("flash.success.update_profile") if @user.update_attributes_by_each(profile_params)
+      flash.now[:warning] = I18n.t "flash.warning.update_profile"
+    end
+
+    def update_password
+      return @user.errors.add(:current_password, I18n.t("invalid")) unless @user.authenticated? :password, psw_params[:cur_psw]
+      if @user.update_attributes password: psw_params[:new_psw], password_confirmation: psw_params[:new_psw_confirmation]
+        flash.now[:success] = I18n.t "flash.success.reset_password"
+      end
     end
 end

@@ -18,7 +18,7 @@
       <div id="forgot-box">
         <div class="login-body">
           <%= simple_form_for :forgot, url: accounts_passwords_forgot_path do |f| %>
-            <%= render "shared/login_error_messages", object: @user %>
+            <%= render "shared/form_error_messages", object: @user %>
             <div class="form-group form-group-icon">
               <%= f.email_field :email, placeholder: t("email"), class: "form-input email" %>
               <span class="glyphicon glyphicon-envelope icon"></span>

@@ -1,6 +1,6 @@
 <!-- 注册表单 -->
 <%= simple_form_for @user, url: signup_path do |f| %>
-<%= render "shared/login_error_messages", object: f.object %>
+<%= render "shared/form_error_messages", object: f.object %>
 <div class="form-group form-group-icon">
 	<%= f.input_field :username, placeholder: t("username"), class: "form-input name" %>
 	<span class="glyphicon glyphicon-user icon"></span>

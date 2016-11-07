@@ -17,7 +17,7 @@ class User < ApplicationRecord
                        format: { with: EAMIL_FORMAT_REGEXP },
                        uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 },
-                       allow_nil: true
+                       allow_nil: false
 
   # 需引入gem bcrypt
   has_secure_password
@@ -72,6 +72,14 @@ class User < ApplicationRecord
   # 用户已上传头像
   def user_avatar?
     return false unless avatar? && avatar !~ /\A#[a-z0-9]{6}\z/i
+    true
+  end
+
+  # 通过update_attribute实现update_attributes
+  # 避过has_secure_password的空密码检测
+  def update_attributes_by_each(params)
+    return false unless params
+    params.each { |attri, value| update_attribute attri, value }
     true
   end
 

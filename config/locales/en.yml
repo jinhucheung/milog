@@ -27,6 +27,7 @@ en:
   reset_password: Reset Password
   change_password: Change Password
   update_password: Update Password
+  invalid: Invalid
 
   login: 
     remember_me: Remember
@@ -44,10 +45,12 @@ en:
     warning:
       link_expired: The link has expired
       resend_validation_mail: click to resend validation mail
-      need_sign_in: Please sign in your account.
+      need_sign_in: Please sign in your account
+      update_profile: Profile updated without success
     success:
       active_account: Account activated
       reset_password: Password has been reset
+      update_profile: Profile updated successfully
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -64,6 +67,7 @@ en:
         username: Username
         email: Email
         password: Password
+        current_password: Current Password
         password_confirmation: Password Confirmation
 
   accounts_mailer:

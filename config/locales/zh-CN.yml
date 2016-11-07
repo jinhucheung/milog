@@ -29,6 +29,7 @@ zh-CN:
   reset_password: 重置密码
   change_password: 修改密码
   update_password: 更新密码
+  invalid: 是无效的
 
   login: 
     remember_me: 记住我
@@ -47,9 +48,11 @@ zh-CN:
       link_expired: 链接失效
       resend_validation_mail: 点击重发验证邮件
       need_sign_in: 请登录您的账号
+      update_profile: 个人资料更新失败
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
+      update_profile: 已更新个人资料
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -66,6 +69,7 @@ zh-CN:
         username: 用户名
         email: 邮箱
         password: 密码
+        current_password: 旧密码
         password_confirmation: 确认密码
   
   accounts_mailer:
