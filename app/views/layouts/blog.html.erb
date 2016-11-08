@@ -2,10 +2,12 @@
 <html style="overflow-y: scroll;">
   <%= render 'shared/page_head' %>
   <body>
-    <%= render 'shared/flash_messages' %>
     
     <%= content_tag :div, class: yield(:bodyclass) do -%>
     <%= render 'shared/blog_header' %>
+    
+    <%= render 'shared/flash_messages_inner'%>
+
     <%= yield %>
     <%= render 'features/back_to_top' %>
     <%= render 'shared/blog_footer' %>

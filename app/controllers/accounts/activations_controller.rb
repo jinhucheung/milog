@@ -16,7 +16,6 @@ class Accounts::ActivationsController < ApplicationController
   # 验证激活链接
   def edit
     return render_404 if !@user.authenticated? :activation, params[:token]
-
     if @user.digest_expired? :activated
       pre = I18n.t 'flash.warning.link_expired'
       pro_link = "#{view_context.link_to I18n.t('flash.warning.resend_validation_mail'), new_accounts_activation_path}"
@@ -25,6 +24,7 @@ class Accounts::ActivationsController < ApplicationController
     else
       flash[:success] = I18n.t 'flash.success.active_account'
       @user.active
+      sign_in @user
       redirect_to user_path(@user.username)
     end
   end

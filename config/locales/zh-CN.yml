@@ -56,7 +56,7 @@ zh-CN:
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
-    email_disabled: 不存在或未激活
+    email_disabled: 不存在或被禁用
     not_right: 不正确
     not_find: 没有找到
     invalid_format: 是无效的

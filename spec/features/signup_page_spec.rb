@@ -40,7 +40,7 @@ RSpec.describe "Signup Page", type: :feature do
     expect {
       click_button "signup"
     }.to change { User.count }.by(1)
-    expect(page).to have_selector(".flash-alert", text: I18n.t("flash.info.validated_mail"))
+    expect(page).to have_selector(".flash-alert-inner", text: I18n.t("flash.info.validated_mail"))
 
   end
 

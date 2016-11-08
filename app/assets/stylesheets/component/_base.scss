@@ -73,7 +73,7 @@
 }
 
 /* 提示信息 */
-.flash-alert {
+.flash-alert-top {
     position: fixed;
     top: 0;
     left: 0;
@@ -81,4 +81,11 @@
     z-index: $z-index + 50;
     text-align: center;
     letter-spacing: 1px;
+}
+
+.flash-alert-inner {
+    width:  100%;
+    z-index: $z-index +50;
+    text-align:  center;
+    letter-spacing:  1px;
 }

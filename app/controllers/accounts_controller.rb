@@ -35,7 +35,7 @@ class AccountsController < ApplicationController
     elsif params[:by] == 'psw'     
       update_password  # 密码
     else
-      render html: "avatar"
+      return render html: "avatar"
     end
     render 'edit', layout: 'blog'
   end

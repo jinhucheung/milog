@@ -62,7 +62,7 @@
                             <%= avatar_tag f.object, :md %>
                             <div class="avatar-upload">
                                 <%= content_tag :span, t("profile.upload_avatar"), id: "upload-avatar-btn", class: "btn avatar-btn" %>
-                                <%= f.input_field :avatar, as: :file, style: "visibility: hidden; position: absolute;", id: "upload-avatar-input" %>
+                                <%= f.input_field :avatar, as: :file, accept:  'image/jpg,image/jpeg,image/png,image/gif', style: "visibility: hidden; position: absolute;", id: "upload-avatar-input" %>
                             </div>
                             <%= f.submit '', style: "visibility: hidden;", id: "avatar-submit" %>
                         </div>
@@ -99,3 +99,10 @@
 </div>
 <%= javascript_include_tag 'tabIndent' %>
 <%= javascript_include_tag 'settings' %>
+
+<script>
+    $("#upload-avatar-input").on("change", function(){
+        // 提交头像
+        $("#avatar-submit").click();
+    });
+</script>
