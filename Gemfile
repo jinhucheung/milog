@@ -16,11 +16,20 @@ gem 'jbuilder', '~> 2.5'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 
+# 国际化
 gem 'rails-i18n'
+# 表单
 gem 'simple_form'
 
-# 加密工具
+# 加密
 gem 'bcrypt', '~> 3.1.7'
+
+# 图像上传
+gem 'carrierwave', '>=0.11.2'
+# 七牛云
+gem 'qiniu'
+gem 'carrierwave-qiniu', '>=0.2.4'
+
 
 group :development do
   gem 'web-console'

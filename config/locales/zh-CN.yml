@@ -49,10 +49,12 @@ zh-CN:
       resend_validation_mail: 点击重发验证邮件
       need_sign_in: 请登录您的账号
       update_profile: 个人资料更新失败
+      avatar_too_big: 头像图片过大（最大是 %{size} MB）
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
       update_profile: 已更新个人资料
+      update_avatar: 已更新头像
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -60,6 +62,7 @@ zh-CN:
     not_right: 不正确
     not_find: 没有找到
     invalid_format: 是无效的
+    avatar_too_big: 过大（最大是 %{size} MB）
 
   activerecord:
     models:
@@ -71,7 +74,8 @@ zh-CN:
         password: 密码
         current_password: 旧密码
         password_confirmation: 确认密码
-  
+        avatar: 头像图片
+
   accounts_mailer:
     hi: Hi %{username}，
     help: 请勿回复此邮件，如果有疑问，请联系我们 %{support_email}
@@ -102,5 +106,5 @@ zh-CN:
     weibo: 微博
     personal_website: 个人主页
     bio: 个人介绍 
-    upload_avatar: 上传图像
+    upload_avatar: 上传头像
     update_profile: 更新资料

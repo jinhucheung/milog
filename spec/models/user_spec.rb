@@ -220,10 +220,9 @@ RSpec.describe User, type: :model do
 
   context "avatar" do 
     it "should have hex-color in avatar when user create" do
-      expect(user.avatar?).to eq false
+      expect(user.avatar_color).to eq nil
       user.save
-      expect(user.avatar?).not_to eq false
-      expect(user.avatar).to match /\A#[a-z0-9]{6}\z/i
+      expect(user.avatar_color).to match /\A#[a-z0-9]{6}\z/i
     end
 
     it "should return false in user_avatar? when user create" do

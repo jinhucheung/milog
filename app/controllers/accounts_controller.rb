@@ -35,7 +35,7 @@ class AccountsController < ApplicationController
     elsif params[:by] == 'psw'     
       update_password  # 密码
     else
-      return render html: "avatar"
+      update_avatar
     end
     render 'edit', layout: 'blog'
   end
@@ -53,6 +53,10 @@ class AccountsController < ApplicationController
       params.require(:user).permit(:cur_psw, :new_psw, :new_psw_confirmation)
     end
 
+    def avatar_params
+      params.require(:user).permit(:avatar)
+    end
+
     def update_profile
       return flash.now[:success] = I18n.t("flash.success.update_profile") if @user.update_attributes_by_each(profile_params)
       flash.now[:warning] = I18n.t "flash.warning.update_profile"
@@ -63,5 +67,18 @@ class AccountsController < ApplicationController
       if @user.update_attributes password: psw_params[:new_psw], password_confirmation: psw_params[:new_psw_confirmation]
         flash.now[:success] = I18n.t "flash.success.reset_password"
       end
+    end
+
+    def update_avatar
+      @user.avatar = avatar_params[:avatar]
+      @user.valid?
+      if @user.errors.include? :avatar
+        flash.now[:warning] = I18n.t "flash.warning.avatar_too_big", size: 5
+        @user.reload
+      else
+        @user.update_attribute :avatar, avatar_params[:avatar] 
+        flash.now[:success] = I18n.t "flash.success.update_avatar"
+      end
+      @user.errors.clear
     end
 end

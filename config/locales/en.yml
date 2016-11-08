@@ -47,10 +47,12 @@ en:
       resend_validation_mail: click to resend validation mail
       need_sign_in: Please sign in your account
       update_profile: Profile updated without success
+      avatar_too_big: Avatar picture is too big (maximum is %{size} megabytes)
     success:
       active_account: Account activated
       reset_password: Password has been reset
       update_profile: Profile updated successfully
+      update_avatar: Avatar updated successfully
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -58,6 +60,7 @@ en:
     not_right: is incorrect
     not_find: couldn't find
     invalid_format: is invalid
+    avatar_too_big: is too big (maximum is %{size} megabytes)
 
   activerecord:
     models:
@@ -69,6 +72,7 @@ en:
         password: Password
         current_password: Current Password
         password_confirmation: Password Confirmation
+        avatar: Avatar picture
 
   accounts_mailer:
     hi: Hi %{username},

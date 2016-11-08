@@ -57,7 +57,7 @@
                 <!-- 头像与密码设置 -->
                 <div class="col-md-4 account-setting">
                     <div class="boxed-group">
-                        <%= simple_form_for @user, url: edit_account_path(by: :avatar) do |f| %>
+                        <%= simple_form_for @user, url: edit_account_path(by: :avatar), html:{ multipart: true } do |f| %>
                         <div class="boxed-group-inner boxed-group-round-border">
                             <%= avatar_tag f.object, :md %>
                             <div class="avatar-upload">
@@ -102,7 +102,14 @@
 
 <script>
     $("#upload-avatar-input").on("change", function(){
-        // 提交头像
-        $("#avatar-submit").click();
+        var size_in_megabytes = this.files[0].size/1024/1024;
+        if (size_in_megabytes >= 5) {
+            <% flash.now[:warning] = t "flash.warning.avatar_too_big", size: 5 %>
+            $(".mainer").eq(0).before("<%= j render(partial: 'shared/flash_messages_inner') %>");
+            <% flash.delete :warning %>
+        } else {
+            // 提交图片
+            $("#avatar-submit").click();
+        }
     });
 </script>

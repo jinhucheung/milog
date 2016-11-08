@@ -23,12 +23,10 @@ module Users::AvatarHelper
 
     letter = user.username[0].upcase
     img =
-      if user.avatar? == false
-        content_tag :div, letter, class: img_class
-      elsif user.user_avatar?
+      if user.user_avatar?
         image_tag user.avatar, class: img_class
       else
-        content_tag :div, letter, class: img_class, style: "background: #{user.avatar}"
+        content_tag :div, letter, class: img_class, style: "background: #{user.avatar_color}"
       end
     if opts[:link]
       link_to raw(img), user_path(user.username)

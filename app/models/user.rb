@@ -18,9 +18,13 @@ class User < ApplicationRecord
                        uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 },
                        allow_nil: false
+  validate :avatar_size
 
   # 需引入gem bcrypt
   has_secure_password
+
+  # 将avatar字段提交至AvatarUploader
+  mount_uploader :avatar, AvatarUploader
 
   before_save :downcase_username_and_email
   after_create :generate_activation_digest, 
@@ -64,19 +68,14 @@ class User < ApplicationRecord
     update_attribute :reset_password_at, Time.zone.now
   end
 
-  # 
-  def avatar?
-    self[:avatar].present?
-  end
-
-  # 用户已上传头像
+  # 用户已上传头像?
   def user_avatar?
-    return false unless avatar? && avatar !~ /\A#[a-z0-9]{6}\z/i
+    return false if avatar.file.nil?
     true
   end
 
   # 通过update_attribute实现update_attributes
-  # 避过has_secure_password的空密码检测
+  # 绕过验证
   def update_attributes_by_each(params)
     return false unless params
     params.each { |attri, value| update_attribute attri, value }
@@ -92,6 +91,12 @@ class User < ApplicationRecord
     # 首字母头像 生成伪随机颜色
     def generate_letter_avatar
       color = '#' + [*'a'..'f', *'0'..'9'].sample(6).join
-      update_attribute :avatar, color
+      update_attribute :avatar_color, color
+    end
+
+    def avatar_size
+      if avatar.size >= 5.megabytes
+        errors.add :avatar, I18n.t("errors.avatar_too_big", size: 5)
+      end      
     end
 end
