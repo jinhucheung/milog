@@ -42,6 +42,7 @@ en:
       psw_reset_mail: Instructions for reseting password have been sent to you
     danger:
       link_invalid: The link is invalid
+      params_invalid: Invalid paramater 
     warning:
       link_expired: The link has expired
       resend_validation_mail: click to resend validation mail

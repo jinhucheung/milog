@@ -44,6 +44,7 @@ zh-CN:
       psw_reset_mail: 重置密码邮件已发送，请检查您的邮箱
     danger:
       link_invalid: 链接无效
+      params_invalid: 参数非法
     warning:
       link_expired: 链接失效
       resend_validation_mail: 点击重发验证邮件

@@ -95,8 +95,8 @@ class User < ApplicationRecord
     end
 
     def avatar_size
-      if avatar.size >= 5.megabytes
-        errors.add :avatar, I18n.t("errors.avatar_too_big", size: 5)
+      if avatar.size >= 1.megabytes
+        errors.add :avatar, I18n.t("errors.avatar_too_big", size: 1)
       end      
     end
 end

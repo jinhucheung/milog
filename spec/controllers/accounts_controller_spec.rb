@@ -7,6 +7,12 @@ def user_params(user)
             password_confirmation: user.password_confirmation } }
 end
 
+def profile_params
+  { user: { nickname: "kumho", email_public: "0", github: "hikumho", weibo: "u/123456",
+            website: "hijinhu.me", bio: "Hello World" },
+    by: '' }
+end
+
 RSpec.describe AccountsController, type: :controller do
 
   let(:user) { User.new username: "aTestUser", email: "aTestUser@test.com", password: "aTestUserPsw", password_confirmation: "aTestUserPsw" }
@@ -108,6 +114,151 @@ RSpec.describe AccountsController, type: :controller do
       get :edit
       expect(response).to have_http_status :success
       expect(response).to render_template :edit
+    end
+  end
+
+  describe '#update' do 
+    before(:each) do
+      user.save
+    end
+
+    let(:profile) { profile_params }
+    let(:psw) { { user: { cur_psw: user.password, new_psw: "a"*7, new_psw_confirmation: "a"*7 }, by: "psw" } }
+    let(:avatar) { { user:{}, by: 'avatar' } }
+
+    it "should redirect to sign in path when user don't sign in" do
+      patch :update, params: {}
+      expect(response).to redirect_to signin_path
+      expect(response).not_to render_template :edit      
+    end
+
+    context "update profile" do
+      it "should has updated with valid information" do
+        sign_in user
+        patch :update, params: profile
+        expect(response).to have_http_status :success
+        expect(response).to render_template :edit
+        expect(flash[:success]).to eq I18n.t("flash.success.update_profile")
+        expect(flash[:warning]).to eq nil
+
+        user.reload
+        expect(user.nickname).to eq "kumho"
+        expect(user.email_public).to eq false
+        expect(user.github).to eq "hikumho"
+        expect(user.weibo).to eq "u/123456"
+        expect(user.website).to eq "hijinhu.me"
+        expect(user.bio).to eq "Hello World"
+      end
+
+      it "shouldn't update profile with by=psw" do
+        sign_in user
+        profile[:by] = 'psw'
+        patch :update, params: profile
+        expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
+      end
+
+      it "shouldn't update profile with by=avatar" do
+        sign_in user
+        profile[:by] = 'avatar'
+        patch :update, params: profile
+        expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
+      end
+
+      it "shouldn't update profile with params[:by] invalid" do
+        sign_in user
+        profile[:by] = 'z'
+        patch :update, params: profile
+        expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
+      end
+    end
+
+    context "update password" do
+      it "should update password with valid information" do
+        sign_in user
+        patch :update, params: psw
+        expect(response).to have_http_status :success
+        expect(response).to render_template :edit
+        expect(flash[:success]).to eq I18n.t("flash.success.reset_password")
+
+        user.reload
+        expect(user.authenticated?(:password, psw[:user][:new_psw])).to eq true
+      end
+
+      it "shouldn't update with current password not match" do
+        sign_in user
+        psw[:user][:cur_psw] = "Not"+user.password
+        patch :update, params: psw
+
+        expect(flash[:success]).to eq nil
+
+        user.reload
+        expect(user.authenticated?(:password, psw[:user][:new_psw])).to eq false
+        expect(user.authenticated?(:password, user.password)).to eq true
+      end
+
+      it "shouldn't update with new password invalid" do
+        sign_in user
+        psw[:user][:new_psw] = "1"
+        patch :update, params: psw
+
+        expect(flash[:success]).to eq nil
+
+        user.reload
+        expect(user.authenticated?(:password, psw[:user][:new_psw])).to eq false
+        expect(user.authenticated?(:password, user.password)).to eq true
+      end
+
+      it "shouldn't update with new password confirmation don't match" do
+        sign_in user
+        psw[:user][:new_psw_confirmation] = "Not"+psw[:user][:new_psw]
+        patch :update, params: psw
+
+        expect(flash[:success]).to eq nil
+
+        user.reload
+        expect(user.authenticated?(:password, psw[:user][:new_psw])).to eq false
+        expect(user.authenticated?(:password, user.password)).to eq true
+      end
+
+      it "shouldn't update with params[:by] invalid" do
+        sign_in user
+        psw[:by] = nil
+        patch :update, params: psw
+        expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
+
+        psw[:by] = "avatar"
+        patch :update, params: psw
+        expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
+
+        psw[:by] = "hello"
+        patch :update, params: psw
+        expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
+      end
+    end
+
+    context "update avatar" do
+      let(:img) { fixture_file_upload('images/logo.png', 'image/png') }
+
+      it "should has updated with valid avatar" do
+        sign_in user
+        avatar[:user][:avatar] = img
+        expect {
+          patch :update, params: avatar
+          user.reload
+        }.to change { user.avatar.file }  
+        expect(response).to have_http_status :success
+        expect(response).to render_template :edit
+        expect(flash[:success]).to eq I18n.t("flash.success.update_avatar")
+      end
+
+      it "shouldn't update with invalid avatar" do
+        sign_in user
+        avatar[:user][:avatar] = "a"*7
+        expect {
+          patch :update, params: avatar
+          user.reload
+        }.not_to change { user.avatar.file }  
+      end
     end
   end
 

@@ -30,12 +30,14 @@ class AccountsController < ApplicationController
 
   def update
     @user = current_user
-    if params[:by].nil?             
+    if params[:by].blank?             
       update_profile   # 个人资料
     elsif params[:by] == 'psw'     
       update_password  # 密码
+    elsif params[:by] == 'avatar' 
+      update_avatar    # 头像
     else
-      update_avatar
+      flash.now[:danger] = I18n.t "flash.danger.params_invalid"
     end
     render 'edit', layout: 'blog'
   end
@@ -57,12 +59,22 @@ class AccountsController < ApplicationController
       params.require(:user).permit(:avatar)
     end
 
+    def valid_params?(attri)
+      if send("#{attri}_params").empty?
+        flash.now[:danger] = I18n.t "flash.danger.params_invalid"
+        return false
+      end
+      true
+    end
+
     def update_profile
+      return unless valid_params? :profile
       return flash.now[:success] = I18n.t("flash.success.update_profile") if @user.update_attributes_by_each(profile_params)
       flash.now[:warning] = I18n.t "flash.warning.update_profile"
     end
 
     def update_password
+      return unless valid_params? :psw
       return @user.errors.add(:current_password, I18n.t("invalid")) unless @user.authenticated? :password, psw_params[:cur_psw]
       if @user.update_attributes password: psw_params[:new_psw], password_confirmation: psw_params[:new_psw_confirmation]
         flash.now[:success] = I18n.t "flash.success.reset_password"
@@ -70,10 +82,11 @@ class AccountsController < ApplicationController
     end
 
     def update_avatar
+      return unless valid_params? :avatar
       @user.avatar = avatar_params[:avatar]
       @user.valid?
       if @user.errors.include? :avatar
-        flash.now[:warning] = I18n.t "flash.warning.avatar_too_big", size: 5
+        flash.now[:warning] = I18n.t "flash.warning.avatar_too_big", size: 1
         @user.reload
       else
         @user.update_attribute :avatar, avatar_params[:avatar] 
