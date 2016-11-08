@@ -23,5 +23,9 @@ Rails.application.routes.draw do
   end
 
   # 用户操作路由应该放在最后
-  resources :users, except: [:index, :new, :create] , path: '' , constraints: { id: User::USERNAME_FORMAT }
+  resources :users, only: [:show] , path: '' , constraints: { id: User::USERNAME_FORMAT } do
+    member do
+      get :aboutme
+    end
+  end
 end

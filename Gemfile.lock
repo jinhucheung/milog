@@ -80,6 +80,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     http-cookie (1.0.3)
@@ -238,6 +240,7 @@ DEPENDENCIES
   carrierwave (>= 0.11.2)
   carrierwave-qiniu (>= 0.2.4)
   coffee-rails (~> 4.2)
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener

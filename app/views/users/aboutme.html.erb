@@ -1,0 +1,28 @@
+<% provide :bodyclass, 'aboutme' %>
+<% provide :pre_title, t("aboutme")+" · "+capitalize_name(@user) %>
+
+<div class="mainer">
+  <div class="container-fluid">
+    <div class="col-md-7 col-center-block content-wrap" >
+      <!-- 头像 -->
+      <%= content_tag :div, avatar_tag(@user, :lg, link: true), class: "avatar" %>
+      <!-- 用户名 -->
+      <div class="name">
+        <h2>
+        <%= content_tag :span, capitalize_name(@user), class: "username" %>
+        <%= content_tag :span, "(#{@user.nickname})", class: "nickname" unless @user.nickname.blank? %>
+        </h2>
+      </div>
+      <!-- 简介 -->
+      <%= content_tag :div, sanitize(@user.bio), class: "bio" unless @user.bio.blank? %>
+      <hr>
+      <!-- 外站 -->
+      <div class="social">
+        <%= email_tag @user %>
+        <%= github_tag @user %>
+        <%= weibo_tag @user %>
+        <%= personal_website_tag @user %>
+      </div>
+    </div>
+  </div>
+</div>
