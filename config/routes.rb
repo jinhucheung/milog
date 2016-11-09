@@ -22,10 +22,15 @@ Rails.application.routes.draw do
     put '/edit', action: :update
   end
 
-  # 用户操作路由应该放在最后
+  # users相关路由最后
   resources :users, only: [:show] , path: '' , constraints: { id: User::USERNAME_FORMAT } do
     member do
       get :aboutme
     end
   end
+
+  scope '/:user_id', constraints: { user_id: User::USERNAME_FORMAT } do
+    resources :articles
+  end
+
 end
