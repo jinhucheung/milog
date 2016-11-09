@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   scope '/:user_id', constraints: { user_id: User::USERNAME_FORMAT } do
-    resources :articles
+    resources :articles, constraints: { id: /\d+/ } 
   end
 
 end

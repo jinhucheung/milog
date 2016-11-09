@@ -20,6 +20,10 @@ class User < ApplicationRecord
                        allow_nil: false
   validate :avatar_size
 
+  has_many :articles,             dependent: :destroy
+  has_many :user_categoryships,   dependent: :destroy
+  has_many :categories,           through: :user_categoryships
+
   # 需引入gem bcrypt
   has_secure_password
 

@@ -109,3 +109,6 @@ zh-CN:
     bio: 个人介绍 
     upload_avatar: 上传头像
     update_profile: 更新资料
+
+  categories:
+    default: 默认

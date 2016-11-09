@@ -231,4 +231,102 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "articles" do
+    before :each do
+      user.save
+    end
+
+    let(:category) { Category.create name: 'Test' }
+
+    context "article" do
+      it "should success when it create with valid information" do
+        asize = user.articles.size
+        expect {
+         user.articles.create title: "Hello World", category: category
+        }.to change { Article.all.size }.by(1)
+        expect(user.articles.size - asize).to eq 1
+      end
+
+      it "should has existed with information when it create with valid information" do 
+        user.articles.create title: "Hello World", category: category
+        article = user.articles.first
+        expect(article).not_to eq nil
+        expect(article.title).to eq "Hello World"
+        expect(article.category).to eq category       
+      end
+
+      it "should fail when it create with no-category" do
+        expect {
+          article = user.articles.create title: "Hello World", category: nil
+          expect(article.valid?).to eq false
+          expect(article.save).to eq false
+          expect(article.errors.include? :category).to eq true
+        }.not_to change { Article.all.size }
+      end
+
+      it "should fail when it create with no-title" do
+        expect {
+          article = user.articles.create title: "", category: category
+          expect(article.valid?).to eq false
+          expect(article.save).to eq false
+          expect(article.errors.include? :title).to eq true
+        }.not_to change { Article.all.size }
+      end
+
+      it "should order by created_time in desc" do
+        article = user.articles.create title: "Hello", category: category
+        brticle = user.articles.create title: "Hello", category: category
+        crticle = user.articles.create title: "Hello", category: category
+
+        expect(user.articles.first).to eq crticle
+        expect(user.articles.second).to eq brticle
+        expect(user.articles.last).to eq article
+
+        brticle.update_attribute :created_at, Time.zone.now + 1.hours
+        expect(user.articles.reload.first).to eq brticle
+
+        articles = user.articles.reorder(nil)
+        expect(articles.first).to eq article
+        expect(articles.second).to eq brticle
+        expect(articles.last).to eq crticle
+      end
+
+      it "should destroy when destroy user of article" do
+        article = user.articles.create title: "Hello", category: category
+        brticle = user.articles.create title: "Hello", category: category 
+        
+        expect(Article.all.size).to eq 2
+        user.destroy
+        expect(Article.all.size).to eq 0 
+      end
+    end
+  end
+
+  describe "user_categoryships" do
+    before :each do
+      user.save
+    end
+
+    let(:category) { Category.create name: 'Test' }
+
+    it "should include user and category when create a user_categoryship" do
+      expect {
+        user.user_categoryships.create category: category
+      }.to change { UserCategoryship.all.size }.by 1
+      user.reload
+      category.reload
+      expect(category.users.include? user).to eq true
+      expect(user.categories.include? category).to eq true
+    end
+
+    it "should destroy when user destroy" do
+      ships = user.user_categoryships.create category: category
+      expect{
+        user.destroy
+      }.to change { UserCategoryship.all.reload.size }.by -1
+      expect(category.reload).not_to eq nil
+      expect(UserCategoryship.all.reload.include? ships).to eq false
+      expect(Category.all.reload.include? category).to eq true
+    end
+  end
 end

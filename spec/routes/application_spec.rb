@@ -170,4 +170,34 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(get: '/hijinhu/aboutme').to route_to 'users#aboutme', id: 'hijinhu'
     end
   end
+
+  describe "articles" do
+    it "get /hijinhu/articles" do
+      expect(get: '/hijinhu/articles').to route_to 'articles#index', user_id: 'hijinhu'
+    end
+
+    it "post /hijinhu/articles" do
+      expect(post: '/hijinhu/articles').to route_to 'articles#create', user_id: 'hijinhu'
+    end
+
+    it "get /hijinhu/articles/new" do
+      expect(get: '/hijinhu/articles/new').to route_to 'articles#new', user_id: 'hijinhu'
+    end
+
+    it "get /hijinhu/articles/1" do
+      expect(get: '/hijinhu/articles/1').to route_to 'articles#show', user_id: 'hijinhu', id: '1'
+    end
+
+    it "get /hijinhu/articles/1/edit" do
+      expect(get: '/hijinhu/articles/1/edit').to route_to 'articles#edit', user_id: 'hijinhu', id: '1'
+    end
+
+    it "patch /hijinhu/articles/1" do
+      expect(patch: '/hijinhu/articles/1').to route_to 'articles#update', user_id: 'hijinhu', id: '1'
+    end
+
+    it "delete /hijinhu/articles/1" do
+      expect(delete: '/hijinhu/articles/1').to route_to 'articles#destroy', user_id: 'hijinhu', id: '1'
+    end
+  end
 end

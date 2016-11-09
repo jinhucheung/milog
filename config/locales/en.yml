@@ -108,4 +108,5 @@ en:
     upload_avatar: Upload Avatar
     update_profile: Update Profile
 
-
+  categories:
+    default: Default
