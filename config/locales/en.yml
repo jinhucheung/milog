@@ -49,6 +49,8 @@ en:
       need_sign_in: Please sign in your account
       update_profile: Profile updated without success
       avatar_too_big: Avatar picture is too big (maximum is %{size} megabytes)
+      need_activation: Please validate your account
+      send_validation_mail: click to send validation mail
     success:
       active_account: Account activated
       reset_password: Password has been reset

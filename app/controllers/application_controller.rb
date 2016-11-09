@@ -28,4 +28,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # 确保用户已验证, 否则重发验证邮件
+  def check_activated
+    return if current_user.blank?
+    unless current_user.activated?
+      store_location
+      pre = I18n.t 'flash.warning.need_activation'
+      pro_link = "#{view_context.link_to I18n.t('flash.warning.send_validation_mail'), new_accounts_activation_path}"
+      flash[:warning] = pre + I18n.t('syml.dot') + pro_link
+      redirect_to root_path
+    end
+  end
+
 end

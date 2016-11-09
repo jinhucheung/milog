@@ -1,0 +1,180 @@
+<% provide :bodyclass, 'edit-post' %>
+<% provide :pre_title, t('new_blog') %>
+
+<div class="mainer">
+    <div class="container-fluid">
+        <!-- 居中 -->
+        <div class="col-md-9 col-center-block content-wrap">
+            <div class="edit-post">
+                <form id="post-form" action="#" method="post">
+                    <!-- 编辑页头部 -->
+                    <div class="edit-header">
+                        <!-- 文章标题 居左 -->
+                        <div class="post-title">
+                            <div class="form-group">
+                                <input id="title-input" type="text" class="form-input" name="post[title]" placeholder="在这里填入文章标题">
+                            </div>
+                        </div>
+                        <!-- 文章分类 居右 -->
+                        <div class="dropdown post-category">
+                            分类：
+                            <!-- 表单获取分类值 -->
+                            <input id="post-selected-category-input" type="hidden" class="form-input" name="post[category]" value="默认">
+                            <span data-toggle="dropdown" role="button">
+                                <span id="post-selected-category" >默认</span>
+                                <span class="caret"></span>
+                            </span>
+                            <!-- 分类菜单，同时新建分类 -->
+                            <ul class="dropdown-menu post-category-menu">
+                                <li class="category-item li-active"><a><span class="content">默认</span></a></li>
+                                <li class="category-item"><a><span class="content">工作日志</span></a></li>
+                                <li class="category-item"><a><span class="content">学习</span></a></li>
+                                <!-- 用户创建分类，可删除 -->
+                                <li class="category-item">
+                                    <a><span class="content">Linux</span><span class="delete" role="button">x</span></a>
+                                </li>
+                                <li class="category-item">
+                                    <a><span class="content">数据</span><span class="delete" role="button">x</span></a>
+                                </li>
+                                <li id="category-item-add-li">
+                                    <a>
+                                        <input type="text" id="category-item-add" maxlength="8" placeholder="新的分类/回车确认">
+                                    </a>
+                                </li>
+                                <div class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 编辑框部分 -->
+                    <!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
+                    <div class="edit-body">
+                        <!-- 标签卡与工具栏 -->
+                        <div class="edit-body-header">
+                            <!-- 工具栏 -->
+                            <div class="post-edit-toolbar pull-right">
+                                <!-- markdown工具栏  -->
+                                <div class="markdown-toolbar">
+                                    <a class="toolbar-item add-bold" href='#' title="强调"><i class="fa fa-bold"></i></a>
+                                    <a class="toolbar-item add-italic" href='#' title="斜体"><i class="fa fa-italic"></i></a>
+                                    <a class="toolbar-item add-header" href='#' title="标题"><i class="fa fa-header"></i></a>
+                                    <span class="divider"></span>
+                                    <a class="toolbar-item add-quote-left" href='#' title="引用"><i class="fa fa-quote-left"></i></a>
+                                    <a class="toolbar-item add-list-ul" href='#' title="无序列表"><i class="fa fa-list-ul"></i></a>
+                                    <a class="toolbar-item add-list-ol" href='#' title="有序列表"><i class="fa fa-list-ol"></i></a>
+                                    <a class="toolbar-item add-code" href='#' title="代码"><i class="fa fa-code"></i></a>
+                                    <span class="divider"></span>
+                                    <a class="toolbar-item add-link" href='#' title="链接"><i class="fa fa-link"></i></a>
+                                    <a class="toolbar-item add-image" href='#' title="图片"><i class="fa fa-image"></i></a>
+                                    <a class="toolbar-item add-smile-o" href='#' title="表情" data-toggle='dropdown'><i class="fa fa-smile-o"></i></a>
+                                    <!-- 表情选择 -->
+                                    <div class="dropdown-menu emoji-picker">
+                                        <ul class="nav nav-tabs emoji-menu-tabs">
+                                            <li class="emoji-menu-tab active"><a class="em em-clock9" data-stopPropagation="true" data-type="recent"></a></li>
+                                            <li class="emoji-menu-tab "><a class="em em-smile" data-stopPropagation="true" data-type="people"></a></li>
+                                            
+                                            <li class="emoji-menu-tab"><a class="em em-sunny" data-stopPropagation="true" data-type="nature"></a></li>
+                                            
+                                            <li class="emoji-menu-tab"><a class="em em-tada" data-stopPropagation="true" data-type="celebration"></a></li>
+                                            
+                                            <li class="emoji-menu-tab"><a class="em em-soccer" data-stopPropagation="true" data-type="activity"></a></li>
+                                            
+                                            <li class="emoji-menu-tab"><a class="em em-oncoming_automobile" data-stopPropagation="true" data-type="objects"></a></li>
+                                            
+                                            <li class="emoji-menu-tab"><a class="em em-symbols" data-stopPropagation="true" data-type="symbols"></a></li>
+                                            
+                                        </ul>
+                                        <!-- 表情区 -->
+                                        <div class="emoji-content">
+                                            <div class="emoji-group-recent active"></div>
+                                            <div class="emoji-group-people" style="display: none;"></div>
+                                            <div class="emoji-group-nature" style="display: none;"></div>
+                                            <div class="emoji-group-celebration" style="display: none;"></div>
+                                            <div class="emoji-group-activity" style="display: none;"></div>
+                                            <div class="emoji-group-objects" style="display: none;"></div>
+                                            <div class="emoji-group-symbols" style="display: none;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 标签卡 -->
+                            <ul class="nav nav-tabs" id="edit-tabs">
+                                <li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
+                                <li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
+                            </ul>
+                        </div>
+                        <!-- 编辑/预览区 -->
+                        <div class="tab-content edit-body-cotent" id="tab-content">
+                            <div class="tab-pane fade in active" id="edit-content">
+                                <textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor"></textarea>
+                            </div>
+                            <div class="tab-pane fade" id="preview-content">
+                                <div class="edit-body-node preview-node standard markdown-body" id="previewer"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 标签选择与提交 -->
+                    <div class="edit-footer">
+                        <!-- 填如标签,最多5个标签 -->
+                        <div class="form-group tabs-input">
+                            <input id="tab-input" class="form-input" type="text" name="post[tags]" placeholder="请输入关键字, 用逗号隔开, 最多5个">
+                            <span>标签: </span>
+                        </div>
+                        <!-- 提交按钮 -->
+                        <div class="form-group post-btns">
+                            <button class="save-btn" data-style="slide-up" type="submit">保存草稿</button>
+                            <button class="post-btn" data-style="slide-up" type="submit">发布文章</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- markdown编辑器 -->
+<%= javascript_include_tag 'tabIndent' %>
+<%= javascript_include_tag 'markdown-it.min' %>
+<%= javascript_include_tag 'highlight.pack' %>
+<%= javascript_include_tag 'markdown-it-emoji.min' %>
+
+<%= javascript_include_tag 'edit-post' %>
+<%= javascript_include_tag 'markdown-toolbar' %>
+<%= javascript_include_tag 'emoji-picker' %>
+
+
+<script>
+    //textarea 可使用tab缩进
+    tabIndent.renderAll();
+    //支持语法高亮
+    hljs.initHighlightingOnLoad();
+
+    /* markdownit配置 */
+    var md = window.markdownit({
+        linkify: true, // 标识超链接
+        highlight: function(str, lang) { // 语法高亮
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, str).value;
+                } catch (__) {}
+            }
+            return '';
+        }
+    }).use(window.markdownitEmoji); //markdown-it 解析markdown格式 window.markdownit({html: true});
+    md.renderer.rules.table_open = function(tokens, idx) { //添加table规则
+        return '<table class="table table-striped table-bordered">';
+    };
+    md.renderer.rules.emoji = function(token, idx) { //支持emoji图标
+        return '<i class="em em-' + token[idx].markup + '"></i>';
+    };
+
+    /* 编辑/预览区绑定markdownit */
+    $("#edit-tabs .preview-node").click(function() {
+        var result = md.render($("#editor").val());
+        $("#previewer").html(result);
+        console.log(result);
+        $is_previewing = true;
+    });
+    $("#edit-tabs .edit-node").click(function() {
+        $is_previewing = false;
+    });
+</script>

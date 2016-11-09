@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :check_signed_in, only: [:edit, :update]
+  before_action :check_activated, only: [:edit, :update]
 
   def new
     @user = User.new

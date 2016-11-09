@@ -51,6 +51,8 @@ zh-CN:
       need_sign_in: 请登录您的账号
       update_profile: 个人资料更新失败
       avatar_too_big: 头像图片过大（最大是 %{size} MB）
+      need_activation: 请激活您的账号
+      send_validation_mail: 点击发送验证邮件
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码

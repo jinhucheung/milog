@@ -33,6 +33,9 @@ gem 'carrierwave-qiniu', '>=0.2.4'
 # 矢量图标
 gem "font-awesome-rails"
 
+# jquery动画插件
+gem 'velocityjs-rails'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

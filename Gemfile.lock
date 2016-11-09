@@ -218,6 +218,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    velocityjs-rails (2.0.0)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -259,6 +260,7 @@ DEPENDENCIES
   sprockets
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
+  velocityjs-rails
   web-console
 
 BUNDLED WITH
