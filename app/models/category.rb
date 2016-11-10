@@ -8,6 +8,8 @@ class Category < ApplicationRecord
   has_many :user_categoryships,  dependent: :destroy
   has_many :users,               through: :user_categoryships
 
+  default_scope -> { order id: :asc }
+
   before_save :downcase_name
 
   private

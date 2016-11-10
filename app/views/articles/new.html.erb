@@ -16,29 +16,22 @@
                         <!-- 文章分类-->
                         <div class="dropdown post-category">
                             <%= t "article.category" %>：
-                            <%= f.input_field :category, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category %>
+                            <%= f.input_field :category_id, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category.id %>
                             <span data-toggle="dropdown" role="button">
-                                <%= content_tag :span, t("categories.#{@category.name}"), id: "post-selected-category" %>
+                                <%= category_selected_tag @category, id: "post-selected-category" %>
                                 <%= content_tag :span, '', class: "caret" %>
                             </span>
                             <!-- 显示分类菜单，同时新建分类 -->
                             <ul class="dropdown-menu post-category-menu">
-                                <li class="category-item li-active"><a><span class="content">默认</span></a></li>
-                                <li class="category-item"><a><span class="content">工作日志</span></a></li>
-                                <li class="category-item"><a><span class="content">学习</span></a></li>
-                                <!-- 用户创建分类，可删除 -->
-                                <li class="category-item">
-                                    <a><span class="content">Linux</span><span class="delete" role="button">x</span></a>
-                                </li>
-                                <li class="category-item">
-                                    <a><span class="content">数据</span><span class="delete" role="button">x</span></a>
-                                </li>
+                                <% @categories.each do | category | %>
+                                 <%= category_menu_li_tag category, category==@category %>
+                                <% end %>
                                 <li id="category-item-add-li">
                                     <a>
-                                        <input type="text" id="category-item-add" maxlength="8" placeholder="新的分类/回车确认">
+                                    <input type="text" id="category-item-add" maxlength="8" placeholder="<%= t("article.new_category") %>">
                                     </a>
                                 </li>
-                                <div class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
+                                <div id="category-error" class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
                             </ul>
                         </div>
                     </div>

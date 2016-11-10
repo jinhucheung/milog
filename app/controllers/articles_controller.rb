@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
-  before_action :get_user
   before_action :check_signed_in, expect: [:show, :index]
-  before_action :valid_user, expect: [:show, :index]
   before_action :check_activated, expect: [:show, :index]
 
   layout 'blog'
 
   def new
+    @user = current_user
     @article = current_user.articles.build
-    @category = Category.first_or_create name: 'default'
+    @category = current_user.categories.find_by name: 'default'
+    @categories = current_user.categories
   end
 
   private

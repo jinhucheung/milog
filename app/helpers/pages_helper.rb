@@ -56,4 +56,27 @@ module PagesHelper
     link = user.website
     link_to content_tag(:i, '', class: 'fa fa-globe icon'), link 
   end
+
+  ## 已选中的分类项
+  def category_selected_tag(category, opts = {})
+    return if category.blank?
+    return content_tag :span, I18n.t("categories.default"), opts if category.name == 'default'
+    content_tag :span, category.name, opts
+  end
+
+  ## 用户所有分类项
+  def category_menu_li_tag(category, selected)
+    return if category.blank?
+    style = "category-item"
+    style += " li-active" if selected
+    category_content =  
+      if category.name == 'default'
+        content_tag :span, I18n.t("categories.default"), class: 'content', value: category.id
+      else
+        content_tag(:span, category.name, class: 'content', value: category.id) +
+        content_tag(:span, 'x', class: 'delete', role: 'button')
+      end
+    content_tag :li, link_to(category_content, category_path(category), method: 'delete'), class: style
+  end
+
 end

@@ -20,9 +20,9 @@ category_handler = ()->
       $post_category_selected_li = $(this)
       $post_category_selected_li.addClass "li-active"
       # 显示选中项
-      $selected_item = $(this).children("a").first().find(".content").html()
-      $("#post-selected-category").html $selected_item
-      $("#post-selected-category-input").attr "value", $selected_item # 更新分类input的值
+      $selected_item = $(this).children("a").first().find(".content")
+      $("#post-selected-category").html $selected_item.html()
+      $("#post-selected-category-input").attr "value", $selected_item.attr("value") # 更新分类input的值
 
   # 构建文章分类项
   build_category_item = ($category_name)->
@@ -40,9 +40,24 @@ category_handler = ()->
       if e.which == 13 
         $category_name = $(this).val()
         if $category_name && $category_name != "" 
-          $category_item = build_category_item $category_name
-          $("#category-item-add-li").before $category_item
-          $(this).val ""
+          $.ajax({
+            type: 'POST',
+            url: '/categories',
+            data: { category: { name: $category_name } },
+            success: (data)->
+              console.log data
+              $category_item = build_category_item data["name"]
+              $("#category-item-add-li").before $category_item
+              $("#category-error").css("display", "none").text ""
+              $(this).val ""
+              return false
+            error: (data)->
+              console.log data
+              console.log  $("#category-error")
+              $("#category-error").css("display", "block").text data.responseText
+              return false
+          })
+
 
   # 注册事件
   delete_category_item()

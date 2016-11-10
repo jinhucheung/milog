@@ -172,32 +172,43 @@ RSpec.describe "ApplicationRoutes", type: :routing do
   end
 
   describe "articles" do
-    it "get /hijinhu/articles" do
-      expect(get: '/hijinhu/articles').to route_to 'articles#index', user_id: 'hijinhu'
+    it "get /articles" do
+      expect(get: '/articles').to route_to 'articles#index'
     end
 
-    it "post /hijinhu/articles" do
-      expect(post: '/hijinhu/articles').to route_to 'articles#create', user_id: 'hijinhu'
+    it "post /articles" do
+      expect(post: '/articles').to route_to 'articles#create'
     end
 
-    it "get /hijinhu/articles/new" do
-      expect(get: '/hijinhu/articles/new').to route_to 'articles#new', user_id: 'hijinhu'
+    it "get /articles/new" do
+      expect(get: '/articles/new').to route_to 'articles#new'
     end
 
-    it "get /hijinhu/articles/1" do
-      expect(get: '/hijinhu/articles/1').to route_to 'articles#show', user_id: 'hijinhu', id: '1'
+    it "get /articles/1" do
+      expect(get: '/articles/1').to route_to 'articles#show', id: '1'
     end
 
-    it "get /hijinhu/articles/1/edit" do
-      expect(get: '/hijinhu/articles/1/edit').to route_to 'articles#edit', user_id: 'hijinhu', id: '1'
+    it "get /articles/1/edit" do
+      expect(get: '/articles/1/edit').to route_to 'articles#edit', id: '1'
     end
 
-    it "patch /hijinhu/articles/1" do
-      expect(patch: '/hijinhu/articles/1').to route_to 'articles#update', user_id: 'hijinhu', id: '1'
+    it "patch /articles/1" do
+      expect(patch: '/articles/1').to route_to 'articles#update', id: '1'
     end
 
-    it "delete /hijinhu/articles/1" do
-      expect(delete: '/hijinhu/articles/1').to route_to 'articles#destroy', user_id: 'hijinhu', id: '1'
+    it "delete /articles/1" do
+      expect(delete: '/articles/1').to route_to 'articles#destroy', id: '1'
+    end
+  end
+
+  describe "category" do
+
+    it "post /categories success" do 
+      expect(post: '/categories').to route_to 'categories#create'
+    end
+
+    it "delete /categories/1 success" do 
+      expect(delete: '/categories/1').to route_to 'categories#destroy',  id: '1'
     end
   end
 end

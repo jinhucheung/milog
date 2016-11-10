@@ -35,6 +35,13 @@ RSpec.describe Category, type: :model do
     }.to change { category.articles.size }.by 1
   end
 
+  it "should order by id in asc" do
+    one = category.save
+    two = Category.create name:  "A"*6
+    expect(Category.first.name).to eq "test"
+    expect(Category.second.name).to eq "a"*6
+  end
+
   describe "user_categoryships" do
     before :each do
       category.save
@@ -59,5 +66,6 @@ RSpec.describe Category, type: :model do
       expect(UserCategoryship.all.reload.include? ships).to eq false
       expect(User.all.reload.include? user).to eq true
     end
+
   end
 end
