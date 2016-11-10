@@ -43,7 +43,7 @@ RSpec.describe Category, type: :model do
     it "should include user and category when create a user_categoryship" do
       expect {
         category.user_categoryships.create user: user
-      }.to change { UserCategoryship.all.size }.by 1
+      }.to change { UserCategoryship.all.size }.by 2
       user.reload
       category.reload
       expect(category.users.include? user).to eq true

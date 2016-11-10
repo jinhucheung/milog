@@ -1,0 +1,40 @@
+<% i18n_root = "markdown-toolbar" %>
+<div class="markdown-toolbar">
+  <%= link_to content_tag(:i, '', class: "fa fa-bold"), '#', class: "toolbar-item add-bold", title: t("#{i18n_root}.bold") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-italic"), '#', class: "toolbar-item add-italic", title: t("#{i18n_root}.italic") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-header"), '#', class: "toolbar-item add-header", title: t("#{i18n_root}.title") %>
+  <%= content_tag :span, '', class: "divider" %>
+
+  <%= link_to content_tag(:i, '', class: "fa fa-quote-left"), '#', class: "toolbar-item add-quote-left", title: t("#{i18n_root}.quote") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-list-ul"), '#', class: "toolbar-item add-list-ul", title: t("#{i18n_root}.ul") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-list-ol"), '#', class: "toolbar-item add-list-ol", title: t("#{i18n_root}.ol") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-code"), '#', class: "toolbar-item add-code", title: t("#{i18n_root}.code") %>
+  <%= content_tag :span, '', class: "divider" %>
+
+  <%= link_to content_tag(:i, '', class: "fa fa-link"), '#', class: "toolbar-item add-link", title: t("#{i18n_root}.link") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-image"), '#', class: "toolbar-item add-image", title: t("#{i18n_root}.image") %>
+  <%= link_to content_tag(:i, '', class: "fa fa-smile-o"), '#', class: "toolbar-item add-smile-o", title: t("#{i18n_root}.emoji"), 'data-toggle': 'dropdown' %>
+
+  <div class="dropdown-menu emoji-picker">
+    <!-- 表情分类标签 -->
+    <ul class="nav nav-tabs emoji-menu-tabs">
+      <%= content_tag :li, link_to('', '', class: 'em em-clock9', data: { stopPropagation: 'true', type: 'recent'}), class: 'emoji-menu-tab active' %>
+      <%= content_tag :li, link_to('', '', class: 'em em-smile', data: { stopPropagation: 'true', type: 'people'}), class: 'emoji-menu-tab' %> 
+      <%= content_tag :li, link_to('', '', class: 'em em-sunny', data: { stopPropagation: 'true', type: 'nature'}), class: 'emoji-menu-tab' %> 
+      <%= content_tag :li, link_to('', '', class: 'em em-tada', data: { stopPropagation: 'true', type: 'celebration'}), class: 'emoji-menu-tab' %> 
+      <%= content_tag :li, link_to('', '', class: 'em em-soccer', data: { stopPropagation: 'true', type: 'activity'}), class: 'emoji-menu-tab' %> 
+      <%= content_tag :li, link_to('', '', class: 'em em-oncoming_automobile', data: { stopPropagation: 'true', type: 'objects'}), class: 'emoji-menu-tab' %> 
+      <%= content_tag :li, link_to('', '', class: 'em em-symbols', data: { stopPropagation: 'true', type: 'symbols'}), class: 'emoji-menu-tab' %>
+    </ul>
+    <!-- 表情选择区 -->
+    <div class="emoji-content">
+      <%= content_tag :div, '', class: 'emoji-group-recent active' %>
+      <%= content_tag :div, '', class: 'emoji-group-people', style: 'display: none;' %>
+      <%= content_tag :div, '', class: 'emoji-group-nature', style: 'display: none;' %>
+      <%= content_tag :div, '', class: 'emoji-group-celebration', style: 'display: none;' %>
+      <%= content_tag :div, '', class: 'emoji-group-activity', style: 'display: none;' %>
+      <%= content_tag :div, '', class: 'emoji-group-objects', style: 'display: none;' %>
+      <%= content_tag :div, '', class: 'emoji-group-symbols', style: 'display: none;' %>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,8 @@ class ArticlesController < ApplicationController
   layout 'blog'
 
   def new
-
+    @article = current_user.articles.build
+    @category = Category.first_or_create name: 'default'
   end
 
   private

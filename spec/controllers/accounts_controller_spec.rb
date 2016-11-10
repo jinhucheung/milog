@@ -108,12 +108,21 @@ RSpec.describe AccountsController, type: :controller do
       expect(session[:forwarding_url]).to eq edit_account_url
     end
 
-    it "should render edit template when user has signed in" do 
+    it "should render edit template when user has signed in and activate" do 
       user.save
       sign_in user
+      user.update_attribute :activated, true
       get :edit
       expect(response).to have_http_status :success
       expect(response).to render_template :edit
+    end
+
+    it "should redirect to root path when user has signed in but not activated" do
+      user.save
+      sign_in user
+      get :edit
+      expect(response).to have_http_status :redirect
+      expect(response).to redirect_to root_path
     end
   end
 
@@ -132,9 +141,21 @@ RSpec.describe AccountsController, type: :controller do
       expect(response).not_to render_template :edit      
     end
 
-    context "update profile" do
-      it "should has updated with valid information" do
+    it "should redirect to root path when user signed but not activated" do
+      sign_in user
+      patch :update, params: profile
+      expect(response).to have_http_status :redirect
+      expect(response).to redirect_to root_path
+      expect(flash[:warning]).not_to eq nil
+    end
+
+    context "update profile when user has signed in and activated" do
+      before :each do 
         sign_in user
+        user.update_attribute :activated, true
+      end
+
+      it "should has updated with valid information" do
         patch :update, params: profile
         expect(response).to have_http_status :success
         expect(response).to render_template :edit
@@ -151,30 +172,31 @@ RSpec.describe AccountsController, type: :controller do
       end
 
       it "shouldn't update profile with by=psw" do
-        sign_in user
         profile[:by] = 'psw'
         patch :update, params: profile
         expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
       end
 
       it "shouldn't update profile with by=avatar" do
-        sign_in user
         profile[:by] = 'avatar'
         patch :update, params: profile
         expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
       end
 
       it "shouldn't update profile with params[:by] invalid" do
-        sign_in user
         profile[:by] = 'z'
         patch :update, params: profile
         expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
       end
     end
 
-    context "update password" do
-      it "should update password with valid information" do
+    context "update password when user has signed in and activated" do
+      before :each do 
         sign_in user
+        user.update_attribute :activated, true
+      end
+
+      it "should update password with valid information" do
         patch :update, params: psw
         expect(response).to have_http_status :success
         expect(response).to render_template :edit
@@ -185,7 +207,6 @@ RSpec.describe AccountsController, type: :controller do
       end
 
       it "shouldn't update with current password not match" do
-        sign_in user
         psw[:user][:cur_psw] = "Not"+user.password
         patch :update, params: psw
 
@@ -197,7 +218,6 @@ RSpec.describe AccountsController, type: :controller do
       end
 
       it "shouldn't update with new password invalid" do
-        sign_in user
         psw[:user][:new_psw] = "1"
         patch :update, params: psw
 
@@ -209,7 +229,6 @@ RSpec.describe AccountsController, type: :controller do
       end
 
       it "shouldn't update with new password confirmation don't match" do
-        sign_in user
         psw[:user][:new_psw_confirmation] = "Not"+psw[:user][:new_psw]
         patch :update, params: psw
 
@@ -221,7 +240,6 @@ RSpec.describe AccountsController, type: :controller do
       end
 
       it "shouldn't update with params[:by] invalid" do
-        sign_in user
         psw[:by] = nil
         patch :update, params: psw
         expect(flash[:danger]).to eq I18n.t "flash.danger.params_invalid"
@@ -236,11 +254,15 @@ RSpec.describe AccountsController, type: :controller do
       end
     end
 
-    context "update avatar" do
+    context "update avatar when user has signed in and activated" do
+      before :each do 
+        sign_in user
+        user.update_attribute :activated, true
+      end
+
       let(:img) { fixture_file_upload('images/logo.png', 'image/png') }
 
       it "should has updated with valid avatar" do
-        sign_in user
         avatar[:user][:avatar] = img
         expect {
           patch :update, params: avatar
@@ -252,7 +274,6 @@ RSpec.describe AccountsController, type: :controller do
       end
 
       it "shouldn't update with invalid avatar" do
-        sign_in user
         avatar[:user][:avatar] = "a"*7
         expect {
           patch :update, params: avatar

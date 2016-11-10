@@ -311,6 +311,7 @@ RSpec.describe User, type: :model do
 
     it "should include user and category when create a user_categoryship" do
       expect {
+        user.reload
         user.user_categoryships.create category: category
       }.to change { UserCategoryship.all.size }.by 1
       user.reload
@@ -323,10 +324,15 @@ RSpec.describe User, type: :model do
       ships = user.user_categoryships.create category: category
       expect{
         user.destroy
-      }.to change { UserCategoryship.all.reload.size }.by -1
+      }.to change { UserCategoryship.all.reload.size }.by -2
       expect(category.reload).not_to eq nil
       expect(UserCategoryship.all.reload.include? ships).to eq false
       expect(Category.all.reload.include? category).to eq true
+    end
+
+    it "should has default category when user create" do
+      category = Category.find_or_create_by name: 'default'
+      expect(user.categories.include? category).to eq true
     end
   end
 end

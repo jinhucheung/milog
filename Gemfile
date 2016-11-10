@@ -18,6 +18,7 @@ gem 'puma', '~> 3.0'
 
 # 国际化
 gem 'rails-i18n'
+
 # 表单
 gem 'simple_form'
 

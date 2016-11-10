@@ -32,7 +32,8 @@ class User < ApplicationRecord
 
   before_save :downcase_username_and_email
   after_create :generate_activation_digest, 
-               :generate_letter_avatar
+               :generate_letter_avatar,
+               :generate_default_category_ship
 
   attr_accessor :remember_token, :activation_token, :reset_password_token
 
@@ -102,5 +103,10 @@ class User < ApplicationRecord
       if avatar.size >= 1.megabytes
         errors.add :avatar, I18n.t("errors.avatar_too_big", size: 1)
       end      
+    end
+
+    def generate_default_category_ship
+      category = Category.find_or_create_by name: 'default'
+      self.user_categoryships.create category: category 
     end
 end

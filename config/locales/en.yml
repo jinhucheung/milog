@@ -112,3 +112,19 @@ en:
 
   categories:
     default: Default
+  
+  markdown-toolbar:
+    bold: Bold
+    italic: Italic
+    title: Title
+    quote: Quote
+    ul: Unordered List
+    ol: Ordered List
+    code: Code
+    link: Link
+    image: Image
+    emoji: Emoji
+
+  article:
+    title_tips: Fill in the article title here
+    category: Category
