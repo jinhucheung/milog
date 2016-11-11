@@ -1,5 +1,49 @@
 .modal#category-setting {
-  .mdialog {
+    .mdialog {
+        padding: 0 0;
+        border-radius: 0;
 
-  }
+        .modal-header {
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .title {
+                color: $lightblack;
+            }
+        }
+
+        .modal-body {
+            #category-item-setting {
+                width: 100%;
+                outline: none;
+                border: 1px solid $lightwhite;
+                padding: 0 10px 0 10px;
+                &:focus {
+                    border: 1px solid $outline-input-color !important;
+                }
+            }
+
+            #category-error{
+              color: $waring-color;
+              font-size: 12px;
+              width: 80%;
+              padding-top: 10px;
+            }
+        }
+
+        .modal-footer {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          .opt{
+            cursor: pointer !important;
+            color: $lightgray;
+            &:hover {
+              color: $lightblack;
+            }
+          }
+          .left {
+            float: left;
+          }
+        }
+    }
 }

@@ -30,6 +30,8 @@ zh-CN:
   change_password: 修改密码
   update_password: 更新密码
   invalid: 是无效的
+  delete: 删除
+  update: 更新
 
   login: 
     remember_me: 记住我
@@ -135,3 +137,4 @@ zh-CN:
     title_tips: 在这里填入文章标题
     category: 分类
     new_category: 新的分类/回车确认
+    setting_category: 文章分类设置

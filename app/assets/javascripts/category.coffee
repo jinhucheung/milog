@@ -1,10 +1,26 @@
 #= require ajax_form
 
+# 保存正设置的分类项
+this.category_item = {
+  obj: null,
+  name: null,
+  id: null,
+  clear: ()->
+    this.obj = null
+    this.name = null
+    this.id = null
+}
+
 # 文章分类处理
 category_handler = ()->
   # 文章分类项设置操作
   setting_category_item = ()->
-    $(".post-category-menu").on "click", ".category-item .setting", ()-> 
+    $(".post-category-menu").on "click", ".category-item .setting", ()->
+      console.log category_item
+      category_item.obj = $(this).parent().parent()
+      category_item.name = $(this).prev(".content").text()
+      category_item.id = $(this).prev(".content").attr "value"
+      $("#category-item-setting").attr "value", category_item.name
       $("#category-setting").modal()
       return false
 
@@ -20,7 +36,6 @@ category_handler = ()->
       $selected_item = $(this).children("a").first().find(".content")
       $("#post-selected-category").html $selected_item.html()
       $("#post-selected-category-input").attr "value", $selected_item.attr("value") # 更新分类input的值
-      $("#category-error").css("display", "none")
       return false
 
   # 构建文章分类项
@@ -57,11 +72,17 @@ category_handler = ()->
       $("#category-error").css("display", "none")
       $("#category-item-add").val ""
 
+  category_setting_dialg_on_hide = ()->
+    $("#category-setting").on "hidden.bs.modal", ()->
+      console.log category_item
+      category_item.clear
+
   # 注册事件
   setting_category_item()
   select_category_item()
   add_category_item()
   categories_menu_on_hide()
+  category_setting_dialg_on_hide()
 
 # load
 $(()->
