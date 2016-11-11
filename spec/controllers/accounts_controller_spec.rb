@@ -171,6 +171,17 @@ RSpec.describe AccountsController, type: :controller do
         expect(user.bio).to eq "Hello World"
       end
 
+      it "should strip link" do
+        profile[:user][:github] = "  hikumho "
+        profile[:user][:weibo] = "u/123456 "
+        profile[:user][:website] = "  hijinhu.me"
+        patch :update, params: profile
+        user.reload
+        expect(user.github).to eq "hikumho"
+        expect(user.weibo).to eq "u/123456"
+        expect(user.website).to eq "hijinhu.me"
+      end
+
       it "shouldn't update profile with by=psw" do
         profile[:by] = 'psw'
         patch :update, params: profile

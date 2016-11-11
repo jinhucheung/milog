@@ -1,0 +1,11 @@
+<!-- 显示分类菜单，同时新建分类 -->
+<ul class="dropdown-menu post-category-menu">
+    <% @categories.each do | category | %>
+    <%= category_menu_li_tag category, category==@category %>
+    <% end %>
+    <li id="category-item-add-li">
+        <a><input type="text" id="category-item-add" maxlength="8" placeholder="<%= t("article.new_category") %>">
+        </a>
+    </li>
+    <%=  content_tag :div, '', class: 'error-tips', id: 'category-error', style: 'display: none;' %>
+</ul>

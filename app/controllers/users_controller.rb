@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def aboutme
   end
 
+  def categories
+  end
+
   private
     def get_user
       @user = User.find_by username: params[:id]

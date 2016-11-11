@@ -12,6 +12,9 @@ class Category < ApplicationRecord
 
   before_save :downcase_name
 
+  # 默认分类
+  DEFAULT = %w(default 默认)
+
   private
     def downcase_name 
       name.downcase!

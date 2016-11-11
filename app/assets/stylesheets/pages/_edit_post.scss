@@ -31,6 +31,9 @@
 
             /* 文章分类下拉框 */
             .post-category-menu {
+                height: 250px; 
+                overflow: auto;
+
                 /* 新建分类输入框 */
                 #category-item-add {
                     outline: none;
@@ -45,16 +48,22 @@
                 .error-tips {
                     color: $waring-color;
                     font-size: 12px;
-                    margin: 2px 8px;
+                    margin: 2px auto;
+                    width: 80%;
                 }
                 
-                 /* 删除分类 */
+                 /* 设置分类 */
                 .category-item {
                     position: relative;
-                    .delete {
+                    .setting {
                         position: absolute;
-                        right: 20px;
+                        right: 10px;
                         z-index: $z-index + 2;
+                        font-size: 12px;
+                        color: #aaa;
+                        &:hover {
+                            color: #444;
+                        }
                     }
                 }
             }

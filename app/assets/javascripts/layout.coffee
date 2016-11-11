@@ -6,3 +6,7 @@ $(window).on 'scroll', ()->
 
 $top.on 'click', ()->
   $('body').velocity 'scroll'  
+
+# 滚动到元素底部
+this.scroll_on_bottom = (selector)->
+  $(selector).scrollTop $(selector)[0].scrollHeight

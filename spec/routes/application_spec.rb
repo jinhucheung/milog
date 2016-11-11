@@ -169,6 +169,10 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     it "get /hijinhu/aboutme is routable" do 
       expect(get: '/hijinhu/aboutme').to route_to 'users#aboutme', id: 'hijinhu'
     end
+
+    it "get /hijinhu/categories is routable" do
+      expect(get: '/hijinhu/categories').to  route_to 'users#categories', id: 'hijinhu'
+    end
   end
 
   describe "articles" do
@@ -209,6 +213,10 @@ RSpec.describe "ApplicationRoutes", type: :routing do
 
     it "delete /categories/1 success" do 
       expect(delete: '/categories/1').to route_to 'categories#destroy',  id: '1'
+    end
+
+    it "patch /categories/1 success" do
+      expect(patch: '/categories/1').to route_to 'categories#update', id: '1'
     end
   end
 end

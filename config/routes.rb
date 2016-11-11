@@ -22,12 +22,15 @@ Rails.application.routes.draw do
     put '/edit', action: :update
   end
 
-  resources :articles, constraints: { id: /\d+/ }
-  resources :categories, only: [:create, :destroy], constraints: { id: /\d+/ }
+  constraints( id: /\d+/ ) do
+    resources :articles
+    resources :categories, only: [:create, :update, :destroy]
+  end
 
   # users相关路由最后
   resources :users, only: [:show] , path: '' , constraints: { id: User::USERNAME_FORMAT } do
     member do
+      get :categories
       get :aboutme
     end
   end

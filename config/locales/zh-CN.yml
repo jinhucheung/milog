@@ -66,10 +66,12 @@ zh-CN:
     not_find: 没有找到
     invalid_format: 是无效的
     avatar_too_big: 过大（最大是 %{size} MB）
+    category_has_existed: 文章分类"%{name}"已存在， 请换一个
 
   activerecord:
     models:
       user: 用户
+      category: 文章分类
     attributes:
       user:
         username: 用户名
@@ -78,6 +80,8 @@ zh-CN:
         current_password: 旧密码
         password_confirmation: 确认密码
         avatar: 头像图片
+      category:
+        name: 文章分类
 
   accounts_mailer:
     hi: Hi %{username}，

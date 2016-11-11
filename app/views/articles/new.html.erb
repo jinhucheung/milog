@@ -1,83 +1,88 @@
 <% provide :bodyclass, 'edit-post' %>
 <% provide :pre_title, t('new_blog') %>
-
 <div class="mainer">
     <div class="container-fluid">
         <div class="col-md-9 col-center-block content-wrap">
             <div class="edit-post">
                 <%= simple_form_for @article do |f| %>
-                    <div class="edit-header">
-                        <!-- 文章标题-->
-                        <div class="post-title">
-                            <div class="form-group">
-                                <%= f.input_field :title, class: "form-input", id: "title-input", placeholder: t("article.title_tips") %>
-                            </div>
-                        </div>
-                        <!-- 文章分类-->
-                        <div class="dropdown post-category">
-                            <%= t "article.category" %>：
-                            <%= f.input_field :category_id, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category.id %>
-                            <span data-toggle="dropdown" role="button">
-                                <%= category_selected_tag @category, id: "post-selected-category" %>
-                                <%= content_tag :span, '', class: "caret" %>
-                            </span>
-                            <!-- 显示分类菜单，同时新建分类 -->
-                            <ul class="dropdown-menu post-category-menu">
-                                <% @categories.each do | category | %>
-                                 <%= category_menu_li_tag category, category==@category %>
-                                <% end %>
-                                <li id="category-item-add-li">
-                                    <a>
-                                    <input type="text" id="category-item-add" maxlength="8" placeholder="<%= t("article.new_category") %>">
-                                    </a>
-                                </li>
-                                <div id="category-error" class="error-tips" style="display: none;">文章分类名"工作日志"已经存在，请换一个</div>
-                            </ul>
+                <div class="edit-header">
+                    <!-- 文章标题-->
+                    <div class="post-title">
+                        <div class="form-group">
+                            <%= f.input_field :title, class: "form-input", id: "title-input", placeholder: t("article.title_tips") %>
                         </div>
                     </div>
-                    <!-- 编辑框部分 -->
-                    <!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
-                    <div class="edit-body">
-                        <!-- 标签卡与工具栏 -->
-                        <div class="edit-body-header">
-                            <!-- 工具栏 -->
-                            <div class="post-edit-toolbar pull-right">
-                                <!-- markdown工具栏  -->
-                                <%= render 'features/markdown_toolbar' %>
-                            </div>
-                            <!-- 标签卡 -->
-                            <ul class="nav nav-tabs" id="edit-tabs">
-                                <li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
-                                <li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
-                            </ul>
+                    <!-- 文章分类-->
+                    <div class="dropdown post-category">
+                        <%= t "article.category" %>：
+                        <%= f.input_field :category_id, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category.id %>
+                        <span data-toggle="dropdown" role="button">
+                            <%= category_selected_tag @category, id: "post-selected-category" %>
+                            <%= content_tag :span, '', class: "caret" %>
+                        </span>
+                        <%= render 'features/categories' %>
+                    </div>
+                </div>
+                <!-- 编辑框部分 -->
+                <!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
+                <div class="edit-body">
+                    <!-- 标签卡与工具栏 -->
+                    <div class="edit-body-header">
+                        <!-- 工具栏 -->
+                        <div class="post-edit-toolbar pull-right">
+                            <!-- markdown工具栏  -->
+                            <%= render 'features/markdown_toolbar' %>
                         </div>
-                        <!-- 编辑/预览区 -->
-                        <div class="tab-content edit-body-cotent" id="tab-content">
-                            <div class="tab-pane fade in active" id="edit-content">
-                                <textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor"></textarea>
-                            </div>
-                            <div class="tab-pane fade" id="preview-content">
-                                <div class="edit-body-node preview-node standard markdown-body" id="previewer"></div>
-                            </div>
+                        <!-- 标签卡 -->
+                        <ul class="nav nav-tabs" id="edit-tabs">
+                            <li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
+                            <li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
+                        </ul>
+                    </div>
+                    <!-- 编辑/预览区 -->
+                    <div class="tab-content edit-body-cotent" id="tab-content">
+                        <div class="tab-pane fade in active" id="edit-content">
+                            <textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor"></textarea>
+                        </div>
+                        <div class="tab-pane fade" id="preview-content">
+                            <div class="edit-body-node preview-node standard markdown-body" id="previewer"></div>
                         </div>
                     </div>
-                    <!-- 标签选择与提交 -->
-                    <div class="edit-footer">
-                        <!-- 填如标签,最多5个标签 -->
-                        <div class="form-group tabs-input">
-                            <input id="tab-input" class="form-input" type="text" name="post[tags]" placeholder="请输入关键字, 用逗号隔开, 最多5个">
-                            <span>标签: </span>
-                        </div>
-                        <!-- 提交按钮 -->
-                        <div class="form-group post-btns">
-                            <button class="save-btn" data-style="slide-up" type="submit">保存草稿</button>
-                            <button class="post-btn" data-style="slide-up" type="submit">发布文章</button>
-                        </div>
+                </div>
+                <!-- 标签选择与提交 -->
+                <div class="edit-footer">
+                    <!-- 填如标签,最多5个标签 -->
+                    <div class="form-group tabs-input">
+                        <input id="tab-input" class="form-input" type="text" name="post[tags]" placeholder="请输入关键字, 用逗号隔开, 最多5个">
+                        <span>标签: </span>
                     </div>
+                    <!-- 提交按钮 -->
+                    <div class="form-group post-btns">
+                        <button class="save-btn" data-style="slide-up" type="submit">保存草稿</button>
+                        <button class="post-btn" data-style="slide-up" type="submit">发布文章</button>
+                    </div>
+                </div>
                 <% end %>
             </div>
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="category-setting" aria-hidden="true">
+    <div class="modal-dialog">
+         <div class="modal-content col-md-7 col-center-block mdialog">
+            <div class="modal-body">
+                <input type="text" id="category-item-setting" maxlength="8">
+            </div>
+            <div class="modal-footer">
+            </div>
+         </div>
+    </div>
+</div>
+
 <%= javascript_include_tag 'editor-markdown' %>
+<%= javascript_include_tag 'category' %>
+
+<script>
+    $("#category-setting").modal();
+</script>

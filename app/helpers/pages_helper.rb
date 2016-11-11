@@ -53,7 +53,8 @@ module PagesHelper
   ## 个人网站
   def personal_website_tag(user)
     return if user.blank? || user.website.blank?
-    link = user.website
+    link = user.website !~ /^http/ ? "http://" : ""
+    link += user.website
     link_to content_tag(:i, '', class: 'fa fa-globe icon'), link 
   end
 
@@ -74,9 +75,9 @@ module PagesHelper
         content_tag :span, I18n.t("categories.default"), class: 'content', value: category.id
       else
         content_tag(:span, category.name, class: 'content', value: category.id) +
-        content_tag(:span, 'x', class: 'delete', role: 'button')
+        content_tag(:span, '', class: 'setting fa fa-cog fa-fw', role: 'button')
       end
-    content_tag :li, link_to(category_content, category_path(category), method: 'delete'), class: style
+    content_tag :li, link_to(category_content, '#'), class: style
   end
 
 end

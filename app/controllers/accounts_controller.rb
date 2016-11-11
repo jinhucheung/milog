@@ -52,6 +52,12 @@ class AccountsController < ApplicationController
       params.require(:user).permit(:nickname, :email_public, :github, :weibo, :website, :bio)
     end
 
+    def strip_link_on_profile_params
+      params[:user][:github].strip!
+      params[:user][:weibo].strip!
+      params[:user][:website].strip!     
+    end
+
     def psw_params
       params.require(:user).permit(:cur_psw, :new_psw, :new_psw_confirmation)
     end
@@ -70,6 +76,7 @@ class AccountsController < ApplicationController
 
     def update_profile
       return unless valid_params? :profile
+      strip_link_on_profile_params
       return flash.now[:success] = I18n.t("flash.success.update_profile") if @user.update_attributes_by_each(profile_params)
       flash.now[:warning] = I18n.t "flash.warning.update_profile"
     end
