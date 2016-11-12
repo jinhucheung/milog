@@ -10,3 +10,9 @@ $top.on 'click', ()->
 # 滚动到元素底部
 this.scroll_on_bottom = (selector)->
   $(selector).scrollTop $(selector)[0].scrollHeight
+
+# 输入框Enter后禁止提交
+this.limit_enter_without_sumbit = ($event)->
+  if $event.keyCode == 13
+    $event.preventDefault()
+    return false

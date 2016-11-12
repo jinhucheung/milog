@@ -31,7 +31,7 @@
 
             /* 文章分类下拉框 */
             .post-category-menu {
-                height: 250px; 
+                max-height: 250px; 
                 overflow: auto;
 
                 /* 新建分类输入框 */

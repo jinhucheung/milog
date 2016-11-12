@@ -67,6 +67,11 @@ en:
     invalid_format: is invalid
     avatar_too_big: is too big (maximum is %{size} megabytes)
     category_has_existed: The category "%{name}" has existed, please change one
+    category_not_fount:  The category isn't found
+    opt_illegal: Illegal Operation
+  success:
+    category_has_deleted: The category "%{name}" has deleted
+    category_has_updated: Rename this category "%{bef_name}" to "%{upd_name}"
 
   activerecord:
     models:

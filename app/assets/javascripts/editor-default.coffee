@@ -50,12 +50,6 @@ tag_input_handler = ()->
       $str=$tags.join ","
     $(this).val $str
 
-# 输入框Enter后禁止提交
-limit_enter_without_sumbit = ($event)->
-  if $event.keyCode == 13
-    $event.preventDefault()
-    return false
-
 # load
 $(()->
   editor_sytle_handler()

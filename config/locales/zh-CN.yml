@@ -69,6 +69,11 @@ zh-CN:
     invalid_format: 是无效的
     avatar_too_big: 过大（最大是 %{size} MB）
     category_has_existed: 文章分类"%{name}"已存在， 请换一个
+    category_not_fount:  没有找到此文章分类
+    opt_illegal: 操作非法 
+  success:
+    category_has_deleted: 文章分类"%{name}"已删除
+    category_has_updated: 文章分类"%{bef_name}"已更名为"%{upd_name}"
 
   activerecord:
     models:
