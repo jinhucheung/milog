@@ -4,28 +4,27 @@
   <%= category_menu_li_tag category, category==@category %>
   <% end %>
   <li id="category-item-add-li">
-    <a><input type="text" id="category-item-add" maxlength="8" placeholder="<%= t("article.new_category") %>">
-  </a>
-</li>
-<%=  content_tag :div, '', class: 'error-tips', id: 'category-error', style: 'display: none;' %>
+    <a><input type="text" id="category-item-add" maxlength="8" placeholder="<%= t("article.new_category") %>"></a>
+  </li>
+  <%=  content_tag :div, '', class: 'error-tips', id: 'category-error', style: 'display: none;' %>
 </ul>
 
 <!-- 分类设置对话框 -->
 <div class="modal fade" id="category-setting" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content col-md-7 col-center-block mdialog">
-    <div class="modal-header">
-      <span role="button" class="close" data-dismiss="modal">&times;</span>
-      <%= content_tag :span, t("article.setting_category"), class: "title" %>
-    </div>
-    <div class="modal-body">
-      <input type="text" id="category-item-setting" maxlength="8", value="">
-      <%=  content_tag :div, '', id: 'category-tips', style: 'display: none;' %>
-    </div>
-    <div class="modal-footer">
-      <%= content_tag :span, t("delete"), class: "left opt", id: "category-item-delete" %>
-      <%= content_tag :span, t("update"), class: "opt", id: "category-item-update" %>
+  <div class="modal-dialog">
+    <div class="modal-content col-md-7 col-center-block mdialog">
+      <div class="modal-header">
+        <span role="button" class="close" data-dismiss="modal">&times;</span>
+        <%= content_tag :span, t("article.setting_category"), class: "title" %>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="category-item-setting" maxlength="8", value="">
+        <%=  content_tag :div, '', id: 'category-tips', style: 'display: none;' %>
+      </div>
+      <div class="modal-footer">
+        <%= content_tag :span, t("delete"), class: "left opt", id: "category-item-delete" %>
+        <%= content_tag :span, t("update"), class: "opt", id: "category-item-update" %>
+      </div>
     </div>
   </div>
-</div>
 </div>

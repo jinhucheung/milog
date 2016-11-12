@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe "Signin Page", type: :feature do 
 
   let(:user) { User.create username: "aTestUser", email: "aTestUser@test.com", password: "aTestUserPsw", password_confirmation: "aTestUserPsw"}

@@ -13,10 +13,10 @@
                         </div>
                     </div>
                     <!-- 文章分类-->
+                    <%= f.input_field :category_id, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category.id %>
                     <div class="dropdown post-category">
                         <%= t "article.category" %>：
-                        <%= f.input_field :category_id, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category.id %>
-                        <span data-toggle="dropdown" role="button">
+                        <span data-toggle="dropdown" role="button" id="categories-dropdown">
                             <%= category_selected_tag @category, id: "post-selected-category" %>
                             <%= content_tag :span, '', class: "caret" %>
                         </span>
@@ -67,6 +67,5 @@
         </div>
     </div>
 </div>
-
 <%= javascript_include_tag 'editor-markdown' %>
 <%= javascript_include_tag 'category' %>

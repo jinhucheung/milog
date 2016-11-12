@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_or_create_by category_params
     if @category.valid?
       current_user.user_categoryships.create category: @category
-      render_success  
+      render_success
     else
       render_errror @category.errors.full_messages[0]
     end
@@ -41,7 +41,7 @@ class CategoriesController < ApplicationController
       end
     end
 
-    #当前分类的文章指向新分类
+    # 当前分类的文章指向新分类
     articles = current_user.articles.select(:id).where(category_id: params[:id])
     if articles.any?
       articles.update_all category_id: @category.id
