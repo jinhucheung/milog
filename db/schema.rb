@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109095358) do
+ActiveRecord::Schema.define(version: 20161113020341) do
+
+  create_table "article_tagships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "article_id", null: false
+    t.integer "tag_id",     null: false
+    t.index ["article_id", "tag_id"], name: "index_article_tagships_on_article_id_and_tag_id", unique: true, using: :btree
+  end
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                                       null: false
-    t.text     "context",       limit: 65535
+    t.text     "content",       limit: 65535
     t.boolean  "posted",                      default: false
     t.integer  "view_count",                  default: 0
     t.integer  "comment_count",               default: 0
@@ -32,10 +38,21 @@ ActiveRecord::Schema.define(version: 20161109095358) do
     t.index ["name"], name: "index_categories_on_name", unique: true, using: :btree
   end
 
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
   create_table "user_categoryships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id",     null: false
     t.integer "category_id", null: false
     t.index ["user_id", "category_id"], name: "index_user_categoryships_on_user_id_and_category_id", unique: true, using: :btree
+  end
+
+  create_table "user_tagships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id", null: false
+    t.integer "tag_id",  null: false
+    t.index ["user_id", "tag_id"], name: "index_user_tagships_on_user_id_and_tag_id", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

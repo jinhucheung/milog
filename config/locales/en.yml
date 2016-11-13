@@ -69,6 +69,7 @@ en:
     category_has_existed: The category "%{name}" has existed, please change one
     category_not_fount:  The category isn't found
     opt_illegal: Illegal Operation
+    tags_too_much: is too much (maximum is %{size}) 
   success:
     category_has_deleted: The category "%{name}" has deleted
     category_has_updated: Rename this category "%{bef_name}" to "%{upd_name}"
@@ -77,6 +78,7 @@ en:
     models:
       user: User
       category: Category
+      article: Article
     attributes:
       user:
         username: Username
@@ -87,6 +89,11 @@ en:
         avatar: Avatar picture
       category:
         name: Category
+      article:
+        title: Title
+        content: Content
+        category: Category
+        tag: Tag
 
   accounts_mailer:
     hi: Hi %{username},
@@ -141,3 +148,9 @@ en:
     category: Category
     new_category: New Category/Enter
     setting_category: Setting Category
+    edit: Edit
+    preview: Preview
+    tag: Tags
+    save: Save as Draft
+    post: Post a Article
+    tag_tips: Please enter the keywords with separated by commas, up to five

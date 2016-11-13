@@ -28,9 +28,12 @@
                 <div class="edit-body">
                     <!-- 标签卡与工具栏 -->
                     <div class="edit-body-header">
+                        <!-- 工具栏 -->
                         <div class="post-edit-toolbar pull-right">
+                            <!-- markdown工具栏  -->
                             <%= render 'features/markdown_toolbar' %>
                         </div>
+                        <!-- 标签卡 -->
                         <ul class="nav nav-tabs" id="edit-tabs">
                             <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
                             <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>                            

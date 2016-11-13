@@ -120,16 +120,18 @@
         /* 提交按钮 */
         .post-btns {
             padding-top: 20px;
-            button {
+            input {
                 padding: 10px;
                 font-size: 14px;
-                background-color: transparent;
-                outline: none;
+                background-color: transparent !important;
+                outline: none !important;
                 border: none;
+                border-radius: 0;
+                box-shadow: none;
             }
             .save-btn {
                 &:focus{
-                    border: 1px solid $outline-input-color;
+                    border: 1px solid $outline-input-color !important;
                 }
             }
             .post-btn {

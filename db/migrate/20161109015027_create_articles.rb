@@ -2,7 +2,7 @@ class CreateArticles < ActiveRecord::Migration[5.0]
   def change
     create_table :articles do |t|
       t.string :title,              null: false
-      t.text :context
+      t.text :content
       t.boolean :posted,            default: false
       t.integer :view_count,        default: 0
       t.integer :comment_count,     default: 0

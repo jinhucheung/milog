@@ -23,6 +23,13 @@ class CategoriesController < ApplicationController
   def destroy
     current_user.user_categoryships.find_by(category: @category).destroy
     current_user.user_categoryships.reload
+
+     # 当前分类的文章指向默认分类
+    articles = current_user.articles.select(:id).where(category_id: params[:id])
+    if articles.any?
+      articles.update_all category_id: 1
+    end
+
     render_success I18n.t("success.category_has_deleted", name: @category.name)
   end
 

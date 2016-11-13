@@ -28,9 +28,12 @@
                 <div class="edit-body">
                     <!-- 标签卡与工具栏 -->
                     <div class="edit-body-header">
+                        <!-- 工具栏 -->
                         <div class="post-edit-toolbar pull-right">
+                            <!-- markdown工具栏  -->
                             <%= render 'features/markdown_toolbar' %>
                         </div>
+                        <!-- 标签卡 -->
                         <ul class="nav nav-tabs" id="edit-tabs">
                             <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
                             <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>                            
@@ -51,7 +54,7 @@
                     <!-- 填如标签,最多5个标签 -->
                     <div class="form-group tabs-input">
                         <%= f.input_field :tagstr, class: "form-input", id: "tab-input", placeholder: t("article.tag_tips") %>
-                        <%= content_tag :span, t("article.tag")+" :" %>
+                        <%= content_tag :span, t("article.tag")+":" %>
                     </div>
                     <!-- 提交按钮 -->
                     <div class="form-group post-btns">
