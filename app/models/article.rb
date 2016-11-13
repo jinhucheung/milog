@@ -28,6 +28,7 @@ class Article < ApplicationRecord
 
   # 标签最多为5个
   def tags_number
+    return if tagstr.blank?
     maximum = 5
     if tagstr.split(/[,，]/).size > maximum
       errors.add :tag, I18n.t("errors.tags_too_much", size: maximum)

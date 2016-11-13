@@ -2,8 +2,6 @@ class Tag < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }, 
                    presence: true
 
-  has_many :user_tagships,      dependent: :destroy
-  has_many :users,              through: :user_tagships
   has_many :article_tagships,   dependent: :destroy
   has_many :articles,           through: :article_tagships
 

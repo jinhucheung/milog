@@ -51,4 +51,41 @@ RSpec.describe Article, type: :model do
       expect(Article.first).to eq two.reload 
     end
   end
+
+  context "tag" do
+    before :each do
+      article.save
+    end
+
+    it "should return blank when call #tags2str with no tags" do
+      expect(article.tags).to be_empty
+      expect(article.tags2str).to eq ""
+    end
+
+    it "should save tags to database when call #str2tags with no-blank" do
+      tagstr = "hello,rails"
+      article.str2tags tagstr
+      expect(article.tags.reload).to be_any
+      expect(article.tags.where name: 'hello').to be_any
+      expect(article.tags.where name: 'rails').to be_any
+      expect(article.tags.where name: 'test').to be_empty
+    end
+
+    it "should has error when self.tagstr with greater 5 tags" do
+      expect(article.valid?).to eq true
+      article.tagstr = "hello,"*6
+      expect(article.valid?).to eq false
+      expect(article.errors[:tag]).to include I18n.t("errors.tags_too_much", size: 5)
+    end
+
+    it "tag_ship should has destroy when article destroy" do
+      tagstr = "hello,rails"
+      article.str2tags tagstr
+      tag = article.tags.first
+      expect(ArticleTagship.where article: article, tag: tag).to be_any
+      article.destroy
+      expect(ArticleTagship.where article: article, tag: tag).to be_empty
+      expect(Tag.where id: tag.id).to be_any   
+    end
+  end
 end
