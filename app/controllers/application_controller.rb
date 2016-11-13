@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper, SessionsHelper
 
   protect_from_forgery with: :exception
-  before_action :set_locale
+  before_action :set_locale, :set_time_zone
 
   # 设置语系
   def set_locale
@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
       cookies.permanent[:locale] = params[:locale]
     end
     I18n.locale = cookies[:locale] || I18n.default_locale
+  end
+
+  # 设置时区
+  def set_time_zone
+    Time.zone = 'Beijing'
   end
 
   def render_404

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :check_signed_in, expect: [:show]
-  before_action :check_activated, expect: [:show]
+  before_action :check_signed_in, except: [:show]
+  before_action :check_activated, except: [:show]
 
   layout 'blog'
 
@@ -9,12 +9,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    get_user_and_category
+    get_current_user_and_category
     @article = current_user.articles.build
   end
 
   def create
-    get_user_and_category article_params[:category_id]
+    get_current_user_and_category article_params[:category_id]
     @article = current_user.articles.build article_params
     if @article.save
       @article.str2tags @article.tagstr
@@ -34,13 +34,16 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = current_user.articles.build
-    get_user_and_category
+    @article = Article.find_by_id params[:id]
+    return render_404 unless @article
+    get_user_category_and_tags
+    get_next_or_pre_article
   end
 
   def edit
-    @article = current_user.articles.build
-    get_user_and_category
+    @article = current_user.articles.find params[:id]
+    get_current_user_and_category @article.category_id
+    @article.tagstr = @article.tags2str
   end
 
   private
@@ -53,9 +56,27 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :category_id, :content, :tagstr)
     end
 
-    def get_user_and_category(category_id = 1)
+    def get_current_user_and_category(category_id = 1)
       @user = current_user
       @category =current_user.categories.find_by id: category_id
       @categories = current_user.categories
+    end
+
+    def get_user_category_and_tags
+      return if @article.blank?
+      @user = @article.user
+      @category = @article.category
+      @tags = @article.tags
+    end
+
+    # 获取当前文章的上下篇
+    def get_next_or_pre_article 
+      return unless @user
+      articles = @user.articles.to_a
+      return if articles.size < 2
+      index = articles.index @article
+      @next_article = @pre_article = nil
+      @next_article = articles[index+1] if index < articles.size-1
+      @pre_article = articles[index-1] if index > 0
     end
 end

@@ -1,71 +1,64 @@
-<% provide :bodyclass, 'edit-post' %>
-<% provide :pre_title, t('new_blog') %>
+<% provide :pre_title, @article.title %>
 <div class="mainer">
     <div class="container-fluid">
-        <div class="col-md-9 col-center-block content-wrap">
-            <div class="edit-post">
-                <%= simple_form_for @article do |f| %>
-                <div class="edit-header">
-                    <!-- 文章标题-->
-                    <div class="post-title">
-                        <div class="form-group">
-                            <%= f.input_field :title, class: "form-input", id: "title-input", placeholder: t("article.title_tips") %>
+        <div class="col-md-7 col-center-block content-wrap" >
+            <div id="content">
+                <section class="post-expand" >
+                    <article class="post">
+                        <header class="post-header post-header-center">
+                            <!-- 标题 -->
+                            <%= content_tag :h1, content_tag(:span, @article.title, class: 'post-title-normal'), class: 'post-title' %>
+                            <!-- 文章属性 -->
+                            <div class="post-meta">
+                                <!-- 发布时间 -->
+                                <span class="post-time">
+                                    <%= content_tag :span, t('article.post_on'), class: 'post-meta-item-text' %>
+                                    <%= time_tag @article.created_at %>
+                                </span>
+                                <!-- 文章分类 -->
+                                <span class="post-category"> &nbsp;|&nbsp;
+                                    <%= content_tag :span, t('article.category_in') %>
+                                    <%= category_tag @category %>
+                                </span>
+                                <!-- 阅读与评论数 -->
+                                <span class="post-view-comments"> &nbsp;|&nbsp;
+                                    <%= content_tag :span, t('article.view'), class: 'post-meta-item-text' %> ·
+                                    <%= content_tag :span, @article.view_count, class: 'post-view-count' %>&nbsp;
+                                    <%= content_tag :span, t('article.comment'), class: 'post-meta-item-text' %> ·
+                                    <%= content_tag :span, @article.comment_count, class: 'post-view-count' %>
+                                </span>
+                                <% if signed_in? && current_user == @user %>
+                                    <span class="post-edit"> &nbsp;|&nbsp;
+                                        <%= link_to t('article.edit'), edit_article_path(@article) %>
+                                    </span>
+                                <% end %>
+                            </div>
+                        </header>
+                        <!-- 文章内容 -->
+                        <div class="post-body">
+                            <div class="markdown-body standard">
+                            </div>
                         </div>
-                    </div>
-                    <!-- 文章分类-->
-                    <%= f.input_field :category_id, class: "form-input", id: 'post-selected-category-input', type: "hidden", value: @category.id %>
-                    <div class="dropdown post-category">
-                        <%= t "article.category" %>：
-                        <span data-toggle="dropdown" role="button" id="categories-dropdown">
-                            <%= category_selected_tag @category, id: "post-selected-category" %>
-                            <%= content_tag :span, '', class: "caret" %>
-                        </span>
-                        <%= render 'features/categories' %>
-                    </div>
-                </div>
-                <!-- 编辑框部分 -->
-                <!-- 编辑区节点使用类edit-body-node标识,其中preivew-node/edit-node来区分编辑或预览部分 -->
-                <div class="edit-body">
-                    <!-- 标签卡与工具栏 -->
-                    <div class="edit-body-header">
-                        <!-- 工具栏 -->
-                        <div class="post-edit-toolbar pull-right">
-                            <!-- markdown工具栏  -->
-                            <%= render 'features/markdown_toolbar' %>
-                        </div>
-                        <!-- 标签卡 -->
-                        <ul class="nav nav-tabs" id="edit-tabs">
-                            <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
-                            <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>                            
-                        </ul>
-                    </div>
-                    <!-- 编辑/预览区 -->
-                    <div class="tab-content edit-body-cotent" id="tab-content">
-                        <div class="tab-pane fade in active" id="edit-content">
-                            <%= f.input_field :content, as: :text, class: 'tabIndent edit-body-node edit-node', id: 'editor' %>
-                        </div>
-                        <div class="tab-pane fade" id="preview-content">
-                            <%= content_tag :div, '', class: 'edit-body-node preview-node markdown-body standard', id: 'previewer' %>
-                        </div>
-                    </div>
-                </div>
-                <!-- 标签选择与提交 -->
-                <div class="edit-footer">
-                    <!-- 填如标签,最多5个标签 -->
-                    <div class="form-group tabs-input">
-                        <%= f.input_field :tagstr, class: "form-input", id: "tab-input", placeholder: t("article.tag_tips") %>
-                        <%= content_tag :span, t("article.tag")+":" %>
-                    </div>
-                    <!-- 提交按钮 -->
-                    <div class="form-group post-btns">
-                        <%= f.button :submit, t("article.save"), class: 'save-btn', name: "article[save]" %>
-                        <%= f.button :submit, t("article.post"), class: 'post-btn', name: "article[post]" %>
-                    </div>
-                </div>
-                <% end %>
+                        <!-- 标签与文章导航 -->
+                        <footer class="post-footer">
+                            <div class="post-tags" >
+                                <%= tags_tag @tags %>
+                            </div>
+                            <div class="post-nav">
+                                <!-- 上一篇文章 -->
+                                <div class="post-nav-prev post-nav-item">
+                                    <%= pre_article_tag @pre_article %>
+                                </div>
+                                <!-- 下一篇文章 -->
+                                <div class="post-nav-next post-nav-item">
+                                    <%= next_article_tag @next_article %>
+                                </div>
+                            </div>
+                        </footer>
+                    </article>
+                </section>
             </div>
         </div>
     </div>
 </div>
 <%= javascript_include_tag 'editor-markdown' %>
-<%= javascript_include_tag 'category' %>
