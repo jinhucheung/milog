@@ -23,8 +23,6 @@ class User < ApplicationRecord
   has_many :articles,             dependent: :destroy
   has_many :user_categoryships,   dependent: :destroy
   has_many :categories,           through: :user_categoryships
-  has_many :user_tagships,        dependent: :destroy
-  has_many :tags,                 through: :user_tagships
 
   # 需引入gem bcrypt
   has_secure_password
