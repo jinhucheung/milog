@@ -58,6 +58,8 @@ en:
       reset_password: Password has been reset
       update_profile: Profile updated successfully
       update_avatar: Avatar updated successfully
+      save_article: Article saved successfully
+      delete_article: Article "%{title}" deleted successfully
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -155,6 +157,11 @@ en:
     post: Post a Article
     tag_tips: Please enter the keywords with separated by commas, up to five
     post_on: Posted on
+    edit_on: "Last Edited On"
     category_in: In
     view: View
     comment: Comment
+
+  draft:
+    zero: No drafts
+    other: "%{size} tags in total"

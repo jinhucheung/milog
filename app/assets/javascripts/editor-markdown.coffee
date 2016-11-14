@@ -38,3 +38,8 @@ $("#edit-tabs").on "click", ".preview-node", ()->
 $("#edit-tabs").on "click", ".edit-node", ()-> 
   set_previewing false
   return
+
+# markdown解析后结果, 提交给服务器
+this.set_content_html = ()->
+  result = md.render $("#editor").val()
+  $("#content_html").val result

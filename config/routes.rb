@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     member do
       get :categories
       get :aboutme
+      get :drafts
     end
   end
 

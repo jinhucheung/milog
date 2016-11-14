@@ -21,17 +21,25 @@ class Article < ApplicationRecord
     return if str.blank?
     str.split(/[,，]/).each do |tagname|
       tagname.strip!
-      tag = Tag.find_or_create_by name: tagname
+      tag = Tag.find_or_create_by name: tagname.html_safe
       self.article_tagships.find_or_create_by tag: tag
     end
   end
 
-  # 标签最多为5个
-  def tags_number
-    return if tagstr.blank?
-    maximum = 5
-    if tagstr.split(/[,，]/).size > maximum
-      errors.add :tag, I18n.t("errors.tags_too_much", size: maximum)
-    end
+  def update_tags(str)
+    return if str.blank?
+    return if str.strip == tags2str
+    self.article_tagships.destroy_all
+    str2tags str
   end
+
+  private
+    # 标签最多为5个
+    def tags_number
+      return if tagstr.blank?
+      maximum = 5
+      if tagstr.split(/[,，]/).size > maximum
+        errors.add :tag, I18n.t("errors.tags_too_much", size: maximum)
+      end
+    end
 end

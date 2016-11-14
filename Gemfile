@@ -37,6 +37,9 @@ gem "font-awesome-rails"
 # jquery动画插件
 gem 'velocityjs-rails'
 
+# markdown解析
+gem 'motion-markdown-it', '>=4.2.2'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

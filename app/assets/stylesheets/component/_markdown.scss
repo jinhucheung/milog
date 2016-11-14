@@ -11,6 +11,13 @@
         padding-top: 10px;
     }
 
+    h1, h2, h3 {
+        color: #444;
+        &:hover {
+            color: black;
+        }
+    }
+
     h4 {
         font-size: 1.2em;
         margin: 1em 0;

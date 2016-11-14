@@ -40,7 +40,7 @@
             <%= content_tag :li, link_to(capitalize_name(current_user), user_path(current_user.username)) %>
             <%= content_tag :li, content_tag(:div, '', class:"divider") %>
             <%= content_tag :li, link_to(t("account_profile"), edit_account_path) %>
-            <%= content_tag :li, link_to(t("drafts"), "drafts.html") %>
+            <%= content_tag :li, link_to(t("drafts"), drafts_user_path(@user.username)) %>
             <%= content_tag :li, content_tag(:div, '', class:"divider") %>
             <%= content_tag :li, link_to(t("signout"), signout_path, method: 'delete') %>
           </ul>

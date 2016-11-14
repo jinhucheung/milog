@@ -1,0 +1,39 @@
+<% provide :pre_title, t("drafts") %>
+
+<div class="mainer">
+  <div class="container-fluid">
+    <div class="col-md-7 col-center-block content-wrap">
+      <div id="content">
+        <div class="drafts-expand" id="drafts">
+          <div class="header">
+            <% if @articles.any? %>
+              <%= content_tag :span, t("draft.other", size: @articles.size), class: "text-muted" %>
+            <% else %>
+              <%= content_tag :span, t("draft.zero"), class: "text-muted" %>
+            <% end %>
+          </div>
+          <div class="drafts-list">
+            <div class="drafts-container">
+            <% @articles.each do | article | %>
+              <div class="row draft-item">
+                <div class="col-md-10 draft-left">
+                  <div class="draft-title">
+                    <%= link_to article.title, article_path(article) %>
+                  </div>
+                  <div class="draft-meta">
+                    <span class="draft-time"><%= t "article.edit_on" %> <%= time_tag article.updated_at, opts: { class: 'time-value' } %> </span>
+                  </div>
+                </div>
+                <div class="col-md-2 draft-right">
+                  <%= link_to t('article.delete'), article_path(article), method: 'DELETE' %>
+                  <%= link_to t('article.edit'), edit_article_path(article) %>
+                </div>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

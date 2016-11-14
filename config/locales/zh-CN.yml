@@ -61,6 +61,7 @@ zh-CN:
       update_profile: 已更新个人资料
       update_avatar: 已更新头像
       save_article: 已保存文章
+      delete_article: 已删除文章"%{title}"
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -153,11 +154,17 @@ zh-CN:
     setting_category: 文章分类设置
     edit: 编辑
     preview: 预览
+    delete: 删除
     tag: 标签
     save: 保存草稿
     post: 发布文章
     tag_tips: 请输入关键字, 用逗号隔开, 最多5个
     post_on: 发布于
+    edit_on: "最后编辑时间："
     category_in: 分类于
     view: 阅读
     comment: 评论
+
+  draft:
+    zero: 暂无草稿
+    other: "目前共有 %{size} 篇草稿"
