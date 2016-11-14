@@ -1,2 +1,8 @@
 <% provide :pre_title, @article.title %>
+<% if @article.posted %>
+  <% provide :rsubmit, t("article.to_view") %>
+<% else %>
+  <% provide :rsubmit, t("article.post") %>
+<% end %>
+
 <%= render 'new_or_edit' %>

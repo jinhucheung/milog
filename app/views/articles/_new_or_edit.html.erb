@@ -56,7 +56,7 @@
                     <!-- 提交按钮 -->
                     <div class="form-group post-btns">
                         <%= f.button :submit, t("article.save"), class: 'save-btn', name: "article[save]", onclick: 'set_content_html()' %>
-                        <%= f.button :submit, t("article.post"), class: 'post-btn', name: "article[post]", onclick: 'set_content_html()' %>
+                        <%= f.button :submit, yield(:rsubmit), class: 'post-btn', name: "article[post]", onclick: 'set_content_html()' %>
                     </div>
                 </div>
                 <% end %>

@@ -17,8 +17,10 @@ class ArticlesController < ApplicationController
     end
     get_user_category_and_tags
     get_next_or_pre_article
-    @article.view_count += 1
-    @article.save
+    if @article.posted
+      @article.view_count += 1
+      @article.save
+    end
   end
 
   def new
@@ -106,7 +108,10 @@ class ArticlesController < ApplicationController
         @article.update_attribute :posted, false
         render 'edit'
       elsif params[:article][:post]
-        @article.update_attribute :posted, true
+        unless @article.posted
+          @article.update_attribute :posted, true
+          @article.update_attribute :created_at, Time.zone.now
+        end
         redirect_to article_path(@article.id)
       else
         redirect_to root_path

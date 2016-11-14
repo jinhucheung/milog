@@ -155,6 +155,7 @@ en:
     tag: Tags
     save: Save as Draft
     post: Post a Article
+    to_view: View Article
     tag_tips: Please enter the keywords with separated by commas, up to five
     post_on: Posted on
     edit_on: "Last Edited On"

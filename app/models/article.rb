@@ -11,6 +11,8 @@ class Article < ApplicationRecord
 
   attr_accessor :tagstr
 
+  after_save :build_user_and_category_ships
+
   # 以字符串形式取出文章标签
   def tags2str
     self.tags.map { |tag| tag.name }.join ","
@@ -33,6 +35,8 @@ class Article < ApplicationRecord
     str2tags str
   end
 
+
+
   private
     # 标签最多为5个
     def tags_number
@@ -40,6 +44,12 @@ class Article < ApplicationRecord
       maximum = 5
       if tagstr.split(/[,，]/).size > maximum
         errors.add :tag, I18n.t("errors.tags_too_much", size: maximum)
+      end
+    end
+
+    def build_user_and_category_ships
+      unless user.categories.include? category
+        user.user_categoryships.create category: category
       end
     end
 end

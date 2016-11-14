@@ -10,10 +10,15 @@
                             <%= content_tag :h1, content_tag(:span, @article.title, class: 'post-title-normal'), class: 'post-title' %>
                             <!-- 文章属性 -->
                             <div class="post-meta">
-                                <!-- 发布时间 -->
+                                <!-- 时间 -->
                                 <span class="post-time">
+                                    <% if @article.posted %>
                                     <%= content_tag :span, t('article.post_on'), class: 'post-meta-item-text' %>
                                     <%= time_tag @article.created_at %>
+                                    <% else %>
+                                    <%= content_tag :span, t('article.edit_on'), class: 'post-meta-item-text' %>
+                                    <%= time_tag @article.updated_at %>
+                                    <% end %>
                                 </span>
                                 <!-- 文章分类 -->
                                 <span class="post-category"> &nbsp;|&nbsp;
@@ -28,9 +33,9 @@
                                     <%= content_tag :span, @article.comment_count, class: 'post-view-count' %>
                                 </span>
                                 <% if signed_in? && current_user == @user %>
-                                    <span class="post-edit"> &nbsp;|&nbsp;
-                                        <%= link_to t('article.edit'), edit_article_path(@article) %>
-                                    </span>
+                                <span class="post-edit"> &nbsp;|&nbsp;
+                                    <%= link_to t('article.edit'), edit_article_path(@article) %>
+                                </span>
                                 <% end %>
                             </div>
                         </header>

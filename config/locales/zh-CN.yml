@@ -158,6 +158,7 @@ zh-CN:
     tag: 标签
     save: 保存草稿
     post: 发布文章
+    to_view: 阅读文章
     tag_tips: 请输入关键字, 用逗号隔开, 最多5个
     post_on: 发布于
     edit_on: "最后编辑时间："
