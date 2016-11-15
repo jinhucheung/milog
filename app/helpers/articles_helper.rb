@@ -4,8 +4,7 @@ module ArticlesHelper
   ## 已选中的分类项
   def category_selected_tag(category, opts = {})
     return if category.blank?
-    return content_tag :span, I18n.t("categories.default"), opts if category.name == 'default'
-    content_tag :span, category.name, opts
+    content_tag :span, category.mname, opts
   end
 
   # 用户所有分类项
@@ -13,24 +12,15 @@ module ArticlesHelper
     return if category.blank?
     style = "category-item"
     style += " li-active" if selected
-    category_content =  
-      if category.name == 'default'
-        content_tag :span, I18n.t("categories.default"), class: 'content', value: category.id
-      else
-        content_tag(:span, category.name, class: 'content', value: category.id) +
-        content_tag(:span, '', class: 'setting fa fa-cog fa-fw', role: 'button')
-      end
+    category_content = content_tag :span, category.mname, class: 'content', value: category.id
+    category_content += content_tag :span, '', class: 'setting fa fa-cog fa-fw', role: 'button' unless category.name == 'default'
     content_tag :li, link_to(category_content, '#'), class: style
   end
 
   # 文章分类标签
-  def category_tag(category)
-    return if category.blank?
-    if category.name == 'default'
-      link_to I18n.t("categories.default"), '#'
-    else
-      link_to category.name, '#'
-    end
+  def category_tag(user, category, opts={})
+    return if user.blank? || category.blank?
+    link_to category.mname, category_user_path(user.username, category.id), opts
   end
 
   ## 时间标签
@@ -40,9 +30,9 @@ module ArticlesHelper
   end
 
   # 关键字标签
-  def tags_tag(tags)
-    return if tags.blank?
-    content = tags.map { |tag| link_to '# '+tag.name, '#' }.join ' · '
+  def tags_tag(user, tags)
+    return if user.blank? || tags.blank?
+    content = tags.map { |tag| link_to '# '+tag.name, tag_user_path(user.username, tag.id) }.join ' · '
     sanitize content
   end
 

@@ -66,6 +66,17 @@ RSpec.describe Category, type: :model do
       expect(UserCategoryship.all.reload.include? ships).to eq false
       expect(User.all.reload.include? user).to eq true
     end
+  end
 
+  it "should eq user posted_articles size when call posted_articles(user)" do
+    category.save
+    user.articles.create title: "Hello World", category: category, posted: true
+    expect(user.articles.reload.where(posted: true, category: category)).to be_any
+    
+    category.reload
+    
+    posted_articles_size = user.articles.reload.where(posted: true).size
+    expect(category.posted_articles(user)).to be_any
+    expect(category.posted_articles(user).size).to eq posted_articles_size
   end
 end

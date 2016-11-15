@@ -11,7 +11,7 @@
       </span>
       <span class="post-category"> &nbsp;|&nbsp;
         <%= content_tag :span, t('article.category_in'), class: 'post-meta-item-text' %>
-        <%= category_tag article.category %>
+        <%= category_tag @user, article.category %>
       </span>
       <!-- 阅读与评论数 -->
       <span class="post-view-comments"> &nbsp;|&nbsp;
@@ -27,7 +27,7 @@
   <!-- 标签与全阅 -->
   <footer class="post-footer">
     <div class="post-tags" >
-      <%= tags_tag article.tags %>
+      <%= tags_tag @user, article.tags %>
     </div>
     <%= link_to t('article.read_more'), article_path(article), class: 'post-more-link' %>
   </footer>

@@ -1,0 +1,6 @@
+<% provide :bodyclass, 'archives' %>
+<% provide :pre_title, t("article.tag")+ " : " +@tag.name+" | "+capitalize_name(@user) %>
+<% provide :sub_title_content, @tag.name %>
+<% provide :sub_title_suffix, t("article.tag") %>
+
+<%= render 'archive_layout' %>

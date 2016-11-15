@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   end
 
   def categories
+    @categories = @user.categories
+    @tags = @user.tags
   end
 
   def drafts
@@ -23,9 +25,23 @@ class UsersController < ApplicationController
 
   def archive
     total_articles = @user.articles.where(posted: true)
-    @articles_total_size = total_articles.size
-    @articles = total_articles.paginate page: params[:page], per_page: 20
-    @articles_by_year = @articles.to_a.group_by(&:posted_year).map { |year_article| year_article }
+    articles_group_by_year total_articles
+  end
+
+  def category
+    @category = @user.categories.find_by_id params[:category_id]
+    return render_404 unless @category
+    total_articles = @category.posted_articles @user
+    articles_group_by_year total_articles
+  end
+
+  def tag
+    user_tags = @user.tags
+    tag_index = user_tags.index { |tag| tag.id == params[:tag_id].to_i }
+    return render_404 unless tag_index
+    @tag = user_tags[tag_index]
+    total_articles = @tag.posted_articles @user
+    articles_group_by_year total_articles
   end
 
   private
@@ -36,5 +52,12 @@ class UsersController < ApplicationController
 
     def correct_user
       render_404 unless current_user == @user
+    end
+
+    # 按年份将文章分组
+    def articles_group_by_year(total_articles)
+      @articles_total_size = total_articles.size
+      @paginated_articles = total_articles.paginate page: params[:page], per_page: 20
+      @articles_by_year = @paginated_articles.to_a.group_by(&:posted_year).map { |year_article| year_article }      
     end
 end

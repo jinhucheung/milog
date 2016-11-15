@@ -134,18 +134,12 @@ zh-CN:
 
   categories:
     default: 默认
+    zero: 暂无分类
+    other: "目前共有 %{size} 个分类"
 
-  markdown-toolbar:
-    bold: 强调
-    italic: 斜体
-    title: 标题
-    quote: 引用
-    ul: 无序列表
-    ol: 有序列表
-    code: 代码
-    link: 链接
-    image: 图片
-    emoji: 表情
+  tags:
+    zero: 暂无标签
+    other: "目前共有 %{size} 个标签"
 
   article:
     title_tips: 在这里填入文章标题
@@ -176,3 +170,15 @@ zh-CN:
   will_paginate:
     previous_label: '<'
     next_label: '>'
+
+  markdown-toolbar:
+    bold: 强调
+    italic: 斜体
+    title: 标题
+    quote: 引用
+    ul: 无序列表
+    ol: 有序列表
+    code: 代码
+    link: 链接
+    image: 图片
+    emoji: 表情

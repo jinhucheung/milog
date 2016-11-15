@@ -64,5 +64,21 @@ RSpec.describe Tag, type: :model do
       tag.articles.reload
       expect(tag.articles).to be_any      
     end
+
+    it "should eq user posted_articles size when call posted_articles(user)" do
+      article = user.articles.create title: "Hello World", category: category, posted: true
+      article.str2tags "linux,web"
+      tag = Tag.find_by name: "linux"
+
+      dumparticle = article.dup
+      dumparticle.save
+      dumparticle.str2tags "plbr"
+
+      posted_articles_size = user.articles.reload.where(posted: true).to_a.count {|article| article.tags.include? tag }
+      category.reload
+      expect(tag.posted_articles(user)).to be_any
+      expect(tag.posted_articles(user).size).to eq posted_articles_size
+    end
+
   end
 end

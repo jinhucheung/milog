@@ -132,18 +132,12 @@ en:
 
   categories:
     default: Default
-  
-  markdown-toolbar:
-    bold: Bold
-    italic: Italic
-    title: Title
-    quote: Quote
-    ul: Unordered List
-    ol: Ordered List
-    code: Code
-    link: Link
-    image: Image
-    emoji: Emoji
+    zero: No categories
+    other: "%{size} categories in total"
+
+  tags:
+    zero: No tags
+    other: "%{size} tags in total"  
 
   article:
     title_tips: Fill in the article title here
@@ -173,3 +167,15 @@ en:
   will_paginate:
     previous_label: '<'
     next_label: '>'
+
+  markdown-toolbar:
+    bold: Bold
+    italic: Italic
+    title: Title
+    quote: Quote
+    ul: Unordered List
+    ol: Ordered List
+    code: Code
+    link: Link
+    image: Image
+    emoji: Emoji

@@ -335,4 +335,40 @@ RSpec.describe User, type: :model do
       expect(user.categories.include? category).to eq true
     end
   end
+
+  describe "user_tags" do
+    before :each do
+      user.save
+    end
+
+    let(:category) { Category.create name: 'Test' }
+
+    it "user should have tags which user's posted article include tags" do
+      expect(user.tags).to be_empty
+      article = user.articles.create title: "Hello", category: category, posted: true
+      article.str2tags "linux,web"
+      expect(user.tags).to be_any
+      tag = Tag.find_by name: "linux"
+      expect(user.tags.include? tag).to eq true
+      tag = Tag.find_by name: "web"
+      expect(user.tags.include? tag).to eq true
+    end
+
+    it "user shouldn't have tags which user's no-posted article include tags" do
+      expect(user.tags).to be_empty
+      article = user.articles.create title: "Hello", category: category
+      article.str2tags "linux,web"
+      expect(user.tags).to be_empty
+    end
+
+    it "user shouldn't have tags which article isn't user" do
+       other = User.create username: "aTestUser2", email: "aTestUser2@test.com", password: "aTestUserPsw", password_confirmation: "aTestUserPsw" 
+       article = other.articles.create title: "Hello", category: category, posted: true
+       article.str2tags "linux,web"
+       expect(user.tags).to be_empty
+       tag = Tag.find_by name: "linux"
+       expect(user.tags.include? tag).to eq false  
+    end
+
+  end
 end

@@ -23,7 +23,7 @@
                                 <!-- 文章分类 -->
                                 <span class="post-category"> &nbsp;|&nbsp;
                                     <%= content_tag :span, t('article.category_in') %>
-                                    <%= category_tag @category %>
+                                    <%= category_tag @user, @category %>
                                 </span>
                                 <!-- 阅读与评论数 -->
                                 <span class="post-view-comments"> &nbsp;|&nbsp;
@@ -48,7 +48,7 @@
                         <!-- 标签与文章导航 -->
                         <footer class="post-footer">
                             <div class="post-tags" >
-                                <%= tags_tag @tags %>
+                                <%= tags_tag @user, @tags %>
                             </div>
                             <div class="post-nav">
                                 <!-- 上一篇文章 -->

@@ -1,0 +1,49 @@
+<% provide :bodyclass, 'category' %>
+<% provide :pre_title, t("category")+" | "+capitalize_name(@user) %>
+
+<div class="mainer">
+  <div class="container-fluid">
+
+    <div class="col-md-7 col-center-block content-wrap" >
+      <!-- 分类 -->
+      <div class="categroy-expand" id="categroy">
+        <% if @categories && @categories.any? %>
+          <%= content_tag :div, t("categories.other", size: @categories.size), class: 'categroy-tag-all-title text-muted' %>
+        <% else %>
+          <%= content_tag :div, t("categories.zero"), class: 'categroy-tag-all-title text-muted' %>
+        <% end %>
+        <!-- 分类列表 -->
+        <div class="categroy-tag-all">
+          <ul class="categroy-tag-list">
+            <% @categories.each do | category | %>
+            <li class="categroy-tag-list-item">
+              <%= category_tag @user, category, class: 'categroy-tag-item-link' %>
+              <%= content_tag :span, category.posted_articles(@user).size, class: 'categroy-tag-item-count' %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class= 'clearfix'></div>
+      <!-- 标签 -->
+      <div class="tags-expand" id="tags">
+        <% if @tags && @tags.any? %>
+        <%= content_tag :div, t("tags.other", size: @tags.size), class: 'categroy-tag-all-title text-muted' %>
+        <% else %>
+        <%= content_tag :div, t("tags.zero"), class: 'categroy-tag-all-title text-muted' %>
+        <% end %>
+        <div class="categroy-tag-all">
+          <ul class="categroy-tag-list">
+          <% @tags.each do | tag | %>
+            <li class="categroy-tag-list-item">
+              <%= link_to tag.name, tag_user_path(@user.username, tag.id), class: 'categroy-tag-item-link' %>
+              <%= content_tag :span, tag.posted_articles(@user).size, class: 'categroy-tag-item-count' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

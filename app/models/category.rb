@@ -15,6 +15,16 @@ class Category < ApplicationRecord
   # 默认分类
   DEFAULT = %w(default 默认)
 
+  def posted_articles(user)
+    return nil if user.blank?
+    articles.where(user: user, posted: true)
+  end
+
+  def mname
+    return I18n.t 'categories.default' if self.name == 'default'
+    self.name
+  end
+
   private
     def downcase_name 
       name.downcase!
