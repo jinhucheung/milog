@@ -21,6 +21,13 @@ class UsersController < ApplicationController
     @articles = @user.articles.where posted: false
   end
 
+  def archive
+    total_articles = @user.articles.where(posted: true)
+    @articles_total_size = total_articles.size
+    @articles = total_articles.paginate page: params[:page], per_page: 20
+    @articles_by_year = @articles.to_a.group_by(&:posted_year).map { |year_article| year_article }
+  end
+
   private
     def get_user
       @user = User.find_by username: params[:id]

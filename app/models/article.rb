@@ -35,7 +35,9 @@ class Article < ApplicationRecord
     str2tags str
   end
 
-
+  def posted_year
+    created_at.year
+  end
 
   private
     # 标签最多为5个

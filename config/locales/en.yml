@@ -163,6 +163,8 @@ en:
     view: View
     comment: Comment
     read_more: More»
+    zero: No articles
+    other: "%{size} articles in total"
 
   draft:
     zero: No drafts

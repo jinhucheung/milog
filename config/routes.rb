@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       get :categories
       get :aboutme
       get :drafts
+      get :archive
     end
   end
 

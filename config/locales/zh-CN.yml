@@ -166,6 +166,8 @@ zh-CN:
     view: 阅读
     comment: 评论
     read_more: 阅读全文»
+    zero: 暂无文章
+    other: "目前共有 %{size} 篇文章"
 
   draft:
     zero: 暂无草稿

@@ -177,6 +177,10 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     it "get /hijinhu/drafts is routable" do
       expect(get: '/hijinhu/drafts').to route_to 'users#drafts', id: 'hijinhu'
     end
+
+    it "get /hijinhu/archive is routable" do
+      expect(get: 'hijinhu/archive').to route_to 'users#archive', id: 'hijinhu'
+    end
   end
 
   describe "articles" do
