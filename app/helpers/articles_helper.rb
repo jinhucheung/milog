@@ -67,4 +67,18 @@ module ArticlesHelper
     markdown_content = markdown_parser.render article.content
     sanitize_markdown markdown_content
   end
+
+  # 显示文章部分内容
+  def truncate_article_tag(article, opts={})
+    return if article.blank? || article.content.blank?
+    content = article.content.strip[0..200]
+    # 格式化换行
+    content = content.gsub(/#/, '').gsub /(\r\n)+/i, '<br>'
+    # 省略号置换最后的换行符
+    content = content.gsub /<br>$/i, ''
+    content += "..."
+    # 其他特殊字符由markdown渲染
+    content = markdown_parser.render content
+    content_tag :div, sanitize_markdown(content), opts
+  end
 end

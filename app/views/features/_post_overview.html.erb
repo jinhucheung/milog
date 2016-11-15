@@ -1,40 +1,35 @@
-<!-- 文章概览 -->
+<% if article %>
 <article class="post">
-  <!-- 文章属性 -->
   <header class="post-header">
     <!-- 标题 -->
-    <h1 class="post-title" ><a class="post-title-link" href="post.html">Ruby/Rails Linux搭建Rails开发环境</a></h1>
+    <%= content_tag :h1, link_to(article.title, article_path(article), class: 'post-title-link'), class: 'post-title' %>
     <!-- 文章属性 -->
     <div class="post-meta">
-      <!-- 发布时间 -->
       <span class="post-time">
-        <span class="post-meta-item-text">发布于</span>
-        <time datetime="2016-09-17T19:46:06+08:00" content="2016-09-17">2016-09-17</time>
+        <%= content_tag :span, t('article.post_on'), class: 'post-meta-item-text' %>
+        <%= time_tag article.created_at %>
       </span>
-      <!-- 文章分类 -->
       <span class="post-category"> &nbsp;|&nbsp;
-        <span class="post-meta-item-text">分类于</span>
-        <a href="#">学习</a>
+        <%= content_tag :span, t('article.category_in'), class: 'post-meta-item-text' %>
+        <%= category_tag article.category %>
       </span>
       <!-- 阅读与评论数 -->
       <span class="post-view-comments"> &nbsp;|&nbsp;
-        <span class="post-meta-item-text">阅读</span> ·
-        <span class="post-view-count">15</span>&nbsp;
-        <span class="post-meta-item-text">评论</span> ·
-        <span class="post-view-count">3</span>
+        <%= content_tag :span, t('article.view'), class: 'post-meta-item-text' %> ·
+        <%= content_tag :span, article.view_count, class: 'post-view-count' %>&nbsp;
+        <%= content_tag :span, t('article.comment'), class: 'post-meta-item-text' %> ·
+        <%= content_tag :span, article.comment_count, class: 'post-view-count' %>
       </span>
     </div>
   </header>
   <!-- 文章缩略内容 -->
-  <div class="post-body">
-    Ruby开发环境搭建 Ruby安装Ruby安装方式可以分为两种,一种是源码编译安装,另一种是第三方工具RVM/rbenv来安装管理Ruby环境 从源码编译安装 通过以下URL下载Ruby源代码 https://www.ruby-lang.org/zh_cn/ 解压并安装 请看Linux 学习 ...
-  </div>
+  <%= truncate_article_tag article, class: 'post-body markdown-body' %>
   <!-- 标签与全阅 -->
   <footer class="post-footer">
     <div class="post-tags" >
-      <a href="#"># Ruby</a> ·
-      <a href="#"># Linux</a>
+      <%= tags_tag article.tags %>
     </div>
-    <a class="post-more-link" href="#">阅读全文»</a>
+    <%= link_to t('article.read_more'), article_path(article), class: 'post-more-link' %>
   </footer>
 </article>
+<% end %>

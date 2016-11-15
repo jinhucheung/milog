@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   layout 'blog'
 
   def show
+    @articles = @user.articles.where(posted: true).paginate page: params[:page], per_page: 5
   end
 
   def aboutme

@@ -8,10 +8,13 @@
       <div id="content">
         <!-- 文章概览 -->
         <section class="posts-expand" id="posts">
-          <%= render 'features/post_overview' %>
+        <% @articles.each do | article | %>
+          <%= render 'features/post_overview', article: article %>
+        <% end %>
         </section>
         <!-- 分页栏 -->
-        <%= render 'features/pagination' %>
+        <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+        <% render 'features/pagination' %>
       </div>
     </div>
   </div>

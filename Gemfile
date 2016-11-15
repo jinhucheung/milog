@@ -40,6 +40,9 @@ gem 'velocityjs-rails'
 # markdown解析
 gem 'motion-markdown-it', '>=4.2.2'
 
+# 分页
+gem 'will_paginate', '~> 3.1.0'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

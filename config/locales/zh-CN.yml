@@ -165,7 +165,12 @@ zh-CN:
     category_in: 分类于
     view: 阅读
     comment: 评论
+    read_more: 阅读全文»
 
   draft:
     zero: 暂无草稿
     other: "目前共有 %{size} 篇草稿"
+
+  will_paginate:
+    previous_label: '<'
+    next_label: '>'

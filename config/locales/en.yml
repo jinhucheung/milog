@@ -162,7 +162,12 @@ en:
     category_in: In
     view: View
     comment: Comment
+    read_more: More»
 
   draft:
     zero: No drafts
     other: "%{size} tags in total"
+
+  will_paginate:
+    previous_label: '<'
+    next_label: '>'
