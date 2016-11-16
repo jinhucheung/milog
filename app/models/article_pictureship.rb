@@ -1,0 +1,2 @@
+class ArticlePictureship < ApplicationRecord
+end
