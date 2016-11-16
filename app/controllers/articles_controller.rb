@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
   before_action :find_article_by_id, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+  before_action :delete_cache_pictures, only: [:new, :edit]
+
   layout 'blog'
 
   def index
@@ -103,6 +105,9 @@ class ArticlesController < ApplicationController
     end
 
     def save_or_post_article
+      # 标记图片已使用, 并关联文章
+      current_user.post_cache_pictures_in_article @article
+      
       if params[:article][:save]
         flash.now[:success] = I18n.t "flash.success.save_article"
         @article.update_attribute :posted, false
@@ -116,5 +121,9 @@ class ArticlesController < ApplicationController
       else
         redirect_to root_path
       end
+    end
+
+    def delete_cache_pictures
+      current_user.delete_cache_pictures
     end
 end

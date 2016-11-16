@@ -103,7 +103,7 @@
 <script>
     $("#upload-avatar-input").on("change", function(){
         var size_in_megabytes = this.files[0].size/1024/1024;
-        if (size_in_megabytes >= 1) {
+        if (size_in_megabytes > 1) {
             <% flash.now[:warning] = t "flash.warning.avatar_too_big", size: 1 %>
             $(".mainer").eq(0).before("<%= j render(partial: 'shared/flash_messages_inner') %>");
             <% flash.delete :warning %>

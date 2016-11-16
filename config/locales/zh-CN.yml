@@ -84,6 +84,7 @@ zh-CN:
       user: 用户
       category: 文章分类
       article: 文章
+      picture: 图片
     attributes:
       user:
         username: 用户名
@@ -99,6 +100,8 @@ zh-CN:
         content: 正文
         category: 分类
         tag: 标签
+      picture:
+        picture: 图片
 
   accounts_mailer:
     hi: Hi %{username}，

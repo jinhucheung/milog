@@ -82,6 +82,7 @@ en:
       user: User
       category: Category
       article: Article
+      picture: Picture
     attributes:
       user:
         username: Username
@@ -97,6 +98,8 @@ en:
         content: Content
         category: Category
         tag: Tag
+      picture:
+        picture: Picture
 
   accounts_mailer:
     hi: Hi %{username},

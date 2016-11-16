@@ -236,9 +236,17 @@ RSpec.describe "ApplicationRoutes", type: :routing do
     end
   end
 
-  describe "uploader" do
-    it "post /upload/pictures" do
-      expect(post: '/upload/pictures').to route_to 'uploader#new_picture'
+  describe "pictures" do
+    it "post /pictures" do
+      expect(post: '/pictures').to route_to 'pictures#create'
+    end
+
+    it "patch /pictures" do
+      expect(patch: '/pictures').to route_to 'pictures#create'
+    end
+
+    it "put /pictures" do
+      expect(put: '/pictures').to route_to 'pictures#create'
     end
   end
 end

@@ -86,18 +86,26 @@ bind_image_item_on_click = ($item)->
   $(".markdown-toolbar").on "click", classname, ()-> 
     $("#upload-picture-input").click()
 
-this.size_false = false
+# 插入图片链接
+insert_picture_url = ($item, $picture_url)->
+  if !$("#edit-tabs .edit-node").is ".edit-tab-border-deepen" 
+    $("#edit-tabs .edit-node").click()
+
+  if $picture_url != null && $picture_url != ""
+    insert_at_cursor $editor, "![输入图片说明]("+$picture_url+")", 0, 0
+  else
+    insert_at_cursor $editor, $item.markdown, $item.offset_start, $item.offset_end
 
 # 上传图片处理
 this.upload_picture = {
   fail_on_picture_size: ()->
     return false
-  fail_on_server: ()->
+  fail_on_server: (msg)->
     return false
   load: ($item)->
     # 上传配置
     $("#upload-picture-input").fileupload {
-      url: '/article_pictures',
+      url: '/pictures',
       type: 'POST',
       autoUpload: false,
       add: (e, data)->
@@ -109,9 +117,10 @@ this.upload_picture = {
          data.submit()
       success: (data)->
         if data.status == 200
-          console.log data
+          insert_picture_url $item, data.url
         else
-          upload_picture.fail_on_server()
+          insert_picture_url $item, null
+          upload_picture.fail_on_server data.msg
     }
 }
 

@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :categories, only: [:create, :update, :destroy]
   end
 
+  match '/pictures' => 'pictures#create', via: [:post, :patch, :put]
+
   # users相关路由最后
   resources :users, only: [:show] , path: '' , constraints: { id: User::USERNAME_FORMAT } do
     member do

@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :articles,             dependent: :destroy
   has_many :user_categoryships,   dependent: :destroy
   has_many :categories,           through: :user_categoryships
+  has_many :pictures,             dependent: :destroy
 
   # 需引入gem bcrypt
   has_secure_password
@@ -100,6 +101,34 @@ class User < ApplicationRecord
     "
   end
 
+  # 清除缓存图片
+  def delete_cache_pictures
+    pictures.where(posted: false).each do |picture|
+      picture.destroy
+    end
+  end
+
+  # 标记图片已使用
+  def post_cache_pictures
+    cache_pictures = pictures.where posted: false
+    if cache_pictures.any?
+      cache_pictures.update_all posted: true
+    end
+  end
+
+  # 关联文章与图片
+  # 当文章删除时, 可将文章使用的图片一起删除
+  def post_cache_pictures_in_article(article)
+    return if article.blank?
+    cache_pictures = pictures.where posted: false
+    if cache_pictures.any?
+      cache_pictures.each do |picture|
+        article.article_pictureships.create picture: picture
+      end
+      cache_pictures.update_all posted: true
+    end
+  end
+
   private
     def downcase_username_and_email
       username.downcase!
@@ -113,7 +142,7 @@ class User < ApplicationRecord
     end
 
     def avatar_size
-      if avatar.size >= 1.megabytes
+      if avatar.size > 1.megabytes
         errors.add :avatar, I18n.t("errors.avatar_too_big", size: 1)
       end      
     end

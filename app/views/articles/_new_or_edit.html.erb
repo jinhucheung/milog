@@ -76,8 +76,12 @@
         <% flash.delete :warning %>        
     }
 
-    upload_picture.fail_on_server = function(){
-        console.log("Hello");
+    // 渲染服务器回传的错误信息
+    upload_picture.fail_on_server = function(msg){
+        <% flash.now[:warning] = "" %>
+        $(".mainer").eq(0).before("<%= j render(partial: 'shared/flash_messages_inner') %>");
+        <% flash.delete :warning %>
+        $(".flash-alert-inner").append(msg);
     }
 
 </script>

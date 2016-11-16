@@ -6,8 +6,10 @@ class Article < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
-  has_many :article_tagships,     dependent: :destroy
-  has_many :tags,                 through: :article_tagships
+  has_many :article_tagships,      dependent: :destroy
+  has_many :tags,                  through: :article_tagships
+  has_many :article_pictureships,  dependent: :destroy
+  has_many :pictures,              through: :article_pictureships
 
   attr_accessor :tagstr
 
