@@ -56,3 +56,4 @@ this.aj_update_category = {
   category_id: (id)->
     this.url = '/categories/'+id 
 }
+

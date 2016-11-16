@@ -235,4 +235,10 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(patch: '/categories/1').to route_to 'categories#update', id: '1'
     end
   end
+
+  describe "uploader" do
+    it "post /upload/pictures" do
+      expect(post: '/upload/pictures').to route_to 'uploader#new_picture'
+    end
+  end
 end

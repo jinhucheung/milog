@@ -79,15 +79,55 @@ bind_item_emoji_picker_on_click = ($item)->
   classname = "." + $item_name_pre + $item.name
   $(".markdown-toolbar").on "click", classname, ()->
     $(".emoji-menu-tab a").eq(0).click()
-    
+
+# 绑定触发上传图片事件
+bind_image_item_on_click = ($item)->
+  classname = "." + $item_name_pre + $item.name  
+  $(".markdown-toolbar").on "click", classname, ()-> 
+    $("#upload-picture-input").click()
+
+this.size_false = false
+
+# 上传图片处理
+this.upload_picture = {
+  fail_on_picture_size: ()->
+    return false
+  fail_on_server: ()->
+    return false
+  load: ($item)->
+    # 上传配置
+    $("#upload-picture-input").fileupload {
+      url: '/article_pictures',
+      type: 'POST',
+      autoUpload: false,
+      add: (e, data)->
+        # 限制文件大小, 不接受大于2MB的图片
+        size_in_megabytes = data.files[0].size/1024/1024
+        if size_in_megabytes > 2
+          upload_picture.fail_on_picture_size()
+        else
+         data.submit()
+      success: (data)->
+        if data.status == 200
+          console.log data
+        else
+          upload_picture.fail_on_server()
+    }
+}
+
 # 注册事件
 bind_toolbar = ()->
   for item in $items
     if !item.is_plugin
-      # 绑定点击处理
-      bind_item_on_click item
+      # 绑定点击处理, 插入图像单独处理
+      if item.name != "image"
+        bind_item_on_click item 
+      else
+        bind_image_item_on_click item
+        upload_picture.load item
     else 
       # 非markdown插件工具项单独绑定事件,如表情包等
       bind_item_emoji_picker_on_click item
 
 $(bind_toolbar())
+

@@ -43,6 +43,9 @@ gem 'motion-markdown-it', '>=4.2.2'
 # 分页
 gem 'will_paginate', '~> 3.1.0'
 
+# jquery上传文件
+gem "jquery-fileupload-rails"
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

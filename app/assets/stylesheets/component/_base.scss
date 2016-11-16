@@ -85,7 +85,14 @@
 
 .flash-alert-inner {
     width:  100%;
-    z-index: $z-index +50;
+    z-index: $z-index + 50;
     text-align:  center;
     letter-spacing:  1px;
+}
+
+/* 输入框隐藏 */
+.input-hidden {
+    visibility: hidden;
+    position: absolute;
+    z-index: $z-index - 100;
 }

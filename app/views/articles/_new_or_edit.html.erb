@@ -66,3 +66,18 @@
 </div>
 <%= javascript_include_tag 'editor-markdown' %>
 <%= javascript_include_tag 'category' %>
+
+<script>
+
+    // 图片>2MB时 不上传并提示
+    upload_picture.fail_on_picture_size = function(){
+        <% flash.now[:warning] = t "flash.warning.picture_too_big", size: 2 %> 
+        $(".mainer").eq(0).before("<%= j render(partial: 'shared/flash_messages_inner') %>");
+        <% flash.delete :warning %>        
+    }
+
+    upload_picture.fail_on_server = function(){
+        console.log("Hello");
+    }
+
+</script>
