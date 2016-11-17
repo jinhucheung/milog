@@ -116,6 +116,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.99.3)
     mimemagic (0.3.2)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     motion-markdown-it (4.2.2.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
+  mini_magick (>= 4.5.1)
   motion-markdown-it (>= 4.2.2)
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.0)

@@ -369,6 +369,18 @@ RSpec.describe User, type: :model do
        tag = Tag.find_by name: "linux"
        expect(user.tags.include? tag).to eq false  
     end
+  end
+
+  describe "pictures" do
+    before :each do 
+      user.save
+    end
+
+    it "should be visited when user signed up" do
+      expect(user.pictures).not_to eq nil
+      expect(user.pictures).to be_empty
+    end
 
   end
+
 end

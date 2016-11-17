@@ -99,8 +99,12 @@ insert_picture_url = ($item, $picture_url)->
 # 上传图片处理
 this.upload_picture = {
   fail_on_picture_size: ()->
+    $("#flash_warning").css "display", "block"
+    $("#message").html('').append "图片过大（最大是 2 MB）"
     return false
   fail_on_server: (msg)->
+    $("#flash_warning").css "display", "block"
+    $("#message").html('').append msg
     return false
   load: ($item)->
     # 上传配置

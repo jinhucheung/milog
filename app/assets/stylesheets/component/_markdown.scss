@@ -1,5 +1,9 @@
 /* 修改markdown样式 */
 .markdown-body {
+    /* 文本溢出, 则换行 */
+    word-wrap: break-word;
+    word-break: normal;
+
     h1,
     h2 {
         padding-top: 15px;

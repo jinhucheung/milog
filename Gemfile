@@ -25,8 +25,10 @@ gem 'simple_form'
 # 加密
 gem 'bcrypt', '~> 3.1.7'
 
-# 图像上传
+# 图片上传
 gem 'carrierwave', '>=0.11.2'
+# 图片缩略
+gem 'mini_magick', '>=4.5.1'
 # 七牛云
 gem 'qiniu'
 gem 'carrierwave-qiniu', '>=0.2.4'
