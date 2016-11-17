@@ -33,6 +33,8 @@ zh-CN:
   delete: 删除
   update: 更新
 
+  search_in_blog: 在当前博客中搜索
+
   login: 
     remember_me: 记住我
     forget_me: 忘了密码？
@@ -186,3 +188,4 @@ zh-CN:
     link: 链接
     image: 图片
     emoji: 表情
+

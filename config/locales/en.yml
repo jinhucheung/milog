@@ -31,6 +31,8 @@ en:
   delete: Delete
   update: Update
 
+  search_in_blog: Search in this blog
+
   login: 
     remember_me: Remember
     forget_me: Forgot Password?

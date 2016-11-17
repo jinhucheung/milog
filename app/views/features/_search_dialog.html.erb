@@ -1,0 +1,24 @@
+<div class="modal fade" id="search-dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content mdialog">
+      <div class="modal-header">
+        <span role="button" class="close" data-dismiss="modal">&times;</span>
+        <div class="inupt-group-icon">
+          <%= tag :input, type: 'text', id: 'search_in_keyword', name: 'search[keyword]', placeholder: t('search_in_blog') %>
+          <i class="fa fa-search icon"></i>
+        </div>
+      </div>
+      <div class="modal-body" id="search-result">
+        <div id="no-result" style="display: none;">
+          <i class="fa fa-search fa-5x"></i>
+        </div>
+        <ul id="result">
+          <li>
+            <a class="title" href="#">Li<strong>nux 学习之</strong>日志</a>
+            <div class="content">41412414144141241414414<strong>你好</strong>14414124141441412414144141241414</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+.modal#search-dialog {
+    .mdialog {
+        padding: 0;
+        border-radius: 0;
+
+        input {
+            outline: none;
+            border: 1px solid $lightwhite;
+
+            &:focus {
+                border: 1px solid $outline-input-color !important;
+            }
+        }
+
+        .inupt-group-icon {
+            position: relative;
+            width: 80%;
+
+            #search_in_keyword {
+                width: 70%;
+                padding: 5px 0 5px 30px;
+            }
+
+            .icon {
+                position: absolute;
+                left: 10px;
+                top: 8px;
+                color: $placeholder-color;
+            }
+        }
+
+        #search-result {
+            position: relative;
+            height: 400px;
+            overflow-y: auto;
+            word-wrap: break-word;
+            word-break: normal;
+            padding-top: 0;
+
+            #no-result {
+                position: absolute;
+                top: 35%;
+                left: 44%;
+                color: $placeholder-color;
+            }
+
+            #result {
+                li {
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                    border-bottom: 1px dashed #ccc;
+
+                    strong {
+                        color: #eb592c;
+                    }
+
+                    .title {
+                        padding-bottom: 2px;
+                        color: #777;
+                        border-bottom: 1px solid #777;
+
+                        &:hover {
+                            color: #000;
+                            border-bottom: 1px solid #000;
+                        }
+                    }
+
+                    .content {
+                        padding-top: 10px;
+                        color: #777;
+                    }
+                }
+            }
+        }
+    }
+}

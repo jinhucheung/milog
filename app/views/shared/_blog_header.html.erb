@@ -61,7 +61,7 @@
         <%= content_tag :li, link_to(t("category"), categories_user_path(@user.username)) %>
         <%= content_tag :li, link_to(t("archive"), archive_user_path(@user.username)) %>
         <%= content_tag :li, link_to(t("aboutme"), aboutme_user_path(@user.username)) %>
-        <%= content_tag :li, link_to(t("search"), "#") %>
+        <%= content_tag :li, link_to(t("search"), "#", id: 'search') %>
       </ul>
     </div>
   </div>
