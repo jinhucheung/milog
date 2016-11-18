@@ -1,8 +1,12 @@
 class Article < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  
   validates :title, :user_id, :category_id, presence: true
   validate :tags_number
 
   default_scope ->{ order created_at: :desc }
+  scope :posted, -> { where(posted: true) }
 
   belongs_to :user
   belongs_to :category
@@ -39,6 +43,42 @@ class Article < ApplicationRecord
 
   def posted_year
     created_at.year
+  end
+
+
+  class << self
+    # 根据关键字搜索某用户已发布的文章
+    # 最多返回100条记录
+    def search_by_token_in_user(token, user)
+      return nil if token.blank? || user.blank?
+      search(
+        size: 100,
+        query: {
+          bool: {
+            must: [
+              { match: { user_id: user.id } },
+              { match: { posted: true } },
+              { multi_match: 
+                {
+                  query: token.to_s,
+                  fields: ['title', 'content']
+                } 
+              }
+            ]
+          }
+        },
+        highlight: {
+          pre_tags: ["<strong>"],
+          post_tags: ["</strong>"],
+          number_of_fragments: 1,
+          fragment_size: 100,
+          fields: {
+              title: { number_of_fragments: 0 },
+              content: {}
+          }
+        }
+      ).records
+    end    
   end
 
   private

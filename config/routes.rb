@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get :archive
       get '/categories/:category_id', as: 'category', to: 'users#category'
       get '/tags/:tag_id', as: 'tag', to: 'users#tag'
+      get '/search', to: 'search#index'
     end
   end
 

@@ -16,11 +16,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 
-# 国际化
 gem 'rails-i18n'
 
-# 表单
 gem 'simple_form'
+
+# 矢量图标
+gem "font-awesome-rails"
+
+# jquery动画插件
+gem 'velocityjs-rails'
+# jquery上传文件
+gem "jquery-fileupload-rails"
 
 # 加密
 gem 'bcrypt', '~> 3.1.7'
@@ -33,20 +39,16 @@ gem 'mini_magick', '>=4.5.1'
 gem 'qiniu'
 gem 'carrierwave-qiniu', '>=0.2.4'
 
-# 矢量图标
-gem "font-awesome-rails"
-
-# jquery动画插件
-gem 'velocityjs-rails'
-
 # markdown解析
 gem 'motion-markdown-it', '>=4.2.2'
 
 # 分页
 gem 'will_paginate', '~> 3.1.0'
 
-# jquery上传文件
-gem "jquery-fileupload-rails"
+# 搜索
+gem "elasticsearch", :git => "git://github.com/elasticsearch/elasticsearch-ruby.git"
+gem "elasticsearch-model", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
+gem "elasticsearch-rails", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
 
 group :development do
   gem 'web-console'

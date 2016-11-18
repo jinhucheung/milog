@@ -249,4 +249,10 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(put: '/pictures').to route_to 'pictures#create'
     end
   end
+
+  describe "search" do
+    it "get /hijinhu/search" do
+      expect(get: '/hijinhu/search').to route_to "search#index", id: 'hijinhu'
+    end
+  end
 end

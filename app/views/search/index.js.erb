@@ -1,0 +1,10 @@
+<% if @articles.any? %>
+   $("#search-result #result").remove();
+   $("#no-result").css("display", "none");
+   $("#search-result").append("<%= j render('result_list', articles: @articles) %>");
+<% else %>
+   $("#search-result #result").remove();
+   $("#no-result").css("display", "block");
+   $("#no-result i").removeClass("fa-search");
+   $("#no-result i").addClass("fa-frown-o");
+<% end %>
