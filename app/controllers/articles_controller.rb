@@ -96,7 +96,8 @@ class ArticlesController < ApplicationController
 
     def get_next_or_pre_article 
       return unless @user
-      articles = @user.articles.to_a
+      return unless @article.posted
+      articles = @user.articles.where(posted: true).to_a
       return if articles.size < 2
       index = articles.index @article
       @next_article = @pre_article = nil
