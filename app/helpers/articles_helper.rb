@@ -24,7 +24,7 @@ module ArticlesHelper
   end
 
   ## 时间标签
-  def time_tag(time, strf: "%Y-%m-%d %H:%M", opts: {})
+  def mtime_tag(time, strf: "%Y-%m-%d %H:%M", opts: {})
     return if time.blank?
     content_tag :span, time.strftime(strf), opts
   end
@@ -56,6 +56,14 @@ module ArticlesHelper
     return sanitize_markdown article.content_html if article.content_html
     markdown_content = markdown_parser.render article.content
     sanitize_markdown markdown_content
+  end
+
+  # 显示评论内容
+  def markdown_comment_tag(comment)
+    return if comment.blank?
+    return sanitize_markdown comment.content_html if comment.content_html
+    markdown_content = markdown_parser.render comment.content
+    sanitize_markdown markdown_content    
   end
 
   # 显示文章部分内容

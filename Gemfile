@@ -50,6 +50,8 @@ gem "elasticsearch", :git => "git://github.com/elasticsearch/elasticsearch-ruby.
 gem "elasticsearch-model", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
 gem "elasticsearch-rails", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
 
+gem 'rails-timeago', '~> 2.0'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

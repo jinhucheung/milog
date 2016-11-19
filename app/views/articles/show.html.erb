@@ -14,10 +14,10 @@
                                 <span class="post-time">
                                     <% if @article.posted %>
                                     <%= content_tag :span, t('article.post_on'), class: 'post-meta-item-text' %>
-                                    <%= time_tag @article.created_at %>
+                                    <%= mtime_tag @article.created_at %>
                                     <% else %>
                                     <%= content_tag :span, t('article.edit_on'), class: 'post-meta-item-text' %>
-                                    <%= time_tag @article.updated_at %>
+                                    <%= mtime_tag @article.updated_at %>
                                     <% end %>
                                 </span>
                                 <!-- 文章分类 -->
@@ -63,6 +63,10 @@
                         </footer>
                     </article>
                 </section>
+
+
+                <!-- 评论 -->
+                <%= render 'features/comment' if @article.posted %>
             </div>
         </div>
     </div>

@@ -11,17 +11,13 @@
             padding: 0 10px;
             margin-right: 10px;
             color: #666;
-
-            span {
-                font-weight: bold;
-            }
         }
     }
 }
 
 /* 评论样式 */
 .comment {
-    padding: 10px;
+    padding: 15px;
     margin: 0;
     border-bottom: 1px solid #ddd;
 
@@ -30,20 +26,23 @@
 
         .comment-meta {
             color: gray;
-
+            font-size: 12px;
+            
             a {
                 font-size: 13px;
             }
 
-            span {
-                font-size: 12px;
+            .user-name {
+                color: black;
+            }
+
+            .comment-no {
+                color: #228b22;
             }
         }
 
         .comment-content {
-            p {
-                margin: 1px 0 1em 0;
-            }
+            margin-top: 5px;
         }
     }
 }

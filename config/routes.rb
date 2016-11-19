@@ -25,8 +25,14 @@ Rails.application.routes.draw do
   constraints( id: /\d+/ ) do
     resources :articles
     resources :categories, only: [:create, :update, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy] do
+      member do
+        get :reply
+      end
+    end
   end
 
+  # 上传图片
   match '/pictures' => 'pictures#create', via: [:post, :patch, :put]
 
   # users相关路由最后

@@ -14,6 +14,7 @@ class Article < ApplicationRecord
   has_many :tags,                  through: :article_tagships
   has_many :article_pictureships,  dependent: :destroy
   has_many :pictures,              through: :article_pictureships
+  has_many :comments,              dependent: :destroy
 
   attr_accessor :tagstr
 
@@ -45,6 +46,9 @@ class Article < ApplicationRecord
     created_at.year
   end
 
+  def comment_count
+    comments.size
+  end
 
   class << self
     # 根据关键字搜索某用户已发布的文章

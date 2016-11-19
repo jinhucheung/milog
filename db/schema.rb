@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118072436) do
+ActiveRecord::Schema.define(version: 20161119074738) do
 
   create_table "article_pictureships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "article_id", null: false
@@ -25,16 +25,15 @@ ActiveRecord::Schema.define(version: 20161118072436) do
   end
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",                                       null: false
-    t.text     "content",       limit: 65535
-    t.boolean  "posted",                      default: false
-    t.integer  "view_count",                  default: 0
-    t.integer  "comment_count",               default: 0
-    t.integer  "user_id",                                     null: false
-    t.integer  "category_id",                                 null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.text     "content_html",  limit: 65535
+    t.string   "title",                                      null: false
+    t.text     "content",      limit: 65535
+    t.boolean  "posted",                     default: false
+    t.integer  "view_count",                 default: 0
+    t.integer  "user_id",                                    null: false
+    t.integer  "category_id",                                null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.text     "content_html", limit: 65535
     t.index ["user_id", "category_id"], name: "index_articles_on_user_id_and_category_id", using: :btree
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
@@ -48,12 +47,13 @@ ActiveRecord::Schema.define(version: 20161118072436) do
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",      limit: 65535,             null: false
     t.text     "content_html", limit: 65535
-    t.integer  "user_id"
-    t.integer  "guest_id"
+    t.integer  "user_id",                                null: false
     t.integer  "article_id",                             null: false
     t.integer  "index",                      default: 1, null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.integer  "reply_id"
+    t.datetime "deleted_at"
     t.index ["article_id", "index"], name: "index_comments_on_article_id_and_index", unique: true, using: :btree
     t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
   end

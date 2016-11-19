@@ -88,4 +88,32 @@ RSpec.describe Article, type: :model do
       expect(Tag.where id: tag.id).to be_any   
     end
   end
+
+  context "search" do
+    it "article should be searchable" do
+      size = Article.search_by_token_in_user("hi", user).size
+      expect(size).to eq 0
+    end
+  end
+
+  context "comment" do
+    it "should be created with valid params" do
+      article.save
+      article.update_attribute :posted, true
+      expect {
+        article.comments.create content: "hello", user: user
+      }.to change { Comment.all.reload.size }.by 1
+    end
+
+    it "should order by index in asc" do
+      article.save
+      article.update_attribute :posted, true
+      c1 = article.comments.create content: "hello", user: user
+      c2 = article.comments.create content: "hello", user: user    
+      c3 = article.comments.create content: "hello", user: user
+      expect(c1.index).to eq 1       
+      expect(c2.index).to eq 2     
+      expect(c3.index).to eq 3     
+    end
+  end
 end

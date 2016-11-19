@@ -255,4 +255,26 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(get: '/hijinhu/search').to route_to "search#index", id: 'hijinhu'
     end
   end
+
+  describe "comment" do
+    it "post /comments" do
+      expect(post: '/comments').to route_to 'comments#create'
+    end
+
+    it "get /comments/1/edit" do
+      expect(get: '/comments/1/edit').to route_to 'comments#edit', id: '1'
+    end
+
+    it "patch /comments/1" do
+      expect(patch: '/comments/1').to route_to 'comments#update', id: '1'
+    end
+
+    it "delete /comments/1" do
+      expect(delete: '/comments/1').to route_to 'comments#destroy', id: '1'
+    end
+
+    it "get /comments/1/reply" do
+      expect(get: '/comments/1/reply').to route_to 'comments#reply', id: '1'
+    end
+  end
 end

@@ -18,8 +18,11 @@ class ArticlesController < ApplicationController
       return render_404
     end
     get_user_category_and_tags
-    get_next_or_pre_article
     if @article.posted
+      get_next_or_pre_article
+
+      @comments = @article.comments
+
       @article.view_count += 1
       @article.save
     end

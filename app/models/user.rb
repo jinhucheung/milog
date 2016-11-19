@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :user_categoryships,   dependent: :destroy
   has_many :categories,           through: :user_categoryships
   has_many :pictures,             dependent: :destroy
+  has_many :comments,             dependent: :destroy
 
   # 需引入gem bcrypt
   has_secure_password

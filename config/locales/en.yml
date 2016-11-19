@@ -75,6 +75,8 @@ en:
     category_not_fount:  The category isn't found
     opt_illegal: Illegal Operation
     tags_too_much: is too much (maximum is %{size}) 
+    must_be_present: must be present
+    must_be_posted: must be posted
   success:
     category_has_deleted: The category "%{name}" has deleted
     category_has_updated: Rename this category "%{bef_name}" to "%{upd_name}"
@@ -85,6 +87,7 @@ en:
       category: Category
       article: Article
       picture: Picture
+      comment: Comment
     attributes:
       user:
         username: Username
@@ -102,6 +105,8 @@ en:
         tag: Tag
       picture:
         picture: Picture
+      comment:
+        article: Article
 
   accounts_mailer:
     hi: Hi %{username},
@@ -144,6 +149,12 @@ en:
   tags:
     zero: No tags
     other: "%{size} tags in total"  
+
+  comment:
+    zero: No comments
+    other: "%{size} comments in total"
+    edit: Edit
+    reply: Reply
 
   article:
     title_tips: Fill in the article title here

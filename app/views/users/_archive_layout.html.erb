@@ -30,7 +30,7 @@
                 <%= link_to article.title, article_path(article), class: 'post-title-link-no-underline' %>
                 </h1>
                 <div class="post-meta">
-                  <%= time_tag article.created_at, strf: '%m-%d', opts: {class: 'post-time'} %>
+                  <%= mtime_tag article.created_at, strf: '%m-%d', opts: {class: 'post-time'} %>
                 </div>
               </header>
             </article>

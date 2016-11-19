@@ -1,0 +1,121 @@
+<section class="comment-expand">
+  <div class="comment-expand-header">
+    <div class="comment-expand-meta">
+      <%= content_tag :span, @comments.any? ? t("comment.other", size: @comments.size) : t("comment.zero"), class: 'comment_count' %>
+    </div>
+  </div>
+  <div class="comment-expand-body">
+    <% @comments.each do |comment| %>
+    <%= content_tag :div, class: 'media comment', id: comment.indexno(pre: '') do -%>
+      <!-- 头像 -->
+      <div class="media-left">
+        <%= avatar_tag comment.user, :md, link: true %>
+      </div>
+      <div class="media-body">
+        <div class="comment-meta">
+          <!-- 评论信息：用户名/层数/评论时间 -->
+          <%= link_to comment.user.username, user_path(comment.user.username), class: "user-name" %> ·
+          <%= link_to comment.indexno(suf: ''), comment.indexno, class: 'comment-no' %> ·
+          <%= timeago_tag comment.created_at, class: 'comment-time' %>
+          <!-- 操作 -->
+          <span class="comment-opts pull-right">
+            <% if comment.user == current_user %>
+              <%= link_to '', edit_comment_path(comment.id), class: 'fa fa-pencil', title: t('comment.edit'), remote: true %>
+            <% else %>
+              <%= link_to '', reply_comment_path(comment.id), class: 'fa fa-mail-reply', title: t('comment.reply'), remote: true %>
+            <% end %>
+          </span>
+        </div>
+        <div class="comment-content">
+          <div class="standard markdown-body">
+            <%= markdown_comment_tag comment %>
+          </div>
+        </div>
+      </div>
+    <% end -%>
+    <% end %>
+  </div>
+</section>
+
+<% if signed_in? %>
+<!-- 回复评论 -->
+<form action="#">
+  <!-- 编辑框 -->
+  <div class="edit-body">
+    <!-- 标签卡与工具栏 -->
+    <div class="edit-body-header">
+      <!-- 工具栏 -->
+      <div class="post-edit-toolbar pull-right" style="margin-top: 15px;">
+        <!-- markdown工具栏  -->
+        <div class="markdown-toolbar">
+          <a class="toolbar-item add-bold" href='#' title="强调"><i class="fa fa-bold"></i></a>
+          <a class="toolbar-item add-italic" href='#' title="斜体"><i class="fa fa-italic"></i></a>
+          <a class="toolbar-item add-header" href='#' title="标题"><i class="fa fa-header"></i></a>
+          <span class="divider"></span>
+          <a class="toolbar-item add-quote-left" href='#' title="引用"><i class="fa fa-quote-left"></i></a>
+          <a class="toolbar-item add-list-ul" href='#' title="无序列表"><i class="fa fa-list-ul"></i></a>
+          <a class="toolbar-item add-list-ol" href='#' title="有序列表"><i class="fa fa-list-ol"></i></a>
+          <a class="toolbar-item add-code" href='#' title="代码"><i class="fa fa-code"></i></a>
+          <span class="divider"></span>
+          <a class="toolbar-item add-link" href='#' title="链接"><i class="fa fa-link"></i></a>
+          <a class="toolbar-item add-image" href='#' title="图片"><i class="fa fa-image"></i></a>
+          <a class="toolbar-item add-smile-o" href='#' title="表情" data-toggle='dropdown'><i class="fa fa-smile-o"></i></a>
+          <!-- 表情选择 -->
+          <div class="dropdown-menu emoji-picker">
+            <ul class="nav nav-tabs emoji-menu-tabs">
+              <li class="emoji-menu-tab active"><a class="em em-clock9" data-stopPropagation="true" data-type="recent"></a></li>
+              
+              <li class="emoji-menu-tab "><a class="em em-smile" data-stopPropagation="true" data-type="people"></a></li>
+              
+              <li class="emoji-menu-tab"><a class="em em-sunny" data-stopPropagation="true" data-type="nature"></a></li>
+              
+              <li class="emoji-menu-tab"><a class="em em-tada" data-stopPropagation="true" data-type="celebration"></a></li>
+              
+              <li class="emoji-menu-tab"><a class="em em-soccer" data-stopPropagation="true" data-type="activity"></a></li>
+              
+              <li class="emoji-menu-tab"><a class="em em-oncoming_automobile" data-stopPropagation="true" data-type="objects"></a></li>
+              
+              <li class="emoji-menu-tab"><a class="em em-symbols" data-stopPropagation="true" data-type="symbols"></a></li>
+              
+            </ul>
+            <!-- 表情区 -->
+            <div class="emoji-content">
+              <div class="emoji-group-recent active"></div>
+              <div class="emoji-group-people" style="display: none;"></div>
+              <div class="emoji-group-nature" style="display: none;"></div>
+              <div class="emoji-group-celebration" style="display: none;"></div>
+              <div class="emoji-group-activity" style="display: none;"></div>
+              <div class="emoji-group-objects" style="display: none;"></div>
+              <div class="emoji-group-symbols" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 标签卡 -->
+      <ul class="nav nav-tabs" id="edit-tabs">
+        <li class="active"><a class="edit-body-node edit-node" href="#edit-content" data-toggle="tab">编辑</a></li>
+        <li><a class="edit-body-node preview-node" href="#preview-content" data-toggle="tab">预览</a></li>
+      </ul>
+    </div>
+    
+    <!-- 编辑/预览区 -->
+    <div class="tab-content edit-body-cotent" id="tab-content">
+      <div class="tab-pane fade in active" id="edit-content">
+        <textarea class="tabIndent edit-body-node edit-node" name="post[content]" id="editor" style="height: 100px;"></textarea>
+      </div>
+      <div class="tab-pane fade" id="preview-content">
+        <div class="edit-body-node preview-node standard markdown-body" id="previewer"  style="height: 105px;"></div>
+      </div>
+    </div>
+  </div>
+  <!-- 标签选择与提交 -->
+  <div class="edit-footer" style="padding-top: 0;">
+    <!-- 提交按钮 -->
+    <div class="form-group post-btns">
+      <input class="post-btn" data-style="slide-up" type="submit" value="提交回复">
+    </div>
+  </div>
+</form>
+<% else %>
+  12124
+<% end %>

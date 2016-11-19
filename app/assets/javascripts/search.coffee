@@ -24,3 +24,7 @@ $("#search-dialog").on "hidden.bs.modal", ()->
   $("#search-result #result").remove()
   return true
 
+# 当点击文章链接后, 销毁对话框
+$("#search-result").on 'click', '#result .title', ()-> 
+  $(".modal-header .close").click()
+  return true

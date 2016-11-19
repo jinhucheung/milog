@@ -380,7 +380,18 @@ RSpec.describe User, type: :model do
       expect(user.pictures).not_to eq nil
       expect(user.pictures).to be_empty
     end
+  end
 
+  describe "comment" do
+    let(:category) { Category.create name: 'Test' }
+
+    it "should be created with valid params" do
+      user.save
+      article = user.articles.create title: 'hi', category: category, posted: true
+      expect {
+        user.comments.create content: "hello", article: article
+      }.to change { Comment.all.reload.size }.by 1
+    end
   end
 
 end
