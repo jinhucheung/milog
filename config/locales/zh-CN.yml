@@ -109,7 +109,8 @@ zh-CN:
         picture: 图片
       comment:
         article: 文章
-
+        content: 内容
+        user: 用户
 
   accounts_mailer:
     hi: Hi %{username}，
@@ -184,6 +185,9 @@ zh-CN:
     other: "%{size} 条评论"
     edit: 编辑
     reply: 回复
+    post: 提交回复
+    update: 更新回复
+    error: "错误： "
 
   will_paginate:
     previous_label: '<'

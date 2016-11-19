@@ -70,6 +70,10 @@
         .post-nav-item {
             display: inline-block;
             width: 50%;
+
+            a {
+                color: #444 !important;
+            }
         }
 
         .post-nav-prev {

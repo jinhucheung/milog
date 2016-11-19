@@ -1,0 +1,41 @@
+<% if comment %>
+<%= simple_form_for comment, remote: true do |f| %>
+  <%= f.input_field :article_id, as: :hidden, disable: true %>
+  <div class="edit-body">
+    <div class="edit-body-header">
+      <!-- 工具栏 -->
+      <div class="post-edit-toolbar pull-right" style="margin-top: 15px;">
+        <%= render 'features/markdown_toolbar' %>
+      </div>
+      <!-- 标签卡 -->
+      <ul class="nav nav-tabs" id="edit-tabs">
+        <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
+        <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>   
+      </ul>
+    </div>
+    
+    <!-- 编辑/预览区 -->
+    <div class="tab-content edit-body-cotent" id="tab-content">
+      <div class="tab-pane fade in active" id="edit-content">
+        <%= f.input_field :content, as: :text, class: 'tabIndent edit-body-node edit-node', id: 'editor', style: 'height: 100px;' %>
+        <%= f.input_field :content_html, as: :hidden, id: 'content_html', disable: true %>
+      </div>
+      <div class="tab-pane fade" id="preview-content">
+        <%= content_tag :div, '', class: 'edit-body-node preview-node standard markdown-body', id: 'previewer', style: 'height: 105px;' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="edit-footer" style="padding-top: 0;">
+    <!-- 表单错误提示 -->
+    <div class="pull-left" id="error-tips">
+      <%= content_tag :span, t('comment.error') %>
+      <%= content_tag :span, '', id: 'error-msg' %>
+    </div>
+    <!-- 提交按钮 -->
+    <div class="pull-right form-group post-btns">
+      <%= f.button :submit, t("comment.post"), class: 'post-btn', onclick: 'set_content_html()' %>
+    </div>
+  </div>
+<% end %>
+<% end %>

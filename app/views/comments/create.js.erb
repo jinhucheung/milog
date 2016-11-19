@@ -1,0 +1,9 @@
+<% if @comment.valid? %>
+  $('#comments').append("<%= j render('features/comment', comment: @comment) %>");
+  $('#error-tips').css("display", "none");
+  $('#editor').val('');
+  $('#content_html').val('');
+<% else %>
+  $('#error-tips').css("display", "block");
+  $('#error-tips #error-msg').text("<%= @comment.errors.full_messages[0] %>");
+<% end %>

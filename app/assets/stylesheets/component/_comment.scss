@@ -27,7 +27,7 @@
         .comment-meta {
             color: gray;
             font-size: 12px;
-            
+
             a {
                 font-size: 13px;
             }
@@ -45,4 +45,20 @@
             margin-top: 5px;
         }
     }
+}
+
+/* 登录注册提示 */
+.sign-tips {
+    color: $lightgray;
+    a {
+        color: black !important;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+#error-tips {
+    display: none;
+    margin-top: 10px;
+    font-size: 15px;
 }

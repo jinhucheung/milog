@@ -107,6 +107,8 @@ en:
         picture: Picture
       comment:
         article: Article
+        content: Content
+        user: User
 
   accounts_mailer:
     hi: Hi %{username},
@@ -155,6 +157,9 @@ en:
     other: "%{size} comments in total"
     edit: Edit
     reply: Reply
+    post: Post Comment
+    update: Update Comment
+    error: "Error : "
 
   article:
     title_tips: Fill in the article title here

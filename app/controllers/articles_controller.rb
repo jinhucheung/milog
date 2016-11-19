@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
       get_next_or_pre_article
 
       @comments = @article.comments
-
+      @comment = Comment.new article: @article
+      
       @article.view_count += 1
       @article.save
     end

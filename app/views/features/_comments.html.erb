@@ -1,0 +1,24 @@
+<!-- 评论列表 -->
+<section class="comment-expand">
+  <div class="comment-expand-header">
+    <div class="comment-expand-meta">
+      <%= content_tag :span, @comments.any? ? t("comment.other", size: @comments.size) : t("comment.zero"), class: 'comment_count' %>
+    </div>
+  </div>
+  <div class="comment-expand-body" id="comments">
+    <% @comments.each do |comment| %>
+      <%= render 'features/comment', comment: comment %>
+    <% end %>
+  </div>
+</section>
+
+<!-- 提交评论 -->
+<% if signed_in? %>
+<div id="comment_form">
+  <%= render 'features/comment_form', comment: @comment %>
+</div>
+<% else %>
+  <div class="sign-tips">
+    需要<%= link_to t("signin"), signin_path%>后才可回复, 如果你还没有账号请点击这里<%= link_to t("signup"), signup_path %>
+  </div>
+<% end %>
