@@ -1,26 +1,3 @@
-GIT
-  remote: git://github.com/elasticsearch/elasticsearch-rails.git
-  revision: 15761247f3e99654bda946a178e50b5365414b59
-  specs:
-    elasticsearch-model (0.1.9)
-      activesupport (> 3)
-      elasticsearch (> 0.4)
-      hashie
-    elasticsearch-rails (0.1.9)
-
-GIT
-  remote: git://github.com/elasticsearch/elasticsearch-ruby.git
-  revision: 274b6ea0f77be1b590d60ca23b16ebccacd5c86b
-  specs:
-    elasticsearch (1.0.18)
-      elasticsearch-api (= 1.0.18)
-      elasticsearch-transport (= 1.0.18)
-    elasticsearch-api (1.0.18)
-      multi_json
-    elasticsearch-transport (1.0.18)
-      faraday
-      multi_json
-
 GEM
   remote: https://gems.ruby-china.org/
   specs:
@@ -100,6 +77,19 @@ GEM
     diff-lcs (1.2.5)
     domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
+    elasticsearch (5.0.0)
+      elasticsearch-api (= 5.0.0)
+      elasticsearch-transport (= 5.0.0)
+    elasticsearch-api (5.0.0)
+      multi_json
+    elasticsearch-model (0.1.9)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.9)
+    elasticsearch-transport (5.0.0)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.10.0)
@@ -285,9 +275,9 @@ DEPENDENCIES
   carrierwave (>= 0.11.2)
   carrierwave-qiniu (>= 0.2.4)
   coffee-rails (~> 4.2)
-  elasticsearch!
-  elasticsearch-model!
-  elasticsearch-rails!
+  elasticsearch
+  elasticsearch-model
+  elasticsearch-rails
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-fileupload-rails

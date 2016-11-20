@@ -46,9 +46,9 @@ gem 'motion-markdown-it', '>=4.2.2'
 gem 'will_paginate', '~> 3.1.0'
 
 # 搜索
-gem "elasticsearch", :git => "git://github.com/elasticsearch/elasticsearch-ruby.git"
-gem "elasticsearch-model", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
-gem "elasticsearch-rails", :git => "git://github.com/elasticsearch/elasticsearch-rails.git"
+gem "elasticsearch"
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
 
 gem 'rails-timeago', '~> 2.0'
 
