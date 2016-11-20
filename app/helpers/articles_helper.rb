@@ -53,7 +53,7 @@ module ArticlesHelper
   # 显示文章内容
   def markdown_article_tag(article)
     return if article.blank?
-    return sanitize_markdown article.content_html if article.content_html
+    return sanitize_markdown article.content_html unless article.content_html.blank?
     markdown_content = markdown_parser.render article.content
     sanitize_markdown markdown_content
   end

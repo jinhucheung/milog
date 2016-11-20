@@ -5,7 +5,7 @@ module CommentsHelper
   def markdown_comment_tag(comment)
     return if comment.blank?
     comment_in_reply comment
-    return sanitize_markdown comment.content_html if comment.content_html
+    return sanitize_markdown comment.content_html unless comment.content_html.blank?
     markdown_content = markdown_parser.render comment.content
     sanitize_markdown markdown_content    
   end
