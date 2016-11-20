@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :find_article_by_id, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
-  before_action :delete_cache_pictures, only: [:new, :edit]
+  before_action :delete_cache_pictures, only: [:new, :edit, :show]
 
   layout 'blog'
 
@@ -129,6 +129,8 @@ class ArticlesController < ApplicationController
     end
 
     def delete_cache_pictures
-      current_user.delete_cache_pictures
+      if user = current_user
+        user.delete_cache_pictures
+      end
     end
 end

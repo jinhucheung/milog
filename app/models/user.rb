@@ -130,6 +130,18 @@ class User < ApplicationRecord
     end
   end
 
+  # 关联评论与图片
+  def post_cache_pictures_in_comment(comment)
+    return if comment.blank?
+    cache_pictures = pictures.where posted: false 
+    if cache_pictures.any?
+      cache_pictures.each do |picture|
+        comment.comment_pictureships.create picture: picture
+      end
+      cache_pictures.update_all posted: true
+    end       
+  end
+
   private
     def downcase_username_and_email
       username.downcase!

@@ -8,6 +8,8 @@ class Comment < ApplicationRecord
   belongs_to :article
 
   has_many :replys, class_name: 'Comment', foreign_key: 'reply_id'
+  has_many :comment_pictureships,     dependent: :destroy
+  has_many :pictures,                 through: :comment_pictureships
 
   before_validation :set_article_in_reply, on: :create
   before_create :cal_index
