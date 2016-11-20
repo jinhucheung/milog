@@ -185,8 +185,9 @@ zh-CN:
     other: "%{size} 条评论"
     edit: 编辑
     reply: 回复
-    post: 提交回复
-    update: 更新回复
+    delete: 删除
+    post: 发布评论
+    update: 更新评论
     error: "错误： "
 
   will_paginate:

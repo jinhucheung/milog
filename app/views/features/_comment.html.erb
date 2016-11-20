@@ -1,4 +1,4 @@
-<% if comment %>
+<% if comment && !comment.deleted? %>
 <%= content_tag :div, class: 'media comment', id: comment.indexno(pre: '') do -%>
 <!-- 头像 -->
 <div class="media-left">
@@ -14,6 +14,7 @@
     <span class="comment-opts pull-right">
       <% if comment.user == current_user %>
       <%= link_to '', edit_comment_path(comment), class: 'fa fa-pencil', title: t('comment.edit'), remote: true %>
+      <%= link_to '', comment_path(comment), class: 'fa fa-close', title: t('comment.delete'), method: :delete, remote: true %>
       <% else %>
       <%= link_to '', reply_comment_path(comment), class: 'fa fa-mail-reply', title: t('comment.reply'), remote: true %>
       <% end %>

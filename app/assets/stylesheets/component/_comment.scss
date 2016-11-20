@@ -39,6 +39,12 @@
             .comment-no {
                 color: #228b22;
             }
+
+            .comment-opts {
+                a + a {
+                    padding-left: 10px;
+                }
+            }
         }
 
         .comment-content {
@@ -61,4 +67,13 @@
     display: none;
     margin-top: 10px;
     font-size: 15px;
+}
+
+/* 为markdown添加回复标签样式 */
+.markdown-body .reply-tag{
+    float: left;
+    padding-right: 10px;
+    a + a {
+        color: #228b22 !important;
+    }
 }

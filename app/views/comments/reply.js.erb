@@ -1,0 +1,11 @@
+// 如果之前是编辑状态， 则清除
+$('#via_method').remove();
+var form = $('#comment_form form');
+form.attr('action', '<%= comments_path %>');
+
+$('#edit-tabs .edit-node').click();
+$('#editor').val('');
+$('#content_html').val('');
+
+$("#comment_reply_id").val("<%= @reply.id %>");
+$('#post-btn').text('<%= t("comment.reply")+"#"+@reply.index.to_s %>');

@@ -1,10 +1,10 @@
 var form = $('#comment_form form');
 
 form.attr('action', '<%= comment_path(@comment) %>');
-form.append('<%= tag :input, type: "hidden", name: "_method", value: "patch" %>');
+form.append('<%= tag :input, type: "hidden", name: "_method", value: "patch", id: "via_method" %>');
 
 $('#edit-tabs .edit-node').click();
 $('#editor').val("<%= raw @content %>");
 $('#content_html').val('');
 
-$('.post-btns input').val('<%= t("comment.update") %>');
+$('#post-btn').text('<%= t("comment.update") %>');

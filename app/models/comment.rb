@@ -10,7 +10,7 @@ class Comment < ApplicationRecord
   has_many :replys, class_name: 'Comment', foreign_key: 'reply_id'
 
   before_validation :set_article_in_reply, on: :create
-  before_save :cal_index
+  before_create :cal_index
 
   # 获取回复的上级节点
   def parent
@@ -48,7 +48,7 @@ class Comment < ApplicationRecord
 
     # 绑定回复与上级评论的文章
     def set_article_in_reply
-      _parent = parent
-      self.article = _parent.article if _parent
+      @parent = parent
+      self.article = @parent.article if @parent
     end
 end

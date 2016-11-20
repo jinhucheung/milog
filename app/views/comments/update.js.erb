@@ -1,6 +1,7 @@
 <% if @comment.valid? %>
-  $('#comments').append("<%= j render('features/comment', comment: @comment) %>");
-  $('#post-btn').text('<%= t("comment.post") %>');
+  var mcomment = $('#comments <%= @comment.indexno %>').eq(0);
+  mcomment.before("<%= j render('features/comment', comment: @comment) %>");
+  mcomment.remove();
 
   // 清除编辑区
   $('#editor').val('');
@@ -9,6 +10,13 @@
   $("#comment_reply_id").val('');
   // 隐藏错误提示
   $('#error-tips').css("display", "none");
+
+  // 还原至新建评论的状态
+  $('#via_method').remove();
+  var form = $('#comment_form form');
+  form.attr('action', '<%= comments_path %>');
+  $('#post-btn').text('<%= t("comment.post") %>');
+
 <% else %>
   $('#error-tips').css("display", "block");
   $('#error-tips #error-msg').text("<%= @comment.errors.full_messages[0] %>");

@@ -1,4 +1,4 @@
-module Article::MarkdownHelper
+module MarkdownHelper
 
   def markdown_parser
     parser = MarkdownIt::Parser.new :commonmark, { linkify: true }

@@ -1,6 +1,7 @@
 <% if comment %>
 <%= simple_form_for comment, remote: true do |f| %>
   <%= f.input_field :article_id, as: :hidden, disable: true %>
+  <%= f.input_field :reply_id, as: :hidden, disable: true %>
   <div class="edit-body">
     <div class="edit-body-header">
       <!-- 工具栏 -->
@@ -34,8 +35,15 @@
     </div>
     <!-- 提交按钮 -->
     <div class="pull-right form-group post-btns">
-      <%= f.button :submit, t("comment.post"), class: 'post-btn', onclick: 'set_content_html()' %>
+      <%= f.button :submit, '', as: :hidden, onclick: 'set_content_html()', id: 'comment-submit', style: 'display:none;' %>
+      <%= content_tag :span, t("comment.post"), class: 'post-btn', id: 'post-btn', role: 'button' %>
     </div>
   </div>
 <% end %>
 <% end %>
+
+<script>
+  $('#post-btn').on('click', function(){
+    $('#comment-submit').click();
+  });
+</script>

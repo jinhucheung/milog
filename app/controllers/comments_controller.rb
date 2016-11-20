@@ -15,32 +15,35 @@ class CommentsController < ApplicationController
   end
 
   def reply
-
+    @reply = Comment.select(:id, :index).find_by id: params[:id]
+    render_404 unless @reply
   end
 
   def update
+    cparams = params[:comment]
+    @comment.update_attributes content: cparams[:content], content_html: cparams[:content_html]
   end
 
   def destroy
-
+    @comment.update_attribute :deleted_at, Time.zone.now
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:article_id, :content, :content_html)
-    end
+  def comment_params
+    params.require(:comment).permit(:article_id, :content, :content_html, :reply_id)
+  end
 
-    def get_user
-      @user = current_user
-    end
+  def get_user
+    @user = current_user
+  end
 
-    def get_comment
-      @comment = Comment.find_by id: params[:id]
-      render_404 unless @comment
-    end
+  def get_comment
+    @comment = Comment.find_by id: params[:id]
+    render_404 unless @comment
+  end
 
-    def correct_user
-      render_404 unless current_user == @comment.user
-    end
+  def correct_user
+    render_404 unless current_user == @comment.user
+  end
 
 end

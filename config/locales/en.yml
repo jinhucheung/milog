@@ -157,6 +157,7 @@ en:
     other: "%{size} comments in total"
     edit: Edit
     reply: Reply
+    delete: Delete
     post: Post Comment
     update: Update Comment
     error: "Error : "

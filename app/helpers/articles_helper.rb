@@ -1,5 +1,5 @@
 module ArticlesHelper
-  include Article::MarkdownHelper
+  include MarkdownHelper
 
   ## 已选中的分类项
   def category_selected_tag(category, opts = {})
@@ -56,14 +56,6 @@ module ArticlesHelper
     return sanitize_markdown article.content_html if article.content_html
     markdown_content = markdown_parser.render article.content
     sanitize_markdown markdown_content
-  end
-
-  # 显示评论内容
-  def markdown_comment_tag(comment)
-    return if comment.blank?
-    return sanitize_markdown comment.content_html if comment.content_html
-    markdown_content = markdown_parser.render comment.content
-    sanitize_markdown markdown_content    
   end
 
   # 显示文章部分内容
