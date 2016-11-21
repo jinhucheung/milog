@@ -30,7 +30,7 @@
                                     <%= content_tag :span, t('article.view'), class: 'post-meta-item-text' %> ·
                                     <%= content_tag :span, @article.view_count, class: 'post-view-count' %>&nbsp;
                                     <%= content_tag :span, t('article.comment'), class: 'post-meta-item-text' %> ·
-                                    <%= content_tag :span, @article.comment_count, class: 'post-view-count' %>
+                                    <%= content_tag :span, @article.comment_count, class: 'post-view-count', id: 'post-comment-count' %>
                                 </span>
                                 <% if signed_in? && current_user == @user %>
                                 <span class="post-edit"> &nbsp;|&nbsp;
