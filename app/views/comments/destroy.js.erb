@@ -1,2 +1,4 @@
 var mcomment = $('#comments <%= @comment.indexno %>').eq(0);
 mcomment.remove();
+
+$('.comment_count').eq(0).html("<%= @commentsize == 0 ? t('comment.zero') : t('comment.other', size: @commentsize) %>");

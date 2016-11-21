@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     if @article.posted
       get_next_or_pre_article
 
-      @comments = @article.comments
+      @comments = @article.comments.where deleted_at: nil
       @comment = Comment.new article: @article
       
       @article.view_count += 1

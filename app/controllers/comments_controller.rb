@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @comment = @user.comments.create comment_params
     if @comment.valid?
       current_user.post_cache_pictures_in_comment @comment
+      @commentsize = @comment.article.comments.where(deleted_at: nil).size
     end
   end
 
@@ -33,6 +34,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.update_attribute :deleted_at, Time.zone.now
+    @commentsize = @comment.article.comments.where(deleted_at: nil).size
   end
 
   private

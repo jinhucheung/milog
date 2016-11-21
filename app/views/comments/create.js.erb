@@ -9,6 +9,7 @@
   $("#comment_reply_id").val('');
   // 隐藏错误提示
   $('#error-tips').css("display", "none");
+  $('.comment_count').eq(0).html("<%= t('comment.other', size: @commentsize) if @commentsize %>");
 <% else %>
   $('#error-tips').css("display", "block");
   $('#error-tips #error-msg').text("<%= @comment.errors.full_messages[0] %>");
