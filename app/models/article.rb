@@ -47,7 +47,7 @@ class Article < ApplicationRecord
   end
 
   def comment_count
-    comments.size
+    comments.where(deleted_at: nil).size
   end
 
   class << self
