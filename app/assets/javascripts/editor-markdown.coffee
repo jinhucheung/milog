@@ -1,11 +1,3 @@
-#= require markdown-it.min
-#= require markdown-it-emoji.min
-#= require highlight.pack
-#= require tabIndent
-#= require editor-default
-#= require markdown-toolbar
-#= require emoji-picker
-
 # 加载markdown-it语法高亮插件
 hljs.initHighlightingOnLoad()
 # 加载tab缩进插件
