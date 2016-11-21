@@ -31,5 +31,17 @@
 /* 中等屏幕（桌面显示器，>= 992px） */
 @media (min-width: 992px) {}
 
-/* 大屏幕（大桌面显示器，>= 1200px） */
-@media (min-width: 1200px) {}
+/* 大屏幕（大桌面显示器，>= 1600px） */
+@media (min-width: 1600px) {
+    .mainer {
+        min-height: 800px;
+    }
+    .main-nav {
+        li a {
+            margin: auto 10px;
+        }
+    }
+    .col-md-7 {
+        width: 50%;
+    }
+}
