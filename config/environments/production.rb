@@ -86,7 +86,7 @@ Rails.application.configure do
 
   # Send email settings 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "http://hijinhu.me:3000" }
+  config.action_mailer.default_url_options = { host: "http://hijinhu.me" }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
 end
