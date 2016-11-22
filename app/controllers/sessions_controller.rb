@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by email: session_param(:email)
+    return render_404 if @user.disabled?
     if @user && @user.authenticated?(:password, session_param(:password))
       sign_in @user
       session_param(:remember_me) == "1" ? remember_me(@user) : forget_me(@user)

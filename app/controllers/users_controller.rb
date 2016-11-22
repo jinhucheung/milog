@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_user
-
+  before_action :check_disabled_user
   before_action :check_signed_in, only: [:drafts]
   before_action :check_activated, only: [:drafts]
   before_action :correct_user, only: [:drafts]

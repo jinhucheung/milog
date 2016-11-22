@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  before_action :check_disabled_user
   before_action :check_params
 
   def index
@@ -7,7 +8,7 @@ class SearchController < ApplicationController
 
   private 
     def check_params
-      return unless params[:id] && params[:search][:keyword]
+      return render_404 unless params[:id] && params[:search] && params[:search][:keyword]
       @user = User.find_by username: params[:id]
       @token = params[:search][:keyword]
     end

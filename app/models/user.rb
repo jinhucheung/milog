@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   TIPS_USERNAME_FORMAT_MSG = 'USERNAME_FORMAT'
 
-  validates :username, :email, :password, presence: true
+  validates :username, :email, :password, :state, presence: true
   validates :username, length: { in: 6..25 },
                        format: { with: USERNAME_FORMAT_REGEXP, message: TIPS_USERNAME_FORMAT_MSG },
                        uniqueness: { case_sensitive: false }
@@ -145,6 +145,11 @@ class User < ApplicationRecord
   define_post_cache_pictures_in :article
   define_post_cache_pictures_in :comment
   define_post_cache_pictures_in :resume
+
+  # 用户禁用?
+  def disabled?
+    self.state == 0
+  end
 
   private
     def downcase_username_and_email

@@ -45,4 +45,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # 检查访问用户是否禁用
+  def check_disabled_user
+      user = User.find_by username: params[:id]
+      return render_404 if user.blank? || user.disabled?
+  end
+
 end

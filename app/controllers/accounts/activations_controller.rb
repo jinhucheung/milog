@@ -2,6 +2,7 @@ class Accounts::ActivationsController < ApplicationController
   before_action :check_signed_in, only: [:new]
   before_action :get_current_user, only: [:new]
   before_action :check_params, only: [:edit]
+  before_action :check_disabled_user, only: [:edit]
   before_action :get_params_user, only: [:edit]
   before_action :check_activated, only: [:new, :edit]
 

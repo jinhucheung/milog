@@ -14,7 +14,7 @@ module ApplicationHelper
   def markdown_tag(markdownable)
     return if markdownable.blank?
     return sanitize_markdown markdownable.content_html unless markdownable.content_html.blank?
-    markdown_content = markdown_parser.render markdownable.content
+    markdown_content = markdown_parser.render markdownable.content if markdownable.content
     sanitize_markdown markdown_content
   end
 end

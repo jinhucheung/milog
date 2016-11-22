@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'resumes/show'
-
-  get 'resumes/update'
-
-  get 'resumes/edit'
-
   root 'home#index'
   
   get '/signup' => 'accounts#new'

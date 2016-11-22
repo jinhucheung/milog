@@ -8,6 +8,17 @@
 
 default_categories = %w(default)
 
-default_categories.each do | value |
+default_categories.each do |value|
   Category.create! name: value
+end
+
+disabled_user = %w(signup signin signout account accounts password passwords picture pictures article articles
+                   category categories comment comments aboutme drafts archive search resume activation activations
+                   setting settings application routes namespace)
+
+disabled_user.each do |username|
+  password = SecureRandom.hex(12)
+  User.create username: username, email: "#{username}@hijinhu.me", 
+              password: password, password_confirmation: password,
+              state: 0
 end
