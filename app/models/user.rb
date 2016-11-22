@@ -119,30 +119,32 @@ class User < ApplicationRecord
     end
   end
 
-  # 关联文章与图片
-  # 当文章删除时, 可将文章使用的图片一起删除
-  def post_cache_pictures_in_article(article)
-    return if article.blank?
-    cache_pictures = pictures.where posted: false
-    if cache_pictures.any?
-      cache_pictures.each do |picture|
-        article.article_pictureships.create picture: picture
-      end
-      cache_pictures.update_all posted: true
-    end
-  end
-
-  # 关联评论与图片
-  def post_cache_pictures_in_comment(comment)
-    return if comment.blank?
+  # 关联文章/评论/简介与图片
+  # 当文章等删除时, 可将使用的图片一起删除
+  def post_cache_pictures_in(name, picturable)
+    return if picturable.blank?
     cache_pictures = pictures.where posted: false 
     if cache_pictures.any?
       cache_pictures.each do |picture|
-        comment.comment_pictureships.create picture: picture
+        picturable.send("#{name}_pictureships").create picture: picture
       end
       cache_pictures.update_all posted: true
-    end       
+    end      
   end
+
+  # 定义方法
+  # post_cache_pictures_in_article
+  # post_cache_pictures_in_comment
+  # post_cache_pictures_in_resume
+  def self.define_post_cache_pictures_in(name)
+    define_method("post_cache_pictures_in_#{name}") do |picturable|
+      post_cache_pictures_in name, picturable
+    end
+  end
+
+  define_post_cache_pictures_in :article
+  define_post_cache_pictures_in :comment
+  define_post_cache_pictures_in :resume
 
   private
     def downcase_username_and_email
