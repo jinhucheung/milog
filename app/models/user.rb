@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :categories,           through: :user_categoryships
   has_many :pictures,             dependent: :destroy
   has_many :comments,             dependent: :destroy
+  has_one  :resume,               dependent: :destroy
 
   # 需引入gem bcrypt
   has_secure_password
@@ -35,7 +36,8 @@ class User < ApplicationRecord
   before_save :downcase_username_and_email
   after_create :generate_activation_digest, 
                :generate_letter_avatar,
-               :generate_default_category_ship
+               :generate_default_category_ship,
+               :generate_a_resume
 
   attr_accessor :remember_token, :activation_token, :reset_password_token
 
@@ -154,14 +156,22 @@ class User < ApplicationRecord
       update_attribute :avatar_color, color
     end
 
+    # 限制头像大小
     def avatar_size
       if avatar.size > 1.megabytes
         errors.add :avatar, I18n.t("errors.avatar_too_big", size: 1)
       end      
     end
 
+    # 生成与'默认'分类的关系
     def generate_default_category_ship
       category = Category.find_or_create_by name: 'default'
       self.user_categoryships.create category: category 
+    end
+
+    # 生成简历
+    def generate_a_resume
+      return if self.resume
+      Resume.create user: self
     end
 end

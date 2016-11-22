@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'resumes/show'
+
+  get 'resumes/update'
+
+  get 'resumes/edit'
+
   root 'home#index'
   
   get '/signup' => 'accounts#new'
@@ -45,6 +51,9 @@ Rails.application.routes.draw do
       get '/categories/:category_id', as: 'category', to: 'users#category'
       get '/tags/:tag_id', as: 'tag', to: 'users#tag'
       get '/search', to: 'search#index'
+      get '/resume', to: 'resumes#show'
+      match '/resume', to: 'resumes#update', via: [:patch, :put]
+      get '/resume/edit', to: 'resumes#edit'
     end
   end
 

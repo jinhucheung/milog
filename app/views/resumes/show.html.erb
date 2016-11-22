@@ -1,0 +1,24 @@
+<% provide :pre_title, t("resume")+" | "+capitalize_name(@user) %>
+<div class="mainer">
+    <div class="container-fluid">
+        <div class="col-md-7 col-lg-7 col-center-block content-wrap" >
+            <div id="content">
+                <section class="post-expand" >
+                    <article class="post">
+                        <header class="post-header post-header-center">
+                            <!-- 标题 -->
+                            <%= content_tag :h1, content_tag(:span, t('resume'), class: 'post-title-normal'), class: 'post-title' %>
+                        </header>
+                        <!-- 文章内容 -->
+                        <div class="post-body">
+                            <div class="standard markdown-body">
+                                <%= markdown_tag @resume %>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<%= javascript_include_tag 'editor-markdown' %>

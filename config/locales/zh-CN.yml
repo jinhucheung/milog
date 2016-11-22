@@ -65,6 +65,7 @@ zh-CN:
       update_avatar: 已更新头像
       save_article: 已保存文章
       delete_article: 已删除文章"%{title}"
+      save_resume: 已保存简历
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -90,6 +91,7 @@ zh-CN:
       article: 文章
       picture: 图片
       commnet: 评论
+      resume: 简历
     attributes:
       user:
         username: 用户名
@@ -111,6 +113,11 @@ zh-CN:
         article: 文章
         content: 内容
         user: 用户
+        user_id: 用户
+      resume: 
+        user_id: 用户
+        user: 用户
+        content: 内容
 
   accounts_mailer:
     hi: Hi %{username}，
@@ -133,6 +140,8 @@ zh-CN:
   new_blog: 写博客
   account_profile: 个人资料设置
   drafts: 草稿箱
+  resume: 我的简历
+  edit_resume: 写简历
   
   profile:
     nickname: 名字
@@ -189,6 +198,10 @@ zh-CN:
     post: 发布评论
     update: 更新评论
     error: "错误： "
+
+  resumes:
+    pubilc_resume: 公开简历
+    save_resume: 保存简历
 
   will_paginate:
     previous_label: '<'

@@ -394,4 +394,14 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context "resume" do
+    it "should unique" do
+      expect(user.resume).to eq nil
+      user.save
+      expect(user.reload.resume).not_to eq nil
+      expect{
+        Resume.create user: user
+      }.not_to change { Resume.all.reload.size }
+    end
+  end
 end

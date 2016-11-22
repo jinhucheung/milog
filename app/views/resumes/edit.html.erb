@@ -1,0 +1,50 @@
+<% provide :bodyclass, 'edit-post' %>
+<%=  render 'shared/flash_messages_jscall' %>
+<div class="mainer">
+    <div class="container-fluid">
+        <div class="col-md-9 col-lg-9 col-center-block content-wrap">
+            <div class="edit-post">
+                <%= simple_form_for @resume, url: resume_user_path(@user.username) do |f| %>
+                <div class="edit-header">
+                </div>
+                <!-- 编辑框部分 -->
+                <div class="edit-body">
+                    <!-- 标签卡与工具栏 -->
+                    <div class="edit-body-header">
+                        <div class="post-edit-toolbar pull-right">
+                            <%= render 'features/markdown_toolbar' %>
+                        </div>
+                        <ul class="nav nav-tabs" id="edit-tabs">
+                            <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
+                            <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>                            
+                        </ul>
+                    </div>
+                    <!-- 编辑/预览区 -->
+                    <div class="tab-content edit-body-cotent" id="tab-content">
+                        <div class="tab-pane fade in active" id="edit-content">
+                            <%= f.input_field :content, as: :text, class: 'tabIndent edit-body-node edit-node', id: 'editor' %>
+                            <%= f.input_field :content_html, as: :hidden, id: 'content_html', disable: true %>
+                        </div>
+                        <div class="tab-pane fade" id="preview-content">
+                            <%= content_tag :div, '', class: 'edit-body-node preview-node standard markdown-body', id: 'previewer' %>
+                        </div>
+                    </div>
+                </div>
+                <!-- 公开简历与提交 -->
+                <div class="edit-footer">
+                    <div class="public_resume">
+                        <%= f.input_field :posted, as: :boolean, boolean_style: :inline %>
+                        <%= t("resumes.pubilc_resume") %>
+                    </div>
+
+                    <div class="form-group post-btns">
+                        <%= f.button :submit, t("resumes.save_resume"), class: 'pull-right post-btn', onclick: 'set_content_html()' %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<%= javascript_include_tag 'editor-markdown' %>
+<%= javascript_include_tag 'category' %>

@@ -50,14 +50,6 @@ module ArticlesHelper
     link_to sanitize(content), article_path(next_article)
   end
 
-  # 显示文章内容
-  def markdown_article_tag(article)
-    return if article.blank?
-    return sanitize_markdown article.content_html unless article.content_html.blank?
-    markdown_content = markdown_parser.render article.content
-    sanitize_markdown markdown_content
-  end
-
   # 显示文章部分内容
   def truncate_article_tag(article, opts={})
     return if article.blank? || article.content.blank?

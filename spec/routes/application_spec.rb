@@ -277,4 +277,18 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(get: '/comments/1/reply').to route_to 'comments#reply', id: '1'
     end
   end
+
+  describe "resume" do
+    it "get /hijinhu/resume" do
+      expect(get: '/hijinhu/resume').to route_to 'resumes#show', id: 'hijinhu'
+    end
+
+    it "get /hijinhu/resume/edit" do
+      expect(get: '/hijinhu/resume/edit').to route_to 'resumes#edit', id: 'hijinhu'
+    end
+
+    it "patch /hijinhu/resume" do
+      expect(patch: 'hijinhu/resume').to route_to 'resumes#update', id: 'hijinhu'
+    end
+  end
 end
