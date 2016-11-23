@@ -1,5 +1,6 @@
 <% provide :bodyclass, 'edit-post' %>
 <%=  render 'shared/flash_messages_jscall' %>
+<%= content_tag :span, @article.id, style: 'display: none;', id: 'article-id' %>
 <div class="mainer">
     <div class="container-fluid">
         <div class="col-md-9 col-lg-9 col-center-block content-wrap">
@@ -51,7 +52,7 @@
                 <div class="edit-footer">
                     <!-- 填如标签,最多5个标签 -->
                     <div class="form-group tabs-input">
-                        <%= f.input_field :tagstr, class: "form-input", id: "tab-input", placeholder: t("article.tag_tips") %>
+                        <%= f.input_field :tagstr, class: "form-input", id: "tag-input", placeholder: t("article.tag_tips") %>
                         <%= content_tag :span, t("article.tag")+" :" %>
                     </div>
                     <!-- 提交按钮 -->
@@ -65,5 +66,9 @@
         </div>
     </div>
 </div>
+<script>
+    window.page = 'article';
+</script>
 <%= javascript_include_tag 'editor-markdown' %>
 <%= javascript_include_tag 'category' %>
+<%= javascript_include_tag 'holds' %>

@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   before_action :delete_cache_pictures, only: [:new, :edit, :show]
+  before_action :get_article_hold, only: [:new, :edit]
 
   layout 'blog'
 
@@ -32,11 +33,13 @@ class ArticlesController < ApplicationController
   def new
     get_current_user_and_categories
     @article = current_user.articles.build
+    set_article_hold_content
   end
 
   def edit
     get_current_user_and_categories @article.category_id
     @article.tagstr = @article.tags2str
+    set_article_hold_content
   end
 
   def create
@@ -112,7 +115,8 @@ class ArticlesController < ApplicationController
     def save_or_post_article
       # 标记图片已使用, 并关联文章
       current_user.post_cache_pictures_in_article @article
-      
+      current_user.hold(:article).update_attribute :cleaned, true
+
       if params[:article][:save]
         flash.now[:success] = I18n.t "flash.success.save_article"
         @article.update_attribute :posted, false
@@ -133,4 +137,31 @@ class ArticlesController < ApplicationController
         user.delete_cache_pictures
       end
     end
+
+    # 获取文章的暂存数据
+    def get_article_hold
+       @hold = current_user.hold :article
+    end
+
+    # 设置暂存好的数据
+    def set_article_hold_content
+      return if @hold.blank? || @hold.cleaned?
+      return unless @article
+      # 编辑/创建
+      if @article.id
+        if @article.id == @hold.holdable_id
+          set_hold_content
+        end
+      elsif @hold.holdable_id.blank?
+        set_hold_content
+      end
+    end
+
+    def set_hold_content
+      @article.title = @hold.title
+      @article.content = @hold.content
+      @article.category_id = @hold.category_id
+      @article.tagstr = @hold.tagstr
+    end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122120251) do
+ActiveRecord::Schema.define(version: 20161123023656) do
 
   create_table "article_pictureships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "article_id", null: false
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 20161122120251) do
     t.index ["article_id", "index"], name: "index_comments_on_article_id_and_index", unique: true, using: :btree
     t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "holds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id",                                     null: false
+    t.string  "holdable_type",                               null: false
+    t.integer "holdable_id"
+    t.text    "content",       limit: 65535
+    t.string  "title"
+    t.integer "category_id"
+    t.string  "tagstr"
+    t.boolean "cleaned",                     default: false
+    t.index ["user_id"], name: "index_holds_on_user_id", using: :btree
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

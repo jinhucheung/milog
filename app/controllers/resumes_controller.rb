@@ -18,6 +18,8 @@ class ResumesController < ApplicationController
     @resume.update_attributes resume_params
     if @resume.valid?
       current_user.post_cache_pictures_in_resume @resume
+      @hold = current_user.hold :resume
+      @hold.update_attribute :cleaned, true if @hold
       flash.now[:success] = I18n.t "flash.success.save_resume"
     else
       flash.now[:warning] = @resume.errors.full_messages[0]
@@ -28,6 +30,8 @@ class ResumesController < ApplicationController
   def edit
     current_user.delete_cache_pictures
     @resume = current_user.resume
+    @hold = current_user.hold :resume
+    @resume.content = @hold.content if @hold && !@hold.cleaned?
   end
 
   private 

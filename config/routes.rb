@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   # 上传图片
   match '/pictures' => 'pictures#create', via: [:post, :patch, :put]
+  # 暂存文章/简历
+  match '/holds' => 'holds#update', via: [:post, :patch, :put]
 
   # users相关路由最后
   resources :users, only: [:show] , path: '' , constraints: { id: User::USERNAME_FORMAT } do

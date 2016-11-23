@@ -38,7 +38,7 @@ editor_sytle_handler = ()->
 # 标签输入处理
 tag_input_handler = ()->
   # 根据逗号数限制用户输入
-  $("#tab-input").on "keyup", ()->
+  $("#tag-input").on "keyup", ()->
     $str = $(this).val()
     $tags = $str.split /[,，]/
     if $tags.length >= 6 
@@ -56,5 +56,5 @@ $(()->
   tag_input_handler()
   $("#title-input").on "keydown", limit_enter_without_sumbit
   $("#category-item-add").on "keydown", limit_enter_without_sumbit
-  $("#tab-input").on "keydown", limit_enter_without_sumbit
+  $("#tag-input").on "keydown", limit_enter_without_sumbit
 )

@@ -80,9 +80,11 @@ zh-CN:
     tags_too_much: 数量过多（最多是 %{size} 个） 
     must_be_present: 必须已存在
     must_be_posted: 必须已发布
+    paramater_illegal: 参数非法
   success:
     category_has_deleted: 文章分类"%{name}"已删除
     category_has_updated: 文章分类"%{bef_name}"已更名为"%{upd_name}"
+    content_has_saved: 内容已保存
 
   activerecord:
     models:
@@ -92,6 +94,7 @@ zh-CN:
       picture: 图片
       commnet: 评论
       resume: 简历
+      hold: 暂存
     attributes:
       user:
         username: 用户名
@@ -118,6 +121,10 @@ zh-CN:
         user_id: 用户
         user: 用户
         content: 内容
+      hold:
+        user_id: 用户
+        user: 用户
+        holdable_type: 类型
 
   accounts_mailer:
     hi: Hi %{username}，

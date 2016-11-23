@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :pictures,             dependent: :destroy
   has_many :comments,             dependent: :destroy
   has_one  :resume,               dependent: :destroy
+  has_many :holds,                dependent: :destroy
 
   # 需引入gem bcrypt
   has_secure_password
@@ -37,7 +38,8 @@ class User < ApplicationRecord
   after_create :generate_activation_digest, 
                :generate_letter_avatar,
                :generate_default_category_ship,
-               :generate_a_resume
+               :generate_a_resume,
+               :generate_article_and_resume_holds
 
   attr_accessor :remember_token, :activation_token, :reset_password_token
 
@@ -132,7 +134,7 @@ class User < ApplicationRecord
     end      
   end
 
-  # 定义方法
+  # 定义关联图片方法
   # post_cache_pictures_in_article
   # post_cache_pictures_in_comment
   # post_cache_pictures_in_resume
@@ -149,6 +151,15 @@ class User < ApplicationRecord
   # 用户禁用?
   def disabled?
     self.state == 0
+  end
+
+  # 获取文章/简历缓存
+  # type in [Article, Resume]
+  def hold(type)
+    return nil if type.blank?
+    type = type.to_s.capitalize
+    return nil unless Hold::ALLOWED_HOLDABLE_TYPES.include? type
+    holds.where(holdable_type: type).first
   end
 
   private
@@ -180,5 +191,12 @@ class User < ApplicationRecord
     def generate_a_resume
       return if self.resume
       Resume.create user: self
+    end
+
+    # 生成文章和简历的暂存
+    def generate_article_and_resume_holds
+      return if self.holds.size > 2
+      self.holds.create holdable_type: Article.name
+      self.holds.create holdable_type: Resume.name
     end
 end

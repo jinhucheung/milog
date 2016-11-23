@@ -291,4 +291,14 @@ RSpec.describe "ApplicationRoutes", type: :routing do
       expect(patch: 'hijinhu/resume').to route_to 'resumes#update', id: 'hijinhu'
     end
   end
+
+  describe "hold" do
+    it "post /holds" do
+      expect(post: '/holds').to route_to 'holds#update'
+    end
+
+    it "patch /holds" do
+      expect(patch: '/holds').to route_to 'holds#update'
+    end
+  end
 end

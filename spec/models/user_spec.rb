@@ -404,4 +404,25 @@ RSpec.describe User, type: :model do
       }.not_to change { Resume.all.reload.size }
     end
   end
+
+  context "hold" do
+    it "has two with user created" do
+      expect(user.holds).to be_empty
+      user.save
+      expect(user.holds.size).to eq 2
+    end
+
+    it "holdable_type should include Article and Resume" do
+      user.save
+      holdable_types = user.holds.map &:holdable_type
+      expect(holdable_types.include? 'Article').to eq true
+      expect(holdable_types.include? 'Resume').to eq true
+    end
+
+    it "should return hold object in type when call hold(type)" do
+      user.save
+      expect(user.hold :resume).to eq user.holds.where(holdable_type: 'Resume').first
+      expect(user.hold :article).to eq user.holds.where(holdable_type: 'Article').first
+    end
+  end
 end
