@@ -26,7 +26,7 @@
 
 
 .avatar-lg {
-    @include build_avatar(100px, 75px, $default-avatar-color);
+    @include build_avatar(80px, 50px, $default-avatar-color);
 }
 
 
