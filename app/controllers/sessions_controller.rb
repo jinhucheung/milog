@@ -8,7 +8,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by email: session_param(:email)
-    return render_404 if @user.disabled?
+    # 用户已进入黑名单
+    if @user && @user.disabled?
+      @user.errors.add :email, I18n.t("errors.email_disabled")
+      return render 'new'
+    end
+
     if @user && @user.authenticated?(:password, session_param(:password))
       sign_in @user
       session_param(:remember_me) == "1" ? remember_me(@user) : forget_me(@user)
