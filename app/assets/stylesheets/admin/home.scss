@@ -1,0 +1,35 @@
+.header-console {
+  color: #777;
+}
+
+#side-nav {
+  position: fixed;
+  left: 0;
+  top: 52px;
+  bottom: 0;
+
+  width: $slide-nav-width;
+  overflow: auto;
+
+  background-color: $loyout-color;
+  border: 1px solid #ddd;
+  border-top: none;
+
+  .side-nav-list {
+    a {
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      &:hover {
+        background-color: white;
+      }
+    }
+
+    .active {
+      background-color: white;
+      color: black;
+    }
+  }
+}

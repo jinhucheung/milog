@@ -162,6 +162,11 @@ class User < ApplicationRecord
     holds.where(holdable_type: type).first
   end
 
+  # 管理员
+  def admin?
+    return self.state == 2
+  end
+
   private
     def downcase_username_and_email
       username.downcase!

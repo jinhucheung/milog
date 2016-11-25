@@ -1,0 +1,37 @@
+<% provide :inadmin, true %>
+<% provide :pre_title, t("console") %>
+
+<div id="side-nav">
+  <div class="list-group side-nav-list">
+    <%= content_tag :a, href: '#', class: 'list-group-item active' do -%>
+      <%= content_tag :i, '', class: 'fa fa-home fa-fw' %>
+      <%= content_tag :span, "&nbsp;首页".html_safe %>
+    <% end -%>
+    <%= content_tag :a, href: '#', class: 'list-group-item' do -%>
+      <%= content_tag :i, '', class: 'fa fa-group fa-fw' %>
+      <%= content_tag :span, "&nbsp;用户".html_safe %>
+    <% end -%>
+    <%= content_tag :a, href: '#', class: 'list-group-item' do -%>
+      <%= content_tag :i, '', class: 'fa fa-th-large fa-fw' %>
+      <%= content_tag :span, "&nbsp;文章".html_safe %>
+    <% end -%>
+    <%= content_tag :a, href: '#', class: 'list-group-item' do -%>
+      <%= content_tag :i, '', class: 'fa fa-th-list fa-fw' %>
+      <%= content_tag :span, "&nbsp;分类".html_safe %>
+    <% end -%>
+    <%= content_tag :a, href: '#', class: 'list-group-item' do -%>
+      <%= content_tag :i, '', class: 'fa fa-tags fa-fw' %>
+      <%= content_tag :span, "&nbsp;标签".html_safe %>
+    <% end -%>
+    <%= content_tag :a, href: '#', class: 'list-group-item' do -%>
+      <%= content_tag :i, '', class: 'fa fa-comments fa-fw' %>
+      <%= content_tag :span, "&nbsp;评论".html_safe %>
+    <% end -%>
+    <%= content_tag :a, href: '#', class: 'list-group-item' do -%>
+      <%= content_tag :i, '', class: 'fa fa-picture-o fa-fw' %>
+      <%= content_tag :span, "&nbsp;图片".html_safe %>
+    <% end -%>
+  </div>
+</div>
+
+<%= javascript_include_tag 'admin/home' %>

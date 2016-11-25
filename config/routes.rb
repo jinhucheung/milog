@@ -36,6 +36,11 @@ Rails.application.routes.draw do
   # 暂存文章/简历
   match '/holds' => 'holds#update', via: [:post, :patch, :put]
 
+  namespace :admin, as: 'admin' do
+    root 'home#index', as: 'index'
+    get 'test' => 'home#test'
+  end
+
   # users相关路由最后
   resources :users, only: [:show] , path: '' , constraints: { id: User::USERNAME_FORMAT } do
     member do
