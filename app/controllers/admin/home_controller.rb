@@ -1,11 +1,8 @@
 class Admin::HomeController < ApplicationController
-  layout 'blog'
+  layout 'admin'
 
   def index
     @user = current_user
   end
 
-  def test
-    render json: { msg: '412' }
-  end
 end

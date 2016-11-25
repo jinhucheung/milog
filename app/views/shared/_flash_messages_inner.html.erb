@@ -1,5 +1,5 @@
 <% unless flash.empty? %>
-<div class="col-md-11 col-center-block content-wrap">
+<div class="col-md-11 col-center-block content-wrap" style="width: 100%;">
   <% flash.each do | message_type, message | %>
   <div class="flash-alert-inner alert alert-<%= "#{message_type}" %>">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

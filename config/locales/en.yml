@@ -226,3 +226,11 @@ en:
     emoji: Emoji
 
   console: Console
+  console-nav:
+    summary: Summary
+    user: User
+    article: Article
+    category: Category
+    tag: Tag
+    comment: Comment
+    picture: Picture

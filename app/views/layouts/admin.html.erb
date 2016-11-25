@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="overflow-y: scroll;">
+  <%= render 'shared/page_head' %>
+  <body>
+    <% provide :inadmin, true %>
+    <%= content_tag :div, class: yield(:bodyclass) do -%>
+    <%= render 'shared/blog_header' %>
+    <%= render 'shared/flash_messages_inner'%>
+    <div class="container">
+      <div class="row" >
+        <div class="col-xs-4 col-sm-4 col-md-2">
+          <%= render 'features/admin_slide_nav' %>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-10">
+          <div id="content">
+              <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end -%>
+    <%= render 'features/back_to_top' %>    
+    <%= javascript_include_tag 'layout' %>
+  </body>
+</html>

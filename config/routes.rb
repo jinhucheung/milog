@@ -38,7 +38,6 @@ Rails.application.routes.draw do
 
   namespace :admin, as: 'admin' do
     root 'home#index', as: 'index'
-    get 'test' => 'home#test'
   end
 
   # users相关路由最后

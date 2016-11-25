@@ -1,0 +1,22 @@
+<% 
+    nav_list = [
+      { url: admin_index_path, icon: 'archive', text: t("console-nav.summary") },
+      { url: '#', icon: 'group', text: t("console-nav.user") },
+      { url: '#', icon: 'th-large', text: t("console-nav.article") },
+      { url: '#', icon: 'th-list', text: t("console-nav.category") },
+      { url: '#', icon: 'tags', text: t("console-nav.tag") },
+      { url: '#', icon: 'comments', text: t("console-nav.comment") },
+      { url: '#', icon: 'picture-o', text: t("console-nav.picture") }
+    ]
+%>
+
+<div id="side-nav">
+  <div class="list-group side-nav-list">
+    <% nav_list.each_with_index do |item, no| %>
+      <%= content_tag :a, href: item[:url], class: "list-group-item #{ 'active' if no.to_s == yield(:index) }" do -%>
+        <%= content_tag :i, '', class: "fa fa-#{item[:icon]} fa-fw" %>
+        <%= content_tag :span, "&nbsp;#{item[:text]}".html_safe %>
+      <% end -%>      
+    <% end %>
+  </div>
+</div>

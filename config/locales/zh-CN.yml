@@ -228,3 +228,11 @@ zh-CN:
     emoji: 表情
 
   console: 控制台
+  console-nav:
+    summary: 概要
+    user: 用户
+    article: 文章
+    category: 分类
+    tag: 标签
+    comment: 评论
+    picture: 图片

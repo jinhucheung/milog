@@ -1,0 +1,48 @@
+.admin {
+    .header-console {
+        color: #777;
+    }
+
+    #side-nav {
+        overflow: auto;
+        background-color: $loyout-color;
+        border: 1px solid #ddd;
+        border-top: none;
+
+        .side-nav-list {
+            margin-bottom: 0;
+
+            a {
+                background-color: transparent;
+                border: none;
+                border-radius: 0;
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+
+                &:hover {
+                    background-color: white;
+                }
+
+                &:last-child {
+                    border: none;
+                }
+            }
+
+            .active {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+
+    #content {
+        .title {
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin: 0;
+
+            color: $post-title-color !important;
+        }
+    }
+}
