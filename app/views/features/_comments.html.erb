@@ -2,7 +2,7 @@
 <section class="comment-expand">
   <div class="comment-expand-header">
     <div class="comment-expand-meta">
-      <%= content_tag :span, @comments.any? ? t("comment.other", size: @comments.size) : t("comment.zero"), class: 'comment_count' %>
+      <%= content_tag :span, @comment_size > 0 ? t("comment.other", size: @comment_size) : t("comment.zero"), class: 'comment_count' %>
     </div>
   </div>
   <div class="comment-expand-body" id="comments">

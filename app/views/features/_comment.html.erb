@@ -1,30 +1,34 @@
-<% if comment && !comment.deleted? %>
+<% if comment %>
 <%= content_tag :div, class: 'media comment', id: comment.indexno(pre: '') do -%>
-<!-- 头像 -->
-<div class="media-left">
-  <%= avatar_tag comment.user, :md, link: true %>
-</div>
-<div class="media-body">
-  <div class="comment-meta">
-    <!-- 评论信息：用户名/层数/评论时间 -->
-    <%= link_to comment.user.username, user_path(comment.user.username), class: "user-name" %> ·
-    <%= link_to comment.indexno(suf: ''), comment.indexno, class: 'comment-no' %> ·
-    <%= timeago_tag comment.created_at, class: 'comment-time' %>
-    <!-- 操作 -->
-    <span class="comment-opts pull-right">
-      <% if comment.user == current_user %>
-      <%= link_to '', edit_comment_path(comment), class: 'fa fa-pencil', title: t('comment.edit'), remote: true %>
-      <%= link_to '', comment_path(comment), class: 'fa fa-close', title: t('comment.delete'), method: :delete, remote: true %>
-      <% else %>
-      <%= link_to '', reply_comment_path(comment), class: 'fa fa-mail-reply', title: t('comment.reply'), remote: true %>
-      <% end %>
-    </span>
-  </div>
-  <div class="comment-content">
-    <div class="standard markdown-body">
-      <%= markdown_comment_tag comment %>
+  <% if comment.deleted? %>
+    <%= content_tag :div, t('success.comment_has_deleted', index: comment.index), class: 'media-body', style: 'text-align: center; text-decoration: line-through;' %>
+  <% else %>
+    <!-- 头像 -->
+    <div class="media-left">
+      <%= avatar_tag comment.user, :md, link: true %>
     </div>
-  </div>
-</div>
+    <div class="media-body">
+      <div class="comment-meta">
+        <!-- 评论信息：用户名/层数/评论时间 -->
+        <%= link_to comment.user.username, user_path(comment.user.username), class: "user-name" %> ·
+        <%= link_to comment.indexno(suf: ''), comment.indexno, class: 'comment-no' %> ·
+        <%= timeago_tag comment.created_at, class: 'comment-time' %>
+        <!-- 操作 -->
+        <span class="comment-opts pull-right">
+          <% if comment.user == current_user %>
+          <%= link_to '', edit_comment_path(comment), class: 'fa fa-pencil', title: t('comment.edit'), remote: true %>
+          <%= link_to '', comment_path(comment), class: 'fa fa-close', title: t('comment.delete'), method: :delete, remote: true %>
+          <% else %>
+          <%= link_to '', reply_comment_path(comment), class: 'fa fa-mail-reply', title: t('comment.reply'), remote: true %>
+          <% end %>
+        </span>
+      </div>
+      <div class="comment-content">
+        <div class="standard markdown-body">
+          <%= markdown_comment_tag comment %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end -%>
 <% end %>

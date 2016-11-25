@@ -85,6 +85,7 @@ zh-CN:
     category_has_deleted: 文章分类"%{name}"已删除
     category_has_updated: 文章分类"%{bef_name}"已更名为"%{upd_name}"
     content_has_saved: 内容已保存
+    comment_has_deleted: "%{index}楼已被删除"
 
   activerecord:
     models:

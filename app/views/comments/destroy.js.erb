@@ -1,5 +1,6 @@
 var mcomment = $('#comments <%= @comment.indexno %>').eq(0);
-mcomment.remove();
+//mcomment.remove();
+mcomment.html("<%= j content_tag :div, t('success.comment_has_deleted', index: @comment.index), class: 'media-body', style: 'text-align: center; text-decoration: line-through;' %>");
 
 $('.comment_count').eq(0).html("<%= @commentsize == 0 ? t('comment.zero') : t('comment.other', size: @commentsize) %>");
 $('#post-comment-count').eq(0).html("<%= @commentsize %>");

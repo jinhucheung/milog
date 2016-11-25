@@ -83,6 +83,7 @@ en:
     category_has_deleted: The category "%{name}" has deleted
     category_has_updated: Rename this category "%{bef_name}" to "%{upd_name}"
     content_has_saved: Content has saved
+    comment_has_deleted: "#%{index} has deleted"
 
   activerecord:
     models:
