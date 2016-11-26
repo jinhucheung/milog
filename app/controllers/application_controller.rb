@@ -47,8 +47,13 @@ class ApplicationController < ActionController::Base
 
   # 检查访问用户是否禁用
   def check_disabled_user
-      user = User.find_by username: params[:id]
-      return render_404 if user.blank? || user.disabled?
+    user = User.find_by username: params[:id]
+    return render_404 if user.blank? || user.disabled?
+  end
+
+  # 确保用户是管理员
+  def check_admin
+    return render_404 if current_user.blank? || !current_user.admin?
   end
 
 end

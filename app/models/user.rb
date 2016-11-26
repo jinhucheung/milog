@@ -43,6 +43,10 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token, :activation_token, :reset_password_token
 
+  scope :normal, ->{ where state: 1 }
+  scope :admin, ->{ where state: 2 }
+  scope :blacklist, ->{ where state: 0 }
+
   # 生成对应属性的加密字段digest, 并保留token
   def new_attr_digest(attribute)
     send "#{attribute}_token=", new_token

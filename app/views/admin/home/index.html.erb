@@ -5,8 +5,190 @@
   <div class="boxed-group">
     <%= content_tag :h3, t("console-nav.summary") %>
     <div class="boxed-group-inner">
-      <div id="users">
-        <%= content_tag :h4, t("console-nav.user"), class: 'title' %>
+
+      <div class="summary-group" id="users">
+        <%= content_tag :h4, class: 'title' do -%>
+          <%= link_to content_tag(:span, @summary[:user][:total] > 0 ? t("c-summary.user.other", size: @summary[:user][:total]) : t("c-summary.user.zero") ), '#' %>
+          <a data-toggle="collapse" href="#user-table">
+            <span class="caret pull-right" ></span>
+          </a>
+        <% end -%>
+        <div class="collapse in" id="user-table">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <td>
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.user.normal"), class: 'name' %>
+                    <%= content_tag :span, @summary[:user][:normal], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.user.admin"), class: 'name' %>
+                    <%= content_tag :span, @summary[:user][:admin], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.user.blacklist"), class: 'name' %>
+                    <%= content_tag :span, @summary[:user][:blacklist], class: 'count' %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="summary-group" id="articles">
+        <%= content_tag :h4, class: 'title' do -%>
+          <%= link_to content_tag(:span, @summary[:article][:total] > 0 ? t("c-summary.article.other", size: @summary[:article][:total]) : t("c-summary.article.zero") ), '#' %>
+          <a data-toggle="collapse" href="#article-table">
+            <span class="caret pull-right" ></span>
+          </a>
+        <% end -%>
+
+        <div class="collapse in" id="article-table">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <td>
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.posted"), class: 'name' %>
+                    <%= content_tag :span, @summary[:article][:posted], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.not_post"), class: 'name' %>
+                    <%= content_tag :span, @summary[:article][:unposted], class: 'count' %>
+                  <% end -%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
+      </div>
+
+      <div class="summary-group" id="categories">
+        <%= content_tag :h4, class: 'title' do -%>
+          <%= link_to content_tag(:span, @summary[:category][:total] > 0 ? t("c-summary.category.other", size: @summary[:category][:total]) : t("c-summary.category.zero") ), '#' %>
+          <a data-toggle="collapse" href="#category-table">
+            <span class="caret pull-right" ></span>
+          </a>
+        <% end -%>
+
+        <div class="collapse in" id="category-table">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <td>
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.used"), class: 'name' %>
+                    <%= content_tag :span, @summary[:category][:used], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.not_use"), class: 'name' %>
+                    <%= content_tag :span, @summary[:category][:unused], class: 'count' %>
+                  <% end -%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
+      </div>
+
+      <div class="summary-group" id="tags">
+        <%= content_tag :h4, class: 'title' do -%>
+          <%= link_to content_tag(:span, @summary[:tag][:total] > 0 ? t("c-summary.tag.other", size: @summary[:tag][:total]) : t("c-summary.tag.zero") ), '#' %>
+          <a data-toggle="collapse" href="#tag-table">
+            <span class="caret pull-right" ></span>
+          </a>
+        <% end -%>
+
+        <div class="collapse in" id="tag-table">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <td>
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.used"), class: 'name' %>
+                    <%= content_tag :span, @summary[:tag][:used], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.not_use"), class: 'name' %>
+                    <%= content_tag :span, @summary[:tag][:unused], class: 'count' %>
+                  <% end -%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
+      </div>
+
+      <div class="summary-group" id="comments">
+        <%= content_tag :h4, class: 'title' do -%>
+          <%= link_to content_tag(:span, @summary[:comment][:total] > 0 ? t("c-summary.comment.other", size: @summary[:comment][:total]) : t("c-summary.comment.zero") ), '#' %>
+          <a data-toggle="collapse" href="#comment-table">
+            <span class="caret pull-right" ></span>
+          </a>
+        <% end -%>
+
+        <div class="collapse in" id="comment-table">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <td>
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.posted"), class: 'name' %>
+                    <%= content_tag :span, @summary[:comment][:posted], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.deleting"), class: 'name' %>
+                    <%= content_tag :span, @summary[:comment][:deleting], class: 'count' %>
+                  <% end -%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
+      </div>
+
+      <div class="summary-group" id="pictures">
+        <%= content_tag :h4, class: 'title' do -%>
+          <%= link_to content_tag(:span, @summary[:picture][:total] > 0 ? t("c-summary.picture.other", size: @summary[:picture][:total]) : t("c-summary.picture.zero") ), '#' %>
+          <a data-toggle="collapse" href="#picture-table">
+            <span class="caret pull-right" ></span>
+          </a>
+        <% end -%>
+
+        <div class="collapse in" id="picture-table">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <td>
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.used"), class: 'name' %>
+                    <%= content_tag :span, @summary[:picture][:posted], class: 'count' %>
+                  <% end -%>
+                </td>
+                <td >
+                  <%= content_tag :a, href: '#' do -%>
+                    <%= content_tag :span, t("c-summary.will_delete"), class: 'name' %>
+                    <%= content_tag :span, @summary[:picture][:unposted], class: 'count' %>
+                  <% end -%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
       </div>
     </div>
   </div>

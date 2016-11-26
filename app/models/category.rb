@@ -25,6 +25,30 @@ class Category < ApplicationRecord
     self.name
   end
 
+  class << self
+    # 已有文章使用中的分类
+    def used
+      self.find_by_sql "
+        SELECT DISTINCT categories.id, categories.name
+        FROM  categories
+        LEFT OUTER JOIN articles
+        ON categories.id = articles.category_id
+        WHERE articles.category_id IS NOT NULL
+      "
+    end
+
+    # 未有文章使用的分类
+    def unused
+      self.find_by_sql "
+        SELECT DISTINCT categories.id, categories.name
+        FROM  categories
+        LEFT OUTER JOIN articles
+        ON categories.id = articles.category_id
+        WHERE articles.category_id IS NULL
+      "
+    end
+  end
+
   private
     def downcase_name 
       name.downcase!

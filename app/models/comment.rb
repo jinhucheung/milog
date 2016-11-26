@@ -14,6 +14,9 @@ class Comment < ApplicationRecord
   before_validation :set_article_in_reply, on: :create
   before_create :cal_index
 
+  scope :posted, ->{ where deleted_at: nil }
+  scope :deleting, ->{ where.not deleted_at: nil }
+
   # 获取回复的上级节点
   def parent
     return nil if self.reply_id.blank?

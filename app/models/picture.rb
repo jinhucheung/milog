@@ -11,6 +11,9 @@ class Picture < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
+  scope :posted, ->{ where posted: true }
+  scope :unposted, ->{ where posted: false }
+
   private 
     def picture_size
       if picture.size > 2.megabytes

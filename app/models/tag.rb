@@ -12,6 +12,31 @@ class Tag < ApplicationRecord
     articles.where(user: user, posted: true)
   end
 
+  class << self
+    # 已有文章使用中的标签
+    def used
+      self.find_by_sql "
+        SELECT DISTINCT tags.id, tags.name
+        FROM  tags
+        LEFT OUTER JOIN article_tagships
+        ON tags.id = article_tagships.tag_id
+        WHERE article_tagships.tag_id IS NOT NULL
+      "
+    end
+
+    # 未有文章使用的标签
+    def unused
+      self.find_by_sql "
+        SELECT DISTINCT tags.id, tags.name
+        FROM  tags
+        LEFT OUTER JOIN article_tagships
+        ON tags.id = article_tagships.tag_id
+        WHERE article_tagships.tag_id IS NULL
+      "
+    end
+
+  end
+
   private
     def downcase_and_strip_name
       name.downcase!

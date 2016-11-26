@@ -234,3 +234,31 @@ en:
     tag: Tag
     comment: Comment
     picture: Picture
+  c-summary:
+    posted: Posted
+    not_post: Unposted
+    used: Used
+    not_use: Unused
+    deleting: Deleting
+    will_delete: To be deleted
+    user:
+      zero: No users
+      other: "%{size} users in total"
+      normal: Normal
+      admin: Admin
+      blacklist: Blacklist
+    article:
+      zero: No articles
+      other: "%{size} articles in total"
+    category:
+      zero: No categories
+      other: "%{size} categories in total"
+    tag:
+      zero: No tags
+      other: "%{size} tags in total"
+    comment:
+      zero: No comments
+      other: "%{size} comments in total"
+    picture:
+      zero: No pictures
+      other: "%{size} pictures in total"

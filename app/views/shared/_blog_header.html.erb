@@ -20,7 +20,7 @@
     <% if signed_in? %>
       <ul class="nav navbar-nav navbar-right navbar-footer drop-nav" >
         <!-- 后台操作 -->
-        <% if @user.admin? %>
+        <% if current_user.admin? %>
         <li>
           <%= link_to content_tag(:i, '', class: 'glyphicon glyphicon-console header-console'), admin_index_path, title: t('console') %>
         </li>

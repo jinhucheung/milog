@@ -1,0 +1,40 @@
+.admin {
+    #content {
+        .summary-group {
+            padding-top: 10px;
+
+            &:first-child {
+                padding-top: 0;
+            }
+
+            table {
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-top: none;
+
+                td {
+                    border-top: none;
+                    text-align: center;
+
+                    .count {
+                        &:before {
+                            content: "(";
+                        }
+
+                        &:after {
+                            content: ")";
+                        }
+                    }
+                }
+
+                a {
+                    color: #666;
+                    &:hover {
+                        padding-bottom: 3px;
+                        border-bottom: 1px solid #666;
+                    }
+                }
+            }
+        }
+    }
+}

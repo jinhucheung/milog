@@ -6,7 +6,8 @@ class Article < ApplicationRecord
   validate :tags_number
 
   default_scope ->{ order created_at: :desc }
-  scope :posted, -> { where(posted: true) }
+  scope :posted, -> { where posted: true }
+  scope :unposted, ->{ where posted: false }
 
   belongs_to :user
   belongs_to :category
@@ -82,7 +83,7 @@ class Article < ApplicationRecord
           }
         }
       ).records
-    end    
+    end
   end
 
   private

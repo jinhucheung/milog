@@ -236,3 +236,31 @@ zh-CN:
     tag: 标签
     comment: 评论
     picture: 图片
+  c-summary:
+    posted: 已发布
+    not_post: 未发布
+    used: 已使用
+    not_use: 未使用
+    deleting: 删除中
+    will_delete: 待删除
+    user:
+      zero: 暂无用户
+      other: "目前共有 %{size} 位用户"
+      normal: 一般用户
+      admin: 管理员
+      blacklist: 黑名单
+    article:
+      zero: 暂无文章
+      other: "目前共有 %{size} 篇文章"
+    category:
+      zero: 暂无分类
+      other: "目前共有 %{size} 个分类"
+    tag:
+      zero: 暂无标签
+      other: "目前共有 %{size} 个标签"
+    comment:
+      zero: 暂无评论
+      other: "目前共有 %{size} 条评论"
+    picture:
+      zero: 暂无图片
+      other: "目前共有 %{size} 张图片"
