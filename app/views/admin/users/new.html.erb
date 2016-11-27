@@ -1,0 +1,48 @@
+<% provide :pre_title, t("c-summary.user.new") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '1' %>
+<div id="users">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("c-summary.user.new") %>
+    <div class="boxed-group-inner">
+      <%= simple_form_for @new_user, url: admin_users_path do |f| %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= content_tag :span, t("username") %>
+            <%= f.input_field :username, class: "form-control form-input-normal" %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("email") %>
+            <%= f.input_field :email, class: "form-control form-input-normal" %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("password") %>
+            <%= f.input_field :password, class: "form-control form-input-normal", value: @random_psw, type: :text %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("password_confirmation") %>
+            <%= f.input_field :password_confirmation, class: "form-control form-input-normal", value: @random_psw, type: :text %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= content_tag :span, t("c-summary.user.state") %>
+            <select selected="selected" class="select form-control form-input-normal" name="user[state]" id="user_state">
+              <%= content_tag :option, t("c-summary.user.disabled"), value: '0' %>
+              <%= content_tag :option, t("c-summary.user.normal"), value: '1', selected: 'selected' %>
+              <%= content_tag :option, t("c-summary.user.admin"), value: '2' %>
+            </select>
+          </div>
+        </div>
+     </div>
+      <div class="form-group">
+        <%= f.submit t("c-summary.user.new"), class: "btn btn-primary submit" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

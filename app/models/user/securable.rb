@@ -23,5 +23,10 @@ class User
     def update_digest(attribute, value)
       update_attribute "#{attribute}_digest", value
     end
+
+    # 生成随机密码
+    def new_random_psw
+      self.password = [*0..9, *'a'..'z', *'A'..'Z'].sample(12).join
+    end
   end
 end

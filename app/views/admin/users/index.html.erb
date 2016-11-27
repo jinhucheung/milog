@@ -21,7 +21,7 @@
         <% end -%>
       </ul>
 
-      <div class="tab-content">
+      <div id="body-content">
         <%= render 'admin/features/users_table', users: @users %>
         <%= will_paginate @users, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
       </div>
@@ -29,3 +29,14 @@
     </div>
   </div>
 </div>
+<%= render 'admin/features/confirm_delete_dialog' %>
+
+<script>
+  $("#body-content").on("click", "#to-delete", function(){
+      text = $(this).attr("value");
+      text = "<%= j t('ask.user_delete.pre') %>" + text + "<%= j t('ask.user_delete.suf') %>";
+      $("#confirm-delete .modal-body").html(text);
+      $("#confirm-delete").modal();
+      return false;
+  });
+</script>

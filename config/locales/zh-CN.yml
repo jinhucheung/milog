@@ -34,6 +34,8 @@ zh-CN:
   update: 更新
   opt: 操作
   edit: 编辑
+  confirm: 确认
+  cancel: 取消
 
   search_in_blog: 在当前博客中搜索
 
@@ -60,6 +62,7 @@ zh-CN:
       picture_too_big: 图片过大（最大是 %{size} MB）
       need_activation: 请激活您的账号
       send_validation_mail: 点击发送验证邮件
+      user_not_fount: 用户"%{name}"没有找到
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
@@ -68,6 +71,8 @@ zh-CN:
       save_article: 已保存文章
       delete_article: 已删除文章"%{title}"
       save_resume: 已保存简历
+      delete_user: 已删除用户"%{name}"
+      create_user: 已创建用户"%{name}"
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -88,6 +93,10 @@ zh-CN:
     category_has_updated: 文章分类"%{bef_name}"已更名为"%{upd_name}"
     content_has_saved: 内容已保存
     comment_has_deleted: "%{index}楼已被删除"
+  ask:
+    user_delete:
+      pre: "是否删除用户名为\""
+      suf: "\"的用户？"
 
   activerecord:
     models:

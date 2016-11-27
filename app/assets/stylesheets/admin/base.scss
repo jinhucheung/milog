@@ -59,4 +59,16 @@
 
         }
     }
+
+    #confirm-delete {
+        .mdialog {
+            padding: 0;
+            border-radius: 0;
+
+            .modal-header {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+    }
 }

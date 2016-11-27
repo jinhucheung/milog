@@ -1,0 +1,21 @@
+<div class="modal fade" id="confirm-delete" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content col-md-7 col-center-block mdialog">
+      <div class="modal-header">
+        <span role="button" class="close" data-dismiss="modal">&times;</span>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <%= content_tag :span, t("confirm"), class: "pull-left", id: "confirm", role: 'button' %>
+        <%= content_tag :span, t("cancel"), class: "pull-right", id: "cancel", role: 'button', 'data-dismiss': "modal" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $("#confirm-delete").on("click", "#confirm", function(){
+      $("#delete").click();
+  });
+</script>

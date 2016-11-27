@@ -21,7 +21,8 @@
         <%= content_tag :td, mtime_tag(user.created_at) %>
         <%= content_tag :td do -%>
           <%= link_to t('edit'), '#' %> / 
-          <%= link_to t('delete'), '#' %>
+          <%= link_to t('delete'), '#', value: user.username, id: 'to-delete' %>
+          <%= link_to '', admin_user_path(user.username), method: 'DELETE', id: 'delete', style: 'display: none;' %>
         <% end -%>
       </tr>
     <% end %>
