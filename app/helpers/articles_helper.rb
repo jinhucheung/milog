@@ -23,11 +23,6 @@ module ArticlesHelper
     link_to category.mname, category_user_path(user.username, category.id), opts
   end
 
-  ## 时间标签
-  def mtime_tag(time, strf: "%Y-%m-%d %H:%M", opts: {})
-    return if time.blank?
-    content_tag :span, time.strftime(strf), opts
-  end
 
   # 关键字标签
   def tags_tag(user, tags)

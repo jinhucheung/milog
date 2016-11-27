@@ -1,0 +1,31 @@
+<% provide :pre_title, t("console-nav.user") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '1' %>
+
+<div id="users">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("console-nav.user") %>
+    <div class="boxed-group-inner">
+
+      <ul class="nav nav-tabs">
+        <%= content_tag :li, link_to(t("c-summary.user.total"), admin_users_path), class: "#{'active' if @value == 1 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.user.normal"), admin_users_path(by: 'normal')), class: "#{'active' if @value == 2 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.user.admin"), admin_users_path(by: 'admin')), class: "#{'active' if @value == 3 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.user.disabled"), admin_users_path(by: 'disabled')), class: "#{'active' if @value == 4 }" %>
+
+        <%= content_tag :a, href: new_admin_user_path, class: 'pull-right', title: t('c-summary.user.new') do -%>
+          <%= content_tag :span, '', class: 'glyphicon glyphicon-plus' %>
+        <% end -%>
+      </ul>
+
+      <div class="tab-content">
+        <%= render 'admin/features/users_table', users: @users %>
+        <%= will_paginate @users, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+      </div>
+
+    </div>
+  </div>
+</div>

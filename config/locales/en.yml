@@ -30,6 +30,8 @@ en:
   invalid: Invalid
   delete: Delete
   update: Update
+  opt: Operation
+  edit: Edit
 
   search_in_blog: Search in this blog
 
@@ -244,9 +246,14 @@ en:
     user:
       zero: No users
       other: "%{size} users in total"
+      total: Total
       normal: Normal
       admin: Admin
-      blacklist: Blacklist
+      disabled: Disabled
+      new: New User
+      state: State
+      activation: Activation
+      created_at: Joindate
     article:
       zero: No articles
       other: "%{size} articles in total"

@@ -32,6 +32,8 @@ zh-CN:
   invalid: 是无效的
   delete: 删除
   update: 更新
+  opt: 操作
+  edit: 编辑
 
   search_in_blog: 在当前博客中搜索
 
@@ -246,9 +248,14 @@ zh-CN:
     user:
       zero: 暂无用户
       other: "目前共有 %{size} 位用户"
+      total: 全部
       normal: 一般用户
       admin: 管理员
-      blacklist: 黑名单
+      disabled: 禁用
+      new: 添加用户
+      state: 身份
+      activation: 激活状态
+      created_at: 注册时间
     article:
       zero: 暂无文章
       other: "目前共有 %{size} 篇文章"
@@ -264,3 +271,4 @@ zh-CN:
     picture:
       zero: 暂无图片
       other: "目前共有 %{size} 张图片"
+

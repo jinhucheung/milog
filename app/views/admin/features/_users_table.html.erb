@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("username") %>
+      <%= content_tag :th, t("email") %>
+      <%= content_tag :th, t("c-summary.user.state") %>
+      <%= content_tag :th, t("c-summary.user.activation") %>
+      <%= content_tag :th, t("c-summary.user.created_at") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <%= content_tag :td, user.id %>
+        <%= content_tag :td, user.username %>
+        <%= content_tag :td, user.email %>
+        <%= content_tag :td, user_state(user) %>
+        <%= content_tag :td, user.activated %>
+        <%= content_tag :td, mtime_tag(user.created_at) %>
+        <%= content_tag :td do -%>
+          <%= link_to t('edit'), '#' %> / 
+          <%= link_to t('delete'), '#' %>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

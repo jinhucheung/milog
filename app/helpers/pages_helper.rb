@@ -28,4 +28,11 @@ module PagesHelper
     display_value = text == path ? "block" : "none"
     "style= 'display: #{display_value}'".html_safe
   end
+
+  ## 时间标签
+  def mtime_tag(time, strf: "%Y-%m-%d %H:%M", opts: {})
+    return if time.blank?
+    content_tag :span, time.strftime(strf), opts
+  end
+  
 end

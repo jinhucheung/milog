@@ -45,7 +45,7 @@ class User < ApplicationRecord
 
   scope :normal, ->{ where state: 1 }
   scope :admin, ->{ where state: 2 }
-  scope :blacklist, ->{ where state: 0 }
+  scope :disabled, ->{ where state: 0 }
 
   # 生成对应属性的加密字段digest, 并保留token
   def new_attr_digest(attribute)

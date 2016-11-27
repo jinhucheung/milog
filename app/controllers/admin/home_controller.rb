@@ -9,7 +9,7 @@ class Admin::HomeController < ApplicationController
     @user = current_user
     @summary = {
       user:      { total: User.all.size,     normal: User.normal.size, 
-                   admin: User.admin.size,   blacklist: User.blacklist.size  },
+                   admin: User.admin.size,   disabled: User.disabled.size  },
       article:   { total: Article.all.size,  posted: Article.posted.size, 
                    unposted: Article.unposted.size },
       category:  { total: Category.all.size, used: Category.used.size,

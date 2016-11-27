@@ -8,7 +8,7 @@
 
       <div class="summary-group" id="users">
         <%= content_tag :h4, class: 'title' do -%>
-          <%= link_to content_tag(:span, @summary[:user][:total] > 0 ? t("c-summary.user.other", size: @summary[:user][:total]) : t("c-summary.user.zero") ), '#' %>
+          <%= link_to content_tag(:span, @summary[:user][:total] > 0 ? t("c-summary.user.other", size: @summary[:user][:total]) : t("c-summary.user.zero") ), admin_users_path %>
           <a data-toggle="collapse" href="#user-table">
             <span class="caret pull-right" ></span>
           </a>
@@ -18,21 +18,21 @@
             <tbody>
               <tr>
                 <td>
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_users_path(by: 'normal') do -%>
                     <%= content_tag :span, t("c-summary.user.normal"), class: 'name' %>
                     <%= content_tag :span, @summary[:user][:normal], class: 'count' %>
                   <% end -%>
                 </td>
                 <td >
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_users_path(by: 'admin') do -%>
                     <%= content_tag :span, t("c-summary.user.admin"), class: 'name' %>
                     <%= content_tag :span, @summary[:user][:admin], class: 'count' %>
                   <% end -%>
                 </td>
                 <td >
-                  <%= content_tag :a, href: '#' do -%>
-                    <%= content_tag :span, t("c-summary.user.blacklist"), class: 'name' %>
-                    <%= content_tag :span, @summary[:user][:blacklist], class: 'count' %>
+                  <%= content_tag :a, href: admin_users_path(by: 'disabled') do -%>
+                    <%= content_tag :span, t("c-summary.user.disabled"), class: 'name' %>
+                    <%= content_tag :span, @summary[:user][:disabled], class: 'count' %>
                   <% end %>
                 </td>
               </tr>

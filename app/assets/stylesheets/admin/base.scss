@@ -47,5 +47,16 @@
                 color: $lightblack;
             }
         }
+
+        table {
+            th, td {
+                text-align: center;
+            }
+        }
+
+        .pagination {
+            margin-top: 0;
+
+        }
     }
 }
