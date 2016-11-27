@@ -36,6 +36,7 @@
       text = $(this).attr("value");
       text = "<%= j t('ask.user_delete.pre') %>" + text + "<%= j t('ask.user_delete.suf') %>";
       $("#confirm-delete .modal-body").html(text);
+      $("#confirm-delete #confirm").attr('href', $(this).attr('href'));
       $("#confirm-delete").modal();
       return false;
   });

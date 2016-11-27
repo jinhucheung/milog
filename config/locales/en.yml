@@ -61,6 +61,7 @@ en:
       need_activation: Please validate your account
       send_validation_mail: click to send validation mail
       user_not_fount: Could not find username of "%{name}"
+      username_or_email_has_existed: Username or Email has present
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -71,6 +72,7 @@ en:
       save_resume: Resume saved successfully
       delete_user: User "%{name}" has deleted
       create_user: User "%{name}" has created successfully
+      update_account: Account Profile updated successfully
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -263,6 +265,10 @@ en:
       state: State
       activation: Activation
       created_at: Joindate
+      update: Update Profile of User
+      update_account: Update Account
+      account_info: Account Profile
+      profile: User Profile
     article:
       zero: No articles
       other: "%{size} articles in total"

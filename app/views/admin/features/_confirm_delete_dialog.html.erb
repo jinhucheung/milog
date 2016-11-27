@@ -7,15 +7,13 @@
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <%= content_tag :span, t("confirm"), class: "pull-left", id: "confirm", role: 'button' %>
-        <%= content_tag :span, t("cancel"), class: "pull-right", id: "cancel", role: 'button', 'data-dismiss': "modal" %>
+        <%= link_to t("confirm"), '#', method: 'DELETE', class: "pull-left", id: "confirm" %>
+        <%= link_to t("cancel"), '#', class: "pull-right", id: "cancel", 'data-dismiss': "modal" %>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  $("#confirm-delete").on("click", "#confirm", function(){
-      $("#delete").click();
-  });
+
 </script>

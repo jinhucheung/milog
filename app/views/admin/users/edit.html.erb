@@ -1,0 +1,82 @@
+<% provide :pre_title, t("c-summary.user.update") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '1' %>
+<div id="users">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("c-summary.user.update") %>
+    <div class="boxed-group-inner">
+      <%= simple_form_for @edit_user, url: admin_user_path(@edit_user.username) do |f| %>
+      <%= content_tag :h4, t("c-summary.user.account_info"), class: 'title', style: 'margin-bottom: 10px;' %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= content_tag :span, t("username") %>
+            <%= f.input_field :username, class: "form-control form-input-normal" %>
+          </div>
+          <div class="form-group">
+            <%= content_tag :span, t("email") %>
+            <%= f.input_field :email, class: "form-control form-input-normal" %>
+          </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <%= f.submit t("c-summary.user.update_account"), class: "btn btn-primary submit", style:"margin-top: 0;" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= content_tag :span, t("c-summary.user.state") %>
+            <select selected="selected" class="select form-control form-input-normal" name="user[state]" id="user_state">
+              <%= user_state_selected_tags f.object.state %>
+            </select>
+          </div>
+          <div class="form-group">
+            <%= content_tag :span, t("c-summary.user.activation") %>
+            <select selected="selected" class="select form-control form-input-normal" name="user[activated]" id="user_activated">
+              <%= user_activated_selected_tags f.object.activated %>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <%= content_tag :h4, t("c-summary.user.profile"), class: 'title', style: 'margin: 10px auto;' %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= content_tag :span, t("profile.nickname") %>
+            <%= f.input_field :nickname, class: "form-control form-input-normal", disabled: 'disabled' %>
+          </div>
+          <div class="form-group">
+            <span>Github</span>
+            <div class="input-group">
+              <%= content_tag :span, "https://github.com/", class: "input-group-addon" %>
+              <%= f.input_field :github, placeholder: t("profile.account") ,class: "form-control form-input-normal", disabled: 'disabled' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= content_tag :span, t("profile.weibo") %>
+            <div class="input-group">
+              <%= content_tag :span, "https://weibo.com/", class: "input-group-addon" %>
+              <%= f.input_field :weibo, placeholder: t("profile.account") ,class: "form-control form-input-normal", disabled: 'disabled'  %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= content_tag :span, t("profile.personal_website") %>
+            <%= f.input_field :website, class: "form-control form-input-normal", disabled: 'disabled' %>
+          </div>
+          <div class="form-group" style="height: 150px; ">
+            <%= content_tag :span, t("profile.bio") %>
+            <%= f.input_field :bio, as: :text, class: "form-control form-input-normal", style: "height: 150px;", disabled: 'disabled' %>
+          </div>
+        </div>
+        <% end %>
+        <div class="col-md-4">
+          <div class="boxed-group">
+            <div class="boxed-group-inner boxed-group-round-border" style="margin-top: 15px;">
+              <%= avatar_tag @edit_user, :md %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

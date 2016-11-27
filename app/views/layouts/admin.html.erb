@@ -6,7 +6,7 @@
     <%= content_tag :div, class: yield(:bodyclass) do -%>
     <%= render 'shared/blog_header' %>
     <%= render 'shared/flash_messages_inner'%>
-    <div class="container-fluid">
+    <div class="container-fluid" id="mainer">
       <div class="row" >
         <div class="col-xs-4 col-sm-4 col-md-2">
           <%= render 'admin/features/slide_nav' %>

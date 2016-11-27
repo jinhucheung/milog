@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :check_activated
   before_action :check_admin
 
-  before_action :get_current_user, only: [:index, :new, :create]
+  before_action :get_current_user, except: [:destroy]
 
   layout 'admin'
 
@@ -54,9 +54,39 @@ class Admin::UsersController < ApplicationController
     render 'new'
   end
 
+  def edit
+    @edit_user = User.find_by username: params[:id]
+    if @edit_user.blank?
+      flash[:warning] = I18n.t "flash.warning.user_not_fount", name: params[:id]
+      redirect_to admin_users_path
+    end 
+  end
+
+  def update
+    @edit_user = User.find_by username: params[:id]
+    if @edit_user.blank?
+      flash[:warning] = I18n.t "flash.warning.user_not_fount", name: params[:id]
+      return redirect_to admin_users_path
+    end
+
+    @edit_user.update_attributes edit_user_params
+    if @edit_user.errors.include?(:email) || @edit_user.errors.include?(:username)
+      flash.now[:warning] = I18n.t "flash.warning.username_or_email_has_existed"
+    else
+      @edit_user.update_attributes_by_each edit_user_params
+      flash.now[:success] = I18n.t "flash.success.update_account"
+    end
+    @edit_user.reload
+    render 'edit'
+  end
+
   private
     def new_user_params
       params.require(:user).permit :username, :email, :password, :password_confirmation, :state
+    end
+
+    def edit_user_params
+      params.require(:user).permit :username, :email, :state, :activated
     end
 
     def get_current_user

@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   namespace :admin, as: 'admin' do
     root 'home#index', as: 'index'
-    resources :users, only: [:index, :new, :destroy, :create]
+    resources :users, except: [:show]
   end
 
   # users相关路由最后

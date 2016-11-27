@@ -20,9 +20,8 @@
         <%= content_tag :td, user.activated %>
         <%= content_tag :td, mtime_tag(user.created_at) %>
         <%= content_tag :td do -%>
-          <%= link_to t('edit'), '#' %> / 
-          <%= link_to t('delete'), '#', value: user.username, id: 'to-delete' %>
-          <%= link_to '', admin_user_path(user.username), method: 'DELETE', id: 'delete', style: 'display: none;' %>
+          <%= link_to t('update'), edit_admin_user_path(user.username) %> / 
+          <%= link_to t('delete'), admin_user_path(user.username), method: 'DELETE', value: user.username, id: 'to-delete' %>
         <% end -%>
       </tr>
     <% end %>

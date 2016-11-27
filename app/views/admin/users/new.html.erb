@@ -20,21 +20,19 @@
 
           <div class="form-group">
             <%= content_tag :span, t("password") %>
-            <%= f.input_field :password, class: "form-control form-input-normal", value: @random_psw, type: :text %>
+            <%= f.input_field :password, class: "form-control form-input-normal", value: @random_psw %>
           </div>
 
           <div class="form-group">
             <%= content_tag :span, t("password_confirmation") %>
-            <%= f.input_field :password_confirmation, class: "form-control form-input-normal", value: @random_psw, type: :text %>
+            <%= f.input_field :password_confirmation, class: "form-control form-input-normal", value: @random_psw %>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <%= content_tag :span, t("c-summary.user.state") %>
             <select selected="selected" class="select form-control form-input-normal" name="user[state]" id="user_state">
-              <%= content_tag :option, t("c-summary.user.disabled"), value: '0' %>
-              <%= content_tag :option, t("c-summary.user.normal"), value: '1', selected: 'selected' %>
-              <%= content_tag :option, t("c-summary.user.admin"), value: '2' %>
+              <%= user_state_selected_tags 1 %>
             </select>
           </div>
         </div>
