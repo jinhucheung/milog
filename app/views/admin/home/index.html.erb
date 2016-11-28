@@ -43,7 +43,7 @@
 
       <div class="summary-group" id="articles">
         <%= content_tag :h4, class: 'title' do -%>
-          <%= link_to content_tag(:span, @summary[:article][:total] > 0 ? t("c-summary.article.other", size: @summary[:article][:total]) : t("c-summary.article.zero") ), '#' %>
+          <%= link_to content_tag(:span, @summary[:article][:total] > 0 ? t("c-summary.article.other", size: @summary[:article][:total]) : t("c-summary.article.zero") ), admin_articles_path %>
           <a data-toggle="collapse" href="#article-table">
             <span class="caret pull-right" ></span>
           </a>
@@ -54,13 +54,13 @@
             <tbody>
               <tr>
                 <td>
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_articles_path(by: 'posted') do -%>
                     <%= content_tag :span, t("c-summary.posted"), class: 'name' %>
                     <%= content_tag :span, @summary[:article][:posted], class: 'count' %>
                   <% end -%>
                 </td>
                 <td >
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_articles_path(by: 'unposted') do -%>
                     <%= content_tag :span, t("c-summary.not_post"), class: 'name' %>
                     <%= content_tag :span, @summary[:article][:unposted], class: 'count' %>
                   <% end -%>

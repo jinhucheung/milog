@@ -8,7 +8,7 @@
     <div class="boxed-group-inner">
 
       <ul class="nav nav-tabs">
-        <%= content_tag :li, link_to(t("c-summary.user.total"), admin_users_path), class: "#{'active' if @value == 1 }" %>
+        <%= content_tag :li, link_to(t("c-summary.total"), admin_users_path), class: "#{'active' if @value == 1 }" %>
 
         <%= content_tag :li, link_to(t("c-summary.user.normal"), admin_users_path(by: 'normal')), class: "#{'active' if @value == 2 }" %>
 
@@ -22,7 +22,7 @@
       </ul>
 
       <div id="body-content">
-        <%= render 'admin/features/users_table', users: @users %>
+        <%= render 'users_table', users: @users %>
         <%= will_paginate @users, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
       </div>
 

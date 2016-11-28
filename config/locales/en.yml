@@ -62,6 +62,7 @@ en:
       send_validation_mail: click to send validation mail
       user_not_fount: Could not find username of "%{name}"
       username_or_email_has_existed: Username or Email has present
+      article_not_fount: Could not find article which id is "%{value}"
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -73,6 +74,9 @@ en:
       delete_user: User "%{name}" has deleted
       create_user: User "%{name}" has created successfully
       update_account: Account Profile updated successfully
+      delete_article: Article which id is "%{value}" has deleted
+      create_article: Article has created successfully
+      update_article: Article has updated successfully
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -96,6 +100,9 @@ en:
   ask:
     user_delete:
       pre: "Deleting user which username is \""
+      suf: "\"?"
+    article_delete:
+      pre: "Deleting article which id is \""
       suf: "\"?"
 
   activerecord:
@@ -122,6 +129,8 @@ en:
         content: Content
         category: Category
         tag: Tag
+        user: User
+        user_id: User ID
       picture:
         picture: Picture
       comment:
@@ -213,6 +222,14 @@ en:
     read_more: More»
     zero: No articles
     other: "%{size} articles in total"
+    title: Title
+    view_count: View Count
+    comment_count: Comment Count
+    user: User
+    create_time: Created Time
+    user_id: User ID
+    category_id: Category ID
+    update_article: Update Article
 
   draft:
     zero: No drafts
@@ -248,6 +265,7 @@ en:
     comment: Comment
     picture: Picture
   c-summary:
+    total: Total
     posted: Posted
     not_post: Unposted
     used: Used
@@ -257,7 +275,6 @@ en:
     user:
       zero: No users
       other: "%{size} users in total"
-      total: Total
       normal: Normal
       admin: Admin
       disabled: Disabled
@@ -272,6 +289,7 @@ en:
     article:
       zero: No articles
       other: "%{size} articles in total"
+      new: New Article
     category:
       zero: No categories
       other: "%{size} categories in total"

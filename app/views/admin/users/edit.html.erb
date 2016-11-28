@@ -31,7 +31,7 @@
           <div class="form-group">
             <%= content_tag :span, t("c-summary.user.activation") %>
             <select selected="selected" class="select form-control form-input-normal" name="user[activated]" id="user_activated">
-              <%= user_activated_selected_tags f.object.activated %>
+              <%= boolean_selected_tags f.object.activated %>
             </select>
           </div>
         </div>

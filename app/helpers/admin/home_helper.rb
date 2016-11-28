@@ -31,7 +31,7 @@ module Admin::HomeHelper
     raw options
   end
 
-  def user_activated_selected_tags(selected_value)
+  def boolean_selected_tags(selected_value)
     value = selected_value
     value = false if selected_value.blank?
     options = ""
@@ -46,4 +46,5 @@ module Admin::HomeHelper
     end
     raw options
   end
+
 end

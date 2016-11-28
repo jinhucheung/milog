@@ -1,0 +1,41 @@
+<% provide :pre_title, t("console-nav.article") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '2' %>
+
+<div id="users">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("console-nav.article") %>
+    <div class="boxed-group-inner">
+
+      <ul class="nav nav-tabs">
+        <%= content_tag :li, link_to(t("c-summary.total"), admin_articles_path), class: "#{'active' if @value == 1 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.posted"), admin_articles_path(by: 'posted')), class: "#{'active' if @value == 2 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.not_post"), admin_articles_path(by: 'unposted')), class: "#{'active' if @value == 3 }" %>
+
+        <%= content_tag :a, href: new_admin_article_path, class: 'pull-right', title: t('c-summary.article.new') do -%>
+          <%= content_tag :span, '', class: 'glyphicon glyphicon-plus' %>
+        <% end -%>
+      </ul>
+
+      <div id="body-content">
+        <%= render 'articles_table', articles: @articles %>
+        <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'admin/features/confirm_delete_dialog' %>
+
+<script>
+  $("#body-content").on("click", "#to-delete", function(){
+      text = $(this).attr("value");
+      text = "<%= j t('ask.article_delete.pre') %>" + text + "<%= j t('ask.article_delete.suf') %>";
+      $("#confirm-delete .modal-body").html(text);
+      $("#confirm-delete #confirm").attr('href', $(this).attr('href'));
+      $("#confirm-delete").modal();
+      return false;
+  });
+</script>

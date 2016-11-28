@@ -1,13 +1,4 @@
-class Admin::UsersController < ApplicationController
-  before_action :check_signed_in
-  before_action :check_activated
-  before_action :check_admin
-
-  before_action :get_current_user, except: [:destroy]
-
-  layout 'admin'
-
-  MAX_IN_PAGE = 15
+class Admin::UsersController < Admin::ApplicationController
 
   def index
     case params[:by]
@@ -32,7 +23,7 @@ class Admin::UsersController < ApplicationController
       @user.destroy
       flash[:success] = I18n.t "flash.success.delete_user", name: @user.username
     else
-      flash[:warning] = I18n.t "flash.warning.user_not_fount", name: @user.username
+      flash[:warning] = I18n.t "flash.warning.user_not_fount", name: params[:id]
     end
     redirect_to admin_users_path
   end
@@ -87,9 +78,5 @@ class Admin::UsersController < ApplicationController
 
     def edit_user_params
       params.require(:user).permit :username, :email, :state, :activated
-    end
-
-    def get_current_user
-      @user = current_user
     end
 end

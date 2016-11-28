@@ -1,0 +1,69 @@
+<% provide :bodyclass, "admin" %>
+<% provide :index, '2' %>
+<div id="articles">
+  <div class="boxed-group">
+    <%= content_tag :h3, yield(:content_title) %>
+    <div class="boxed-group-inner">
+      <%= simple_form_for @article, url: yield(:form_url) do |f| %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= content_tag :span, t("article.title") %>
+            <%= f.input_field :title, class: "form-control form-input-normal" %>
+          </div>
+          <div class="edit-body">
+            <!-- 标签卡与工具栏 -->
+            <div class="edit-body-header">
+              <div class="post-edit-toolbar pull-right">
+                <%= render 'features/markdown_toolbar' %>
+              </div>
+              <ul class="nav nav-tabs" id="edit-tabs">
+                <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
+                <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>
+              </ul>
+            </div>
+            <!-- 编辑/预览区 -->
+            <div class="tab-content edit-body-cotent" id="tab-content">
+              <div class="tab-pane fade in active" id="edit-content">
+                <%= f.input_field :content, as: :text, class: 'tabIndent edit-body-node edit-node', id: 'editor' %>
+                <%= f.input_field :content_html, as: :hidden, id: 'content_html', disable: true %>
+              </div>
+              <div class="tab-pane fade" id="preview-content">
+                <%= content_tag :div, '', class: 'edit-body-node preview-node standard markdown-body', id: 'previewer' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= content_tag :span, t("article.user_id") %>
+            <%= f.input_field :user_id, class: "form-control form-input-normal" %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("article.category_id") %>
+            <%= f.input_field :category_id, class: "form-control form-input-normal" %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("article.tag") %>
+            <%= f.input_field :tagstr, class: "form-control form-input-normal", id: "tag-input", placeholder: t("article.tag_tips") %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("article.post") %>
+            <select selected="selected" class="select form-control form-input-normal" name="article[posted]" id="article_posted">
+              <%= boolean_selected_tags f.object.posted %>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("c-summary.article.new"), class: "btn btn-primary submit", onclick: 'set_content_html()' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'editor-markdown' %>

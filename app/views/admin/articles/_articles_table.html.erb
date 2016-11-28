@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("article.title") %>
+      <%= content_tag :th, t("article.view_count") %>
+      <%= content_tag :th, t("article.comment_count") %>
+      <%= content_tag :th, t("article.user") %>
+      <%= content_tag :th, t("article.category") %>
+      <%= content_tag :th, t("article.tag") %>
+      <%= content_tag :th, t("article.create_time") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% articles.each do |article| %>
+      <tr>
+        <%= content_tag :td, article.id %>
+        <%= content_tag :td, article.title %>
+        <%= content_tag :td, article.view_count %>
+        <%= content_tag :td, article.comment_count %>
+        <%= content_tag :td, article.user.username %>
+        <%= content_tag :td, article.category.name %>
+        <%= content_tag :td, article.tags2str %>
+        <%= content_tag :td, mtime_tag(article.created_at) %>
+        <%= content_tag :td do -%>
+          <%= link_to t('update'), edit_admin_article_path(article.id) %> / 
+          <%= link_to t('delete'), admin_article_path(article.id), value: article.id, method: 'DELETE', id: 'to-delete' %>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

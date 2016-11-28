@@ -64,6 +64,7 @@ zh-CN:
       send_validation_mail: 点击发送验证邮件
       user_not_fount: 用户"%{name}"没有找到
       username_or_email_has_existed: 用户名或邮箱已存在
+      article_not_fount: ID为"%{value}"的文章没有找到
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
@@ -75,6 +76,9 @@ zh-CN:
       delete_user: 已删除用户"%{name}"
       create_user: 已创建用户"%{name}"
       update_account: 已更新账户信息
+      delete_article: 已删除ID为"%{value}"的文章
+      create_article: 已成功添加文章
+      update_article: 已成功更新文章
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -99,6 +103,9 @@ zh-CN:
     user_delete:
       pre: "是否删除用户名为\""
       suf: "\"的用户？"
+    article_delete:
+      pre: "是否删除ID为\""
+      suf: "\"的文章？"
 
   activerecord:
     models:
@@ -124,6 +131,8 @@ zh-CN:
         content: 正文
         category: 分类
         tag: 标签
+        user: 用户
+        user_id: 用户 ID
       picture:
         picture: 图片
       comment:
@@ -205,6 +214,14 @@ zh-CN:
     read_more: 阅读全文»
     zero: 暂无文章
     other: "目前共有 %{size} 篇文章"
+    title: 标题
+    view_count: 阅读数
+    comment_count: 评论数
+    user: 用户
+    create_time: 创建时间
+    user_id: 用户 ID
+    category_id: 分类 ID
+    update_article: 更新文章
 
   draft:
     zero: 暂无草稿
@@ -250,6 +267,7 @@ zh-CN:
     comment: 评论
     picture: 图片
   c-summary:
+    total: 全部
     posted: 已发布
     not_post: 未发布
     used: 已使用
@@ -259,7 +277,6 @@ zh-CN:
     user:
       zero: 暂无用户
       other: "目前共有 %{size} 位用户"
-      total: 全部
       normal: 一般用户
       admin: 管理员
       disabled: 禁用
@@ -274,6 +291,7 @@ zh-CN:
     article:
       zero: 暂无文章
       other: "目前共有 %{size} 篇文章"
+      new: 添加文章
     category:
       zero: 暂无分类
       other: "目前共有 %{size} 个分类"

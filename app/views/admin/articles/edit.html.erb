@@ -1,0 +1,5 @@
+<% provide :pre_title, t("article.update_article") + ' | ' + t("console") %>
+<% provide :content_title, t("article.update_article") %>
+<% provide :form_url, admin_article_path(@article.id) %>
+
+<%= render 'new_or_edit' %>

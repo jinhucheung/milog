@@ -1,12 +1,6 @@
-class Admin::HomeController < ApplicationController
-  before_action :check_signed_in
-  before_action :check_activated
-  before_action :check_admin
-
-  layout 'admin'
+class Admin::HomeController < Admin::ApplicationController
 
   def index
-    @user = current_user
     @summary = {
       user:      { total: User.all.size,     normal: User.normal.size, 
                    admin: User.admin.size,   disabled: User.disabled.size  },
