@@ -34,6 +34,7 @@ en:
   edit: Edit
   confirm: Confirm
   cancel: Cancel
+  submit: Submit
 
   search_in_blog: Search in this blog
 
@@ -51,6 +52,7 @@ en:
     danger:
       link_invalid: The link is invalid
       params_invalid: Invalid paramater 
+      default_category_delete: Can't delete the default category
     warning:
       link_expired: The link has expired
       resend_validation_mail: click to resend validation mail
@@ -63,6 +65,8 @@ en:
       user_not_fount: Could not find username of "%{name}"
       username_or_email_has_existed: Username or Email has present
       article_not_fount: Could not find article which id is "%{value}"
+      category_not_fount: Could not find category which id is "%{value}"
+      user_categoryship_not_fount: Could not find usercategoryship which id is "%{value}"
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -77,6 +81,10 @@ en:
       delete_article: Article which id is "%{value}" has deleted
       create_article: Article has created successfully
       update_article: Article has updated successfully
+      delete_category: Category which id is "%{value}" has deleted
+      delete_user_categoryship: UserCategoryship which id is "%{value}" has deleted
+      create: Created successfully
+      update: Updated successfully
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -103,6 +111,12 @@ en:
       suf: "\"?"
     article_delete:
       pre: "Deleting article which id is \""
+      suf: "\"?"
+    category_delete:
+      pre: "Deleting category which id is\""
+      suf: "\"?"
+    user_categoryship_delete:
+      pre: "Deleting category of user which id is\""
       suf: "\"?"
 
   activerecord:
@@ -146,6 +160,11 @@ en:
         user_id: User
         user: User
         holdable_type: Type
+      user_categoryship:
+        user: User
+        user_id: User ID
+        category: Category
+        category_id: Category ID
 
 
   accounts_mailer:
@@ -187,6 +206,9 @@ en:
     default: Default
     zero: No categories
     other: "%{size} categories in total"
+    name: CategoryName
+    user: UserName
+    user_id: UserID
 
   tags:
     zero: No tags
@@ -293,6 +315,10 @@ en:
     category:
       zero: No categories
       other: "%{size} categories in total"
+      new: New Category/UserCategoryShip
+      aboutuser: About User
+      rename: Rename Category
+      update_ship: Update UserCategoryShip
     tag:
       zero: No tags
       other: "%{size} tags in total"

@@ -1,0 +1,6 @@
+<% provide :pre_title, t("c-summary.category.new") + ' | ' + t("console") %>
+<% provide :content_title, t("c-summary.category.new") %>
+<% provide :form_url, admin_categories_path %>
+<% provide :method, 'POST' %>
+
+<%= render 'new_or_edit' %>

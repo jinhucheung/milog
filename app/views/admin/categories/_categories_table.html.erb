@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("categories.name") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% categories.each do |category| %>
+    <tr>
+      <%= content_tag :td, category.id %>
+      <%= content_tag :td, category.name %>
+      <%= content_tag :td do -%>
+        <% if category.id != 1 %>
+        <%= link_to t('update'), edit_admin_category_path(category.id) %> /
+        <%= link_to t('delete'), admin_category_path(category.id), value: category.id, method: 'DELETE', id: 'to-delete' %>
+        <% end %>
+      <% end -%>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("categories.name") %>
+      <%= content_tag :th, t("categories.user") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% user_categoryships.each do |ship| %>
+    <tr>
+      <%= content_tag :td, ship.id %>
+      <%= content_tag :td, ship.category.name %>
+      <%= content_tag :td, ship.user.username %>
+      <%= content_tag :td do -%>
+      <% if ship.category_id != 1 %>
+        <%= link_to t('update'), edit_admin_category_path(ship.id, by: 'ships') %> /
+        <%= link_to t('delete'), admin_category_path(ship.id, by: 'ships'), value: ship.id, method: 'DELETE', id: 'to-delete' %>
+        <% end %>
+      <% end -%>
+      
+    </tr>
+    <% end %>
+  </tbody>
+</table>

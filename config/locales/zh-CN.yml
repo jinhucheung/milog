@@ -36,6 +36,7 @@ zh-CN:
   edit: 编辑
   confirm: 确认
   cancel: 取消
+  submit: 提交数据
 
   search_in_blog: 在当前博客中搜索
 
@@ -53,6 +54,7 @@ zh-CN:
     danger:
       link_invalid: 链接无效
       params_invalid: 参数非法
+      default_category_delete: 不能删除默认分类
     warning:
       link_expired: 链接失效
       resend_validation_mail: 点击重发验证邮件
@@ -65,6 +67,8 @@ zh-CN:
       user_not_fount: 用户"%{name}"没有找到
       username_or_email_has_existed: 用户名或邮箱已存在
       article_not_fount: ID为"%{value}"的文章没有找到
+      category_not_fount: ID为"%{value}"的分类没有找到
+      user_categoryship_not_fount: ID为"%{value}"的用户分类没有找到
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
@@ -79,6 +83,10 @@ zh-CN:
       delete_article: 已删除ID为"%{value}"的文章
       create_article: 已成功添加文章
       update_article: 已成功更新文章
+      delete_category: 已删除ID为"%{value}"的分类
+      delete_user_categoryship: 已删除ID为"%{value}"的用户分类关系
+      create: 添加成功
+      update: 更新成功
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -106,6 +114,12 @@ zh-CN:
     article_delete:
       pre: "是否删除ID为\""
       suf: "\"的文章？"
+    category_delete:
+      pre: "是否删除ID为\""
+      suf: "\"的分类？"
+    user_categoryship_delete:
+      pre: "是否删除ID为\""
+      suf: "\"的用户分类关系？"
 
   activerecord:
     models:
@@ -148,6 +162,11 @@ zh-CN:
         user_id: 用户
         user: 用户
         holdable_type: 类型
+      user_categoryship:
+        user: 用户
+        user_id: 用户ID
+        category: 分类
+        category_id: 分类ID
 
   accounts_mailer:
     hi: Hi %{username}，
@@ -188,6 +207,9 @@ zh-CN:
     default: 默认
     zero: 暂无分类
     other: "目前共有 %{size} 个分类"
+    name: 分类名
+    user: 用户名
+    user_id: 用户 ID
 
   tags:
     zero: 暂无标签
@@ -295,6 +317,10 @@ zh-CN:
     category:
       zero: 暂无分类
       other: "目前共有 %{size} 个分类"
+      new: 添加分类/用户分类关系
+      aboutuser: 与用户
+      rename: 重命名分类
+      update_ship: 更新用户分类关系
     tag:
       zero: 暂无标签
       other: "目前共有 %{size} 个标签"

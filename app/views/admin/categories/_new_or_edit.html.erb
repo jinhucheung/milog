@@ -1,0 +1,31 @@
+<% provide :bodyclass, "admin" %>
+<% provide :index, '3' %>
+
+<div id="categories">
+  <div class="boxed-group">
+    <%= content_tag :h3, yield(:content_title) %>
+    <div class="boxed-group-inner">
+      <%= simple_form_for :category, url: yield(:form_url), method: yield(:method) do |f| %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= content_tag :span, t("categories.name") %>
+            <%= f.input_field :name, class: "form-control form-input-normal", value: @name %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <% unless @only_category %>
+            <div class="form-group">
+              <%= content_tag :span, t("categories.user_id") %>
+              <%= f.input_field :user_id, class: "numeric integer form-control form-input-normal", type: :number, step: 1, value: @user_id %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("submit"), class: "btn btn-primary submit", style: "margin-top: 0;" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

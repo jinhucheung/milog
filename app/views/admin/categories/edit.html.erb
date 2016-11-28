@@ -1,0 +1,11 @@
+<% title = @only_category ? t("c-summary.category.rename") : 
+                            t("c-summary.category.update_ship") %>
+<% url = @only_category ? admin_category_path(@object) : 
+                          admin_category_path(@object, by: 'ships') %>
+
+<% provide :pre_title, title + ' | ' + t("console") %>
+<% provide :content_title, title %>
+<% provide :form_url, url %>
+<% provide :method, 'PATCH' %>
+
+<%= render 'new_or_edit' %>

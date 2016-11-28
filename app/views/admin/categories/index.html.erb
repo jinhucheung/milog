@@ -1,0 +1,53 @@
+<% provide :pre_title, t("console-nav.category") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '3' %>
+
+<div id="users">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("console-nav.category") %>
+    <div class="boxed-group-inner">
+
+      <ul class="nav nav-tabs">
+        <%= content_tag :li, link_to(t("c-summary.total"), admin_categories_path), class: "#{'active' if @value == 1 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.used"), admin_categories_path(by: 'used')), class: "#{'active' if @value == 2 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.not_use"), admin_categories_path(by: 'unused')), class: "#{'active' if @value == 3 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.category.aboutuser"), admin_categories_path(by: 'ships')), class: "#{'active' if @value == 4 }" %>
+
+        <%= content_tag :a, class: 'pull-right', href: new_admin_category_path, title: t('c-summary.category.new') do -%>
+          <%= content_tag :span, '', class: 'glyphicon glyphicon-plus' %>
+        <% end -%>
+      </ul>
+
+      <div id="body-content">
+        <% if @categories %>
+          <%= render 'categories_table', categories: @categories %>
+          <%= will_paginate @categories, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+        <% else %>
+          <%= render 'user_categoryships_table', user_categoryships: @user_categoryships %>
+          <%= will_paginate @user_categoryships, renderer: WillPaginate::ActionView::BlogLinkRenderer %>          
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%= render 'admin/features/confirm_delete_dialog' %>
+
+<script>
+  $("#body-content").on("click", "#to-delete", function(){
+      text = $(this).attr("value");
+      <% if @value != 4 %>
+        text = "<%= j t('ask.category_delete.pre') %>" + text + "<%= j t('ask.category_delete.suf') %>";
+      <% else %>
+        text = "<%= j t('ask.user_categoryship_delete.pre') %>" + text + "<%= j t('ask.user_categoryship_delete.suf') %>";
+      <% end %>
+      $("#confirm-delete .modal-body").html(text);
+      $("#confirm-delete #confirm").attr('href', $(this).attr('href'));
+      $("#confirm-delete").modal();
+      return false;
+  });
+</script>
