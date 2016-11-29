@@ -13,4 +13,10 @@ class Admin::ApplicationController < ApplicationController
     @user = current_user
   end
 
+  def delete_cache_pictures
+    if user = current_user
+      user.delete_cache_pictures
+    end
+  end
+
 end

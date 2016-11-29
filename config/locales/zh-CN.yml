@@ -65,11 +65,13 @@ zh-CN:
       need_activation: 请激活您的账号
       send_validation_mail: 点击发送验证邮件
       user_not_fount: 用户"%{name}"没有找到
+      user_not_fount_by_id: ID为"%{value}"的用户没有找到
       username_or_email_has_existed: 用户名或邮箱已存在
       article_not_fount: ID为"%{value}"的文章没有找到
       category_not_fount: ID为"%{value}"的分类没有找到
       user_categoryship_not_fount: ID为"%{value}"的用户分类没有找到
       tag_not_fount: ID为"%{value}"的标签没有找到
+      comment_not_fount: ID为"%{value}"的评论没有找到
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
@@ -89,6 +91,7 @@ zh-CN:
       create: 添加成功
       update: 更新成功
       delete_tag: 已删除ID为"%{value}"的标签
+      delete_comment: 已删除ID为"%{value}"的评论
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -125,6 +128,9 @@ zh-CN:
     tag_delete:
       pre: "是否删除ID为\""
       suf: "\"的标签？"
+    comment_delete:
+      pre: "是否删除ID为\""
+      suf: "\"的评论？"
 
   activerecord:
     models:
@@ -267,6 +273,15 @@ zh-CN:
     post: 发布评论
     update: 更新评论
     error: "错误： "
+    content: 内容
+    user: 用户
+    user_id: 用户 ID
+    article_id: 文章 ID
+    reply: 回复
+    reply_id: 回复 ID
+    index: 楼数
+    create_time: 创建时间
+    deleted_state: 删除?
 
   resumes:
     pubilc_resume: 公开简历
@@ -338,6 +353,7 @@ zh-CN:
     comment:
       zero: 暂无评论
       other: "目前共有 %{size} 条评论"
+      new: 添加评论
     picture:
       zero: 暂无图片
       other: "目前共有 %{size} 张图片"

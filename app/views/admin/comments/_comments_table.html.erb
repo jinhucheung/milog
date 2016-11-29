@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("comment.content") %>
+      <%= content_tag :th, t("comment.user") %>
+      <%= content_tag :th, t("comment.article_id") %>
+      <%= content_tag :th, t("comment.index") %>
+      <%= content_tag :th, t("comment.reply_id") %>
+      <%= content_tag :th, t("comment.create_time") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% comments.each do |comment| %>
+    <tr>
+      <%= content_tag :td, comment.id %>
+      <%= content_tag :td, comment.content %>
+      <%= content_tag :td, comment.user.username %>
+      <%= content_tag :td, comment.article_id %>
+      <%= content_tag :td, comment.index %>
+      <%= content_tag :td, comment.reply_id %>
+      <%= content_tag :td, mtime_tag(comment.created_at) %>
+      <%= content_tag :td do -%>
+        <%= link_to t('update'), edit_admin_comment_path(comment.id) %> /
+        <%= link_to t('delete'), admin_comment_path(comment.id), value: comment.id, method: 'DELETE', id: 'to-delete' %>
+      <% end -%>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

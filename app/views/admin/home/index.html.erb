@@ -133,7 +133,7 @@
 
       <div class="summary-group" id="comments">
         <%= content_tag :h4, class: 'title' do -%>
-          <%= link_to content_tag(:span, @summary[:comment][:total] > 0 ? t("c-summary.comment.other", size: @summary[:comment][:total]) : t("c-summary.comment.zero") ), '#' %>
+          <%= link_to content_tag(:span, @summary[:comment][:total] > 0 ? t("c-summary.comment.other", size: @summary[:comment][:total]) : t("c-summary.comment.zero") ), admin_comments_path %>
           <a data-toggle="collapse" href="#comment-table">
             <span class="caret pull-right" ></span>
           </a>
@@ -144,13 +144,13 @@
             <tbody>
               <tr>
                 <td>
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_comments_path(by: 'posted') do -%>
                     <%= content_tag :span, t("c-summary.posted"), class: 'name' %>
                     <%= content_tag :span, @summary[:comment][:posted], class: 'count' %>
                   <% end -%>
                 </td>
                 <td >
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_comments_path(by: 'deleting') do -%>
                     <%= content_tag :span, t("c-summary.deleting"), class: 'name' %>
                     <%= content_tag :span, @summary[:comment][:deleting], class: 'count' %>
                   <% end -%>

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :articles, except: :show
     resources :categories, except: :show
     resources :tags, except: :show
+    resources :comments, except: :show
   end
 
   # users相关路由最后

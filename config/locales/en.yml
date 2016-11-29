@@ -63,11 +63,13 @@ en:
       need_activation: Please validate your account
       send_validation_mail: click to send validation mail
       user_not_fount: Could not find username of "%{name}"
+      user_not_fount_by_id: Could not find user which id is "%{value}"
       username_or_email_has_existed: Username or Email has present
       article_not_fount: Could not find article which id is "%{value}"
       category_not_fount: Could not find category which id is "%{value}"
       user_categoryship_not_fount: Could not find usercategoryship which id is "%{value}"
       tag_not_fount: Could not find tag which id is "%{value}"
+      comment_not_fount: Could not find comment which id is "%{value}"
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -87,6 +89,7 @@ en:
       create: Created successfully
       update: Updated successfully
       delete_tag: Tag which id is "%{value}" has deleted
+      delete_comment: Comment which id is "%{value}" has deleted
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -122,6 +125,9 @@ en:
       suf: "\"?"
     tag_delete:
       pre: "Deleting tag which id is\""
+      suf: "\"?"
+    comment_delete:
+      pre: "Deleting comment which id is\""
       suf: "\"?"
 
   activerecord:
@@ -231,6 +237,15 @@ en:
     post: Post Comment
     update: Update Comment
     error: "Error : "
+    content: Content
+    user: User
+    user_id: User ID
+    article_id: Article ID
+    reply: Reply
+    reply_id: Reply ID
+    index: Index
+    create_time: Created Time
+    deleted_state: Delete?
 
   article:
     title_tips: Fill in the article title here
@@ -335,6 +350,7 @@ en:
     comment:
       zero: No comments
       other: "%{size} comments in total"
+      new: New Comment
     picture:
       zero: No pictures
       other: "%{size} pictures in total"

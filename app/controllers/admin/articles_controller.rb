@@ -1,4 +1,5 @@
 class Admin::ArticlesController < Admin::ApplicationController
+  before_action :delete_cache_pictures, only: [:new, :edit, :index]
 
   def index
     case params[:by]
@@ -34,6 +35,8 @@ class Admin::ArticlesController < Admin::ApplicationController
     if @article.save
       @article.str2tags @article.tagstr
       flash[:success] = I18n.t "flash.success.create_article"
+      # 保存图片
+      current_user.post_cache_pictures_in_article @article
       redirect_to admin_articles_path
     else
       flash.now[:warning] = @article.errors.full_messages[0]
@@ -52,6 +55,8 @@ class Admin::ArticlesController < Admin::ApplicationController
     return render_404 unless @article
     if @article.update_attributes article_params
       @article.update_tags @article.tagstr
+      # 保存图片
+      current_user.post_cache_pictures_in_article @article
       flash.now[:success] = I18n.t "flash.success.update_article"
     else
       flash.now[:warning] = @article.errors.full_messages[0]

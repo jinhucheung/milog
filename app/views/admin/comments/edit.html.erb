@@ -1,0 +1,65 @@
+<% provide :pre_title, t("comment.update") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '5' %>
+<div id="articles">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("comment.update") %>
+    <div class="boxed-group-inner">
+      <%= simple_form_for @comment, url: admin_comment_path(@comment.id) do |f| %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="edit-body">
+            <!-- 标签卡与工具栏 -->
+            <div class="edit-body-header">
+              <div class="post-edit-toolbar pull-right">
+                <%= render 'features/markdown_toolbar' %>
+              </div>
+              <ul class="nav nav-tabs" id="edit-tabs">
+                <%= content_tag :li, link_to(t("article.edit"), '#edit-content', class: 'edit-body-node edit-node', 'data-toggle': 'tab'), class: 'active' %>
+                <%= content_tag :li, link_to(t("article.preview"), '#preview-content', class: 'edit-body-node preview-node', 'data-toggle': 'tab') %>
+              </ul>
+            </div>
+            <!-- 编辑/预览区 -->
+            <div class="tab-content edit-body-cotent" id="tab-content">
+              <div class="tab-pane fade in active" id="edit-content">
+                <%= f.input_field :content, as: :text, class: 'tabIndent edit-body-node edit-node', id: 'editor' %>
+                <%= f.input_field :content_html, as: :hidden, id: 'content_html', disable: true %>
+              </div>
+              <div class="tab-pane fade" id="preview-content">
+                <%= content_tag :div, '', class: 'edit-body-node preview-node standard markdown-body', id: 'previewer' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= content_tag :span, t("comment.deleted_state") %>
+            <select selected="selected" class="select form-control form-input-normal" name="comment[deleted]" id="comment_deleted">
+              <%= boolean_selected_tags f.object.deleted? %>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("comment.user_id") %>
+            <%= f.input_field :user_id, class: "form-control form-input-normal", disabled: 'disabled' %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("comment.article_id") %>
+            <%= f.input_field :article_id, class: "form-control form-input-normal", disabled: 'disabled' %>
+          </div>
+
+          <div class="form-group">
+            <%= content_tag :span, t("comment.reply_id") %>
+            <%= f.input_field :reply_id, class: "form-control form-input-normal" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("comment.update"), class: "btn btn-primary submit", onclick: 'set_content_html()' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'editor-markdown' %>
