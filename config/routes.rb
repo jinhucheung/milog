@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :categories, except: :show
     resources :tags, except: :show
     resources :comments, except: :show
+    resources :pictures, only: [:index, :destroy, :create]
   end
 
   # users相关路由最后

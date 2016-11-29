@@ -1,0 +1,66 @@
+<% provide :pre_title, t("console-nav.picture") + ' | ' + t("console") %>
+<% provide :bodyclass, "admin" %>
+<% provide :index, '6' %>
+
+<div id="users">
+  <div class="boxed-group">
+    <%= content_tag :h3, t("console-nav.picture") %>
+    <div class="boxed-group-inner">
+
+      <ul class="nav nav-tabs">
+        <%= content_tag :li, link_to(t("c-summary.total"), admin_pictures_path), class: "#{'active' if @value == 1 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.used"), admin_pictures_path(by: 'posted')), class: "#{'active' if @value == 2 }" %>
+
+        <%= content_tag :li, link_to(t("c-summary.will_delete"), admin_pictures_path(by: 'unposted')), class: "#{'active' if @value == 3 }" %>
+
+        <%= content_tag :a, href: '#', id: 'upload-btn', class: 'pull-right', title: t("c-summary.picture.new") do -%>
+          <%= content_tag :span, '', class: 'glyphicon glyphicon-plus' %>
+        <% end -%>
+
+        <%= simple_form_for :picture, url: admin_pictures_path, html:{ multipart: true } do |f| %>
+          <%= f.input_field :file, as: :file, accept:  'image/jpg,image/jpeg,image/png,image/gif', id: "picture-input", style: 'display: none;' %>
+          <%= f.submit '', style: 'display: none;', id: "picture-submit" %>
+        <% end %>
+      </ul>
+
+      <div id="body-content">
+        <%= render 'pictures_table', pictures: @pictures %>
+        <%= will_paginate @pictures, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'admin/features/confirm_delete_dialog' %>
+
+<script>
+  $("#body-content").on("click", "#to-delete", function(){
+      text = $(this).attr("value");
+      text = "<%= j t('ask.picture_delete.pre') %>" + text + "<%= j t('ask.picture_delete.suf') %>";
+      $("#confirm-delete .modal-body").html(text);
+      $("#confirm-delete #confirm").attr('href', $(this).attr('href'));
+      $("#confirm-delete").modal();
+      return false;
+  });
+
+  /* 选择图片 */
+  $("#upload-btn").click(function(){
+      $("#picture-input").click();
+      return false;
+  });
+
+  /* 检验图片 */
+  $("#picture-input").on("change", function(){
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 2) {
+      error_msg = "<%= j t('flash.warning.picture_too_big', size: 2) %>";
+      $("#flash_warning #message").html(error_msg);
+      $("#flash_warning").css("display", "block");
+    } else {
+      // 提交图片
+      $("#picture-submit").click();
+    }
+  });
+
+</script>

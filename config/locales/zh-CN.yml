@@ -72,6 +72,7 @@ zh-CN:
       user_categoryship_not_fount: ID为"%{value}"的用户分类没有找到
       tag_not_fount: ID为"%{value}"的标签没有找到
       comment_not_fount: ID为"%{value}"的评论没有找到
+      picture_not_fount: ID为"%{value}"的图片没有找到
     success:
       active_account: 用户已成功激活
       reset_password: 已成功修改密码
@@ -92,6 +93,7 @@ zh-CN:
       update: 更新成功
       delete_tag: 已删除ID为"%{value}"的标签
       delete_comment: 已删除ID为"%{value}"的评论
+      delete_picture: 已删除ID为"%{value}"的图片
 
   errors:
     username_format: 只能含字母、数字、中横线或下划线
@@ -131,6 +133,9 @@ zh-CN:
     comment_delete:
       pre: "是否删除ID为\""
       suf: "\"的评论？"
+    picture_delete:
+      pre: "是否删除ID为\""
+      suf: "\"的图片？"
 
   activerecord:
     models:
@@ -283,6 +288,12 @@ zh-CN:
     create_time: 创建时间
     deleted_state: 删除?
 
+  picture:
+    name: 图片
+    url: 链接
+    user: 用户
+    upload_time: 上传时间
+
   resumes:
     pubilc_resume: 公开简历
     save_resume: 保存简历
@@ -357,4 +368,5 @@ zh-CN:
     picture:
       zero: 暂无图片
       other: "目前共有 %{size} 张图片"
+      new: 上传图片
 

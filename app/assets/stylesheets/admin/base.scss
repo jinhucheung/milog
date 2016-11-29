@@ -25,6 +25,7 @@
 
                 &:last-child {
                     border: none;
+                    border-top: 1px solid #ddd;
                 }
             }
 
@@ -51,16 +52,24 @@
         table {
             th, td {
                 text-align: center;
-                white-space:nowrap;
-                overflow:hidden;
+                white-space: nowrap;
+                overflow: hidden;
                 text-overflow: ellipsis;
                 max-width: 150px;
+            }
+
+            input {
+                outline: none;
+                border: 1px solid $lightwhite;
+                width: 80%;
+                &:focus {
+                    border: 1px solid $outline-input-color;
+                }
             }
         }
 
         .pagination {
             margin-top: 0;
-
         }
     }
 

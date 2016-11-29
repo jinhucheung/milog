@@ -70,6 +70,7 @@ en:
       user_categoryship_not_fount: Could not find usercategoryship which id is "%{value}"
       tag_not_fount: Could not find tag which id is "%{value}"
       comment_not_fount: Could not find comment which id is "%{value}"
+      picture_not_fount: Could not find picture which id is "%{value}"
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -90,6 +91,7 @@ en:
       update: Updated successfully
       delete_tag: Tag which id is "%{value}" has deleted
       delete_comment: Comment which id is "%{value}" has deleted
+      delete_picture: Picture which id is "%{value}" has deleted
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -128,6 +130,9 @@ en:
       suf: "\"?"
     comment_delete:
       pre: "Deleting comment which id is\""
+      suf: "\"?"
+    picture_delete:
+      pre: "Deleting picture which id is\""
       suf: "\"?"
 
   activerecord:
@@ -284,6 +289,12 @@ en:
     pubilc_resume: Show my resume to others
     save_resume: Save Resume
 
+  picture:
+    name: Picture
+    url: Url
+    user: User
+    upload_time: Upload Time
+
   will_paginate:
     previous_label: '<'
     next_label: '>'
@@ -354,3 +365,4 @@ en:
     picture:
       zero: No pictures
       other: "%{size} pictures in total"
+      new: Upload Picture

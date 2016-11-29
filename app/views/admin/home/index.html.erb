@@ -163,7 +163,7 @@
 
       <div class="summary-group" id="pictures">
         <%= content_tag :h4, class: 'title' do -%>
-          <%= link_to content_tag(:span, @summary[:picture][:total] > 0 ? t("c-summary.picture.other", size: @summary[:picture][:total]) : t("c-summary.picture.zero") ), '#' %>
+          <%= link_to content_tag(:span, @summary[:picture][:total] > 0 ? t("c-summary.picture.other", size: @summary[:picture][:total]) : t("c-summary.picture.zero") ), admin_pictures_path %>
           <a data-toggle="collapse" href="#picture-table">
             <span class="caret pull-right" ></span>
           </a>
@@ -174,13 +174,13 @@
             <tbody>
               <tr>
                 <td>
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_pictures_path(by: 'posted') do -%>
                     <%= content_tag :span, t("c-summary.used"), class: 'name' %>
                     <%= content_tag :span, @summary[:picture][:posted], class: 'count' %>
                   <% end -%>
                 </td>
                 <td >
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_pictures_path(by: 'unposted') do -%>
                     <%= content_tag :span, t("c-summary.will_delete"), class: 'name' %>
                     <%= content_tag :span, @summary[:picture][:unposted], class: 'count' %>
                   <% end -%>

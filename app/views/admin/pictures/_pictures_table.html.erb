@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("picture.name") %>
+      <%= content_tag :th, t("picture.url") %>
+      <%= content_tag :th, t("picture.user") %>
+      <%= content_tag :th, t("picture.upload_time") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% pictures.each do |picture| %>
+      <tr>
+        <%= content_tag :td, picture.id %>
+        <%= content_tag :td, picture.picture_identifier %>
+        <%= content_tag :td do -%>
+          <%= tag :input, value: picture.picture.to_s %>
+        <% end -%>
+        <%= content_tag :td, picture.user.username %>
+        <%= content_tag :td, mtime_tag(picture.created_at) %>
+        <%= content_tag :td do -%>
+          <%= link_to t('delete'), admin_picture_path(picture.id), value: picture.id, method: 'DELETE', id: 'to-delete' %>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

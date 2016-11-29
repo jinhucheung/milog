@@ -17,7 +17,7 @@ class Picture < ApplicationRecord
   private 
     def picture_size
       if picture.size > 2.megabytes
-        errors.add :picture,  I18n.t("errors.picture_too_big", size: 2)
+        errors.add :picture,  I18n.t("flash.warning.picture_too_big", size: 2)
       end
     end
 end
