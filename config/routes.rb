@@ -38,9 +38,10 @@ Rails.application.routes.draw do
 
   namespace :admin, as: 'admin' do
     root 'home#index', as: 'index'
-    resources :users, except: [:show]
-    resources :articles, except: [:show]
-    resources :categories, except: [:show]
+    resources :users, except: :show
+    resources :articles, except: :show
+    resources :categories, except: :show
+    resources :tags, except: :show
   end
 
   # users相关路由最后

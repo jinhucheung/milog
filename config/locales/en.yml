@@ -52,7 +52,7 @@ en:
     danger:
       link_invalid: The link is invalid
       params_invalid: Invalid paramater 
-      default_category_delete: Can't delete the default category
+      default_category_change: Can't change the default category
     warning:
       link_expired: The link has expired
       resend_validation_mail: click to resend validation mail
@@ -67,6 +67,7 @@ en:
       article_not_fount: Could not find article which id is "%{value}"
       category_not_fount: Could not find category which id is "%{value}"
       user_categoryship_not_fount: Could not find usercategoryship which id is "%{value}"
+      tag_not_fount: Could not find tag which id is "%{value}"
     success:
       active_account: Account activated
       reset_password: Password has been reset
@@ -85,6 +86,7 @@ en:
       delete_user_categoryship: UserCategoryship which id is "%{value}" has deleted
       create: Created successfully
       update: Updated successfully
+      delete_tag: Tag which id is "%{value}" has deleted
 
   errors:
     username_format: may only contain alphanumeric characters or hyphens(-_)
@@ -118,6 +120,9 @@ en:
     user_categoryship_delete:
       pre: "Deleting category of user which id is\""
       suf: "\"?"
+    tag_delete:
+      pre: "Deleting tag which id is\""
+      suf: "\"?"
 
   activerecord:
     models:
@@ -128,6 +133,7 @@ en:
       comment: Comment
       resume: Resume
       hold: Hold
+      tag: Tag
     attributes:
       user:
         username: Username
@@ -165,7 +171,8 @@ en:
         user_id: User ID
         category: Category
         category_id: Category ID
-
+      tag:
+        name: Tag
 
   accounts_mailer:
     hi: Hi %{username},
@@ -213,6 +220,7 @@ en:
   tags:
     zero: No tags
     other: "%{size} tags in total"  
+    name: TagName
 
   comment:
     zero: No comments
@@ -322,6 +330,8 @@ en:
     tag:
       zero: No tags
       other: "%{size} tags in total"
+      new: New Tag
+      rename: Rename Tag
     comment:
       zero: No comments
       other: "%{size} comments in total"

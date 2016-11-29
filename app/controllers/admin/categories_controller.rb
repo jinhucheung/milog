@@ -18,36 +18,16 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def destroy
-    @object = 
-      if params[:by] == 'ships'
-        UserCategoryship.find_by_id params[:id]
-      else
-        Category.find_by_id params[:id]
-      end
-
-    unless @object
-      flash[:warning] = params[:by] == 'ships' ?  I18n.t("flash.warning.user_categoryship_not_fount", value: params[:id]) :
-                                                  flash[:warning] = I18n.t("flash.warning.category_not_fount", value: params[:id])
-      return redirect_to admin_categories_path                          
-    end
+    get_category_or_user_cateogryship
 
     select_opts =
       if params[:by] == 'ships'
         flash[:success] = I18n.t "flash.success.delete_user_categoryship", value: params[:id]
-        @category_id = @object.category_id 
         { user_id: @object.user_id, category_id: @category_id }
       else
         flash[:success] = I18n.t "flash.success.delete_category", value: params[:id]
-        @category_id = @object.id
         { category_id: @category_id }
       end
-
-    # 禁止删除默认分类
-    if @category_id == 1
-      flash.delete :success
-      flash[:danger] = I18n.t "flash.danger.default_category_delete"
-      return redirect_to admin_categories_path  
-    end
 
     # 迁移文章至默认分类
     articles = Article.select(:id).where select_opts
@@ -84,14 +64,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def edit
-    @object =
-    if params[:by] == 'ships'
-      UserCategoryship.find_by id: params[:id]
-    else
-      Category.find_by id: params[:id]
-    end
-
-    return render_404 unless @object
+    get_category_or_user_cateogryship
 
     if params[:by] == 'ships'
       @name = @object.category.name
@@ -103,14 +76,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def update
-    @object =
-    if params[:by] == 'ships'
-      UserCategoryship.find_by id: params[:id]
-    else
-      Category.find_by id: params[:id]
-    end
-
-    return render_404 unless @object
+    get_category_or_user_cateogryship
 
     @name = params[:category][:name]
     @user_id = params[:category][:user_id]
@@ -143,5 +109,35 @@ class Admin::CategoriesController < Admin::ApplicationController
     flash[:success] = I18n.t "flash.success.update"
     redirect_to admin_categories_path  
   end
+
+  private
+    def limit_default_category
+      # 禁止删除默认分类
+      if @category_id == 1
+        flash.delete :success
+        flash[:danger] = I18n.t "flash.danger.default_category_change"
+        return redirect_to admin_categories_path  
+      end
+    end
+
+    def get_category_or_user_cateogryship
+      @object = 
+        if params[:by] == 'ships'
+          UserCategoryship.find_by_id params[:id]
+        else
+          Category.find_by_id params[:id]
+        end
+
+      unless @object
+        flash[:warning] = params[:by] == 'ships' ?  I18n.t("flash.warning.user_categoryship_not_fount", value: params[:id]) :
+                                                    flash[:warning] = I18n.t("flash.warning.category_not_fount", value: params[:id])
+        return redirect_to admin_categories_path                          
+      end
+
+      @category_id = params[:by] == 'ships' ?  @object.category_id : @object.id
+
+      # 禁止更改默认分类
+      limit_default_category
+    end
 
 end

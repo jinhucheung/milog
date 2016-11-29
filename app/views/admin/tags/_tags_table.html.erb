@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <%= content_tag :th, t("tags.name") %>
+      <%= content_tag :th, t("opt") %>
+    </tr>
+  </thead>
+  <tbody>
+    <% tags.each do |tag| %>
+    <tr>
+      <%= content_tag :td, tag.id %>
+      <%= content_tag :td, tag.name %>
+      <%= content_tag :td do -%>
+        <%= link_to t('update'), edit_admin_tag_path(tag.id) %> /
+        <%= link_to t('delete'), admin_tag_path(tag.id), value: tag.id, method: 'DELETE', id: 'to-delete' %>
+      <% end -%>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

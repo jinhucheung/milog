@@ -15,24 +15,26 @@ class Tag < ApplicationRecord
   class << self
     # 已有文章使用中的标签
     def used
-      self.find_by_sql "
+      _result = self.find_by_sql "
         SELECT DISTINCT tags.id, tags.name
         FROM  tags
         LEFT OUTER JOIN article_tagships
         ON tags.id = article_tagships.tag_id
         WHERE article_tagships.tag_id IS NOT NULL
       "
+      self.where id: _result
     end
 
     # 未有文章使用的标签
     def unused
-      self.find_by_sql "
+      _result = self.find_by_sql "
         SELECT DISTINCT tags.id, tags.name
         FROM  tags
         LEFT OUTER JOIN article_tagships
         ON tags.id = article_tagships.tag_id
         WHERE article_tagships.tag_id IS NULL
       "
+      self.where id: _result
     end
 
   end

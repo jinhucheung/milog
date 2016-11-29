@@ -103,7 +103,7 @@
 
       <div class="summary-group" id="tags">
         <%= content_tag :h4, class: 'title' do -%>
-          <%= link_to content_tag(:span, @summary[:tag][:total] > 0 ? t("c-summary.tag.other", size: @summary[:tag][:total]) : t("c-summary.tag.zero") ), '#' %>
+          <%= link_to content_tag(:span, @summary[:tag][:total] > 0 ? t("c-summary.tag.other", size: @summary[:tag][:total]) : t("c-summary.tag.zero") ), admin_tags_path %>
           <a data-toggle="collapse" href="#tag-table">
             <span class="caret pull-right" ></span>
           </a>
@@ -114,13 +114,13 @@
             <tbody>
               <tr>
                 <td>
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_tags_path(by: 'used') do -%>
                     <%= content_tag :span, t("c-summary.used"), class: 'name' %>
                     <%= content_tag :span, @summary[:tag][:used], class: 'count' %>
                   <% end -%>
                 </td>
                 <td >
-                  <%= content_tag :a, href: '#' do -%>
+                  <%= content_tag :a, href: admin_tags_path(by: 'unused') do -%>
                     <%= content_tag :span, t("c-summary.not_use"), class: 'name' %>
                     <%= content_tag :span, @summary[:tag][:unused], class: 'count' %>
                   <% end -%>
