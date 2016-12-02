@@ -1,6 +1,6 @@
 # Milog
 
-一基于 [ Ruby on Rails ](https://github.com/rails/rails) 的个人博客网站. http://hijinhu.me:3000/hijinhu/  
+一基于 [ Ruby on Rails ](https://github.com/rails/rails) 的个人博客网站. http://hijinhu.me/hijinhu/  
 
 Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
