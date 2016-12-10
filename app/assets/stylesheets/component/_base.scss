@@ -96,3 +96,11 @@
     position: absolute;
     z-index: $z-index - 100;
 }
+
+/* 渐现 */
+@mixin fade-text($color: black) {
+    @keyframes fade-text {
+        from { color: transparent; }
+        to {  color: $color; }
+    }
+}

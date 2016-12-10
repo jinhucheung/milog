@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:success] = I18n.t "flash.success.delete_article", title: @article.title
+    flash[:success] = I18n.t "flash.success.delete_article_with_title", title: @article.title
     redirect_to drafts_user_path(current_user.username)
   end
 

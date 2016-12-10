@@ -23,7 +23,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_current_path user_path(user.username)
   end
 
-  it "should visit root_path will redirect to user page when user signed in" do 
+  it "should visit root_path when user signed in" do 
     visit signin_path
 
     fill_in "session_email", with: user.email
@@ -32,7 +32,8 @@ RSpec.describe "Signin Page", type: :feature do
     click_button "signin"
 
     visit root_path
-    expect(page).to have_current_path user_path(user.username) 
+    expect(page).to have_current_path root_path
+    expect(page).to have_content(I18n.t('signed_in')) 
   end
 
   it "should render this page with invalid password" do 
@@ -57,7 +58,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_selector(".form-error-field")     
   end
 
-  it "should visit root_path will redirect to signin page when user not sign in" do 
+  it "should visit root_path not include signed_in text when user not sign in" do 
     visit signin_path
 
     fill_in "session_email", with: ""
@@ -66,7 +67,8 @@ RSpec.describe "Signin Page", type: :feature do
     click_button "signin"
 
     visit root_path
-    expect(page).to have_current_path signin_path
+    expect(page).to have_current_path root_path
+    expect(page).not_to have_content(I18n.t('signed_in')) 
   end
 
 end

@@ -21,10 +21,8 @@ RSpec.describe "Sessions", type: :request do
       expect(@request.signed_in?).to eq true
 
       get '/'
-      expect(response).to have_http_status :redirect
-      expect(response).to redirect_to user_path user.username
-      follow_redirect!
-      expect(@request.signed_in?).to eq true
+      expect(response).to have_http_status :success
+      expect(response.body).to match I18n.t("signed_in")
 
       delete '/signout'
       expect(response).to have_http_status :redirect
@@ -33,10 +31,8 @@ RSpec.describe "Sessions", type: :request do
       expect(@request.test_signed_in?).to eq false
 
       get '/'
-      expect(response).to have_http_status :redirect
-      expect(response).to redirect_to signin_path
-      follow_redirect!
-      expect(response).to render_template :new
+      expect(response).to have_http_status :success
+      expect(response.body).not_to match I18n.t("signed_in")
     end
 
     it "sign in with remember_me" do

@@ -1,0 +1,38 @@
+<div class="login">
+
+  <div class="login-group">
+  <% unless signed_in? %>
+    <%= link_to t('signin'), signin_path %>&nbsp;|&nbsp;
+    <%= link_to t('signup'), signup_path %>
+  <% else %>
+    <%= link_to t('signout'), signout_path, method: 'DELETE' %>&nbsp;|&nbsp;
+    <%= link_to t('signed_in'), user_path(current_user.username)%>
+  <% end %>
+  </div>
+  
+  <%= content_tag :div, link_to_locale(request.path), class: "switch-lang" %>
+  <div class="clearfix"></div>
+  <div class="container">
+    <div class="col-sm-4 col-md-4 col-center-block login-box">
+      <div class="logo col-sm-9 col-md-10 col-center-block">
+        <%= link_to image_tag("logo.png", alt:"Milog", class: "img-responsive center-block"), "/" %>
+      </div>
+      
+      <h6></h6>
+      <div class="clearfix"></div>
+
+      <%= content_tag :div, t("community.slogan"), id: "slogan" %>
+      <%= content_tag :h5, t("community.sub_slogan"), id: 'sub-slogan' %>
+
+      <ul class="tab" id="social-menu">
+          <%= content_tag :li, link_to(t("community.our_social"), community_index_path) %>
+          <% unless signed_in?  %>
+            <%= content_tag :li, link_to(t("community.join_us"), signup_path) %>
+          <% else %>
+            <%= content_tag :li, link_to(t("community.my_blog"), user_path(current_user.username)) %>
+          <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>

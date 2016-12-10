@@ -15,6 +15,7 @@ en:
   lang: EN
   signup: Sign up
   signin: Sign in
+  signed_in: Signed in
   signout: Sign out
   username: Username
   email: Email Address
@@ -37,6 +38,7 @@ en:
   submit: Submit
 
   search_in_blog: Search in this blog
+  search_in_site: Search in this site
 
   login: 
     remember_me: Remember
@@ -77,7 +79,7 @@ en:
       update_profile: Profile updated successfully
       update_avatar: Avatar updated successfully
       save_article: Article saved successfully
-      delete_article: Article "%{title}" deleted successfully
+      delete_article_with_title: Article "%{title}" deleted successfully
       save_resume: Resume saved successfully
       delete_user: User "%{name}" has deleted
       create_user: User "%{name}" has created successfully
@@ -366,3 +368,13 @@ en:
       zero: No pictures
       other: "%{size} pictures in total"
       new: Upload Picture
+
+  community:
+    slogan: Share Content And Ideas
+    sub_slogan: A community based on content sharing
+    our_social: Community
+    join_us: Join Us
+    my_blog: My Blog
+
+    hottest: Hottest
+    latest: Latest

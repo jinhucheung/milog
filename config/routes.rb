@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   # 暂存文章/简历
   match '/holds' => 'holds#update', via: [:post, :patch, :put]
 
+  # 控制台
   namespace :admin, as: 'admin' do
     root 'home#index', as: 'index'
     resources :users, except: :show
@@ -44,6 +45,13 @@ Rails.application.routes.draw do
     resources :tags, except: :show
     resources :comments, except: :show
     resources :pictures, only: [:index, :destroy, :create]
+  end
+
+  # 社区
+  scope :community, as: 'community' do
+    root 'community#index', as: 'index'
+    get '/hottest' => 'community#hottest'
+    get '/latest' => 'community#latest'
   end
 
   # users相关路由最后

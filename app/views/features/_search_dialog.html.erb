@@ -5,7 +5,7 @@
         <span role="button" class="close" data-dismiss="modal">&times;</span>
         <%= form_tag search_user_path(@user.username), method: 'GET', remote: true  do %>
         <div class="inupt-group-icon">
-          <%= tag :input, type: :text, id: 'search_in_keyword', name: 'search[keyword]', placeholder: t('search_in_blog') %>
+          <%= tag :input, type: :text, id: 'search_in_keyword', name: 'search[keyword]', placeholder: placeholder_text %>
           <i class="fa fa-search icon"></i>
         </div>
         <% end %>

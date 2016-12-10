@@ -7,6 +7,44 @@
         float: left;
     }
 
+    /* 注册按钮组 */
+    .login-group {
+        padding: 20px;
+        float: right;
+        color: $lightgray;
+        a {
+            &:first-child {
+                padding-right: 5px;
+            }
+            &:last-child {
+                padding-left: 5px;
+            }
+        }
+    }
+
+    /* 标语 */
+    #slogan {
+        padding: 10px 0;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+
+    #sub-slogan {
+        @include fade-text($lightgray);
+        color: $lightgray;
+        animation: fade-text 3s;
+    }
+
+    #social-menu {
+        a {
+            color: black;
+            font-size: 16px;
+            &:hover{
+                border-bottom: 1px solid $underline-color;
+            }
+        }
+    }
+
     /* login/forgot表单 */
     .login-box, .forgot-box {
         text-align: center;

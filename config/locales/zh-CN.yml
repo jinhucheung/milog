@@ -17,6 +17,7 @@ zh-CN:
   lang: 中文
   signup: 注册
   signin: 登录
+  signed_in: 已登录
   signout: 退出
   username: 用户名
   email: Email 地址
@@ -39,6 +40,7 @@ zh-CN:
   submit: 提交数据
 
   search_in_blog: 在当前博客中搜索
+  search_in_site: 搜索本站内容
 
   login: 
     remember_me: 记住我
@@ -79,7 +81,7 @@ zh-CN:
       update_profile: 已更新个人资料
       update_avatar: 已更新头像
       save_article: 已保存文章
-      delete_article: 已删除文章"%{title}"
+      delete_article_with_title: 已删除文章"%{title}"
       save_resume: 已保存简历
       delete_user: 已删除用户"%{name}"
       create_user: 已创建用户"%{name}"
@@ -370,3 +372,12 @@ zh-CN:
       other: "目前共有 %{size} 张图片"
       new: 上传图片
 
+  community:
+    slogan: 分享内容 交流想法
+    sub_slogan: 一个基于内容分享的社区
+    our_social: Milog社区
+    join_us: 加入我们
+    my_blog: 我的博客
+
+    hottest: 热门文章
+    latest: 最新发布
