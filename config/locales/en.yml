@@ -383,8 +383,13 @@ en:
 
     opts: 'Opts :'
     more: More
+    time: Time
+    view: View
+    comment: Comment
 
     statistics: Statistics
     account_num: 'Members: %{num}'
     article_num: 'Articles: %{num}'
     comment_num: 'Comments: %{num}'
+
+    articles_in_tag: Tag "%{name}" has %{size} articles

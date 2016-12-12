@@ -385,10 +385,16 @@ zh-CN:
 
     opts: 查看 ：
     more: 更多
+    time: 时间
+    view: 阅读
+    comment: 评论
 
     statistics: 统计信息
     account_num: 社区会员： %{num}人
     article_num: 文章数： %{num}篇
     comment_num: 评论数： %{num}条
+    hottest_today: 本日热门： %{num}篇
+    hottest_tweek: 本周热门： %{num}篇
+    hottest_tmonth: 本月热门： %{num}篇
 
-    
+    articles_in_tag: 标签 "%{name}", 共有 %{size} 篇文章

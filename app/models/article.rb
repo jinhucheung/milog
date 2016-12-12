@@ -87,17 +87,16 @@ class Article < ApplicationRecord
     end
 
     # 热门文章, 根据阅读数>=50 & 评论数>=10
+    # 默认以评论数减序排列
     def hottest 
-      _result = Article.find_by_sql "
-        SELECT articles.*
-        FROM articles, comments
-        WHERE articles.id = comments.article_id
-        AND articles.view_count >= 50
-        AND comments.deleted_at IS NULL
-        GROUP BY articles.id
-        HAVING COUNT(*) >= 10
-      "
-      self.where id: _result
+      Article.unscoped
+             .joins(:comments)
+             .where("articles.posted = ? AND 
+                     articles.view_count >= ? AND 
+                     comments.deleted_at IS NULL", 1, 50)
+             .group("articles.id")
+             .having("COUNT(*) >= ?", 10)
+             .order("COUNT(*) DESC")
     end 
   end
 

@@ -99,15 +99,15 @@ class User < ApplicationRecord
 
   # 用户发布文章所用的标签
   def tags
-    Tag.find_by_sql "
-      SELECT  DISTINCT tags.id, tags.name
-      FROM    users, articles, article_tagships, tags
-      WHERE   users.id = #{self.id}
-      AND     users.id = articles.user_id
-      AND     articles.id = article_tagships.article_id
-      AND     article_tagships.tag_id = tags.id
-      AND     articles.posted = true
-    "
+    Tag.find_by_sql [ 
+      " SELECT  DISTINCT tags.id, tags.name
+        FROM    users, articles, article_tagships, tags
+        WHERE   users.id = ?
+        AND     users.id = articles.user_id
+        AND     articles.id = article_tagships.article_id
+        AND     article_tagships.tag_id = tags.id
+        AND     articles.posted = true
+      ", self.id ]
   end
 
   # 清除缓存图片

@@ -11,7 +11,7 @@
           <%= content_tag :h3, t("community.hottest") %>
           <div class="boxed-group-inner">
             <div class="post-group">
-              <% @hottest_artilces.each do |article| %>
+              <% @hottest_articles.each do |article| %>
                 <%= render 'features/article', article: article %>
               <% end %>
             </div>

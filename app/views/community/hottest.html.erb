@@ -1,1 +1,38 @@
-## Hello Hottest
+<% provide :pre_title, t("community.hottest") %>
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="boxed-group">
+          <div class="pull-right boxed-opts">
+            <%= t "community.opts" %>
+            <%= link_to t("community.time"), community_hottest_path(order: 'time') %> / 
+            <%= link_to t("community.view"), community_hottest_path(order: 'view') %> /  
+            <%= link_to t("community.comment"), community_hottest_path(order: 'comment') %>         
+          </div>
+          <%= content_tag :h3, t("community.hottest") %>
+          <div class="boxed-group-inner">
+            <div class="post-group">
+              <% @articles.each do |article| %>
+                <%= render 'features/article', article: article %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="boxed-group">
+          <%= content_tag :h3, t("community.statistics") %>
+          <div class="boxed-group-inner">
+            <ul class="list-group">
+              <%= content_tag :li, t("community.account_num", num: User.all.size) %>
+              <%= content_tag :li, t("community.article_num", num: Article.all.size) %>
+              <%= content_tag :li, t("community.comment_num", num: Comment.posted.size) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

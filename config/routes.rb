@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     get '/hottest' => 'community#hottest'
     get '/latest' => 'community#latest'
     get '/search' => 'search#index'
+    get '/tags/:id' => 'community#tag', as: 'tag'
   end
 
   # users相关路由最后
