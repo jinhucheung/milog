@@ -25,7 +25,7 @@ module ArticlesHelper
 
 
   # 关键字标签
-  def tags_tag(user, tags)
+  def tags_tag_with_user(user, tags)
     return if user.blank? || tags.blank?
     content = tags.map { |tag| link_to '# '+tag.name, tag_user_path(user.username, tag.id) }.join ' · '
     sanitize content

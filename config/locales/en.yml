@@ -376,5 +376,15 @@ en:
     join_us: Join Us
     my_blog: My Blog
 
+    home: Community
     hottest: Hottest
     latest: Latest
+    statistics: Statistics
+
+    opts: 'Opts :'
+    more: More
+
+    statistics: Statistics
+    account_num: 'Members: %{num}'
+    article_num: 'Articles: %{num}'
+    comment_num: 'Comments: %{num}'

@@ -9,7 +9,7 @@
         <div class="col-md-8">
           <div class="form-group">
             <%= content_tag :span, t("article.title") %>
-            <%= f.input_field :title, class: "form-control form-input-normal" %>
+            <%= f.input_field :title, class: "form-control form-input-normal", maxlength: "50" %>
           </div>
           <div class="edit-body">
             <!-- 标签卡与工具栏 -->

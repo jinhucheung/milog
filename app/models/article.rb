@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   
   validates :title, :user_id, :category_id, presence: true
+  validates :title, length: { maximum: 50 }
   validate :tags_number
 
   default_scope ->{ order created_at: :desc }
@@ -84,6 +85,20 @@ class Article < ApplicationRecord
         }
       ).records
     end
+
+    # 热门文章, 根据阅读数>=50 & 评论数>=10
+    def hottest 
+      _result = Article.find_by_sql "
+        SELECT articles.*
+        FROM articles, comments
+        WHERE articles.id = comments.article_id
+        AND articles.view_count >= 50
+        AND comments.deleted_at IS NULL
+        GROUP BY articles.id
+        HAVING COUNT(*) >= 10
+      "
+      self.where id: _result
+    end 
   end
 
   private

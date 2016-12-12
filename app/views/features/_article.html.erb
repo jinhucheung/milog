@@ -1,0 +1,25 @@
+<% if article %>
+<% user = article.user %>
+<div class='media post'>
+  <!-- 头像 -->
+  <div class="media-left">
+    <%= avatar_tag user, :md, link: true %>
+  </div>
+  <div class="media-body">
+    <%= link_to article.title, article_path(article), class: 'post-title' %>
+    <div class="clearfix"></div>
+    <div class="post-meta">
+      <%= link_to user.username, user_path(user.username) %> ·
+      <%= timeago_tag article.created_at %>
+      <%= " · " unless (tags = article.tags).blank? %>
+      <%= tags_tag tags %>
+    </div>
+    <div class="post-meta pull-right">
+      <%= content_tag :span, t('article.view'), class: 'post-meta-item-text' %> ·
+      <%= content_tag :span, article.view_count, class: 'post-view-count' %>&nbsp;
+      <%= content_tag :span, t('article.comment'), class: 'post-meta-item-text' %> ·
+      <%= content_tag :span, article.comment_count, class: 'post-view-count', id: 'post-comment-count' %>
+    </div>
+  </div>
+</div>
+<% end %>

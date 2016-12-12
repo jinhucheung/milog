@@ -27,7 +27,7 @@
   <!-- 标签与全阅 -->
   <footer class="post-footer">
     <div class="post-tags" >
-      <%= tags_tag @user, article.tags %>
+      <%= tags_tag_with_user @user, article.tags %>
     </div>
     <%= link_to t('article.read_more'), article_path(article), class: 'post-more-link' %>
   </footer>

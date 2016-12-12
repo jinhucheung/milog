@@ -379,5 +379,16 @@ zh-CN:
     join_us: 加入我们
     my_blog: 我的博客
 
+    home: 社区
     hottest: 热门文章
     latest: 最新发布
+
+    opts: 查看 ：
+    more: 更多
+
+    statistics: 统计信息
+    account_num: 社区会员： %{num}人
+    article_num: 文章数： %{num}篇
+    comment_num: 评论数： %{num}条
+
+    

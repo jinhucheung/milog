@@ -1,0 +1,36 @@
+.post-group {
+  .post {
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+
+    .post-title {
+      margin-left: 5px;
+
+      font-size: 17px;
+      color: black !important;
+      
+      &:hover {
+        border-bottom: 1px solid black;
+      }
+    }
+
+    .post-meta {
+      display: inline-block;
+
+      margin-left: 5px;
+      margin-top: 10px;
+      a {
+        border: none;
+        &:hover {
+          border-bottom:  1px solid #444;
+        }
+      }
+    }
+
+    &:last-child {
+       border: none;
+       padding-bottom: 0;
+    }
+  }
+}

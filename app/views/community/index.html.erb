@@ -1,1 +1,54 @@
-## Hello Community
+<% provide :pre_title, t("community.home") %>
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="boxed-group">
+          <div class="pull-right boxed-opts">
+            <%= t "community.opts" %>
+            <%= link_to t("community.more"), community_hottest_path %>
+          </div>
+          <%= content_tag :h3, t("community.hottest") %>
+          <div class="boxed-group-inner">
+            <div class="post-group">
+              <% @hottest_artilces.each do |article| %>
+                <%= render 'features/article', article: article %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="boxed-group">
+          <%= content_tag :h3, t("community.statistics") %>
+          <div class="boxed-group-inner">
+            <ul class="list-group">
+              <%= content_tag :li, t("community.account_num", num: User.all.size) %>
+              <%= content_tag :li, t("community.article_num", num: Article.all.size) %>
+              <%= content_tag :li, t("community.comment_num", num: Comment.posted.size) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-9">
+        <div class="boxed-group">
+          <div class="pull-right boxed-opts">
+            <%= t "community.opts" %>
+            <%= link_to t("community.more"), community_latest_path %>
+          </div>
+          <%= content_tag :h3, t("community.latest") %>
+          <div class="boxed-group-inner">
+            <div class="post-group">
+              <% @latest_articles.each do |article| %>
+                <%= render 'features/article', article: article %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

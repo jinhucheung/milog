@@ -2,8 +2,12 @@ class SearchController < ApplicationController
   before_action :check_disabled_user
   before_action :check_params
 
-  def index
+  def show
     @articles = Article.search_by_token_in_user @token, @user
+  end
+
+  def index
+
   end
 
   private 

@@ -5,6 +5,8 @@ class CommunityController < ApplicationController
   layout 'community'
 
   def index
+    @hottest_artilces = Article.hottest.limit 10
+    @latest_articles = Article.all.limit 10
   end
 
   def hottest

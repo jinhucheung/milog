@@ -1,0 +1,68 @@
+.boxed-group {
+    position: relative;
+    border-radius: 3px;
+    & > h3,
+    .heading {
+        display: block;
+        padding: 9px 10px 10px;
+        margin: 0;
+        font-size: 14px;
+        line-height: 17px;
+        background-color: $loyout-color;
+        border: 1px solid #d8d8d8;
+        border-bottom: 0;
+        border-radius: 3px 3px 0 0;
+        line-height: 1;
+    }
+    /* 表单内容 */
+    .boxed-group-inner {
+        padding: 10px;
+        color: #666;
+        background: #fff;
+        border: 1px solid #d8d8d8;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .list-group {
+            margin: 0;
+            padding: 0;
+            li {
+                margin-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    border: none;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+    .boxed-group-round-border {
+        border-radius: 3px !important;
+    }
+    & + & {
+        margin-top: 25px;
+    }
+
+    /* 操作项 */
+    .boxed-opts {
+        padding-top: 7px;
+        padding-right: 10px;
+        color: $lightgray;
+        letter-spacing: 1px;
+        a {
+            color: black !important;
+            &:hover {
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+
+}

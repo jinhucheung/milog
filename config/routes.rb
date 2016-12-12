@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     root 'community#index', as: 'index'
     get '/hottest' => 'community#hottest'
     get '/latest' => 'community#latest'
+    get '/search' => 'search#index'
   end
 
   # users相关路由最后
@@ -63,7 +64,7 @@ Rails.application.routes.draw do
       get :archive
       get '/categories/:category_id', as: 'category', to: 'users#category'
       get '/tags/:tag_id', as: 'tag', to: 'users#tag'
-      get '/search', to: 'search#index'
+      get '/search', to: 'search#show'
       get '/resume', to: 'resumes#show'
       match '/resume', to: 'resumes#update', via: [:patch, :put]
       get '/resume/edit', to: 'resumes#edit'
