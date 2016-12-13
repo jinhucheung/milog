@@ -1,0 +1,19 @@
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-center-block">
+        <div class="boxed-group">
+          <%= content_tag :h3, yield(:boxed_title) %>
+          <div class="boxed-group-inner">
+            <div class="post-group">
+              <% articles.each do |article| %>
+                <%= render 'features/article', article: article %>
+              <% end %>
+            </div>
+          </div>
+            <%= will_paginate articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

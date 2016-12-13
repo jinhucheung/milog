@@ -64,10 +64,10 @@
     <!-- 主菜单项 -->
     <div class="collapse navbar-collapse" id="collapse-nav">
       <ul class="nav navbar-nav navbar-center main-nav">
-        <%= content_tag :li, link_to(t("home"), community_index_path) %>
+        <%= content_tag :li, link_to(t("community.home"), community_index_path) %>
         <%= content_tag :li, link_to(t("community.hottest"), community_hottest_path) %>
         <%= content_tag :li, link_to(t("community.latest"), community_latest_path) %>
-        <%= content_tag :li, link_to(t("search"), "#", id: 'search') %>
+        <%= content_tag :li, link_to(t("search"), '#', id: 'search') %>
       </ul>
     </div>
   </div>

@@ -205,6 +205,7 @@ en:
   archive: Archive
   aboutme: About
   search: Search
+  blog: Blog
   new_blog: New Blog
   account_profile: Account Profile
   drafts: Drafts
@@ -274,6 +275,7 @@ en:
     read_more: More»
     zero: No articles
     other: "%{size} articles in total"
+    all: Total articles
     title: Title
     view_count: View Count
     comment_count: Comment Count
@@ -391,5 +393,20 @@ en:
     account_num: 'Members: %{num}'
     article_num: 'Articles: %{num}'
     comment_num: 'Comments: %{num}'
+    accounts: Members
+    active_account_tmonth: Active member in this month
+
+    hottest_today: 'Hottest Today: %{num}'
+    hottest_tweek: 'Hottest This Week: %{num}'
+    hottest_tmonth: 'Hottest This Month: %{num}'
+    latest_today: 'Latest Today: %{num}'
+    latest_tweek: 'Latest This Week: %{num}'
+    latest_tmonth: 'Latest This Month: %{num}'
+    hottest_today_pre: Hottest Today
+    hottest_tweek_pre: Hottest This Week
+    hottest_tmonth_pre: Hottest This Month
+    latest_today_pre: Latest Today
+    latest_tweek_pre: Latest This Week
+    latest_tmonth_pre: Latest This Month
 
     articles_in_tag: Tag "%{name}" has %{size} articles

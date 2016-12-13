@@ -1,0 +1,4 @@
+<% provide :pre_title, @page_title+" | "+t("community.home") %>
+<% provide :boxed_title, @page_title+" | "+(@article_size > 0 ? t("article.other", size: @article_size) : t("article.zero")) %>
+
+<%= render 'articles_list', articles: @articles %>

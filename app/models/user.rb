@@ -46,6 +46,7 @@ class User < ApplicationRecord
   scope :normal, ->{ where state: 1 }
   scope :admin, ->{ where state: 2 }
   scope :disabled, ->{ where state: 0 }
+  scope :abled, ->{ where 'state = 1 OR state = 2' }
 
   # 生成对应属性的加密字段digest, 并保留token
   def new_attr_digest(attribute)
@@ -170,6 +171,7 @@ class User < ApplicationRecord
   def admin?
     return self.state == 2
   end
+
 
   private
     def downcase_username_and_email

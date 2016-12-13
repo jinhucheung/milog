@@ -1,1 +1,38 @@
-## Hello Latest
+<% provide :pre_title, t("community.latest") %>
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="boxed-group">
+          <div class="pull-right boxed-opts">
+            <%= t "community.opts" %>
+            <%= link_to t("community.time"), community_latest_path(order: 'time'), class: "#{'under-line' if @opt == 0}" %> / 
+            <%= link_to t("community.view"), community_latest_path(order: 'view'), class: "#{'under-line' if @opt == 1}" %> /  
+            <%= link_to t("community.comment"), community_latest_path(order: 'comment'), class: "#{'under-line' if @opt == 2}" %>         
+          </div>
+          <%= content_tag :h3, t("community.latest") %>
+          <div class="boxed-group-inner">
+            <div class="post-group">
+              <% @articles.each do |article| %>
+                <%= render 'features/article', article: article %>
+              <% end %>
+            </div>
+          </div>
+              <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+        </div>
+      </div>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="boxed-group">
+          <%= content_tag :h3, t("community.statistics") %>
+          <div class="boxed-group-inner">
+            <ul class="list-group">
+              <%= content_tag :li, link_to(t("community.latest_today", num: @articles_today_size), community_articles_path(by: :latest_today)) %>
+              <%= content_tag :li, link_to(t("community.latest_tweek", num: @articles_curweek_size), community_articles_path(by: :latest_tweek)) %>
+              <%= content_tag :li, link_to(t("community.latest_tmonth", num: @articles_curmonth_size), community_articles_path(by: :latest_tmonth)) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

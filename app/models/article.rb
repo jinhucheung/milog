@@ -9,6 +9,8 @@ class Article < ApplicationRecord
   default_scope ->{ order created_at: :desc }
   scope :posted, -> { where posted: true }
   scope :unposted, ->{ where posted: false }
+  scope :order_by_time, -> { reorder(nil).order created_at: :desc }
+  scope :order_by_view_count, -> { reorder(nil).order view_count: :desc }
 
   belongs_to :user
   belongs_to :category
@@ -44,6 +46,11 @@ class Article < ApplicationRecord
     str2tags str
   end
 
+  def posted_week
+    date = Date.today.beginning_of_week
+    return (date..date + 6.days).to_a
+  end
+
   def posted_year
     created_at.year
   end
@@ -53,16 +60,16 @@ class Article < ApplicationRecord
   end
 
   class << self
-    # 根据关键字搜索某用户已发布的文章
+    # 根据关键字搜索已发布的文章
     # 最多返回100条记录
-    def search_by_token_in_user(token, user)
-      return nil if token.blank? || user.blank?
-      search(
+    # user限制搜索范围
+    def search_by_token(token, user: nil)
+      return nil if token.blank?
+      opts = {
         size: 100,
         query: {
           bool: {
             must: [
-              { match: { user_id: user.id } },
               { match: { posted: true } },
               { multi_match: 
                 {
@@ -83,21 +90,43 @@ class Article < ApplicationRecord
               content: {}
           }
         }
-      ).records
+      }
+      opts[:query][:bool][:must].push({ match: { user_id: user.id } }) unless user.blank?
+      search(opts).records
+    end
+
+    # 根据文章阅读与评论数选择
+    # 默认以评论数减序排列
+    def select_by_view_and_comment(view_count: 0, comment_count: 0)
+      Article.unscoped
+             .joins('LEFT OUTER JOIN comments ON comments.article_id = articles.id')
+             .where("articles.posted = ? AND 
+                     articles.view_count >= ? AND 
+                     comments.deleted_at IS NULL", 1, view_count)
+             .group("articles.id")
+             .having("COUNT(*) >= ?", comment_count)
+             .order("COUNT(*) DESC")      
     end
 
     # 热门文章, 根据阅读数>=50 & 评论数>=10
-    # 默认以评论数减序排列
     def hottest 
-      Article.unscoped
-             .joins(:comments)
-             .where("articles.posted = ? AND 
-                     articles.view_count >= ? AND 
-                     comments.deleted_at IS NULL", 1, 50)
-             .group("articles.id")
-             .having("COUNT(*) >= ?", 10)
-             .order("COUNT(*) DESC")
+      self.select_by_view_and_comment view_count: 50, comment_count: 10
     end 
+
+    # 最新文章
+    def latest
+      self.select_by_view_and_comment
+    end
+
+    # 返回某段时间内的文章
+    # time values in [:day :week :month]
+    def all_during_time(articles, time: :day)
+      return [] if articles.blank? || time.blank?
+      return [] unless %w[day week month].include? time.to_s
+      _result = articles.map{ |article| article if article.created_at >= Time.now.public_send("beginning_of_#{time}") && article.created_at <= Time.now.public_send("end_of_#{time}") }
+      self.where id: _result
+    end
+
   end
 
   private

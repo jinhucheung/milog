@@ -17,24 +17,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3 hidden-xs hidden-sm">
-        <div class="boxed-group">
-          <%= content_tag :h3, t("community.statistics") %>
-          <div class="boxed-group-inner">
-            <ul class="list-group">
-              <%= content_tag :li, t("community.account_num", num: User.all.size) %>
-              <%= content_tag :li, t("community.article_num", num: Article.all.size) %>
-              <%= content_tag :li, t("community.comment_num", num: Comment.posted.size) %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row" style="margin-top: 40px;">
-      <div class="col-md-9">
-        <div class="boxed-group">
+        <div class="boxed-group" style="margin-top: 40px;">
           <div class="pull-right boxed-opts">
             <%= t "community.opts" %>
             <%= link_to t("community.more"), community_latest_path %>
@@ -44,6 +28,36 @@
             <div class="post-group">
               <% @latest_articles.each do |article| %>
                 <%= render 'features/article', article: article %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="boxed-group">
+          <%= content_tag :h3, t("community.statistics") %>
+          <div class="boxed-group-inner">
+            <ul class="list-group">
+              <%= content_tag :li, link_to(t("community.account_num", num: User.abled.size), community_users_path) %>
+              <%= content_tag :li, link_to(t("community.article_num", num: Article.posted.size), community_articles_path) %>
+              <%= content_tag :li, t("community.comment_num", num: Comment.posted.size) %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="boxed-group">
+          <%= content_tag :h3, t("community.active_account_tmonth") %>
+          <div class="boxed-group-inner">
+            <div class="user-group row">
+              <% @users.each do |user| %>
+                <div class='user col-sm-4'>
+                  <div class="avatar">
+                    <%= avatar_tag user, :md, link: true %>
+                  </div>
+                  <div class="username">
+                    <%= link_to user.username, user_path(user.username) %>
+                  </div>
+                </div>
               <% end %>
             </div>
           </div>

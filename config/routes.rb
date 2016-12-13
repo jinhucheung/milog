@@ -54,6 +54,8 @@ Rails.application.routes.draw do
     get '/latest' => 'community#latest'
     get '/search' => 'search#index'
     get '/tags/:id' => 'community#tag', as: 'tag'
+    get '/articles' => 'community#articles'
+    get '/users' => 'community#users'
   end
 
   # users相关路由最后

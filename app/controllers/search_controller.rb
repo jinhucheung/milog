@@ -1,13 +1,14 @@
 class SearchController < ApplicationController
-  before_action :check_disabled_user
-  before_action :check_params
+  before_action :check_disabled_user, only: [:show]
+  before_action :check_params, only: [:show]
 
   def show
-    @articles = Article.search_by_token_in_user @token, @user
+    @articles = Article.search_by_token @token, user: @user
   end
 
   def index
-
+    @articles = Article.search_by_token params[:search][:keyword]
+    render :show
   end
 
   private 

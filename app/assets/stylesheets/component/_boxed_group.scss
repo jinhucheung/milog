@@ -41,6 +41,13 @@
                     border: none;
                     padding-bottom: 0;
                 }
+
+                a{
+                    color: #666 !important;
+                    &:hover {
+                        border-bottom: 1px solid #666;
+                    }
+                }
             }
         }
     }

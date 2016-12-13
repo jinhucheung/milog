@@ -207,6 +207,7 @@ zh-CN:
   archive: 归档
   aboutme: 关于
   search: 搜索
+  blog: 博客
   new_blog: 写博客
   account_profile: 个人资料设置
   drafts: 草稿箱
@@ -258,6 +259,7 @@ zh-CN:
     read_more: 阅读全文»
     zero: 暂无文章
     other: "目前共有 %{size} 篇文章"
+    all: 全部文章
     title: 标题
     view_count: 阅读数
     comment_count: 评论数
@@ -393,8 +395,20 @@ zh-CN:
     account_num: 社区会员： %{num}人
     article_num: 文章数： %{num}篇
     comment_num: 评论数： %{num}条
+    accounts: 社区会员
+    active_account_tmonth: 本月活跃会员
+
     hottest_today: 本日热门： %{num}篇
     hottest_tweek: 本周热门： %{num}篇
     hottest_tmonth: 本月热门： %{num}篇
+    latest_today: 本日发布： %{num}篇
+    latest_tweek: 本周发布： %{num}篇
+    latest_tmonth: 本月发布： %{num}篇
+    hottest_today_pre: 本日热门
+    hottest_tweek_pre: 本周热门
+    hottest_tmonth_pre: 本月热门
+    latest_today_pre: 本日发布
+    latest_tweek_pre: 本周发布
+    latest_tmonth_pre: 本月发布
 
     articles_in_tag: 标签 "%{name}", 共有 %{size} 篇文章
