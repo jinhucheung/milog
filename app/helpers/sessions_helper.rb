@@ -22,6 +22,11 @@ module SessionsHelper
     @current_user
   end
 
+  def current_user?(user)
+    return false if user.blank?
+    signed_in? && current_user == user
+  end
+
   def remember_me(user)
     user.new_attr_digest :remember
     cookies.permanent.signed[:remember_token] = user.remember_token

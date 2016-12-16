@@ -65,6 +65,7 @@ Rails.application.routes.draw do
       get :aboutme
       get :drafts
       get :archive
+      get :blog
       get '/categories/:category_id', as: 'category', to: 'users#category'
       get '/tags/:tag_id', as: 'tag', to: 'users#tag'
       get '/search', to: 'search#show'

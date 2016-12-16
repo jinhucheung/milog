@@ -7,7 +7,7 @@ class CommunityController < ApplicationController
   def index
     @hottest_articles = Article.hottest.order_by_time.limit 10
     @latest_articles = Article.latest.order_by_time.limit 10
-    # 活跃会员 当月发文数前12
+    # 活跃会员 当月发文数前12位
     @users =  Article.all_during_time(Article.latest, time: :month)
                      .map{|article| article.user }.uniq
                      .sort{|user| user.articles.size}[0...12]

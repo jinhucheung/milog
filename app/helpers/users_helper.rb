@@ -40,5 +40,11 @@ module UsersHelper
     link_to content_tag(:i, '', class: 'fa fa-globe icon'), link 
   end
 
+  ## 用户状态
+  def user_state_tag(user)
+    return if user.blank?
+    return content_tag :span, t("user.normal"), class: 'label label-info' if user.state == 0
+    content_tag :span, t("user.admin"), class: 'label label-danger' if user.state == 2
+  end
 
 end

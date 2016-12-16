@@ -338,7 +338,7 @@ zh-CN:
     user:
       zero: 暂无用户
       other: "目前共有 %{size} 位用户"
-      normal: 一般用户
+      normal: 会员
       admin: 管理员
       disabled: 禁用
       new: 添加用户
@@ -379,7 +379,7 @@ zh-CN:
     sub_slogan: 一个基于内容分享的社区
     our_social: Milog社区
     join_us: 加入我们
-    my_blog: 我的博客
+    my_space: 我的空间
 
     home: 社区
     hottest: 热门文章
@@ -412,3 +412,16 @@ zh-CN:
     latest_tmonth_pre: 本月发布
 
     articles_in_tag: 标签 "%{name}", 共有 %{size} 篇文章
+
+  user: 
+    admin: 管理员
+    normal: 会员
+    index: 第 %{index} 位会员
+    articles: "%{size} 篇文章"
+    comments: "%{size} 条评论"
+    followers: 关注者
+    following: 正在关注
+    follow: 关注
+    unfollow: 取消关注
+    my_blog: 我的博客
+    other_blog: TA的博客

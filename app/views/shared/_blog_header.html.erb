@@ -63,10 +63,10 @@
     <% end %>
     
     <!-- 主菜单项 -->
-    <% if yield(:inadmin).blank? %>
+    <% if yield(:hidden_nav_center_items).blank? %>
     <div class="collapse navbar-collapse" id="collapse-nav">
       <ul class="nav navbar-nav navbar-center main-nav">
-        <%= content_tag :li, link_to(t("blog"), user_path(@user.username)) %>
+        <%= content_tag :li, link_to(t("blog"), blog_user_path(@user.username)) %>
         <%= content_tag :li, link_to(t("category"), categories_user_path(@user.username)) %>
         <%= content_tag :li, link_to(t("archive"), archive_user_path(@user.username)) %>
         <%= content_tag :li, link_to(t("aboutme"), aboutme_user_path(@user.username)) %>

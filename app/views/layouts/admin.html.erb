@@ -2,7 +2,7 @@
 <html style="overflow-y: scroll;">
   <%= render 'shared/page_head' %>
   <body>
-    <% provide :inadmin, true %>
+    <% provide :hidden_nav_center_items, true %>
     <%= content_tag :div, class: yield(:bodyclass) do -%>
     <%= render 'shared/blog_header' %>
     <%= render 'shared/flash_messages_inner'%>

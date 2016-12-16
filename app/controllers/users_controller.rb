@@ -8,6 +8,11 @@ class UsersController < ApplicationController
   layout 'blog'
 
   def show
+    @article_size = @user.articles.where(posted: true).size
+    @comment_size = @user.comments.size
+  end
+
+  def blog
     @articles = @user.articles.where(posted: true).paginate page: params[:page], per_page: 5
   end
 

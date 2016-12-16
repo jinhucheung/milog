@@ -29,7 +29,7 @@
           <% unless signed_in?  %>
             <%= content_tag :li, link_to(t("community.join_us"), signup_path) %>
           <% else %>
-            <%= content_tag :li, link_to(t("community.my_blog"), user_path(current_user.username)) %>
+            <%= content_tag :li, link_to(t("community.my_space"), user_path(current_user.username)) %>
           <% end %>
       </ul>
 

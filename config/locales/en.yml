@@ -335,7 +335,7 @@ en:
     user:
       zero: No users
       other: "%{size} users in total"
-      normal: Normal
+      normal: Member
       admin: Admin
       disabled: Disabled
       new: New User
@@ -376,7 +376,7 @@ en:
     sub_slogan: A community based on content sharing
     our_social: Community
     join_us: Join Us
-    my_blog: My Blog
+    my_space: My Space
 
     home: Community
     hottest: Hottest
@@ -410,3 +410,16 @@ en:
     latest_tmonth_pre: Latest This Month
 
     articles_in_tag: Tag "%{name}" has %{size} articles
+
+  user: 
+    admin: Admin
+    normal: Member
+    index: The %{index}th member
+    articles: "%{size} articles"
+    comments: "%{size} comments"  
+    followers: Followers
+    following: Following
+    follow: Follow
+    unfollow: Unfollow
+    my_blog: My Blog
+    other_blog: His/Her Blog

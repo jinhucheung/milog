@@ -1,0 +1,20 @@
+<% provide :bodyclass, 'home' %>
+<% provide :pre_title, t("blog")+" | "+capitalize_name(@user) %>
+
+<!-- 内容区域 -->
+<div class="mainer">
+  <div class="container-fluid">
+    <div class="col-md-7 col-lg-7 col-center-block content-wrap" >
+      <div id="content">
+        <!-- 文章概览 -->
+        <section class="posts-expand" id="posts">
+        <% @articles.each do | article | %>
+          <%= render 'features/post_overview', article: article %>
+        <% end %>
+        </section>
+        <!-- 分页栏 -->
+        <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,72 @@
-<% provide :bodyclass, 'home' %>
+<% provide :hidden_nav_center_items, true %>
+<% provide :bodyclass, 'userspace' %>
 <% provide :pre_title, capitalize_name(@user) %>
 
-<!-- 内容区域 -->
-<div class="mainer">
-  <div class="container-fluid">
-    <div class="col-md-7 col-lg-7 col-center-block content-wrap" >
-      <div id="content">
-        <!-- 文章概览 -->
-        <section class="posts-expand" id="posts">
-        <% @articles.each do | article | %>
-          <%= render 'features/post_overview', article: article %>
-        <% end %>
-        </section>
-        <!-- 分页栏 -->
-        <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default profile">
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-left avatar">
+                <%= avatar_tag @user, :lg, link: true %>
+                <div class="state">
+                  <%= user_state_tag @user %>
+                </div>
+              </div>
+              <div class="media-body">
+                <div class="item user">
+                  <%= content_tag :span, capitalize_name(@user)%>
+                  <%= content_tag :span, "(#{@user.nickname})" unless @user.nickname.blank? %>
+                </div>
+                <div class="item number">
+                  <%= content_tag :span, t("user.index", index: @user.id) %> / 
+                  <%= content_tag :span, mtime_tag(@user.created_at, strf: '%Y-%m-%d') %>
+                </div>
+                <div class="item counts">
+                  <%= content_tag :span, t("user.articles", size: @article_size) %> · 
+                  <%= content_tag :span, t("user.comments", size: @comment_size) %>
+                </div>
+                <div class="item social">
+                  <%= email_tag @user %>
+                  <%= github_tag @user %>
+                  <%= weibo_tag @user %>
+                  <%= personal_website_tag @user %>
+                </div>
+              </div>
+            </div>
+            <div class="follow-info row">
+              <div class="col-xs-6 followers">
+                <%= content_tag :div, link_to(11, '#'), class: 'counter' %>
+                <%= content_tag :div, link_to(t('user.followers'), '#'), class: 'text' %>
+              </div>
+              <div class="col-xs-6 following">
+                <%= content_tag :div, link_to(11, '#'), class: 'counter' %>
+                <%= content_tag :div, link_to(t('user.following'), '#'), class: 'text' %>
+              </div>
+            </div>
+              <div class="buttons row">
+                <% if !current_user?(@user) %>
+                <div class="col-xs-6">
+                  <%= content_tag :a, href: '#', class: 'btn btn-primary btn-block btn-follow' do -%>
+                    <%= content_tag :i, "", class: 'fa fa-star' %>&nbsp;
+                    <%= content_tag :span, t("user.follow") %>
+                  <% end -%>
+                </div>
+                <% end %>
+                <%= content_tag :div, class: "#{ current_user?(@user) ? 'col-xs-8 col-center-block' : 'col-xs-6' }" do -%>
+                  <%= content_tag :a, href: blog_user_path(@user.username), class: 'btn btn-default btn-block btn-blog' do -%>
+                    <%= content_tag :i, "", class: 'fa fa-user' %>&nbsp;
+                    <%= content_tag :span, current_user?(@user) ? t("user.my_blog") : t("user.other_blog") %>
+                  <% end -%>
+                <% end -%>
+              </div>
+
+          </div>
+        </div>
       </div>
+      <div class="col-md-8">2</div> 
     </div>
   </div>
 </div>
