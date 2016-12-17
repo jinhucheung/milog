@@ -49,6 +49,14 @@ class UsersController < ApplicationController
     articles_group_by_year total_articles
   end
 
+  def follow
+
+  end
+
+  def unfollow
+
+  end
+
   private
     def get_user
       @user = User.find_by username: params[:id]

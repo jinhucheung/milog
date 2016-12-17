@@ -109,6 +109,8 @@ en:
     must_be_present: must be present
     must_be_posted: must be posted
     paramater_illegal: Illegal Paramater
+    follower_following_be_unique: and Following ID must be unique
+    follower_not_eq_following: and Following ID must be not equal
   success:
     category_has_deleted: The category "%{name}" has deleted
     category_has_updated: Rename this category "%{bef_name}" to "%{upd_name}"
@@ -147,6 +149,7 @@ en:
       resume: Resume
       hold: Hold
       tag: Tag
+      usership: Usership
     attributes:
       user:
         username: Username
@@ -186,6 +189,11 @@ en:
         category_id: Category ID
       tag:
         name: Tag
+      usership:
+        follower: Follower
+        following: Following
+        follower_id: Follower ID
+        following_id: Following ID
 
   accounts_mailer:
     hi: Hi %{username},

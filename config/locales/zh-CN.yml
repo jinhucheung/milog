@@ -111,6 +111,8 @@ zh-CN:
     must_be_present: 必须已存在
     must_be_posted: 必须已发布
     paramater_illegal: 参数非法
+    follower_following_be_unique: 和正在关注ID关系必须是唯一
+    follower_not_eq_following: 和正在关注ID必须不同
   success:
     category_has_deleted: 文章分类"%{name}"已删除
     category_has_updated: 文章分类"%{bef_name}"已更名为"%{upd_name}"
@@ -149,6 +151,7 @@ zh-CN:
       resume: 简历
       hold: 暂存
       tag: 标签
+      usership: 用户关系
     attributes:
       user:
         username: 用户名
@@ -188,6 +191,11 @@ zh-CN:
         category_id: 分类ID
       tag:
         name: 标签
+      usership:
+        follower: 关注者
+        following: 正在关注
+        follower_id: 关注者ID
+        following_id: 正在关注者ID
 
   accounts_mailer:
     hi: Hi %{username}，

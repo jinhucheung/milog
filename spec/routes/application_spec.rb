@@ -252,7 +252,7 @@ RSpec.describe "ApplicationRoutes", type: :routing do
 
   describe "search" do
     it "get /hijinhu/search" do
-      expect(get: '/hijinhu/search').to route_to "search#index", id: 'hijinhu'
+      expect(get: '/hijinhu/search').to route_to "search#show", id: 'hijinhu'
     end
   end
 

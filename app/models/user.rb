@@ -28,6 +28,15 @@ class User < ApplicationRecord
   has_one  :resume,               dependent: :destroy
   has_many :holds,                dependent: :destroy
 
+  has_many :followingships,       class_name: 'Usership', 
+                                  foreign_key: 'follower_id',
+                                  dependent: :destroy
+  has_many :following,            through: :followingships, source: :following
+  has_many :followerships,        class_name: 'Usership',
+                                  foreign_key: 'following_id',
+                                  dependent: :destroy
+  has_many :followers,            through: :followerships,  source: :follower
+
   # 需引入gem bcrypt
   has_secure_password
 

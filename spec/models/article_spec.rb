@@ -91,7 +91,7 @@ RSpec.describe Article, type: :model do
 
   context "search" do
     it "article should be searchable" do
-      size = Article.search_by_token_in_user("hi", user).size
+      size = Article.search_by_token("hi", user: user).size
       expect(size).to eq 0
     end
   end

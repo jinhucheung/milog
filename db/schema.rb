@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123023656) do
+ActiveRecord::Schema.define(version: 20161217022657) do
 
   create_table "article_pictureships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "article_id", null: false
@@ -136,6 +136,12 @@ ActiveRecord::Schema.define(version: 20161123023656) do
     t.integer  "state",                 default: 1,     null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+  end
+
+  create_table "userships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "follower_id",  null: false
+    t.integer "following_id", null: false
+    t.index ["follower_id", "following_id"], name: "index_userships_on_follower_id_and_following_id", unique: true, using: :btree
   end
 
 end

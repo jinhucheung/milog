@@ -72,6 +72,8 @@ Rails.application.routes.draw do
       get '/resume', to: 'resumes#show'
       match '/resume', to: 'resumes#update', via: [:patch, :put]
       get '/resume/edit', to: 'resumes#edit'
+      post :follow
+      post :unfollow
     end
   end
 
