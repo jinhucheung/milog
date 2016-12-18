@@ -2,7 +2,7 @@
 <% provide :bodyclass, 'userspace' %>
 <% provide :pre_title, capitalize_name(@user) %>
 
-<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+<div class="mainer" style="margin-top: 0; padding-top: 20px">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -38,12 +38,12 @@
             </div>
             <div class="follow-info row">
               <div class="col-xs-6 followers">
-                <%= content_tag :div, link_to(@followers_size, '#', id: 'followers_size'), class: 'counter' %>
-                <%= content_tag :div, link_to(t('user.followers'), '#'), class: 'text' %>
+                <%= content_tag :div, link_to(@followers_size, user_path(@user.username, tab: 'followers'), id: 'followers_size'), class: 'counter' %>
+                <%= content_tag :div, link_to(t('user.followers'), user_path(@user.username, tab: 'followers')), class: 'text' %>
               </div>
               <div class="col-xs-6 following">
-                <%= content_tag :div, link_to(@following_size, '#', id: 'following_size'), class: 'counter' %>
-                <%= content_tag :div, link_to(t('user.following'), '#'), class: 'text' %>
+                <%= content_tag :div, link_to(@following_size, user_path(@user.username, tab: 'following'), id: 'following_size'), class: 'counter' %>
+                <%= content_tag :div, link_to(t('user.following'), user_path(@user.username, tab: 'following')), class: 'text' %>
               </div>
             </div>
               <div class="buttons row">
@@ -63,7 +63,68 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8">2</div> 
+      <div class="col-md-8 hidden-xs">
+        <ul class="nav nav-tabs">
+          <%= content_tag :li, link_to(t("user.tab.articles"), user_path(@user.username, tab: 'articles')), class: "#{'active' if @tab == 0}" %>
+          <%= content_tag :li, link_to(t("user.tab.comments"), user_path(@user.username, tab: 'comments')), class: "#{'active' if @tab == 1}" %>
+          <%= content_tag :li, link_to(t("user.tab.bio"), user_path(@user.username, tab: 'bio')) , class: "#{'active' if @tab == 2}" %>
+          <%= content_tag :li, link_to(t("user.followers"), user_path(@user.username, tab: 'followers')), class: "#{'active' if @tab == 3}" %>
+          <%= content_tag :li, link_to(t("user.following"), user_path(@user.username, tab: 'following')), class: "#{'active' if @tab == 4}" %>
+        </ul>
+        <div class="tab-content">
+          <div class="content">
+            <% case @tab %>
+            <% when 1 %>
+              <!-- 评论 -->
+              <% @obj.each do |comment| %>
+                <%= content_tag :div, class: 'comment' do -%>
+                  <%= link_to comment.article.title, article_path(comment.article.id), class: 'post-title' %>
+                  <span class="comment-meta pull-right">
+                    <%= timeago_tag comment.created_at, class: 'comment-time' %>
+                  </span>
+                  <div class="comment-content">
+                    <div class="standard markdown-body">
+                      <%= markdown_comment_tag comment %>
+                    </div>
+                  </div>
+                <% end -%>
+              <% end %>
+            <% when 2 %>
+              <!-- 个人简介 -->
+              <%= @obj %>
+            <% when 3 %>
+              <!-- 关注者 -->
+              <%= render 'features/users', users: @obj, user_in_cols: 2 %>
+            <% when 4 %>
+              <!-- 正在关注 -->
+              <%= render 'features/users', users: @obj, user_in_cols: 2 %>
+            <% else %>
+              <!-- 文章 -->
+              <table class="table table-striped">
+                <tbody>
+                  <% @obj.each do |article| %>
+                    <tr class="post">
+                      <%= content_tag :td, category_tag(@user, article.category) %>
+                      <%= content_tag :td do -%>
+                        <%= link_to article.title, article_path(article.id) %>
+                        <%= timeago_tag article.created_at, class: 'post-meta' %>
+                      <% end -%>
+                      <%= content_tag :td, class: 'post-counter' do -%>
+                        <%= content_tag :span, t('article.view'), class: 'post-meta' %> ·
+                        <%= content_tag :span, article.view_count, class: 'post-meta' %>&nbsp;
+                        <%= content_tag :span, t('article.comment'), class: 'post-meta' %> ·
+                        <%= content_tag :span, article.comment_count, class: 'post-meta' %>
+                      <% end -%>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% end %>
+            <%= will_paginate @obj, renderer: WillPaginate::ActionView::BlogLinkRenderer if @tab != 2 %>
+          </div>
+        </div>  
+      </div> 
     </div>
   </div>
 </div>
+

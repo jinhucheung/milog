@@ -431,3 +431,8 @@ en:
     unfollow: Unfollow
     my_blog: My Blog
     other_blog: His/Her Blog
+
+    tab:
+      articles: Article
+      comments: Comment
+      bio: Bio

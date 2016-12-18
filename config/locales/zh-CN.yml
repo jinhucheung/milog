@@ -433,3 +433,8 @@ zh-CN:
     unfollow: 取消关注
     my_blog: 我的博客
     other_blog: TA的博客
+    
+    tab:
+      articles: 文章
+      comments: 评论
+      bio: 个人简介

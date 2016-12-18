@@ -7,18 +7,7 @@
         <div class="boxed-group">
           <%= content_tag :h3, t("community.account_num", num: @user_size) %>
           <div class="boxed-group-inner">
-            <div class="user-group row">
-              <% @users.each do |user| %>
-                <div class='user col-sm-1'>
-                  <div class="avatar">
-                    <%= avatar_tag user, :md, link: true %>
-                  </div>
-                  <div class="username">
-                    <%= link_to user.username, user_path(user.username) %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+            <%= render 'features/users', users: @users, user_in_cols: 1 %>
           </div>
             <%= will_paginate @users, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
         </div>

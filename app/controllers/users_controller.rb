@@ -12,6 +12,24 @@ class UsersController < ApplicationController
     @comment_size = @user.comments.size
     @followers_size = @user.followers.size
     @following_size = @user.following.size
+
+    case params[:tab]
+    when 'comments'
+      @tab = 1
+      @obj = @user.comments.where(deleted_at: nil).order_by_time.paginate page: params[:page], per_page: 20
+    when 'bio'
+      @tab = 2
+      @obj = @user.bio
+    when 'followers'
+      @tab = 3
+      @obj = @user.followers.paginate page: params[:page], per_page: 24
+    when 'following'
+      @tab = 4
+      @obj = @user.following.paginate page: params[:page], per_page: 24
+    else 
+      @tab = 0
+      @obj = @user.articles.where(posted: true).paginate page: params[:page], per_page: 20
+    end
   end
 
   def blog

@@ -1,66 +1,103 @@
 .userspace {
-  .profile {
-    border: 1px solid #d8d8d8;
-    border-radius: 3px;
+    .profile {
+        border: 1px solid #d8d8d8;
+        border-radius: 3px;
 
-    .media {
-      .avatar {
-        text-align: center;
-        .state {
-          margin-top: 10px;
+        .media {
+            .avatar {
+                text-align: center;
+
+                .state {
+                    margin-top: 10px;
+                }
+            }
+
+            .item {
+                margin-bottom: 10px;
+                color: #999;
+                word-break: break-all;
+            }
+
+            .item.user {
+                color: black;
+            }
+
+            .item.social {
+                font-size: 18px;
+
+                a {
+                    margin-right: 8px;
+                }
+            }
         }
-      }
 
-      .item {
-        margin-bottom: 10px;
-        color: #999;
-        word-break: break-all;
-        
-      }
+        .follow-info {
+            border-top: 1px solid #ddd;
+            text-align: center;
 
-      .item.user {
-        color: black;
-      }
+            .followers, .following {
+                padding-top: 10px;
 
-      .item.social {
-        font-size: 18px;
-        a {
-          margin-right: 8px;
+                .counter a {
+                    font-size: 32px;
+                    color: #356dd0 !important;
+                }
+
+                .text a {
+                    color: #999 !important;
+                }
+            }
         }
-      }
+
+        .buttons {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+
+            .btn-follow {
+                color: white !important;
+            }
+
+            .btn-blog {
+                color: black !important;
+            }
+        }
     }
 
-    .follow-info {
-      border-top: 1px solid #ddd;
-      text-align: center;
+    .tab-content {
+        .content {
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            padding: 15px;
 
-      .followers, .following {
-        padding-top: 10px;
-        
-        .counter a {
-          font-size: 32px;
-          color: #356dd0 !important;
+            .table {
+                margin-bottom: 0;
+
+                a {
+                    @include back-underline;
+                }
+
+                .post-counter {
+                    width: 125px;
+                }
+            }
+
+            .comment {
+                .post-title {
+                    @include back-underline;
+                }
+
+                .comment-time {
+                    font-size: 12px;
+                    color: #777;
+                }
+            }
+
+            .pagination {
+                margin-top: 20px;
+            }
         }
-
-        .text a{
-          color: #999 !important;
-        }
-      }
     }
-
-    .buttons {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #ddd;
-      text-align: center;
-
-      .btn-follow  {
-        color: white !important;
-      }
-
-      .btn-blog  {
-        color: black !important;
-      }
-    }
-  }
 }

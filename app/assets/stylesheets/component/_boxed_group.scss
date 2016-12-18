@@ -65,10 +65,7 @@
         color: $lightgray;
         letter-spacing: 1px;
         a {
-            color: black !important;
-            &:hover {
-                border-bottom: 1px solid black;
-            }
+          @include back-underline;
         }
     }
 

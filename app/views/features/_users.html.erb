@@ -1,0 +1,12 @@
+<div class="user-group row">
+  <% users.each do |user| %>
+  <%= content_tag :div, class: "user col-sm-#{user_in_cols}" do -%>
+    <div class="avatar">
+      <%= avatar_tag user, :md, link: true %>
+    </div>
+    <div class="username">
+      <%= link_to user.username, user_path(user.username) %>
+    </div>
+  <% end -%>
+  <% end %>
+</div>

@@ -8,11 +8,7 @@
       margin-left: 5px;
 
       font-size: 17px;
-      color: black !important;
-      
-      &:hover {
-        border-bottom: 1px solid black;
-      }
+      @include back-underline;
     }
 
     .post-meta {

@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   validate  :belong_to_posted_article
 
   default_scope ->{ order index: :asc }
+  scope :order_by_time, -> { reorder(nil).order created_at: :desc }
 
   belongs_to :user
   belongs_to :article

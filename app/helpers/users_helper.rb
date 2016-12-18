@@ -68,5 +68,5 @@ module UsersHelper
     content = link_to content, path, method: :post, remote: true, class: 'btn btn-primary btn-block btn-follow', id: 'follow-btn-link'
     raw content
   end
-
+  
 end

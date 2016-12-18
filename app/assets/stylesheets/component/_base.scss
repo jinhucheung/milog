@@ -84,10 +84,10 @@
 }
 
 .flash-alert-inner {
-    width:  100%;
+    width: 100%;
     z-index: $z-index + 50;
-    text-align:  center;
-    letter-spacing:  1px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 /* 输入框隐藏 */
@@ -100,7 +100,21 @@
 /* 渐现 */
 @mixin fade-text($color: black) {
     @keyframes fade-text {
-        from { color: transparent; }
-        to {  color: $color; }
+        from {
+            color: transparent;
+        }
+
+        to {
+            color: $color;
+        }
+    }
+}
+
+/* 黑底线 */
+@mixin back-underline {
+    color: black !important;
+
+    &:hover {
+        border-bottom: 1px solid black;
     }
 }
