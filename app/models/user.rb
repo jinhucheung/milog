@@ -181,6 +181,11 @@ class User < ApplicationRecord
     return self.state == 2
   end
 
+  # 是否关注了某用户
+  def followed?(user)
+    return false if user.blank?
+    self.followingships.where(following_id: user.id).any?
+  end
 
   private
     def downcase_username_and_email

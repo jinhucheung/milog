@@ -8,7 +8,7 @@
       <!-- 切换语系 -->
       <%= link_to_locale request.path, mclass: "navbar-text switch-lang" %>
 
-      <%= content_tag(:span, "#{capitalize_name(@user)}'s Blog", class: "navbar-text ") if current_user != @user %>
+      <%= content_tag(:span, "#{capitalize_name(@user)}'s Blog", class: "navbar-text ") if current_user != @user && yield(:hidden_nav_center_items).blank? %>
       <!-- 屏幕<=420px时显示 -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-nav">
         <span class="icon-bar"></span>

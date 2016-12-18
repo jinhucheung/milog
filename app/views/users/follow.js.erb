@@ -1,0 +1,5 @@
+$("#followers_size").text("<%= @user.followers.size %>");
+$("#follow-btn-fa").removeClass("fa-star");
+$("#follow-btn-fa").addClass("fa-star-o");
+$("#follow-btn-text").text("<%= t 'user.unfollow' %>");
+$("#follow-btn-link").attr("href", "<%= unfollow_user_path(@user.username) %>");

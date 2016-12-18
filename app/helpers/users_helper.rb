@@ -47,4 +47,26 @@ module UsersHelper
     content_tag :span, t("user.admin"), class: 'label label-danger' if user.state == 2
   end
 
+  ## 关注状态
+  def follow_tag(user)
+    return if user.blank?
+    has_followed = signed_in? && current_user.followed?(user)
+    
+    path = faclass = text = ""
+    if has_followed
+      path = unfollow_user_path user.username
+      faclass = "fa fa-star-o"
+      text = I18n.t "user.unfollow"
+    else
+      path = follow_user_path user.username
+      faclass = "fa fa-star"
+      text = I18n.t "user.follow"
+    end
+
+    content = content_tag(:i, "", class: faclass, id: 'follow-btn-fa') + "&nbsp;&nbsp;".html_safe +
+              content_tag(:span, text, id: 'follow-btn-text')
+    content = link_to content, path, method: :post, remote: true, class: 'btn btn-primary btn-block btn-follow', id: 'follow-btn-link'
+    raw content
+  end
+
 end

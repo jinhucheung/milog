@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :get_user
   before_action :check_disabled_user
-  before_action :check_signed_in, only: [:drafts]
-  before_action :check_activated, only: [:drafts]
+  before_action :check_signed_in, only: [:drafts, :follow, :unfollow]
+  before_action :check_activated, only: [:drafts, :follow, :unfollow]
   before_action :correct_user, only: [:drafts]
 
   layout 'blog'
@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def show
     @article_size = @user.articles.where(posted: true).size
     @comment_size = @user.comments.size
+    @followers_size = @user.followers.size
+    @following_size = @user.following.size
   end
 
   def blog
@@ -50,11 +52,15 @@ class UsersController < ApplicationController
   end
 
   def follow
-
+    ship = current_user.followingships.build following_id: @user.id
+    unless ship.save
+      render json: { status: 400, error: ship.errors.full_messages[0] }
+    end
   end
 
   def unfollow
-
+    ship = current_user.followingships.find_by following_id: @user.id
+    ship.destroy if ship
   end
 
   private
