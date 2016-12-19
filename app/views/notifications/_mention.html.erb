@@ -1,0 +1,13 @@
+<% comment = notification.target %>
+"我是艾特"
+<%= content_tag :div, class: 'comment' do -%>
+<%= link_to comment.article.title, main_app.article_path(comment.article.id), class: 'post-title' %>
+<span class="comment-meta pull-right">
+  <%= timeago_tag comment.created_at, class: 'comment-time' %>
+</span>
+<div class="comment-content">
+  <div class="standard markdown-body">
+    <%= markdown_comment_tag comment %>
+  </div>
+</div>
+<% end -%>

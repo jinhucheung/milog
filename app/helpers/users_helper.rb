@@ -43,7 +43,7 @@ module UsersHelper
   ## 用户状态
   def user_state_tag(user)
     return if user.blank?
-    return content_tag :span, t("user.normal"), class: 'label label-info' if user.state == 0
+    return content_tag :span, t("user.normal"), class: 'label label-info' if user.state == 1
     content_tag :span, t("user.admin"), class: 'label label-danger' if user.state == 2
   end
 

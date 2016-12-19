@@ -1,0 +1,35 @@
+<% provide :hidden_nav_center_items, true %>
+<% provide :pre_title, t('notifications.all_notifications') %>
+
+<div class="mainer notifications" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-center-block">
+        <div class="boxed-group">
+          <div class="pull-right">
+            <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>      
+          </div>
+          <%= content_tag :h3, t('notifications.all_notifications') %>
+          <div class="boxed-group-inner">
+            <div class="list">
+              <% if @notifications.blank? %>
+                <div class="no-records"><%= t('notifications.no_records') %></div>
+              <% else %>
+                <% @notification_groups.each do |group, notifications| %>
+                  <div class="notification-group">
+                    <div class="group-title">
+                      <i class="fa fa-clock-o"></i>&nbsp;
+                      <%= group %>
+                    </div>
+                    <%= render notifications %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+            <%= will_paginate @notifications, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

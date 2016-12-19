@@ -52,6 +52,9 @@ gem "elasticsearch-rails"
 
 gem 'rails-timeago', '~> 2.0'
 
+# 通知系统
+gem 'notifications'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

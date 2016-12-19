@@ -7,6 +7,7 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :article
+  belongs_to :parent, class_name: 'Comment', foreign_key: 'reply_id'
 
   has_many :replys, class_name: 'Comment', foreign_key: 'reply_id'
   has_many :comment_pictureships,     dependent: :destroy
@@ -14,15 +15,10 @@ class Comment < ApplicationRecord
 
   before_validation :set_article_in_reply, on: :create
   before_create :cal_index
+  after_commit :create_notifications, on: :create
 
   scope :posted, ->{ where deleted_at: nil }
   scope :deleting, ->{ where.not deleted_at: nil }
-
-  # 获取回复的上级节点
-  def parent
-    return nil if self.reply_id.blank?
-    Comment.find_by id: self.reply_id
-  end
 
   def deleted?
     return !self.deleted_at.blank?
@@ -56,5 +52,23 @@ class Comment < ApplicationRecord
     def set_article_in_reply
       @parent = parent
       self.article = @parent.article if @parent
+    end
+
+    def create_notifications
+      notifications = []
+      parent = self.parent
+
+      # 回复上级评论, 通知上级评论者
+      notifications << { notify_type: 'mention', user: parent.user } if parent
+      # 直接评论文章, 或者回复上级评论者不是文章所有者, 则通知文章所有者
+      notifications << { notify_type: 'comment', user: article.user }  if parent.blank? || parent.user != article.user
+
+      notifications.each do |notify|
+        Notification.create(
+          notify_type: notify[:notify_type],
+          actor: self.user,
+          user: notify[:user],
+          target: self)
+      end
     end
 end

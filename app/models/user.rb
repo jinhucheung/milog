@@ -37,6 +37,8 @@ class User < ApplicationRecord
                                   dependent: :destroy
   has_many :followers,            through: :followerships,  source: :follower
 
+  has_many :notifications,        dependent: :destroy
+
   # 需引入gem bcrypt
   has_secure_password
 

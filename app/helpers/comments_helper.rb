@@ -18,7 +18,7 @@ module CommentsHelper
       reply_content = '@'+puser.username+ " · " +parent.indexno(suf: '')
       comment.content = reply_content + comment.content
 
-      reply_content_html = link_to('@'+puser.username, user_path(puser.username)) + " · " +
+      reply_content_html = link_to('@'+puser.username, main_app.user_path(puser.username)) + " · " +
                       link_to(parent.indexno(suf: ''), parent.indexno)
       reply_content_html = content_tag :span, reply_content_html, class: 'reply-tag'
       comment.content_html = reply_content_html + comment.content_html.html_safe

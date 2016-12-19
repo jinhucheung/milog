@@ -56,4 +56,8 @@ class ApplicationController < ActionController::Base
     return render_404 if current_user.blank? || !current_user.admin?
   end
 
+  def authenticate_user!
+    render_404 unless signed_in?
+  end
+
 end

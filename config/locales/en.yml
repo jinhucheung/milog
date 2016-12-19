@@ -111,6 +111,7 @@ en:
     paramater_illegal: Illegal Paramater
     follower_following_be_unique: and Following ID must be unique
     follower_not_eq_following: and Following ID must be not equal
+    actor_and_user_are_not_equal: and User ID must be not equal
   success:
     category_has_deleted: The category "%{name}" has deleted
     category_has_updated: Rename this category "%{bef_name}" to "%{upd_name}"
@@ -150,6 +151,7 @@ en:
       hold: Hold
       tag: Tag
       usership: Usership
+      notification: Notification
     attributes:
       user:
         username: Username
@@ -194,6 +196,9 @@ en:
         following: Following
         follower_id: Follower ID
         following_id: Following ID
+      notification:
+        actor_id: 通知发起者ID
+        user_id: 通知者ID
 
   accounts_mailer:
     hi: Hi %{username},

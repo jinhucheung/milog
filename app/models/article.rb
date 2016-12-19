@@ -23,6 +23,7 @@ class Article < ApplicationRecord
   attr_accessor :tagstr
 
   after_save :build_user_and_category_ships
+  after_commit :create_notifications, on: :create
 
   # 以字符串形式取出文章标签
   def tags2str
@@ -142,6 +143,16 @@ class Article < ApplicationRecord
     def build_user_and_category_ships
       unless user.categories.include? category
         user.user_categoryships.create category: category
+      end
+    end
+
+    def create_notifications
+      self.user.followers.each do |follower|
+        Notification.create(
+          notify_type: 'article',
+          actor: self.user,
+          user: follower,
+          target: self)
       end
     end
 end

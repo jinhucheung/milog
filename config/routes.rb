@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Notifications::Engine => "/notifications"
+
   root 'home#index'
   
   get '/signup' => 'accounts#new'
