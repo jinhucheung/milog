@@ -24,6 +24,30 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 + 支持上传图片，使用[七牛](http://www.qiniu.com/)存储
 
+## 更新
+
+### 2016年12月20日
+
++ 增加社区模块
+
++ 修改用户主页，增加用户关注功能
+
++ 增加消息通知系统
+
+## Thanks
+
++ [Ruby on Rails](http://rubyonrails.org/)
+
++ [Ruby China](https://ruby-china.org/)
+
++ [Hexo-theme-next](https://github.com/iissnan/hexo-theme-next)
+
++ [Bootstrap](http://getbootstrap.com/)
+
++ [Markdown-it](https://github.com/markdown-it/markdown-it)
+
++ [Elasticsearch](https://github.com/elastic/elasticsearch)
+
 ## 部署
 
 ### 环境
