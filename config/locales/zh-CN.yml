@@ -443,3 +443,8 @@ zh-CN:
       articles: 文章
       comments: 评论
       bio: 个人简介
+
+  notifications:
+    in_article: 在文章
+    post_comment: 评论了：
+    mention_me: 提及我：

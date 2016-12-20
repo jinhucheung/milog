@@ -441,3 +441,8 @@ en:
       articles: Article
       comments: Comment
       bio: Bio
+
+  notifications:
+    in_article: In the Article
+    post_comment: 'Post comment:'
+    mention_me: 'Mention me:'

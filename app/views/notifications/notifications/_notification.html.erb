@@ -8,7 +8,7 @@
   <div class="media-body">
     <%= render partial: "/notifications/#{notification.notify_type}", locals: { notification: notification } %>
   </div>
-  <div class="media-right">
+  <div class="media-right" style="min-width: 30px;">
     <div class="pull-right">
       <%= mtime_tag notification.created_at, strf: "%H:%M" %>  
     </div>

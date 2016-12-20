@@ -1,3 +1,3 @@
 <% article = notification.target %>
-<%= article.title %>
-<%= article.content %>
+<%= t "article.post" %>&nbsp;
+<%= link_to article.title, main_app.article_path(article.id), class: 'under-line' %>

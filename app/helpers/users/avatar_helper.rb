@@ -29,7 +29,7 @@ module Users::AvatarHelper
         content_tag :div, letter, class: img_class, style: "background: #{user.avatar_color};"
       end
     if opts[:link]
-      link_to raw(img), main_app.user_path(user.username)
+      link_to raw(img), main_app.user_path(user.username), title: user.username
     else
       raw img
     end
