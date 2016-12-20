@@ -126,6 +126,7 @@ class ArticlesController < ApplicationController
         unless @article.posted
           @article.update_attribute :posted, true
           @article.update_attribute :created_at, Time.zone.now
+          @article.create_notifications
         end
         redirect_to article_path(@article.id)
       else
