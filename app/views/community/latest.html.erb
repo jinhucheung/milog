@@ -18,7 +18,7 @@
               <% end %>
             </div>
           </div>
-              <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer %>
+              <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer unless @articles.blank? %>
         </div>
       </div>
       <div class="col-md-3 hidden-xs hidden-sm">

@@ -16,14 +16,16 @@ class CommunityController < ApplicationController
   def hottest
     hottest_articles = Article.hottest
     hottest_articles = order hottest_articles
-    @articles = hottest_articles.paginate page: params[:page], per_page: 15
+    @articles = hottest_articles.paginate page: params[:page], per_page: 15 unless hottest_articles.blank?
+    @articles ||= []
     articles_during_time hottest_articles
   end
 
   def latest
     latest_articles = Article.latest
     latest_articles = order latest_articles
-    @articles = latest_articles.paginate page: params[:page], per_page: 15
+    @articles = latest_articles.paginate page: params[:page], per_page: 15 unless latest_articles.blank?
+    @articles ||= []
     articles_during_time latest_articles    
   end
 
@@ -32,7 +34,8 @@ class CommunityController < ApplicationController
     return render_404 unless @tag
     posted_articles = @tag.articles.where posted: true
     @article_size = posted_articles.size
-    @articles = posted_articles.paginate page: params[:page], per_page: 15
+    @articles = posted_articles.paginate page: params[:page], per_page: 15 unless posted_articles.blank?
+    @articles ||= []
   end
 
   def articles
@@ -61,7 +64,8 @@ class CommunityController < ApplicationController
           Article.where posted: true
       end      
     @article_size = articles.size
-    @articles = articles.paginate page: params[:page], per_page: 15
+    @articles = articles.paginate page: params[:page], per_page: 15 unless articles.blank?
+    @articles ||= []
   end
 
   def users
@@ -76,7 +80,7 @@ class CommunityController < ApplicationController
     end
 
     def order(articles)
-      return nil if articles.blank?
+      return [] if articles.blank?
       case params[:order]
         when 'time'
           @opt = 0
