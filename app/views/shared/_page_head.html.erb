@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <% if signed_in? %>
+    <%= tag :meta, name: "current-user", username: current_user.username %>
+  <% end %>
   <title><%= title yield(:pre_title) %></title>    
   
   <script>
