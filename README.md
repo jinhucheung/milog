@@ -34,6 +34,12 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 + 增加消息通知系统
 
+### 2017年1月30日
+
++ 使用 [Letter Avatar](https://github.com/ksz2k/letter_avatar) ，代替原本的用户默认头像模块
+
++ 使用 [Rails Settings Cached](https://github.com/huacnlee/rails-settings-cached) 保存系统设置
+
 ## Thanks
 
 + [Ruby on Rails](http://rubyonrails.org/)
