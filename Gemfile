@@ -55,6 +55,8 @@ gem 'rails-timeago', '~> 2.0'
 # 通知系统
 gem 'notifications'
 
+gem 'letter_avatar'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

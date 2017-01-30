@@ -117,6 +117,7 @@ GEM
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_avatar (0.3.2)
     letter_opener (1.4.1)
       launchy (~> 2.2)
     linkify-it-rb (1.1.1.0)
@@ -285,6 +286,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-fileupload-rails
   jquery-rails
+  letter_avatar
   letter_opener
   listen (~> 3.0.5)
   mini_magick (>= 4.5.1)

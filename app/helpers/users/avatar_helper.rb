@@ -1,4 +1,6 @@
 module Users::AvatarHelper
+  include LetterAvatar::AvatarHelper
+
   # 返回头像样式
   # xs: 22px
   # sm: 32px
@@ -17,17 +19,11 @@ module Users::AvatarHelper
   def avatar_tag(user, size = :md, opts = {})
     img_class = avatar_class size
 
-    if user.blank?
-      return content_tag :div, '#', class: img_class
-    end
+    return image_tag(letter_avatar_url('#', 120), class: img_class) if user.blank?
 
-    letter = user.username[0].upcase
-    img =
-      if user.user_avatar?
-        image_tag user.avatar, class: img_class
-      else
-        content_tag :div, letter, class: img_class, style: "background: #{user.avatar_color};"
-      end
+    avatar_url = user.user_avatar? ? user.avatar : user.letter_avatar_url(120)
+    img = image_tag(avatar_url, class: img_class)
+    
     if opts[:link]
       link_to raw(img), main_app.user_path(user.username), title: user.username
     else

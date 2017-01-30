@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219020541) do
+ActiveRecord::Schema.define(version: 20170130064900) do
 
   create_table "article_pictureships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "article_id", null: false
@@ -149,7 +149,6 @@ ActiveRecord::Schema.define(version: 20161219020541) do
     t.string   "reset_password_digest"
     t.datetime "reset_password_at"
     t.boolean  "email_public",          default: false
-    t.string   "avatar_color"
     t.integer  "state",                 default: 1,     null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree

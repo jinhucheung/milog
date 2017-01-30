@@ -47,7 +47,6 @@ class User < ApplicationRecord
 
   before_save :downcase_username_and_email
   after_create :generate_activation_digest, 
-               :generate_letter_avatar,
                :generate_default_category_ship,
                :generate_a_resume,
                :generate_article_and_resume_holds
@@ -189,16 +188,14 @@ class User < ApplicationRecord
     self.followingships.where(following_id: user.id).any?
   end
 
+  def letter_avatar_url(size)
+    LetterAvatar.generate(self.username, size).sub('public/', '/')
+  end
+
   private
     def downcase_username_and_email
       username.downcase!
       email.downcase!
-    end
-
-    # 首字母头像 生成伪随机颜色
-    def generate_letter_avatar
-      color = '#' + [*'a'..'f', *'0'..'9'].sample(6).join
-      update_attribute :avatar_color, color
     end
 
     # 限制头像大小
