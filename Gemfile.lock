@@ -184,6 +184,8 @@ GEM
     rails-i18n (5.0.1)
       i18n (~> 0.7)
       railties (~> 5.0)
+    rails-settings-cached (0.6.5)
+      rails (>= 4.2.0)
     rails-timeago (2.15.0)
       actionpack (>= 3.1)
       activesupport (>= 3.1)
@@ -298,6 +300,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing
   rails-i18n
+  rails-settings-cached
   rails-timeago (~> 2.0)
   rspec-rails
   sass-rails (~> 5.0)

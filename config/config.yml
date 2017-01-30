@@ -1,0 +1,14 @@
+defaults: &defaults
+  app_name: "Milog"
+  domain: "localhost:3000"
+  https: false
+
+development: 
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  domain: "hijinhu.me"
