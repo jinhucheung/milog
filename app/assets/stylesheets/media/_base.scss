@@ -23,6 +23,27 @@
     .account-setting {
         margin-top: 25px;
     }
+
+    .mainer {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .col-md-9 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .boxed-group {
+        .heading, h3 {
+            border: none;
+        } 
+        .boxed-group-inner { 
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+         }
+    }
 }
 
 /* 小屏幕（平板，>= 768px） */
