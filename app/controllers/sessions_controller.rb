@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     # 用户已进入黑名单
     if @user && @user.disabled?
       @user.errors.add :email, I18n.t("errors.email_disabled")
-      return render 'new'
+      return
     end
 
     if @user && @user.authenticated?(:password, session_param(:password))
@@ -21,12 +21,10 @@ class SessionsController < ApplicationController
     elsif @user
       # 密码错误
       @user.errors.add :password, I18n.t("errors.not_right")
-      render 'new'
     else
       @user = build_user "", session_param(:email), session_param(:password)
       @user.valid? || @user.errors.delete(:username)
       @user.errors.add :email, I18n.t("errors.email_disabled") if @user.errors.full_messages.empty?
-      render 'new'
     end
   end
 
