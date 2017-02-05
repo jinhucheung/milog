@@ -1,0 +1,4 @@
+<% if params[:by] == 'psw' %>
+  $('#edit-password .form-error-container').html("<%= j render('shared/form_error_messages', object: @user) %>");
+<% end %>
+$(".mainer").eq(0).before("<%= j render('shared/flash_messages_inner') %>")

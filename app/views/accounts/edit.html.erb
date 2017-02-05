@@ -10,7 +10,7 @@
                     <div class="boxed-group">
                         <%= content_tag :h3, t("account_profile") %>
                         <div class="boxed-group-inner">
-                            <%= simple_form_for @user, url: edit_account_path do |f| %>
+                            <%= simple_form_for @user, url: edit_account_path, remote: true do |f| %>
                             <div class="form-group">
                                 <%= content_tag :span, t("profile.nickname") %>
                                 <%= f.input_field :nickname, class: "form-control form-input-normal" %>
@@ -64,17 +64,19 @@
                             <%= avatar_tag f.object, :md %>
                             <div class="avatar-upload">
                                 <%= content_tag :span, t("profile.upload_avatar"), id: "upload-avatar-btn", class: "btn avatar-btn" %>
-                                <%= f.input_field :avatar, as: :file, accept:  'image/jpg,image/jpeg,image/png,image/gif', class: "input-hidden", id: "upload-avatar-input" %>
+                                <%= f.input_field :avatar, as: :file, accept:  'image/jpg,image/jpeg,image/png,image/gif', class: "input-hidden", id: "upload-avatar-input", style: 'display: none;' %>
                             </div>
                             <%= f.submit '', style: "visibility: hidden;", id: "avatar-submit" %>
                         </div>
                         <% end %>
                     </div>
-                    <div class="boxed-group">
+                    <div class="boxed-group" id= "edit-password">
                         <%= content_tag :h3, t("change_password") %>
                         <div class="boxed-group-inner boxed-group-round-border">
-                            <%= simple_form_for @user, url: edit_account_path(by: :psw), method: :patch do |f| %>
-                            <%= render 'shared/form_error_messages', object: f.object %>
+                            <%= simple_form_for @user, url: edit_account_path(by: :psw), method: :patch, remote: true do |f| %>
+                            <div class="form-error-container">
+                                <%= render 'shared/form_error_messages', object: f.object %>
+                            </div>
                             <div class="form-group">
                                 <%= content_tag :span, t("current_password") %>
                                 <%= f.password_field :cur_psw, class: "form-control form-input-normal" %>

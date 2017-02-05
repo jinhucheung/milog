@@ -33,9 +33,9 @@ class AccountsController < ApplicationController
   def update
     @user = current_user
     if params[:by].blank?             
-      update_profile   # 个人资料
+      return update_profile   # 个人资料
     elsif params[:by] == 'psw'     
-      update_password  # 密码
+      return update_password  # 密码
     elsif params[:by] == 'avatar' 
       update_avatar    # 头像
     else
