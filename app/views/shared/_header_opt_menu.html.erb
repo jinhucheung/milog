@@ -25,7 +25,7 @@
     </a>
     <ul class="dropdown-menu">
       <%= content_tag :li, link_to(t("new_blog"), main_app.new_article_path) %>
-      <%= content_tag :li, link_to(t("edit_resume"), main_app.resume_edit_user_path(@user.username)) %>
+      <%= content_tag :li, link_to(t("edit_resume"), main_app.resume_edit_user_path(current_user.username)) %>
     </ul>
   </li>
   <!-- 设置类操作 -->
@@ -39,8 +39,8 @@
       <%= content_tag :li, link_to(capitalize_name(current_user), main_app.user_path(current_user.username)) %>
       <%= content_tag :li, content_tag(:div, '', class:"divider") %>
       <%= content_tag :li, link_to(t("account_profile"), main_app.edit_account_path) %>
-      <%= content_tag :li, link_to(t("resume"), main_app.resume_user_path(@user.username)) %>
-      <%= content_tag :li, link_to(t("drafts"), main_app.drafts_user_path(@user.username)) %>
+      <%= content_tag :li, link_to(t("resume"), main_app.resume_user_path(current_user.username)) %>
+      <%= content_tag :li, link_to(t("drafts"), main_app.drafts_user_path(current_user.username)) %>
       <%= content_tag :li, content_tag(:div, '', class:"divider") %>
       <%= content_tag :li, link_to(t("signout"), main_app.signout_path, method: 'delete') %>
     </ul>

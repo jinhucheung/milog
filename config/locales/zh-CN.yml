@@ -39,8 +39,10 @@ zh-CN:
   cancel: 取消
   submit: 提交数据
 
+  search: 搜索
   search_in_blog: 在当前博客中搜索
   search_in_site: 搜索本站内容
+  search_result: 关于 “%{token}” 的搜索结果，共 %{size} 篇文章
 
   login: 
     remember_me: 记住我

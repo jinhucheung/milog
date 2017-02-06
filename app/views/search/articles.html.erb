@@ -1,0 +1,43 @@
+<% provide :pre_title, "#{t('search')} : #{@token}  |  #{t('community.home')}" %>
+<% provide :boxed_title, t("search_result", token: @token, size: @article_size) %>
+
+<div class="mainer" style="margin-top: 0; padding-top: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-center-block">
+        <div class="boxed-group">
+          <%= content_tag :h3, yield(:boxed_title) %>
+          <div class="boxed-group-inner">
+            <div class="post-group">
+              <% @articles.each_with_hit do |record, hit| %>
+                <% user = record.user %>
+                <div class='media post'>
+                  <div class="media-left">
+                    <%= avatar_tag user, :md, link: true %>
+                  </div>
+                  <div class="media-body">
+                    <%= link_to hit.highlight.title ? (raw hit.highlight.title[0]) : record.title, article_path(record.id), class: 'post-title' %>
+                    <div class="clearfix"></div>
+                    <%= content_tag :div, hit.highlight.content ? (raw hit.highlight.content[0]) : record.content[0..100], class: 'post-content' %>
+                    <div class="post-meta">
+                      <%= link_to user.username, user_path(user.username) %> ·
+                      <%= timeago_tag record.created_at %>
+                      <%= " · " unless (tags = record.tags).blank? %>
+                      <%= tags_tag tags %>
+                    </div>
+                    <div class="post-meta pull-right">
+                      <%= content_tag :span, t('article.view'), class: 'post-meta-item-text' %> ·
+                      <%= content_tag :span, record.view_count, class: 'post-view-count' %>&nbsp;
+                      <%= content_tag :span, t('article.comment'), class: 'post-meta-item-text' %> ·
+                      <%= content_tag :span, record.comment_count, class: 'post-view-count', id: 'post-comment-count' %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,8 @@
 
   <div class="login-group">
   <% unless signed_in? %>
-    <%= link_to t('signin'), signin_path %>&nbsp;|&nbsp;
-    <%= link_to t('signup'), signup_path %>
+    <%= link_to t('signup'), signup_path %>&nbsp;|&nbsp;
+    <%= link_to t('signin'), signin_path %>
   <% else %>
     <%= link_to t('signout'), signout_path, method: 'DELETE' %>&nbsp;|&nbsp;
     <%= link_to t('signed_in'), user_path(current_user.username)%>

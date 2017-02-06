@@ -37,8 +37,10 @@ en:
   cancel: Cancel
   submit: Submit
 
+  search: Search
   search_in_blog: Search in this blog
   search_in_site: Search in this site
+  search_result: Search for "%{token}", return %{size} articles
 
   login: 
     remember_me: Remember
