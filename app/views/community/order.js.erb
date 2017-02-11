@@ -1,0 +1,17 @@
+$orderOpts = $('#order-opts');
+$postGroupContent = $('#post-group-content');
+$postGroupPaginate = $('#post-group-paginate');
+
+$orderOpts.find('a.under-line').removeClass('under-line');
+
+<% case @opt %>
+<% when CommunityController::ORDER_VIEW %>
+  $orderOpts.find('a[data-order=view]').addClass('under-line');
+<% when CommunityController::ORDER_COMMENT %>
+  $orderOpts.find('a[data-order=comment]').addClass('under-line');
+<% else %>
+  $orderOpts.find('a[data-order=time]').addClass('under-line');
+<% end %>
+
+$postGroupContent.html("<%=j render('community/articles', articles: @articles) %>");
+$postGroupPaginate.html("<%=j will_paginate(@articles, renderer: WillPaginate::ActionView::BlogLinkRenderer) unless @articles.blank? %>");

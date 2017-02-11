@@ -4,6 +4,10 @@ class CommunityController < ApplicationController
 
   layout 'community'
 
+  ORDER_TIME    = 0
+  ORDER_VIEW    = 1
+  ORDER_COMMENT = 2
+
   def index
     @hottest_articles = Article.hottest.order_by_time.limit 10
     @latest_articles = Article.latest.order_by_time.limit 10
@@ -19,6 +23,10 @@ class CommunityController < ApplicationController
     @articles = hottest_articles.paginate page: params[:page], per_page: 15 unless hottest_articles.blank?
     @articles ||= []
     articles_during_time hottest_articles
+    respond_to do |format|
+      format.js { render :order }
+      format.html 
+    end
   end
 
   def latest
@@ -26,7 +34,11 @@ class CommunityController < ApplicationController
     latest_articles = order latest_articles
     @articles = latest_articles.paginate page: params[:page], per_page: 15 unless latest_articles.blank?
     @articles ||= []
-    articles_during_time latest_articles    
+    articles_during_time latest_articles
+    respond_to do |format|
+      format.js { render :order }
+      format.html 
+    end  
   end
 
   def tag
@@ -83,16 +95,16 @@ class CommunityController < ApplicationController
       return [] if articles.blank?
       case params[:order]
         when 'time'
-          @opt = 0
+          @opt = ORDER_TIME
           articles.order_by_time
         when 'view'
-          @opt = 1
+          @opt = ORDER_VIEW
           articles.order_by_view_count
         when 'comment'
-          @opt = 2
+          @opt = ORDER_COMMENT
           articles
         else
-          @opt = 0
+          @opt = ORDER_TIME
           articles.order_by_time
       end
     end

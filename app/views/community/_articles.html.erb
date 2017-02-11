@@ -1,0 +1,5 @@
+<% unless articles.blank? %>
+  <% articles.each do |article| %>
+    <%= render 'features/article', article: article %>
+  <% end %>
+<% end %>

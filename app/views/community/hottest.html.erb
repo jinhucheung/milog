@@ -4,21 +4,21 @@
     <div class="row">
       <div class="col-md-9">
         <div class="boxed-group">
-          <div class="pull-right boxed-opts">
+          <div class="pull-right boxed-opts" id="order-opts">
             <%= t "community.opts" %>
-            <%= link_to t("community.time"), community_hottest_path(order: 'time'), class: "#{'under-line' if @opt == 0}" %> / 
-            <%= link_to t("community.view"), community_hottest_path(order: 'view'), class: "#{'under-line' if @opt == 1}" %> /  
-            <%= link_to t("community.comment"), community_hottest_path(order: 'comment'), class: "#{'under-line' if @opt == 2}" %>         
+            <%= link_to t("community.time"), community_hottest_path(order: 'time'), remote: true, class: "#{'under-line' if @opt == CommunityController::ORDER_TIME}", 'data-order'=> 'time' %> / 
+            <%= link_to t("community.view"), community_hottest_path(order: 'view'), remote: true, class: "#{'under-line' if @opt == CommunityController::ORDER_VIEW}", 'data-order'=> 'view' %> /  
+            <%= link_to t("community.comment"), community_hottest_path(order: 'comment'), remote: true, class: "#{'under-line' if @opt == CommunityController::ORDER_COMMENT}", 'data-order'=> 'comment' %>         
           </div>
           <%= content_tag :h3, t("community.hottest") %>
           <div class="boxed-group-inner">
-            <div class="post-group">
-              <% @articles.each do |article| %>
-                <%= render 'features/article', article: article %>
-              <% end %>
+            <div class="post-group" id="post-group-content">
+              <%= render 'community/articles', articles: @articles %>
             </div>
           </div>
+            <div id="post-group-paginate">
               <%= will_paginate @articles, renderer: WillPaginate::ActionView::BlogLinkRenderer unless @articles.blank? %>
+            </div>
         </div>
       </div>
       <div class="col-md-3 hidden-xs hidden-sm">
