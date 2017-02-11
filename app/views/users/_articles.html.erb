@@ -1,0 +1,22 @@
+<!-- 文章 -->
+<% unless articles.blank? %>
+<table class="table table-striped">
+  <tbody>
+    <% articles.each do |article| %>
+      <tr class="post">
+        <%= content_tag :td, category_tag(@user, article.category) %>
+        <%= content_tag :td do -%>
+          <%= link_to article.title, article_path(article.id) %>
+          <%= timeago_tag article.created_at, class: 'post-meta' %>
+        <% end -%>
+        <%= content_tag :td, class: 'post-counter' do -%>
+          <%= content_tag :span, t('article.view'), class: 'post-meta' %> ·
+          <%= content_tag :span, article.view_count, class: 'post-meta' %>&nbsp;
+          <%= content_tag :span, t('article.comment'), class: 'post-meta' %> ·
+          <%= content_tag :span, article.comment_count, class: 'post-meta' %>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

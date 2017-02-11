@@ -47,6 +47,31 @@
             border-right: none;
          }
     }
+
+    .userspace {
+        .profile { 
+            border-radius: 0; 
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        .nav-tabs { font-size: 12px; }
+        .nav-tabs > li > a { border-radius: 0; }
+        .tab-content .content {
+            padding: 0;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            .bio { margin: 20px 0; }
+        }
+        table tr:first-child td { border: none; }
+        .user-group { margin: 0; }
+        .user-group .user { padding: 0; }
+        .user-group .user:first-child { margin-top: 20px; }
+        .user-group .user:last-child { margin-bottom: 20px; }
+    }
+
 }
 
 /* 小屏幕（平板，>= 768px） */

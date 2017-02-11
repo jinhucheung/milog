@@ -1,0 +1,21 @@
+$navTabs = $('#user-nav-tabs');
+$tabContent = $('#user-tab-content');
+$navTabs.find('li.active').removeClass('active');
+<% case @tab %>
+<% when UsersController::COMMENTS %>
+  $navTabs.find('li[data-tab=comments]').addClass('active');
+  $tabContent.html("<%=j render('users/comments', comments: @obj) %>");
+<% when UsersController::BIO %>
+  $navTabs.find('li[data-tab=bio]').addClass('active');
+  $tabContent.html("<%=j content_tag(:div, @obj, class: 'bio') %>");
+<% when UsersController::FOLLOWERS %>
+  $navTabs.find('li[data-tab=followers]').addClass('active');
+  $tabContent.html("<%=j render('features/users', users: @obj, user_in_cols: 2) %>");
+<% when UsersController::FOLLOWING %>
+  $navTabs.find('li[data-tab=following]').addClass('active');
+  $tabContent.html("<%=j render('features/users', users: @obj, user_in_cols: 2) %>");
+<% else %>
+  $navTabs.find('li[data-tab=articles]').addClass('active');
+  $tabContent.html("<%=j render('users/articles', articles: @obj) %>");
+<% end %>
+$tabContent.append("<%=j will_paginate(@obj, renderer: WillPaginate::ActionView::BlogLinkRenderer) if @tab != UsersController::BIO %>");

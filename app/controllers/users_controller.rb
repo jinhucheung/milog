@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 
   layout 'blog'
 
+  ARTICLES  = 0
+  COMMENTS  = 1
+  BIO       = 2
+  FOLLOWERS = 3
+  FOLLOWING = 4
+
   def show
     @article_size = @user.articles.where(posted: true).size
     @comment_size = @user.comments.size
@@ -15,20 +21,25 @@ class UsersController < ApplicationController
 
     case params[:tab]
     when 'comments'
-      @tab = 1
+      @tab = COMMENTS
       @obj = @user.comments.where(deleted_at: nil).order_by_time.paginate page: params[:page], per_page: 20
     when 'bio'
-      @tab = 2
+      @tab = BIO
       @obj = @user.bio
     when 'followers'
-      @tab = 3
+      @tab = FOLLOWERS
       @obj = @user.followers.paginate page: params[:page], per_page: 24
     when 'following'
-      @tab = 4
+      @tab = FOLLOWING
       @obj = @user.following.paginate page: params[:page], per_page: 24
     else 
-      @tab = 0
+      @tab = ARTICLES
       @obj = @user.articles.where(posted: true).paginate page: params[:page], per_page: 20
+    end
+
+    respond_to do |format|
+      format.js
+      format.html { render :show }
     end
   end
 
