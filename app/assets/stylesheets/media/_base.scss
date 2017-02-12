@@ -35,6 +35,34 @@
         padding-right: 0 !important;
     }
 
+    #blog-container .container-fluid {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    #blog-container .mainer .content-wrap {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #blog-container .navbar {
+        min-height: 0;
+        .navbar-nav {
+            margin: 0;
+        }
+    }
+
+    #blog-container .posts-expand .post {
+        padding: 25px 0;
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    #blog-container .pagination {
+        margin-top: 30px;
+    }
+
     .boxed-group {
         .heading, h3 {
             border-radius: 0;

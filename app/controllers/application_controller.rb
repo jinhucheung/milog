@@ -59,5 +59,4 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     render_404 unless signed_in?
   end
-
 end

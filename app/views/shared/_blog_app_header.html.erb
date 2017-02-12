@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default visible-xs">
+  <div class="container-fluid">
+    <!-- 主菜单项 -->
+    <div>
+      <ul class="nav navbar-nav navbar-center main-nav">
+        <%= content_tag :li, link_to(t("blog"), main_app.blog_user_path(@user.username)) %>
+        <%= content_tag :li, link_to(t("category"), main_app.categories_user_path(@user.username)) %>
+        <%= content_tag :li, link_to(t("archive"), main_app.archive_user_path(@user.username)) %>
+        <%= content_tag :li, link_to(t("aboutme"), main_app.aboutme_user_path(@user.username)) %>
+      </ul>
+    </div>
+  </div>
+</nav>

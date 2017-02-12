@@ -17,4 +17,18 @@ module ApplicationHelper
     markdown_content = markdown_parser.render markdownable.content if markdownable.content
     sanitize_markdown markdown_content
   end
+
+  def current_controller?(*args)
+    return false if args.blank?
+    args.any? { |v| v.to_s.downcase == controller_name }
+  end
+
+  def current_action?(*args)
+    return false if args.blank?
+    args.any? { |v| v.to_s.downcase == action_name }
+  end
+
+  def current_controller_and_action?(controller, action)
+    current_controller?(controller) && current_action?(action)
+  end
 end
