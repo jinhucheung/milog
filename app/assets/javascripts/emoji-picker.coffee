@@ -33,7 +33,7 @@ build_emoji_items = (type)->
   return result
 
 # 表情标签页点击处理
-$("ul.emoji-menu-tabs").on "click", "[data-stopPropagation]", (e)-> 
+$("ul.emoji-menu-tabs").on "click", "[data-stopPropagation]", (e)->
   $(".emoji-menu-tab.active").removeClass "active"  #清除激活样式
   parent = $(this).parent()
   parent.addClass "active"

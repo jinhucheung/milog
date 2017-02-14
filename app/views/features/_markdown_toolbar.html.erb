@@ -1,5 +1,6 @@
 <% i18n_root = "markdown-toolbar" %>
 <div class="markdown-toolbar">
+  <span class='hidden-xs'>
   <%= link_to content_tag(:i, '', class: "fa fa-bold"), '#', class: "toolbar-item add-bold", title: t("#{i18n_root}.bold") %>
   <%= link_to content_tag(:i, '', class: "fa fa-italic"), '#', class: "toolbar-item add-italic", title: t("#{i18n_root}.italic") %>
   <%= link_to content_tag(:i, '', class: "fa fa-header"), '#', class: "toolbar-item add-header", title: t("#{i18n_root}.title") %>
@@ -12,12 +13,13 @@
   <%= content_tag :span, '', class: "divider" %>
 
   <%= link_to content_tag(:i, '', class: "fa fa-link"), '#', class: "toolbar-item add-link", title: t("#{i18n_root}.link") %>
+  </span>
   <%= link_to content_tag(:i, '', class: "fa fa-image"), '#', class: "toolbar-item add-image", title: t("#{i18n_root}.image") %>
-  <%= link_to content_tag(:i, '', class: "fa fa-smile-o"), '#', class: "toolbar-item add-smile-o", title: t("#{i18n_root}.emoji"), 'data-toggle': 'dropdown' %>
+  <%= link_to content_tag(:i, '', class: "fa fa-smile-o"), '#', class: "toolbar-item add-smile-o hidden-xs", title: t("#{i18n_root}.emoji"), 'data-toggle': 'dropdown' %>
 
-  <%= file_field_tag :file, multiple: true, accept: 'image/jpg,image/jpeg,image/png,image/gif', class: 'input-hidden', id: 'upload-picture-input' %>
+  <%= file_field_tag :file, multiple: true, accept: 'image/jpg,image/jpeg,image/png,image/gif', class: 'input-hidden', id: 'upload-picture-input', style: 'display: none;' %>
 
-  <div class="dropdown-menu emoji-picker">
+  <div class="dropdown-menu emoji-picker hidden-xs">
     <!-- 表情分类标签 -->
     <ul class="nav nav-tabs emoji-menu-tabs">
       <%= content_tag :li, link_to('', '', class: 'em em-clock9', data: { stopPropagation: 'true', type: 'recent'}), class: 'emoji-menu-tab active' %>

@@ -39,26 +39,22 @@
         padding-left: 10px !important;
         padding-right: 10px !important;
     }
-
     #blog-container .mainer .content-wrap {
         padding-left: 0;
         padding-right: 0;
     }
-
     #blog-container .navbar {
         min-height: 0;
         .navbar-nav {
             margin: 0;
         }
     }
-
     #blog-container .posts-expand .post {
         padding: 25px 0;
         &:first-child {
-            padding-top: 0;
+            padding-top: 15px;
         }
     }
-
     #blog-container .pagination {
         margin-top: 30px;
     }
@@ -100,6 +96,16 @@
         .user-group .user:last-child { margin-bottom: 20px; }
     }
 
+    .article-mainer {
+        padding-bottom: 20px !important;
+    }
+
+
+    .edit-post .app-navbar { display: none !important; }
+    .edit-post .mainer { margin-top: 20px !important; }
+    .edit-post .edit-header .post-category { width: 43%; }
+    .edit-post .edit-header .post-title { width: 55%; }
+    .edit-header .post-category .post-category-menu { left: -60px; }
 }
 
 /* 小屏幕（平板，>= 768px） */

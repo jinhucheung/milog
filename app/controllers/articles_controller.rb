@@ -49,10 +49,8 @@ class ArticlesController < ApplicationController
     if @article.save
       @article.str2tags @article.tagstr
     else
-      flash.now[:warning] = @article.errors.full_messages[0]
-      return render 'new'
+      return flash.now[:warning] = @article.errors.full_messages[0]
     end
-
     save_or_post_article
   end
 
@@ -62,9 +60,8 @@ class ArticlesController < ApplicationController
       @article.update_tags @article.tagstr
     else
       flash.now[:warning] = @article.errors.full_messages[0]
-      return render 'edit'
+      return render :create
     end
-
     save_or_post_article
   end
 

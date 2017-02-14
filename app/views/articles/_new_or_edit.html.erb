@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="col-md-9 col-lg-9 col-center-block content-wrap">
             <div class="edit-post">
-                <%= simple_form_for @article do |f| %>
+                <%= simple_form_for @article, remote: true do |f| %>
                 <div class="edit-header">
                     <!-- 文章标题-->
                     <div class="post-title">
