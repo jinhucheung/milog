@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     case params[:tab]
     when 'comments'
       @tab = COMMENTS
-      @obj = @user.comments.where(deleted_at: nil).order_by_time.paginate page: params[:page], per_page: 20
+      @obj = @user.comments.where(deleted_at: nil).joins(:article).where('articles.posted'=> true).order_by_time.paginate page: params[:page], per_page: 20
     when 'bio'
       @tab = BIO
       @obj = @user.bio

@@ -5,7 +5,7 @@
     
     <%= content_tag :div, class: yield(:bodyclass), id: "#{'blog-container' unless current_controller?(:accounts)}" do -%>
     <%= render 'shared/blog_header' %>
-    <%= render 'shared/blog_app_header' unless current_controller_and_action?(:users, :show) or current_controller_and_action?(:accounts, :edit) %>
+    <%= render 'shared/blog_app_header' unless current_controller_and_action?(:users, :show) or current_controller_and_action?(:accounts, :edit) or current_controller?(:notifications) %>
     
     <%= render 'shared/flash_messages_inner'%>
     <%= yield %>

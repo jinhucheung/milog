@@ -106,6 +106,11 @@
     .edit-post .edit-header .post-category { width: 43%; }
     .edit-post .edit-header .post-title { width: 55%; }
     .edit-header .post-category .post-category-menu { left: -60px; }
+
+    .draft-item.row {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 /* 小屏幕（平板，>= 768px） */
