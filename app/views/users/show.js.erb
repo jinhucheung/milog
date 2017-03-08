@@ -7,7 +7,7 @@ $navTabs.find('li.active').removeClass('active');
   $tabContent.html("<%=j render('users/comments', comments: @obj) %>");
 <% when UsersController::BIO %>
   $navTabs.find('li[data-tab=bio]').addClass('active');
-  $tabContent.html("<%=j content_tag(:div, @obj, class: 'bio') %>");
+  $tabContent.html("<%=j content_tag(:div, sanitize(@obj), class: 'bio') %>");
 <% when UsersController::FOLLOWERS %>
   $navTabs.find('li[data-tab=followers]').addClass('active');
   $tabContent.html("<%=j render('features/users', users: @obj, user_in_cols: 2) %>");

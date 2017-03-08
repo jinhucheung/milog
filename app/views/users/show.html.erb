@@ -76,7 +76,7 @@
             <% when UsersController::COMMENTS %>
               <%= render 'users/comments', comments: @obj %>
             <% when UsersController::BIO %>
-              <%= content_tag :div, @obj, class: 'bio' %>
+              <%= content_tag :div, sanitize(@obj), class: 'bio' %>
             <% when UsersController::FOLLOWERS %>
               <%= render 'features/users', users: @obj, user_in_cols: 2 %>
             <% when UsersController::FOLLOWING %>
