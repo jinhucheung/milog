@@ -118,7 +118,7 @@ class ArticlesController < ApplicationController
       if params[:article][:save]
         flash.now[:success] = I18n.t "flash.success.save_article"
         @article.update_attribute :posted, false
-        render 'edit'
+        render :create
       elsif params[:article][:post]
         unless @article.posted
           @article.update_attribute :posted, true
