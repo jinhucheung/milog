@@ -40,6 +40,12 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 + 使用 [Rails Settings Cached](https://github.com/huacnlee/rails-settings-cached) 保存系统设置
 
+### 2017年3月14日
+
++ 释出 Milog Android 客户端 [Milog-Android](https://github.com/HiKumho/milog-android)
+
++ 修复文章中图片尺寸过大，溢出页面
+
 ## Thanks
 
 + [Ruby on Rails](http://rubyonrails.org/)
