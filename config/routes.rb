@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount Notifications::Engine => "/notifications"
+  mount API => '/api'
 
   root 'home#index'
   

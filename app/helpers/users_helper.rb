@@ -14,15 +14,13 @@ module UsersHelper
   ## github链接
   def github_tag(user)
     return if user.blank? || user.github.blank?
-    link = "https://github.com/" + user.github
-    link_to content_tag(:i, '', class: 'fa fa-github icon'), link
+    link_to content_tag(:i, '', class: 'fa fa-github icon'), user.github
   end
 
   ## weibo链接
   def weibo_tag(user)
     return if user.blank? || user.weibo.blank?
-    link = "https://weibo.com/" + user.weibo
-    link_to content_tag(:i, '', class: 'fa fa-weibo icon'), link
+    link_to content_tag(:i, '', class: 'fa fa-weibo icon'), user.weibo
   end
 
   ## email链接
@@ -35,9 +33,7 @@ module UsersHelper
   ## 个人网站
   def personal_website_tag(user)
     return if user.blank? || user.website.blank?
-    link = user.website !~ /^http/ ? "http://" : ""
-    link += user.website
-    link_to content_tag(:i, '', class: 'fa fa-globe icon'), link 
+    link_to content_tag(:i, '', class: 'fa fa-globe icon'), user.website
   end
 
   ## 用户状态

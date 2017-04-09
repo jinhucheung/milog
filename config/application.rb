@@ -24,6 +24,5 @@ module Milog
       g.routing_specs false
       g.request_specs false
     end
-
   end
 end

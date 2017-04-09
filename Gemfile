@@ -59,6 +59,9 @@ gem 'letter_avatar'
 
 gem 'rails-settings-cached'
 
+gem 'grape'
+gem 'grape-entity'
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

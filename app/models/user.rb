@@ -188,9 +188,24 @@ class User < ApplicationRecord
     self.followingships.where(following_id: user.id).any?
   end
 
-  def letter_avatar_url(size)
+  def letter_avatar_url(size = 120)
     path = LetterAvatar.generate(self.username, size).sub('public/', '/')
     "#{Setting.base_url}#{path}"
+  end
+
+  def github
+    return '' if self[:github].blank?
+    "https://github.com/#{self[:github]}"
+  end
+
+  def weibo
+    return '' if self[:weibo].blank?
+    "https://weibo.com/#{self[:weibo]}"
+  end
+
+  def website
+    return '' if self[:website].blank?
+    self[:website] !~ /^https?:\/\// ? "//#{self[:website]}" : self[:website]
   end
 
   private
