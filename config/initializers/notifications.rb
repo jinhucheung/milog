@@ -14,7 +14,7 @@ Notifications.configure do
 
   # authenticate_user method in your Controller, default: 'authenticate_user!'
   # If you use Devise, authenticate_user! is correct
-  self.authenticate_user_method = 'authenticate_user!'
+  self.authenticate_user_method = 'check_signed_in'
 
   # current_user method name in your Controller, default: 'current_user'
   # If you use Devise, current_user is correct

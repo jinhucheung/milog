@@ -1,7 +1,6 @@
 module Notifications
   class NotificationsController < Notifications::ApplicationController
     layout 'blog'
-
     before_action :get_user
 
     def index

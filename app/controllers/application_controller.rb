@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     unless signed_in?
       store_location
       flash[:warning] = I18n.t "flash.warning.need_sign_in"
-      redirect_to signin_path
+      redirect_to main_app.signin_path
     end
   end
 
