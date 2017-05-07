@@ -50,6 +50,8 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 +　将原先的`afeld.github.io/emoji-css`文件导入本地
 
++ 修复客户端用户未登录访问消息通知 404
+
 ## Thanks
 
 + [Ruby on Rails](http://rubyonrails.org/)
