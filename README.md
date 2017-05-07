@@ -42,9 +42,13 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 ### 2017年3月14日
 
-+ 释出 Milog Android 客户端 [Milog-Android](https://github.com/HiKumho/milog-android)
++ 实现 Milog Android 客户端 [Milog-Android](https://github.com/HiKumho/milog-android)
 
 + 修复文章中图片尺寸过大，溢出页面
+
+### 2017年5月7日
+
++　将原先的`afeld.github.io/emoji-css`文件导入本地
 
 ## Thanks
 
