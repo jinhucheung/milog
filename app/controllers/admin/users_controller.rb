@@ -37,6 +37,8 @@ class Admin::UsersController < Admin::ApplicationController
     @new_user = User.new new_user_params
     if @new_user.valid?
       @new_user.save
+      @new_user.generate_activation_digest
+      AccountsMailer.active_account(@new_user, @new_user.password).deliver
       flash.now[:success] = I18n.t "flash.success.create_user", name: @new_user.username
     else
       @random_psw = @new_user.new_random_psw

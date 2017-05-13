@@ -211,6 +211,7 @@ zh-CN:
     active_account: 
       subject: 欢迎使用Milog! 立即激活您的账号
       header: 感谢您注册Milog! 请点击以下链接激活您的账号：
+      send_password_header: 感谢您使用Milog! 我们为您生成密码： %{password}，请激活您的账号后，前往 [个人资料设置] 重置密码。点击以下链接激活您的账号：
       tips: 如果点击链接无效，请尝试将链接复制到浏览器地址栏访问。
     reset_password: 
       subject: 重置密码

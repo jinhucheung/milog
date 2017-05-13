@@ -209,6 +209,7 @@ en:
     active_account: 
       subject: Please confirm your email
       header: Welcome to Milog. Please click on the following link to confirm your email address.
+      send_password_header: "Welcome to Milog. Your password: %{password}, please active your account and reset password in the [Account Profile]. Click on the following link to confirm your email address."
       tips: Button not working? Copy and paste it into your browser.
     reset_password: 
       subject: Please reset your password
