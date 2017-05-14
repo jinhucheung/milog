@@ -54,7 +54,7 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 ### 2017年5月15日
 
-+　后台添加用户后发送密码激活邮件至用户邮箱
++ 后台添加用户后发送密码激活邮件至用户邮箱
 
 + 修复测试用例
 
