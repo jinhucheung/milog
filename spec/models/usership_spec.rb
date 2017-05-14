@@ -7,13 +7,13 @@ RSpec.describe Usership, type: :model do
 
   it "follower_id should presence" do
     expect {
-      Usership.create follower_id: 2000, following_id: user.id
+      Usership.create following_id: user.id
     }.not_to change { Usership.all.reload.size }
   end
 
   it "following_id should presence" do
     expect {
-      Usership.create follower_id: user.id, following_id: 2000
+      Usership.create follower_id: user.id
     }.not_to change { Usership.all.reload.size }
   end
 

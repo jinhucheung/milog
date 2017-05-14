@@ -52,6 +52,12 @@ Guest Account > Email: aguest@hijinhu.me | Password: 123456
 
 + 修复客户端用户未登录访问消息通知 404
 
+### 2017年5月15日
+
++　后台添加用户后发送密码激活邮件至用户邮箱
+
++ 修复测试用例
+
 ## Thanks
 
 + [Ruby on Rails](http://rubyonrails.org/)

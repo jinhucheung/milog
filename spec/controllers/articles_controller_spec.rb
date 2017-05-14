@@ -138,7 +138,7 @@ RSpec.describe ArticlesController, type: :controller do
       sign_in user
       user.update_attribute :activated, true
       expect {
-        post :create, article: {title: "Test", category_id: category.id, save: 1}        
+        post :create, article: {title: "Test", category_id: category.id, save: 1}, format: :js       
       }.to change { user.articles.reload.size }.by 1
     end
 
@@ -147,7 +147,7 @@ RSpec.describe ArticlesController, type: :controller do
       user.update_attribute :activated, true
       article.save
       expect(user.articles.reload.first).to eq article
-      post :create, article: {title: "Test", category_id: category.id, save: 1}
+      post :create, article: {title: "Test", category_id: category.id, save: 1}, format: :js
       expect(user.articles.reload.first).not_to eq article
       expect(user.articles.reload.first.posted).to eq false
     end
@@ -156,9 +156,8 @@ RSpec.describe ArticlesController, type: :controller do
       sign_in user
       user.update_attribute :activated, true
       expect {
-        post :create, article: {title: "Test", category_id: category.id, save: 1, tagstr: "ab,test,ba,bte,teb,bater"}
+        post :create, article: {title: "Test", category_id: category.id, save: 1, tagstr: "ab,test,ba,bte,teb,bater"}, format: :js
         expect(flash[:warning]).to include I18n.t("errors.tags_too_much", size: 5)
-        expect(response).to render_template :new
       }.not_to change { user.articles.reload.size }
     end
 
@@ -166,7 +165,7 @@ RSpec.describe ArticlesController, type: :controller do
       sign_in user
       user.update_attribute :activated, true
       expect {
-        post :create, article: { title: "test", category_id: category.id, save: 1, tagstr: "ab,cd,ef" } 
+        post :create, article: { title: "test", category_id: category.id, save: 1, tagstr: "ab,cd,ef" }, format: :js
       }.to change { user.articles.reload.size }.by 1
     end
 
@@ -229,9 +228,8 @@ RSpec.describe ArticlesController, type: :controller do
       sign_in user
       user.update_attribute :activated, true
       expect(article.valid?).to eq true
-      patch :update, params: { id: article.id, article: { category_id: 1000 } }
-      expect(article.reload.category_id).not_to eq 1000
-      expect(response).to render_template :edit      
+      patch :update, params: { id: article.id, article: { category_id: nil } }, format: :js
+      expect(article.reload.category_id).not_to eq nil
     end
 
     it "should update successfully with submit existed category" do
@@ -242,19 +240,18 @@ RSpec.describe ArticlesController, type: :controller do
       new_category = Category.create name: "NewTest"
       expect(user.categories.include? new_category).to eq false
 
-      patch :update, params: { id: article.id, article: { category_id: new_category.id, save: 1 } }
+      patch :update, params: { id: article.id, article: { category_id: new_category.id, save: 1 } }, format: :js
 
       expect(article.reload.category_id).to eq new_category.id
-      expect(user.categories.reload.include? new_category).to eq true
-      expect(response).to render_template :edit            
+      expect(user.categories.reload.include? new_category).to eq true           
     end
 
     it "should update tags with delete previous tags" do
       sign_in user
       user.update_attribute :activated, true
-      patch :update, params: { id: article.id, article: { save: 1 , tagstr: "ab,cd,ef"} }
+      patch :update, params: { id: article.id, article: { save: 1 , tagstr: "ab,cd,ef"} }, format: :js
       expect(article.reload.tags2str).to eq "ab,cd,ef"
-      patch :update, params: { id: article.id, article: { save: 1 , tagstr: "abc,def"} }
+      patch :update, params: { id: article.id, article: { save: 1 , tagstr: "abc,def"} }, format: :js
       expect(article.reload.tags2str).to eq "abc,def"
     end
   end

@@ -55,13 +55,14 @@ class Comment < ApplicationRecord
     end
 
     def create_notifications
+      return unless self.user
       notifications = []
       parent = self.parent
 
       # 回复上级评论, 通知上级评论者
       notifications << { notify_type: 'mention', user: parent.user } if parent
       # 直接评论文章, 或者回复上级评论者不是文章所有者, 则通知文章所有者
-      notifications << { notify_type: 'comment', user: article.user }  if parent.blank? || parent.user != article.user
+      notifications << { notify_type: 'comment', user: article.user }  if article && (parent.blank? || parent.user != article.user)
 
       notifications.each do |notify|
         Notification.create(

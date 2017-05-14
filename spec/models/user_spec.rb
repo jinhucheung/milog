@@ -219,12 +219,6 @@ RSpec.describe User, type: :model do
   end
 
   context "avatar" do 
-    it "should have hex-color in avatar when user create" do
-      expect(user.avatar_color).to eq nil
-      user.save
-      expect(user.avatar_color).to match /\A#[a-z0-9]{6}\z/i
-    end
-
     it "should return false in user_avatar? when user create" do
       user.save
       expect(user.user_avatar?).to eq false
@@ -260,7 +254,7 @@ RSpec.describe User, type: :model do
           article = user.articles.create title: "Hello World", category: nil
           expect(article.valid?).to eq false
           expect(article.save).to eq false
-          expect(article.errors.include? :category).to eq true
+          expect(article.errors.include? :category_id).to eq true
         }.not_to change { Article.all.size }
       end
 

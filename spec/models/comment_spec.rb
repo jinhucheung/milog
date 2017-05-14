@@ -29,7 +29,7 @@ RSpec.describe Comment, type: :model do
 
     it "should create with failure with non-article" do
       expect {
-        Comment.create content: "hi comment ", article_id: 10000, index: 1, user: user
+        Comment.create content: "hi comment ", article_id: nil, index: 1, user: user
       }.not_to change { Comment.all.reload.size }
     end
 
@@ -42,7 +42,7 @@ RSpec.describe Comment, type: :model do
     it "should create with failure with non user" do
       expect {
         c = Comment.create content: "hi comment ", article: article, index: 1
-        expect(c.errors[:user].size).not_to eq 0
+        expect(c.errors[:user_id].size).not_to eq 0
       }.not_to change { Comment.all.reload.size }
     end
 

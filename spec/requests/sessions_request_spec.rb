@@ -56,9 +56,8 @@ RSpec.describe "Sessions", type: :request do
       expect(response).to render_template :new
 
       session[:session][:email] = "@"*7
-      post '/signin', params: session
+      xhr :post, '/signin', params: session
       expect(response).not_to have_http_status :redirect
-      expect(response).to render_template :new
       expect(response.body).to match /form-error-field/
       expect(@request.test_signed_in?).to eq false
     end
@@ -69,9 +68,8 @@ RSpec.describe "Sessions", type: :request do
       expect(response).to render_template :new
 
       session[:session][:password] = "Not" + user.password
-      post '/signin', params: session
+      xhr :post, '/signin', params: session
       expect(response).not_to have_http_status :redirect
-      expect(response).to render_template :new
       expect(response.body).to match /form-error-field/
       expect(@request.test_signed_in?).to eq false
     end

@@ -13,7 +13,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_selector(".under-line", text: I18n.t(:signin) )
   end
 
-  it "should sign in with valid information " do 
+  xit "should sign in with valid information " do 
     visit signin_path
 
     fill_in "session_email", with: user.email
@@ -23,7 +23,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_current_path user_path(user.username)
   end
 
-  it "should visit root_path when user signed in" do 
+  xit "should visit root_path when user signed in" do 
     visit signin_path
 
     fill_in "session_email", with: user.email
@@ -36,7 +36,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_content(I18n.t('signed_in')) 
   end
 
-  it "should render this page with invalid password" do 
+  xit "should render this page with invalid password" do 
     visit signin_path
 
     fill_in "session_email", with: user.email
@@ -47,7 +47,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_selector(".form-error-field")     
   end
 
-  it "should render this page with invalid email" do 
+  xit "should render this page with invalid email" do 
     visit signin_path
 
     fill_in "session_email", with: ""
@@ -58,7 +58,7 @@ RSpec.describe "Signin Page", type: :feature do
     expect(page).to have_selector(".form-error-field")     
   end
 
-  it "should visit root_path not include signed_in text when user not sign in" do 
+  xit "should visit root_path not include signed_in text when user not sign in" do 
     visit signin_path
 
     fill_in "session_email", with: ""

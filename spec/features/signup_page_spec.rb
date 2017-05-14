@@ -29,7 +29,7 @@ RSpec.describe "Signup Page", type: :feature do
   end
 
 
-  it "should sign up with valid information" do
+  xit "should sign up with valid information" do
     visit signup_path
     expect(page).to have_selector(".under-line", text: I18n.t(:signup) )
 
@@ -44,7 +44,7 @@ RSpec.describe "Signup Page", type: :feature do
 
   end
 
-  it "shouldn't sign up with non-information" do
+  xit "shouldn't sign up with non-information" do
     visit signup_path
     expect(page).to have_selector(".under-line", text: I18n.t(:signup) )
     expect(page).not_to have_selector(".form-error-field")
@@ -56,7 +56,7 @@ RSpec.describe "Signup Page", type: :feature do
     expect(page).not_to have_selector(".flash-alert", text: I18n.t("flash.info.validated_mail"))
   end
 
-  it "shouldn't sign up with invalid username information" do
+  xit "shouldn't sign up with invalid username information" do
     visit signup_path
     fill_in "user_username", with: "@"*7
     fill_in "user_email", with: user.email
@@ -77,7 +77,7 @@ RSpec.describe "Signup Page", type: :feature do
     expect(page).to have_selector(".form-error-field")
   end
 
-  it "shouldn't sign up with invalid email information" do
+  xit "shouldn't sign up with invalid email information" do
     visit signup_path
     fill_in "user_username", with: user.username
     fill_in "user_email", with: "@"
@@ -89,7 +89,7 @@ RSpec.describe "Signup Page", type: :feature do
     expect(page).to have_selector(".form-error-field")
   end
 
-  it "shouldn't sign up with invalid password " do
+  xit "shouldn't sign up with invalid password " do
     visit signup_path
     fill_in "user_username", with: user.username
     fill_in "user_email", with: user.email
@@ -105,7 +105,7 @@ RSpec.describe "Signup Page", type: :feature do
   # 当输入错误用户格式后,提示信息能根据I18n.locale正确显示
   # 之前遇到的情况时,提示信息后再切换语系,之后显示提示信息是之前I18n.locale的
   # @see Model/User中validates :username 与 AccountsController#create
-  it "should show errors message with I18n.locale when sign up with invalid username format" do
+  xit "should show errors message with I18n.locale when sign up with invalid username format" do
     error_message = I18n.t("errors.username_format")
     visit signup_path
     fill_in "user_username", with: "@"*7

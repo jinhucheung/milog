@@ -54,17 +54,15 @@ RSpec.describe SessionsController, type: :controller do
 
     it "should render new when invalid email " do 
       session[:session][:email] = "Not" + user.email
-      post :create, params: session
+      post :create, params: session, format: :js
       expect(response).to have_http_status :success
-      expect(response).to render_template :new
       expect(@request.test_signed_in?).to eq false
     end
 
     it "should render new when invalid password" do 
       session[:session][:password] = "Not" + user.password
-      post :create, params: session
+      post :create, params: session, format: :js
       expect(response).to have_http_status :success
-      expect(response).to render_template :new
       expect(@request.test_signed_in?).to eq false
     end
   end

@@ -11,7 +11,7 @@ RSpec.describe Hold, type: :model do
 
   it "should not create without user_id" do
     expect {
-      Hold.create holdable_type: 'Article', user_id: 10000
+      Hold.create holdable_type: 'Article'
     }.not_to change { Hold.all.reload.size }
   end
 
