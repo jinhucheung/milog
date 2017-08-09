@@ -1,17 +1,19 @@
-<%= cache(['notifications', Notifications::VERSION, notification]) do %>
-<div id="notification-<%= notification.id %>"
-     data-id="<%= notification.id %>"
-     class="media notification notification-<%= notification.notify_type %><%= ' unread' if !notification.read? %>">
-  <div class="media-left">
-    <%= avatar_tag notification.actor, :sm, link: true %>
-  </div>
-  <div class="media-body">
-    <%= render partial: "/notifications/#{notification.notify_type}", locals: { notification: notification } %>
-  </div>
-  <div class="media-right" style="min-width: 30px;">
-    <div class="pull-right">
-      <%= mtime_tag notification.created_at, strf: "%H:%M" %>  
+<% if notification.target %>
+  <%= cache(['notifications', Notifications::VERSION, notification]) do %>
+  <div id="notification-<%= notification.id %>"
+       data-id="<%= notification.id %>"
+       class="media notification notification-<%= notification.notify_type %><%= ' unread' if !notification.read? %>">
+    <div class="media-left">
+      <%= avatar_tag notification.actor, :sm, link: true %>
+    </div>
+    <div class="media-body">
+      <%= render partial: "/notifications/#{notification.notify_type}", locals: { notification: notification } %>
+    </div>
+    <div class="media-right" style="min-width: 30px;">
+      <div class="pull-right">
+        <%= mtime_tag notification.created_at, strf: "%H:%M" %>
+      </div>
     </div>
   </div>
-</div>
+  <% end %>
 <% end %>
