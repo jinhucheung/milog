@@ -111,7 +111,7 @@ MYSQL_PASSWORD: yourpassword
 bundle install
 ```
 
-这里可能会由于本地没有安装 [Imagemagick：](https://github.com/ImageMagick/ImageMagick) 或 [Elasticsearch](https://www.elastic.co/)出现错误
+这里可能会由于本地没有安装 [Imagemagick](https://github.com/ImageMagick/ImageMagick) 或 [Elasticsearch](https://www.elastic.co/) 出现错误
 
 + 安装 Imagemagick： `sudo apt-get install imagemagick`
 
