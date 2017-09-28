@@ -11,4 +11,4 @@ test:
 
 production:
   <<: *defaults
-  domain: "hijinhu.me"
+  domain: "hijinhu.xyz"
