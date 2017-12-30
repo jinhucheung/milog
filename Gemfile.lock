@@ -151,7 +151,7 @@ GEM
       rails (>= 4.2.0, < 5.1)
       will_paginate (>= 3.0.0)
     public_suffix (2.0.4)
-    puma (3.6.0)
+    puma (3.11.0)
     qiniu (6.8.1)
       json (~> 1.8)
       mime-types (~> 2.4, >= 2.4.0)
@@ -295,7 +295,7 @@ DEPENDENCIES
   motion-markdown-it (>= 4.2.2)
   mysql2 (>= 0.3.18, < 0.5)
   notifications
-  puma (~> 3.0)
+  puma (~> 3.7)
   qiniu
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing
@@ -315,4 +315,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.13.2
+   1.16.1
