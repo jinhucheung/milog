@@ -14,7 +14,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'mysql2', '>= 0.3.18', '< 0.5'
-gem 'puma', '~> 3.7'
+gem 'unicorn'
 
 gem 'rails-i18n'
 

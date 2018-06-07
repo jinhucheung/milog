@@ -19,6 +19,7 @@
 # Ignore local environment value
 /config/local_env.yml
 /config/email.yml
+/config/secrets.yml
 
 # Ignore all .sass-cache files
 /.sass-cache/**
