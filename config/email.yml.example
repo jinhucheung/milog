@@ -1,0 +1,9 @@
+config/email.ymlproduction:
+  address: "smtp_domain"
+  port: domain_port
+  domain: "domain"
+  authentication: "plain"
+  user_name: "your_username"
+  password: "your_password"
+  enable_starttls_auto: true
+  openssl_verify_mode: 'none'

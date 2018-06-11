@@ -1,10 +1,10 @@
 # Milog
 
-一基于 [ Ruby on Rails ](https://github.com/rails/rails) 的个人博客网站. http://hijinhu.xyz/hijinhu/  
+一基于 [ Ruby on Rails ](https://github.com/rails/rails) 的个人博客网站. http://milog.jimcheung.me
 
-游客账号： Email aguest@hijinhu.me | Password 123456
+游客账号： Email aguest@milog.com | Password 123456
 
-静态页面： https://github.com/HiKumho/milog/tree/static_pages
+静态页面： https://github.com/jinhucheung.me/milog/tree/static_pages
 
 ## 特点
 
@@ -97,29 +97,26 @@ sudo apt-get update
 sudo apt-get install mariadb-server
 ```
 
-项目配置
+### 项目配置
 
-在 Milog 项目下，新建 `config/local_env.yml` ， 并写入
+1. 更新配置文件
+
 ```
-MYSQL_USERNAME: yourname
-MYSQL_PASSWORD: yourpassword
+cp config/local_env.yml.example config/local_env.yml
+cp config/email.yml.example config/email.yml
 ```
 
-### 安装 Gem
+修改 `config/local_env.yml` 中的 `MYSQL` 信息
+
+2. 安装 Gem
 
 ```
 bundle install
 ```
 
-这里可能会由于本地没有安装 [Imagemagick](https://github.com/ImageMagick/ImageMagick) 或 [Elasticsearch](https://www.elastic.co/) 出现错误
+其他问题可见 [#FQA](#FQA)
 
-+ 安装 Imagemagick： `sudo apt-get install imagemagick`
-
-+ 安装 Elasticsearch： [教程](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-on-an-ubuntu-vps)
-
-+ 配置 Elasticsearch： `bundle exec rake environment elasticsearch:import:model CLASS='Article' SCOPE='posted'`
-
-### 迁移数据
+3. 迁移数据
 
 ```
 rails db:create
@@ -129,34 +126,40 @@ rails db:migrate
 rails db:seed
 ```
 
-#### 
-
 至此， 项目可在开发环境中运行
 
+以下进行生产环境的部署
 
-### 邮件服务
-新建 `config/email.yml` 文件， 写下
-
-```
-production:
-  address: "smtp.163.com"
-  port: 25
-  authentication: "plain"
-  user_name: "youremail"
-  password: "yourpassword"
-  enable_starttls_auto: true
-```
-
-这里使用的是 163 个人邮箱
-
-### 文件上传
-使用的是七牛的服务， 具体配置请看 [carrierwave-qiniu](https://github.com/huobazi/carrierwave-qiniu)
-
-需在 `config/local_env.yml` 写下
+1. 生成 App 密钥
 
 ```
-QINIU_ACCESS_KEY: your_access_key
-QINIU_SECRET_KEY: your_secret_key
-QINIU_BUCKET: your_bucket
-QINIU_BUCKET_DOMAIN: your_bucket_domain
+require 'secretrandom'
+
+SecureRandom.hex(64)
 ```
+并将密钥写入 `config/secrets.yml` 的 `production` 节点
+
+
+2. 部署七牛云
+
+修改 `config/local_env.yml` 中的 `QINIU` 信息
+
+具体配置请看 [carrierwave-qiniu](https://github.com/huobazi/carrierwave-qiniu)
+
+3. 部署邮件
+
+修改 `config/email.yml`
+
+### FQA
+
+1. Imagemagick
+
+本地可能由于没有安装  [Imagemagick](https://github.com/ImageMagick/ImageMagick) 导致 `bundle install` 出错
+
+安装 Imagemagick： `sudo apt-get install imagemagick`
+
+2. Elasticsearch
+
+安装 Elasticsearch： [教程](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-on-an-ubuntu-vps)
+
+配置 Elasticsearch： `bundle exec rake environment elasticsearch:import:model CLASS='Article' SCOPE='posted'`

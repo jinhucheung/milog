@@ -1,0 +1,6 @@
+MYSQL_USERNAME: mysql_username
+MYSQL_PASSWORD: mysql_password
+QINIU_ACCESS_KEY: qiniu_access_key
+QINIU_SECRET_KEY: qiniu_seret_key
+QINIU_BUCKET: qiniu_bucket
+QINIU_BUCKET_DOMAIN: qiniu_bucket_domain
