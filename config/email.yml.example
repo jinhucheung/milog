@@ -1,4 +1,4 @@
-config/email.ymlproduction:
+production:
   address: "smtp_domain"
   port: domain_port
   domain: "domain"

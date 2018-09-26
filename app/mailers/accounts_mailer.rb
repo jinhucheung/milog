@@ -1,5 +1,5 @@
 class AccountsMailer < ApplicationMailer
-  default from: 'hikumho@163.com'
+  default from: Setting.support_email
   
   def active_account(user, password = nil)
     @default_i18n = "accounts_mailer.active_account"

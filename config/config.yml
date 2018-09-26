@@ -2,6 +2,7 @@ defaults: &defaults
   app_name: "Milog"
   domain: "milog.jimcheung.me:3000"
   https: false
+  support_email: "hi.jinhu.zhang@gmail.com"
 
 development: 
   <<: *defaults
