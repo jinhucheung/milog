@@ -57,7 +57,7 @@ gem 'notifications'
 
 gem 'letter_avatar'
 
-gem 'rails-settings-cached'
+gem 'rails-settings-cached', '~> 0.7'
 
 group :development do
   gem 'web-console'
