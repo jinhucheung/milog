@@ -3,7 +3,7 @@ source 'https://gems.ruby-china.com'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'sprockets', '~> 3.7.2'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '>= 3.4.1'
 gem 'sass-rails', '~> 5.0'
 
 gem 'uglifier', '>= 1.3.0'
@@ -32,15 +32,15 @@ gem "jquery-fileupload-rails"
 gem 'bcrypt', '~> 3.1.7'
 
 # 图片上传
-gem 'carrierwave', '>=0.11.2'
+gem 'carrierwave', '>= 0.11.2'
 # 图片缩略
-gem 'mini_magick', '>=4.5.1'
+gem 'mini_magick', '>= 4.9.4'
 # 七牛云
 gem 'qiniu'
-gem 'carrierwave-qiniu', '>=0.2.4'
+gem 'carrierwave-qiniu', '>= 0.2.4'
 
 # markdown解析
-gem 'motion-markdown-it', '>=4.2.2'
+gem 'motion-markdown-it', '>= 4.2.2'
 
 # 分页
 gem 'will_paginate', '~> 3.1.0'
