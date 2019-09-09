@@ -4,7 +4,7 @@
 
 游客账号： Email aguest@milog.com | Password 123456
 
-静态页面： https://github.com/jinhucheung.me/milog/tree/static_pages
+静态页面： https://github.com/jinhucheung/milog/tree/static_pages
 
 ## 特点
 
