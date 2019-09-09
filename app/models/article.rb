@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-  
+
   validates :title, :user_id, :category_id, presence: true
   validates :title, length: { maximum: 50 }
   validate :tags_number
@@ -62,7 +62,7 @@ class Article < ApplicationRecord
   class << self
     # 根据关键字搜索已发布的文章
     # 最多返回100条记录
-    # user限制搜索范围
+    # usejinhur限制搜索范围
     def search_by_token(token, user: nil)
       return nil if token.blank?
       opts = {
@@ -71,11 +71,11 @@ class Article < ApplicationRecord
           bool: {
             must: [
               { match: { posted: true } },
-              { multi_match: 
+              { multi_match:
                 {
                   query: token.to_s,
                   fields: ['title', 'content']
-                } 
+                }
               }
             ]
           }
@@ -100,18 +100,18 @@ class Article < ApplicationRecord
     def select_by_view_and_comment(view_count: 0, comment_count: 0)
       Article.unscoped
              .joins('LEFT OUTER JOIN comments ON comments.article_id = articles.id')
-             .where("articles.posted = ? AND 
-                     articles.view_count >= ? AND 
-                     comments.deleted_at IS NULL", 1, view_count)
+             .where("articles.posted = ? AND
+                     articles.view_count >= ? AND
+                     comments.deleted_at IS NULL", true, view_count)
              .group("articles.id")
              .having("COUNT(*) >= ?", comment_count)
-             .order("COUNT(*) DESC")      
+             .order("COUNT(*) DESC")
     end
 
     # 热门文章, 根据阅读数>=50 & 评论数>=10
-    def hottest 
+    def hottest
       self.select_by_view_and_comment view_count: 50, comment_count: 10
-    end 
+    end
 
     # 最新文章
     def latest

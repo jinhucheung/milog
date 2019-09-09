@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130064900) do
+ActiveRecord::Schema.define(version: 20190808140748) do
 
   create_table "article_pictureships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "article_id", null: false
@@ -75,6 +75,29 @@ ActiveRecord::Schema.define(version: 20170130064900) do
     t.string  "tagstr"
     t.boolean "cleaned",                     default: false
     t.index ["user_id"], name: "index_holds_on_user_id", using: :btree
+  end
+
+  create_table "intro_tour_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tour_id",                 null: false
+    t.integer  "user_id",                 null: false
+    t.integer  "touch_count", default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["user_id", "tour_id", "touch_count"], name: "index_intro_tour_histories_on_user_and_tour_and_touch_count", using: :btree
+  end
+
+  create_table "intro_tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "ident",                                         null: false
+    t.string   "controller_path",               default: "",    null: false
+    t.string   "action_name",                   default: "",    null: false
+    t.text     "route",           limit: 65535
+    t.text     "options",         limit: 65535
+    t.boolean  "published",                     default: false
+    t.datetime "expired_at"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.index ["controller_path", "action_name", "published"], name: "index_intro_tours_on_controller_and_action_and_published", using: :btree
+    t.index ["ident"], name: "index_intro_tours_on_ident", unique: true, using: :btree
   end
 
   create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

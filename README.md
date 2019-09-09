@@ -1,16 +1,16 @@
 # Milog
 
-一基于 [ Ruby on Rails ](https://github.com/rails/rails) 的个人博客网站. http://milog.jimcheung.me
+一基于 [Ruby on Rails](https://github.com/rails/rails) 的个人博客网站 https://milog-demo.herokuapp.com/
 
-游客账号： Email aguest@milog.com | Password 123456
+游客账号: Email aguest@milog.com | Password 123456
 
-静态页面： https://github.com/jinhucheung/milog/tree/static_pages
+静态页面: https://github.com/jinhucheung/milog/tree/static_pages
 
 ## 特点
 
-+ 支持 [Bootstrap](http://getbootstrap.com/) ，实现响应式设计
++ 支持 [Bootstrap](http://getbootstrap.com/), 实现响应式设计
 
-+ 使用 [Markdown](https://zh.wikipedia.org/zh-hans/Markdown) 作为编辑文本格式，主要由 [Markdown-it](https://github.com/markdown-it/markdown-it) 在客户端进行解析渲染， [motion-markdown-it](https://github.com/digitalmoksha/motion-markdown-it) 负责后端解析
++ 使用 [Markdown](https://zh.wikipedia.org/zh-hans/Markdown) 作为编辑文本格式, 主要由 [Markdown-it](https://github.com/markdown-it/markdown-it) 在客户端进行解析渲染, [motion-markdown-it](https://github.com/digitalmoksha/motion-markdown-it) 负责后端解析
 
 + Markdown 支持 [Emoji](https://github.com/afeld/emoji-css)
 
@@ -20,9 +20,9 @@
 
 + 可暂存用户编辑中的文本
 
-+ [Elasticsearch](https://github.com/elastic/elasticsearch) 作为全文搜索引擎，可根据关键字搜索文章
++ [Elasticsearch](https://github.com/elastic/elasticsearch) 作为全文搜索引擎, 可根据关键字搜索文章
 
-+ 支持上传图片，使用[七牛](http://www.qiniu.com/)存储
++ 支持上传图片, 使用[七牛](http://www.qiniu.com/)存储
 
 ## 更新
 
@@ -30,13 +30,13 @@
 
 + 增加社区模块
 
-+ 修改用户主页，增加用户关注功能
++ 修改用户主页, 增加用户关注功能
 
 + 增加消息通知系统
 
 ### 2017/1/30
 
-+ 使用 [Letter Avatar](https://github.com/ksz2k/letter_avatar) ，代替原本的用户默认头像模块
++ 使用 [Letter Avatar](https://github.com/ksz2k/letter_avatar), 代替原本的用户默认头像模块
 
 + 使用 [Rails Settings Cached](https://github.com/huacnlee/rails-settings-cached) 保存系统设置
 
@@ -44,7 +44,7 @@
 
 + 实现 Milog Android 客户端 [Milog-Android](https://github.com/HiKumho/milog-android)
 
-+ 修复文章中图片尺寸过大，溢出页面
++ 修复文章中图片尺寸过大, 溢出页面
 
 ### 2017/5/7
 
@@ -126,14 +126,14 @@ rails db:migrate
 rails db:seed
 ```
 
-至此， 项目可在开发环境中运行
+至此, 项目可在开发环境中运行
 
 以下进行生产环境的部署
 
 1. 生成 App 密钥
 
 ```
-require 'secretrandom'
+require 'securerandom'
 
 SecureRandom.hex(64)
 ```
@@ -154,12 +154,12 @@ SecureRandom.hex(64)
 
 1. Imagemagick
 
-本地可能由于没有安装  [Imagemagick](https://github.com/ImageMagick/ImageMagick) 导致 `bundle install` 出错
+本地可能由于没有安装 [Imagemagick](https://github.com/ImageMagick/ImageMagick) 导致 `bundle install` 出错
 
-安装 Imagemagick： `sudo apt-get install imagemagick`
+安装 Imagemagick: `sudo apt-get install imagemagick`
 
 2. Elasticsearch
 
-安装 Elasticsearch： [教程](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-on-an-ubuntu-vps)
+安装 Elasticsearch: [教程](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-on-an-ubuntu-vps)
 
-配置 Elasticsearch： `bundle exec rake environment elasticsearch:import:model CLASS='Article' SCOPE='posted'`
+配置 Elasticsearch: `bundle exec rake environment elasticsearch:import:model CLASS='Article' SCOPE='posted'`
