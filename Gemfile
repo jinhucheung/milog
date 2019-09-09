@@ -59,6 +59,8 @@ gem 'letter_avatar'
 
 gem 'rails-settings-cached', '~> 0.7'
 
+gem "nokogiri", ">= 1.10.4"
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
