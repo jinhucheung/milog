@@ -1,4 +1,4 @@
-# Milog
+# Milog2
 
 一基于 [Ruby on Rails](https://github.com/rails/rails) 的个人博客网站 https://milog-demo.herokuapp.com/
 
